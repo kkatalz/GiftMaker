@@ -1,10 +1,10 @@
 package entity;
 
-import java.io.File;
+import java.io.*;
 import java.math.BigDecimal;
 
 public class Item {
-    private int id;
+    private Integer id;
     private Category category;
     private String name;
     private BigDecimal price;
@@ -18,7 +18,7 @@ public class Item {
     public static class Builder implements CustomBuilder<Item> {
         Item item = new Item();
 
-        public Builder setId(int id) {
+        public Builder setId(Integer id) {
             item.id = id;
             return this;
         }
@@ -70,11 +70,11 @@ public class Item {
         }
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -139,6 +139,24 @@ public class Item {
                 ", base64Image='" + base64Image + '\'' +
                 ", imageForInsertion=" + imageForInsertion +
                 '}';
+    }
+
+    public byte[] readFile() {
+        ByteArrayOutputStream bos = null;
+        try {
+            FileInputStream fis = new FileInputStream(this.imageForInsertion);
+            byte[] buffer = new byte[1024];
+            bos = new ByteArrayOutputStream();
+
+            for (int len; (len = fis.read(buffer)) != -1;) {
+                bos.write(buffer, 0, len);
+            }
+
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+
+        return bos != null ? bos.toByteArray() : null;
     }
 
 }

@@ -3,7 +3,7 @@ package entity;
 import java.sql.Date;
 
 public class User {
-    private int id;
+    private Integer id;
     private String name;
     private String surname;
     private Date dateOfBirth;

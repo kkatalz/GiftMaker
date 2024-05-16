@@ -4,7 +4,7 @@ import java.io.File;
 import java.math.BigDecimal;
 
 public class PossibleItem {
-    private int id;
+    private Integer id;
     private String name;
     private BigDecimal price;
     private String description;
@@ -15,7 +15,7 @@ public class PossibleItem {
     public static class Builder implements CustomBuilder<PossibleItem> {
         PossibleItem possibleItem = new PossibleItem();
 
-        public Builder setId(int id) {
+        public Builder setId(Integer id) {
             possibleItem.id = id;
             return this;
         }
