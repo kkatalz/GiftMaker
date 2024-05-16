@@ -1,6 +1,6 @@
 package entity;
 
-import java.io.File;
+import java.io.*;
 import java.math.BigDecimal;
 
 public class Item {
@@ -139,6 +139,24 @@ public class Item {
                 ", base64Image='" + base64Image + '\'' +
                 ", imageForInsertion=" + imageForInsertion +
                 '}';
+    }
+
+    public byte[] readFile() {
+        ByteArrayOutputStream bos = null;
+        try {
+            FileInputStream fis = new FileInputStream(this.imageForInsertion);
+            byte[] buffer = new byte[1024];
+            bos = new ByteArrayOutputStream();
+
+            for (int len; (len = fis.read(buffer)) != -1;) {
+                bos.write(buffer, 0, len);
+            }
+
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+
+        return bos != null ? bos.toByteArray() : null;
     }
 
 }
