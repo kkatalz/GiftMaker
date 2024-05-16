@@ -10,8 +10,14 @@ public abstract class DaoFactory {
     private static final String DB_FACTORY_CLASS = "factory.class";
 
     private static DaoFactory daoFactory;
+    public abstract DaoConnection getConnection();
 
-    // TODO: implement creating Daos
+    public abstract CategoryDao createCategoryDao();
+    public abstract ItemDao createItemDao();
+    public abstract ItemInCartDao createItemInCartDao();
+    public abstract LikedItemDao createLikedItemDao();
+    public abstract PossibleItemDao createPossibleItemDao();
+    public abstract UserDao createUserDao();
 
 
     public static DaoFactory getDaoFactory() {
