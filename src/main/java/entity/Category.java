@@ -1,14 +1,14 @@
 package entity;
 
 public class Category {
-    private int id;
+    private Integer id;
     private String name;
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -24,7 +24,7 @@ public class Category {
     public static class Builder implements CustomBuilder<Category> {
         Category category = new Category();
 
-        public Builder setCategoryId(int number) {
+        public Builder setCategoryId(Integer number) {
             category.id = number;
             return this;
         }
