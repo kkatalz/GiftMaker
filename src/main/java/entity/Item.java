@@ -4,7 +4,7 @@ import java.io.File;
 import java.math.BigDecimal;
 
 public class Item {
-    private int id;
+    private Integer id;
     private Category category;
     private String name;
     private BigDecimal price;
@@ -18,7 +18,7 @@ public class Item {
     public static class Builder implements CustomBuilder<Item> {
         Item item = new Item();
 
-        public Builder setId(int id) {
+        public Builder setId(Integer id) {
             item.id = id;
             return this;
         }
@@ -70,11 +70,11 @@ public class Item {
         }
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
