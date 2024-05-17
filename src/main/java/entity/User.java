@@ -9,9 +9,7 @@ public class User {
     private Date dateOfBirth;
     private Role role;
     private String username;
-    private String clearPassword; // password in clear view, NOT encrypted
     private String encryptedPassword;
-    private String confirmPassword; // also in clear view
 
 
     public static class Builder implements CustomBuilder<User> {
@@ -47,18 +45,9 @@ public class User {
             return this;
         }
 
-        public Builder setClearPassword(String clearPassword) {
-            user.clearPassword = clearPassword;
-            return this;
-        }
 
         public Builder setEncryptedPassword(String encryptedPassword) {
             user.encryptedPassword = encryptedPassword;
-            return this;
-        }
-
-        public Builder setConfirmPassword(String confirmPassword) {
-            user.confirmPassword = confirmPassword;
             return this;
         }
 
@@ -117,28 +106,12 @@ public class User {
         this.username = username;
     }
 
-    public String getClearPassword() {
-        return clearPassword;
-    }
-
-    public void setClearPassword(String clearPassword) {
-        this.clearPassword = clearPassword;
-    }
-
     public String getEncryptedPassword() {
         return encryptedPassword;
     }
 
     public void setEncryptedPassword(String encryptedPassword) {
         this.encryptedPassword = encryptedPassword;
-    }
-
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
     }
 
     @Override
@@ -150,9 +123,7 @@ public class User {
                 ", dateOfBirth=" + dateOfBirth +
                 ", role=" + role +
                 ", username='" + username + '\'' +
-                ", clearPassword='" + clearPassword + '\'' +
                 ", encryptedPassword='" + encryptedPassword + '\'' +
-                ", confirmPassword='" + confirmPassword + '\'' +
                 '}';
     }
 }
