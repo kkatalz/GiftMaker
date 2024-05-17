@@ -1,37 +1,36 @@
 package dao.jdbc;
 
-import entity.LikedItem;
+import entity.ItemInCart;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class JdbcLikedItemDao implements AutoCloseable {
+public class JdbcItemInCartDao implements AutoCloseable {
 
-    private static final String GET_ALL = "SELECT * FROM Liked_Item " +
+    private static final String GET_ALL = "SELECT * FROM Item_In_Cart " +
             "INNER JOIN User USING(id_user) " +
             "INNER JOIN Item USING(id_item) " +
             "INNER JOIN Category USING(id_category)";
-    private static final String GET_BY_ID = "SELECT * FROM Liked_Item " +
+    private static final String GET_BY_ID = "SELECT * FROM Item_In_Cart " +
             "INNER JOIN User USING(id_user) " +
             "INNER JOIN Item USING(id_item) " +
             "INNER JOIN Category USING(id_category) " +
             "WHERE id_user=? AND id_item=?";
-    private static final String CREATE = "INSERT INTO Liked_Item VALUES (?, ?)";
-    private static final String DELETE = "DELETE FROM Liked_Item WHERE id_user=? AND id_item=?";
-
+    private static final String CREATE = "INSERT INTO Item_In_Cart VALUES (?, ?, ?)";
+    private static final String DELETE = "DELETE FROM Item_In_Cart WHERE id_user=? AND id_item=?";
 
     private Connection connection;
     private boolean connectionShouldBeClosed;
 
-    public JdbcLikedItemDao(Connection connection) {
+    public JdbcItemInCartDao(Connection connection) {
         this.connection = connection;
         connectionShouldBeClosed = false;
     }
 
 
-    public JdbcLikedItemDao(Connection connection, boolean connectionShouldBeClosed) {
+    public JdbcItemInCartDao(Connection connection, boolean connectionShouldBeClosed) {
         this.connection = connection;
         this.connectionShouldBeClosed = connectionShouldBeClosed;
     }
@@ -40,46 +39,47 @@ public class JdbcLikedItemDao implements AutoCloseable {
         this.connection = connection;
     }
 
-    public List<LikedItem> getAll() {
-        List<LikedItem> likedItems = new ArrayList<>();
+
+    public List<ItemInCart> getAll() {
+        List<ItemInCart> itemInCarts = new ArrayList<>();
         try (Statement query = connection.createStatement();
              ResultSet resultSet = query.executeQuery(GET_ALL)) {
 
             while (resultSet.next())
-                likedItems.add(getLikedItemFromResultSet(resultSet));
+                itemInCarts.add(getItemInCartFromResultSet(resultSet));
 
         } catch (SQLException e) {
             System.out.println("EXCEPTION: " + e);
             // LOGGER.error("JdbcCategoryDao getAll error", e);
             return new ArrayList<>();
         }
-        return likedItems;
+        return itemInCarts;
     }
 
-    public Optional<LikedItem> getById(Integer idUser, Integer idItem) {
-        Optional<LikedItem> likedItem = Optional.empty();
+    public Optional<ItemInCart> getById(Integer userId, Integer itemId) {
+        Optional<ItemInCart> itemInCart = Optional.empty();
 
         try (PreparedStatement statement = connection.prepareStatement(GET_BY_ID)) {
-            statement.setInt(1, idUser);
-            statement.setInt(2, idItem);
+            statement.setInt(1, userId);
+            statement.setInt(2, itemId);
 
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
-                likedItem = Optional.of(getLikedItemFromResultSet(resultSet));
+                itemInCart = Optional.of(getItemInCartFromResultSet(resultSet));
             }
         } catch (SQLException e) {
             System.out.println("EXCEPTION: " + e.getMessage());
             //LOGGER.error("JdbcCategoryDao getById error" + id, e);
             //throw new ServerException(e);
         }
-        return likedItem;
+        return itemInCart;
     }
 
-
-    public void create(LikedItem likedItem) {
+    public void create(ItemInCart itemInCart) {
         try(PreparedStatement statement = connection.prepareStatement(CREATE)) {
-            statement.setInt(1, likedItem.getUser().getId());
-            statement.setInt(2, likedItem.getItem().getId());
+            statement.setInt(1, itemInCart.getUser().getId());
+            statement.setInt(2, itemInCart.getItem().getId());
+            statement.setInt(3, itemInCart.getAmount());
 
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -87,38 +87,34 @@ public class JdbcLikedItemDao implements AutoCloseable {
         }
     }
 
-
-    public void delete(Integer idUser, Integer idItem) {
+    public void delete(Integer userId, Integer itemId) {
         try (PreparedStatement query = connection.prepareStatement(DELETE)) {
-            query.setInt(1, idUser);
-            query.setInt(2, idItem);
+            query.setInt(1, userId);
+            query.setInt(2, itemId);
 
             query.executeUpdate();
         } catch (SQLException e) {
-           e.printStackTrace();
-            //LOGGER.error("JdbcCategoryDao delete error" + category_number, e);
-            //throw new ServerException(e);
+            e.printStackTrace();
         }
     }
 
 
     @Override
-    public void close() {
+    public void close() throws Exception {
         if (connectionShouldBeClosed) {
             try {
                 connection.close();
             } catch (SQLException e) {
                 e.printStackTrace();
-                //LOGGER.error("JdbcCategoryDao close error", e);
-                //throw new ServerException(e);
             }
         }
     }
 
-    protected static LikedItem getLikedItemFromResultSet(ResultSet resultSet) throws SQLException {
-        return new LikedItem.Builder()
+    protected static ItemInCart getItemInCartFromResultSet(ResultSet resultSet) throws SQLException {
+        return new ItemInCart.Builder()
                 .setUser(JdbcUserDao.getUserFromResultSet(resultSet))
                 .setItem(JdbcItemDao.getItemFromResultSet(resultSet))
+                .setAmount(resultSet.getInt("item_amount"))
                 .build();
     }
 }
