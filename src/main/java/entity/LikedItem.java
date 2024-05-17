@@ -5,6 +5,25 @@ public class LikedItem {
     private Item item;
 
 
+    public static class Builder implements CustomBuilder<LikedItem> {
+        LikedItem likedItem = new LikedItem();
+
+        public Builder setUser(User user) {
+            likedItem.user = user;
+            return this;
+        }
+
+        public Builder setItem(Item item) {
+            likedItem.item = item;
+            return this;
+        }
+
+        @Override
+        public LikedItem build() {
+            return likedItem;
+        }
+    }
+
     public User getUser() {
         return user;
     }
