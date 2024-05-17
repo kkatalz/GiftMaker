@@ -1,5 +1,8 @@
 package dao;
 
+import dao.jdbc.JdbcItemInCartDao;
+import dao.jdbc.JdbcLikedItemDao;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
@@ -16,6 +19,8 @@ public abstract class DaoFactory {
     public abstract ItemDao createItemDao();
     public abstract PossibleItemDao createPossibleItemDao();
     public abstract UserDao createUserDao();
+    public abstract JdbcItemInCartDao createItemInCartDao();
+    public abstract JdbcLikedItemDao createLikedItemDao();
 
 
     public static DaoFactory getDaoFactory() {
