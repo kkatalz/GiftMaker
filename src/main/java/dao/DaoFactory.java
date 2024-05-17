@@ -14,8 +14,6 @@ public abstract class DaoFactory {
 
     public abstract CategoryDao createCategoryDao();
     public abstract ItemDao createItemDao();
-    public abstract ItemInCartDao createItemInCartDao();
-    public abstract LikedItemDao createLikedItemDao();
     public abstract PossibleItemDao createPossibleItemDao();
     public abstract UserDao createUserDao();
 
