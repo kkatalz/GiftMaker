@@ -18,9 +18,8 @@ public class JdbcLikedItemDao implements AutoCloseable {
             "INNER JOIN Item USING(id_item) " +
             "INNER JOIN Category USING(id_category) " +
             "WHERE id_user=? AND id_item=?";
-    private static final String CREATE = "";
-    private static final String UPDATE = "";
-    private static final String DELETE = "";
+    private static final String CREATE = "INSERT INTO Liked_Item VALUES (?, ?)";
+    private static final String DELETE = "DELETE FROM Liked_Item WHERE id_user=? AND id_item=?";
 
 
     private Connection connection;
@@ -76,22 +75,44 @@ public class JdbcLikedItemDao implements AutoCloseable {
         return likedItem;
     }
 
+
     public void create(LikedItem likedItem) {
-        // TODO: implement
+        try(PreparedStatement statement = connection.prepareStatement(CREATE)) {
+            statement.setInt(1, likedItem.getUser().getId());
+            statement.setInt(2, likedItem.getItem().getId());
+
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void update(LikedItem likedItem) {
-        // TODO: implement
-    }
 
-    public void delete(Integer id) {
-        // TODO: implement
+    public void delete(Integer idUser, Integer idItem) {
+        try (PreparedStatement query = connection.prepareStatement(DELETE)) {
+            query.setInt(1, idUser);
+            query.setInt(2, idItem);
+
+            query.executeUpdate();
+        } catch (SQLException e) {
+           e.printStackTrace();
+            //LOGGER.error("JdbcCategoryDao delete error" + category_number, e);
+            //throw new ServerException(e);
+        }
     }
 
 
     @Override
     public void close() {
-        // TODO: implement
+        if (connectionShouldBeClosed) {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+                //LOGGER.error("JdbcCategoryDao close error", e);
+                //throw new ServerException(e);
+            }
+        }
     }
 
     protected static LikedItem getLikedItemFromResultSet(ResultSet resultSet) throws SQLException {

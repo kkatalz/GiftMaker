@@ -44,6 +44,7 @@ public class JdbcCategoryDao implements CategoryDao {
             try {
                 connection.close();
             } catch (SQLException e) {
+                e.printStackTrace();
                 //LOGGER.error("JdbcCategoryDao close error", e);
                 //throw new ServerException(e);
             }
