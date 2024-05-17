@@ -60,6 +60,7 @@ public class JdbcItemDao implements ItemDao {
 
     @Override
     public Optional<Item> getById(Integer id) {
+        // TODO: implement
         return Optional.empty();
     }
 
@@ -89,12 +90,12 @@ public class JdbcItemDao implements ItemDao {
 
     @Override
     public void update(Item item) {
-
+        // TODO: implement
     }
 
     @Override
     public void delete(Integer id) {
-
+        // TODO: implement
     }
 
     @Override
