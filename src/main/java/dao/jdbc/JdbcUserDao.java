@@ -51,7 +51,7 @@ public class JdbcUserDao implements UserDao {
             while(resultSet.next())
                 users.add(getUserFromResultSet(resultSet));
         } catch (SQLException e) {
-            System.out.println("EXCEPTION: " + e);
+            e.printStackTrace();
         }
 
         return users;
@@ -68,9 +68,7 @@ public class JdbcUserDao implements UserDao {
                 user = Optional.of(getUserFromResultSet(resultSet));
 
         } catch (SQLException e) {
-            System.out.println("EXCEPTION: " + e.getMessage());
-            //LOGGER.error("JdbcCategoryDao getById error" + id, e);
-            //throw new ServerException(e);
+           e.printStackTrace();
         }
         return user;
     }
@@ -94,7 +92,7 @@ public class JdbcUserDao implements UserDao {
         } catch (SQLException e) {
 //            LOGGER.error("JdbcCategoryDao create error" + category, e);
 //            throw new ServerException(e);
-            System.out.println("ERROR: " + e);
+            e.printStackTrace();
         }
     }
 
@@ -126,7 +124,7 @@ public class JdbcUserDao implements UserDao {
         } catch (SQLException e) {
 //            LOGGER.error("JdbcEmployeeDao delete SQL exception" + id, e);
 //            throw new ServerException(e);
-//            e.printStackTrace();
+            e.printStackTrace();
         }
 
     }
@@ -139,6 +137,7 @@ public class JdbcUserDao implements UserDao {
             } catch (SQLException e) {
                 //LOGGER.error("JdbcItemDao close error", e);
                 //throw new ServerException(e);
+                e.printStackTrace();
             }
         }
     }

@@ -37,7 +37,7 @@ public class PossibleItem {
         }
 
 
-        public Builder age(int age) {
+        public Builder setAge(int age) {
             possibleItem.age = age;
             return this;
         }

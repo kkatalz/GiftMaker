@@ -48,7 +48,7 @@ public class Item {
             return this;
         }
 
-        public Builder age(int age) {
+        public Builder setAage(int age) {
             item.age = age;
             return this;
         }
