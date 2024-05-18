@@ -55,8 +55,12 @@ public class JdbcDaoFactory extends DaoFactory {
 
     @Override
     public PossibleItemDao createPossibleItemDao() {
-        // TODO: implement
-        return null;
+        try {
+            return new JdbcPossibleItemDao(dataSource.getConnection(), true);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
