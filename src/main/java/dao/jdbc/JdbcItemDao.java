@@ -60,8 +60,18 @@ public class JdbcItemDao implements ItemDao {
 
     @Override
     public Optional<Item> getById(Integer id) {
-        // TODO: implement
-        return Optional.empty();
+        Optional<Item> item = Optional.empty();
+        try (PreparedStatement statement = connection.prepareStatement(GET_BY_ID)) {
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next())
+                item = Optional.of(getItemFromResultSet(resultSet));
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return item;
     }
 
     @Override
@@ -84,7 +94,7 @@ public class JdbcItemDao implements ItemDao {
         } catch (SQLException e) {
 //            LOGGER.error("JdbcCategoryDao create error" + category, e);
 //            throw new ServerException(e);
-            System.out.println("ERROR: " + e);
+            e.printStackTrace();
         }
     }
 
@@ -95,7 +105,13 @@ public class JdbcItemDao implements ItemDao {
 
     @Override
     public void delete(Integer id) {
-        // TODO: implement
+        try (PreparedStatement statement = connection.prepareStatement(DELETE)) {
+            statement.setInt(1, id);
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -111,8 +127,15 @@ public class JdbcItemDao implements ItemDao {
     }
 
     protected static Item getItemFromResultSet(ResultSet resultSet) throws SQLException {
-        // TODO: finish
+        // TODO: finish and add to the Item image from ResultSet
         return new Item.Builder()
-                .setId(resultSet.getInt(ID)).build();
+                .setId(resultSet.getInt(ID))
+                .setCategory(JdbcCategoryDao.getCategoryFromResultSet(resultSet))
+                .setName(resultSet.getString(NAME))
+                .setPrice(resultSet.getBigDecimal(PRICE))
+                .setDescription(resultSet.getString(DESCRIPTION))
+                .setAmount(resultSet.getInt(AMOUNT))
+                .setAage(resultSet.getInt(AGE))
+                .build();
     }
 }

@@ -1,5 +1,7 @@
 package dao;
 
-public interface PossibleItemDao extends GenericDao<PossibleItemDao, Integer>, AutoCloseable {
+import entity.PossibleItem;
+
+public interface PossibleItemDao extends GenericDao<PossibleItem, Integer>, AutoCloseable {
     void close();
 }

@@ -1,19 +1,21 @@
-package entity;
+package dto;
+
+import entity.CustomBuilder;
 
 import java.io.File;
-import java.math.BigDecimal;
 
-public class PossibleItem {
+public class PossibleItemDto {
+
     private Integer id;
     private String name;
-    private BigDecimal price;
+    private String price;
     private String description;
-    private int age;
+    private String age;
     private String base64Image; // might be the proper format to display on the page
     private File imageForInsertion; // should be used in insertion to the table
 
-    public static class Builder implements CustomBuilder<PossibleItem> {
-        PossibleItem possibleItem = new PossibleItem();
+    public static class Builder implements CustomBuilder<PossibleItemDto> {
+        PossibleItemDto possibleItem = new PossibleItemDto();
 
         public Builder setId(Integer id) {
             possibleItem.id = id;
@@ -26,7 +28,7 @@ public class PossibleItem {
             return this;
         }
 
-        public Builder setPrice(BigDecimal price) {
+        public Builder setPrice(String price) {
             possibleItem.price = price;
             return this;
         }
@@ -37,7 +39,7 @@ public class PossibleItem {
         }
 
 
-        public Builder setAge(int age) {
+        public Builder setAge(String age) {
             possibleItem.age = age;
             return this;
         }
@@ -54,7 +56,7 @@ public class PossibleItem {
 
 
         @Override
-        public PossibleItem build() {
+        public PossibleItemDto build() {
             return possibleItem;
         }
     }
@@ -75,11 +77,11 @@ public class PossibleItem {
         this.name = name;
     }
 
-    public BigDecimal getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
@@ -91,11 +93,11 @@ public class PossibleItem {
         this.description = description;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
@@ -117,7 +119,7 @@ public class PossibleItem {
 
     @Override
     public String toString() {
-        return "PossibleItem{" +
+        return "PossibleItemDto{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", price=" + price +
