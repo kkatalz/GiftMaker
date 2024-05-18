@@ -10,7 +10,10 @@ public final class Message {
     public static final String INVALID_DESCRIPTION = "Invalid description entered";
     public static final String INVALID_AMOUNT = "Invalid amount entered";
     public static final String INVALID_RECOMMENDED_AGE = "Invalid recommended age entered";
-
+    public static final String INVALID_SURNAME = "Invalid surname entered";
+    public static final String INVALID_DATE_OF_BIRTH = "Invalid date of birth entered";
+    public static final String INVALID_USERNAME = "Invalid username entered";
+    public static final String INVALID_PASSWORD = "Invalid password entered";
 
 
 }
