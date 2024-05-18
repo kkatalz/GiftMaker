@@ -14,6 +14,8 @@ public final class Message {
     public static final String INVALID_DATE_OF_BIRTH = "Invalid date of birth entered";
     public static final String INVALID_USERNAME = "Invalid username entered";
     public static final String INVALID_PASSWORD = "Invalid password entered";
+    public static final String INVALID_PASSWORD_AND_CONFIRM = "Password and confirm password are not the same.";
+
 
 
 }
