@@ -1,8 +1,10 @@
 package dao.jdbc;
 
 import dao.ItemDao;
+import entity.Category;
 import entity.Item;
 
+import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +19,21 @@ public class JdbcItemDao implements ItemDao {
     private static final String AGE = "age";
     private static final String IMAGE = "image";
 
+    private static final String GET_BY_CATEGORY_PRICE_AGE = "SELECT * FROM Item " +
+            "INNER JOIN Category USING (id_category) " +
+            "WHERE category_name=? AND item_price >=? AND item_price <=? AND age=?";
+
+    private static final String GET_BY_CATEGORY = "SELECT * FROM Item " +
+            "INNER JOIN Category USING(id_category) " +
+            "WHERE category_name=?";
+
+    private static final String GET_BY_PRICE = "SELECT * FROM Item " +
+            "INNER JOIN Category USING (id_category) " +
+            "WHERE item_price >=? AND item_price <=?";
+
+    private static final String GET_BY_AGE = "SELECT * FROM Item " +
+            "INNER JOIN Category USING (id_category) " +
+            "WHERE age=?";
     private final static String GET_ALL = "SELECT * FROM Item INNER JOIN Category USING (id_category)";
     private final static String GET_BY_ID = "SELECT * FROM Item INNER JOIN Category USING(id_category) WHERE id_item=?";
     private final static String CREATE = "INSERT INTO Item (id_category, item_name, item_price, description, amount, age, image) " +
@@ -41,6 +58,74 @@ public class JdbcItemDao implements ItemDao {
 
     public void setConnection(Connection connection) {
         this.connection = connection;
+    }
+
+
+    @Override
+    public List<Item> filterItemsByCategoryByPriceByAge(Category category, BigDecimal minPrice, BigDecimal maxPrice, int age) {
+        List<Item> items = new ArrayList<>();
+        try (PreparedStatement statement = connection.prepareStatement(GET_BY_CATEGORY_PRICE_AGE)) {
+            statement.setString(1, category.getName());
+            statement.setBigDecimal(2, minPrice);
+            statement.setBigDecimal(3, maxPrice);
+            statement.setInt(4, age);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next())
+                items.add(getItemFromResultSet(resultSet));
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return items;
+    }
+
+    @Override
+    public  List<Item> filterByCategoryName(Category category) {
+        List<Item> items = new ArrayList<>();
+        try(PreparedStatement statement = connection.prepareStatement(GET_BY_CATEGORY)) {
+            statement.setString(1, category.getName());
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next())
+                items.add(getItemFromResultSet(resultSet));
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return items;
+    }
+
+    @Override
+    public List<Item> filterByPrice(BigDecimal minPrice, BigDecimal maxPrice) {
+        List<Item> items = new ArrayList<>();
+        try (PreparedStatement statement = connection.prepareStatement(GET_BY_PRICE)) {
+            statement.setBigDecimal(1, minPrice);
+            statement.setBigDecimal(2, maxPrice);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next())
+                items.add(getItemFromResultSet(resultSet));
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return items;
+    }
+
+    @Override
+    public List<Item> filterByAge(int age) {
+        List<Item> items = new ArrayList<>();
+        try (PreparedStatement statement = connection.prepareStatement(GET_BY_AGE)) {
+            statement.setInt(1, age);
+
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next())
+                items.add(getItemFromResultSet(resultSet));
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return items;
     }
 
     @Override
