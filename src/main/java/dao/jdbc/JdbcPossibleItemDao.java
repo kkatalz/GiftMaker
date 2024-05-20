@@ -73,12 +73,12 @@ public class JdbcPossibleItemDao implements PossibleItemDao {
     }
 
     @Override
-    public void create(PossibleItem possibleItemDao) {
+    public void create(PossibleItem possibleItem) {
         // TODO: implement
     }
 
     @Override
-    public void update(PossibleItem possibleItemDao) {
+    public void update(PossibleItem possibleItem) {
         // TODO: implement
     }
 
