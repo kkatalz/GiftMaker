@@ -18,6 +18,12 @@ public class JdbcLikedItemDao implements AutoCloseable {
             "INNER JOIN Item USING(id_item) " +
             "INNER JOIN Category USING(id_category) " +
             "WHERE id_user=? AND id_item=?";
+
+    private static final String GET_BY_USER_ID = "SELECT * FROM Liked_Item " +
+            "INNER JOIN User USING(id_user) " +
+            "INNER JOIN Item USING(id_item) " +
+            "INNER JOIN Category USING(id_category) " +
+            "WHERE id_user=?";
     private static final String CREATE = "INSERT INTO Liked_Item VALUES (?, ?)";
     private static final String DELETE = "DELETE FROM Liked_Item WHERE id_user=? AND id_item=?";
 
@@ -73,6 +79,21 @@ public class JdbcLikedItemDao implements AutoCloseable {
             //throw new ServerException(e);
         }
         return likedItem;
+    }
+
+    public List<LikedItem> getByUserId(Integer userId) {
+        List<LikedItem> likedItems = new ArrayList<>();
+        try(PreparedStatement statement = connection.prepareStatement(GET_BY_USER_ID)) {
+            statement.setInt(1, userId);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next())
+                likedItems.add(getLikedItemFromResultSet(resultSet));
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return likedItems;
     }
 
 
