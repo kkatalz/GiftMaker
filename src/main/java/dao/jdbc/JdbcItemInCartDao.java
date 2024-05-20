@@ -18,8 +18,16 @@ public class JdbcItemInCartDao implements AutoCloseable {
             "INNER JOIN Item USING(id_item) " +
             "INNER JOIN Category USING(id_category) " +
             "WHERE id_user=? AND id_item=?";
+
+    private static final String GET_BY_USER_ID = "SELECT * FROM Item_In_Cart " +
+            "INNER JOIN User USING(id_user) " +
+            "INNER JOIN Item USING(id_item) " +
+            "INNER JOIN Category USING(id_category) " +
+            "WHERE id_user=?";
     private static final String CREATE = "INSERT INTO Item_In_Cart VALUES (?, ?, ?)";
     private static final String DELETE = "DELETE FROM Item_In_Cart WHERE id_user=? AND id_item=?";
+
+    private static final String AMOUNT = "item_amount";
 
     private Connection connection;
     private boolean connectionShouldBeClosed;
@@ -68,11 +76,25 @@ public class JdbcItemInCartDao implements AutoCloseable {
                 itemInCart = Optional.of(getItemInCartFromResultSet(resultSet));
             }
         } catch (SQLException e) {
-            System.out.println("EXCEPTION: " + e.getMessage());
-            //LOGGER.error("JdbcCategoryDao getById error" + id, e);
-            //throw new ServerException(e);
+           e.printStackTrace();
         }
         return itemInCart;
+    }
+
+    public List<ItemInCart> getByUserId(Integer userId) {
+        List<ItemInCart> itemsInCart = new ArrayList<>();
+        try(PreparedStatement statement = connection.prepareStatement(GET_BY_USER_ID)) {
+            statement.setInt(1, userId);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next())
+                itemsInCart.add(getItemInCartFromResultSet(resultSet));
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return itemsInCart;
     }
 
     public void create(ItemInCart itemInCart) {
@@ -114,7 +136,7 @@ public class JdbcItemInCartDao implements AutoCloseable {
         return new ItemInCart.Builder()
                 .setUser(JdbcUserDao.getUserFromResultSet(resultSet))
                 .setItem(JdbcItemDao.getItemFromResultSet(resultSet))
-                .setAmount(resultSet.getInt("item_amount"))
+                .setAmount(resultSet.getInt(AMOUNT))
                 .build();
     }
 }
