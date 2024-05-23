@@ -34,6 +34,10 @@ public class JdbcItemDao implements ItemDao {
     private static final String GET_BY_AGE = "SELECT * FROM Item " +
             "INNER JOIN Category USING (id_category) " +
             "WHERE age=?";
+
+    private static final String SEARCH_BY_NAME = "SELECT * FROM Item " +
+            "INNER JOIN Category USING (id_category) " +
+            "WHERE LOWER(item_name) LIKE CONCAT('%', LOWER(?), '%')";
     private final static String GET_ALL = "SELECT * FROM Item INNER JOIN Category USING (id_category)";
     private final static String GET_BY_ID = "SELECT * FROM Item INNER JOIN Category USING(id_category) WHERE id_item=?";
     private final static String CREATE = "INSERT INTO Item (id_category, item_name, item_price, description, amount, age, image) " +
@@ -118,6 +122,21 @@ public class JdbcItemDao implements ItemDao {
         try (PreparedStatement statement = connection.prepareStatement(GET_BY_AGE)) {
             statement.setInt(1, age);
 
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next())
+                items.add(getItemFromResultSet(resultSet));
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return items;
+    }
+
+    @Override
+    public List<Item> searchByItemName(String name) {
+        List<Item> items = new ArrayList<>();
+        try(PreparedStatement statement = connection.prepareStatement(SEARCH_BY_NAME)) {
+            statement.setString(1, name);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next())
                 items.add(getItemFromResultSet(resultSet));

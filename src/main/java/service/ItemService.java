@@ -49,6 +49,13 @@ public class ItemService {
         }
     }
 
+
+    public List<Item> searchItemByName(String name) {
+        try(ItemDao itemDao = daoFactory.createItemDao()) {
+            return itemDao.searchByItemName(name);
+        }
+    }
+
     public List<Item> getAllItems() {
         try(ItemDao itemDao = daoFactory.createItemDao()) {
             return itemDao.getAll();
