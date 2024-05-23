@@ -16,6 +16,10 @@ public class Item {
     private File imageForInsertion; // should be used in insertion to the table
     private Part part;
 
+    public String getBase64Image() {
+        return this.base64Image;
+    }
+
 
     public static class Builder implements CustomBuilder<Item> {
         Item item = new Item();
