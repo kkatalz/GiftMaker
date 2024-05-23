@@ -2,6 +2,7 @@ package dao.jdbc;
 
 import entity.ItemInCart;
 
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -60,6 +61,9 @@ public class JdbcItemInCartDao implements AutoCloseable {
             System.out.println("EXCEPTION: " + e);
             // LOGGER.error("JdbcCategoryDao getAll error", e);
             return new ArrayList<>();
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
         }
         return itemInCarts;
     }
@@ -77,6 +81,9 @@ public class JdbcItemInCartDao implements AutoCloseable {
             }
         } catch (SQLException e) {
            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
         }
         return itemInCart;
     }
@@ -92,6 +99,9 @@ public class JdbcItemInCartDao implements AutoCloseable {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
         }
 
         return itemsInCart;
@@ -132,7 +142,7 @@ public class JdbcItemInCartDao implements AutoCloseable {
         }
     }
 
-    protected static ItemInCart getItemInCartFromResultSet(ResultSet resultSet) throws SQLException {
+    protected static ItemInCart getItemInCartFromResultSet(ResultSet resultSet) throws SQLException, IOException {
         return new ItemInCart.Builder()
                 .setUser(JdbcUserDao.getUserFromResultSet(resultSet))
                 .setItem(JdbcItemDao.getItemFromResultSet(resultSet))
