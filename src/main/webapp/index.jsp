@@ -54,40 +54,70 @@
 
 
 <%--    HOME PAGE--%>
-<div class="bg-blue-200 h-screen">
-    <div class="text flex justify-between items-center px-10 py-3">
-        <img src="logoBlack.svg" alt="logo" class="w-40">
 
-        <div class="text inline-flex border-[#777777] border-2 p-3 rounded-lg bg-neutral-100 ">
+<%--    header--%>
+<div class="text flex justify-between items-center px-10 py-3">
+    <img src="logoBlack.svg" alt="logo" class="w-40">
 
-            <input type="text" class="text-lg bg-neutral-100 w-[44vw]"
-                   placeholder="Find a gift">
-            <img src="search-icon.svg" alt="search-icon" class="w-5">
+    <div class="text inline-flex border-[#777777] border-2 p-3 rounded-lg bg-neutral-100 ">
 
-        </div>
-
-        <div class="text flex flex-row gap-5">
-
-            <div class="flex justify-center items-center flex-col">
-                <img src="myProfile.svg" alt="profile-icon" class="w-10">
-                <a class="text-base font-medium" href="#">My profile</a>
-            </div>
-
-            <div class="flex justify-center items-center flex-col">
-                <img src="liked.svg" alt="liked-items" class="w-10">
-                <a class="text-base font-medium" href="#">Liked</a>
-
-            </div>
-
-            <div class="flex justify-center items-center flex-col">
-                <img src="basket.svg" alt="basket-icon" class="w-10">
-                <a class="text-base font-medium" href="#">Basket</a>
-
-            </div>
-        </div>
+        <input type="text" class="text-lg bg-neutral-100 w-[44vw]"
+               placeholder="Find a gift">
+        <img src="search-icon.svg" alt="search-icon" class="w-5">
 
     </div>
+
+    <div class="text flex flex-row gap-5">
+
+        <div class="flex justify-center items-center flex-col">
+            <img src="myProfile.svg" alt="profile-icon" class="w-10">
+            <a class="text-sm font-medium" href="#">My profile</a>
+        </div>
+
+        <div class="flex justify-center items-center flex-col">
+            <img src="liked.svg" alt="liked-items" class="w-10">
+            <a class="text-sm font-medium" href="#">Liked</a>
+
+        </div>
+
+        <div class="flex justify-center items-center flex-col">
+            <img src="basket.svg" alt="basket-icon" class="w-10">
+            <a class="text-sm font-medium" href="#">Basket</a>
+
+        </div>
+    </div>
+
 </div>
+
+<%--    main body--%>
+<div class="text flex justify-between items-center text-xl font-medium mx-80 mt-12">
+    <h4>Mother day</h4>
+    <h4>Certificates</h4>
+    <h4>Top gifts this month</h4>
+</div>
+
+<div class="h-[35%] w-screen bg-blue-200 mt-8 flex justify-between items-center px-56">
+
+    <div class="flex flex-col items-center pl-40 pt-10 space-y-2">
+        <button class="px-16 py-4 rounded-lg shadow-lg bg-white font-bold text-2xl duration-300 hover:opacity-80">
+            Generate gift
+        </button>
+        <button class="py-2 px-10  ml-10 rounded-lg shadow-md bg-white font-bold text-xl duration-300 hover:opacity-80">
+            Create gift
+        </button>
+    </div>
+
+    <div>
+        <img src="gift-picture.svg" alt="gift-picture" class="w-3/4 z-0">
+        <button class="z-40 px-10 py-2 rounded-lg shadow-lg bg-white font-bold text-2xl duration-300 hover:opacity-80">
+            Form to send
+        </button>
+    </div>
+
+</div>
+
+
+
 
 </body>
 </html>
