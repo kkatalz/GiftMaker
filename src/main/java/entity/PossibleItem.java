@@ -1,5 +1,6 @@
 package entity;
 
+import javax.servlet.http.Part;
 import java.io.File;
 import java.math.BigDecimal;
 
@@ -11,6 +12,19 @@ public class PossibleItem {
     private int age;
     private String base64Image; // might be the proper format to display on the page
     private File imageForInsertion; // should be used in insertion to the table
+    private Part part;
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Part getPart() {
+        return this.part;
+    }
+
+    public void setPart(Part part) {
+        this.part = part;
+    }
 
     public static class Builder implements CustomBuilder<PossibleItem> {
         PossibleItem possibleItem = new PossibleItem();
@@ -49,6 +63,11 @@ public class PossibleItem {
 
         public Builder setImageForInsertion(File imageForInsertion) {
             possibleItem.imageForInsertion = imageForInsertion;
+            return this;
+        }
+
+        public Builder setPart(Part part) {
+            possibleItem.part = part;
             return this;
         }
 
