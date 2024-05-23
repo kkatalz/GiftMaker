@@ -1,7 +1,9 @@
 package service;
 
+import converter.PossibleItemDtoConverter;
 import dao.DaoFactory;
 import dao.PossibleItemDao;
+import dto.PossibleItemDto;
 import entity.PossibleItem;
 
 import java.util.List;
@@ -35,14 +37,16 @@ public class PossibleItemService {
         }
     }
 
-    public void create(PossibleItem possibleItem) {
+    public void create(PossibleItemDto dto) {
+        PossibleItem possibleItem = PossibleItemDtoConverter.toPossibleItem(dto);
         try(PossibleItemDao possibleItemDao = daoFactory.createPossibleItemDao()) {
             possibleItemDao.create(possibleItem);
         }
     }
 
 
-    public void update(PossibleItem possibleItem) {
+    public void update(PossibleItemDto dto) {
+        PossibleItem possibleItem = PossibleItemDtoConverter.toPossibleItem(dto);
         try(PossibleItemDao possibleItemDao = daoFactory.createPossibleItemDao()) {
             possibleItemDao.update(possibleItem);
         }
