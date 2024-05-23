@@ -4,9 +4,13 @@ import dao.ItemDao;
 import entity.Category;
 import entity.Item;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,6 +38,10 @@ public class JdbcItemDao implements ItemDao {
     private static final String GET_BY_AGE = "SELECT * FROM Item " +
             "INNER JOIN Category USING (id_category) " +
             "WHERE age=?";
+
+    private static final String SEARCH_BY_NAME = "SELECT * FROM Item " +
+            "INNER JOIN Category USING (id_category) " +
+            "WHERE LOWER(item_name) LIKE CONCAT('%', LOWER(?), '%')";
     private final static String GET_ALL = "SELECT * FROM Item INNER JOIN Category USING (id_category)";
     private final static String GET_BY_ID = "SELECT * FROM Item INNER JOIN Category USING(id_category) WHERE id_item=?";
     private final static String CREATE = "INSERT INTO Item (id_category, item_name, item_price, description, amount, age, image) " +
@@ -76,6 +84,9 @@ public class JdbcItemDao implements ItemDao {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
         }
 
         return items;
@@ -92,6 +103,9 @@ public class JdbcItemDao implements ItemDao {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
         }
         return items;
     }
@@ -108,6 +122,9 @@ public class JdbcItemDao implements ItemDao {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
         }
         return items;
     }
@@ -124,6 +141,27 @@ public class JdbcItemDao implements ItemDao {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+        return items;
+    }
+
+    @Override
+    public List<Item> searchByItemName(String name) {
+        List<Item> items = new ArrayList<>();
+        try(PreparedStatement statement = connection.prepareStatement(SEARCH_BY_NAME)) {
+            statement.setString(1, name);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next())
+                items.add(getItemFromResultSet(resultSet));
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
         }
         return items;
     }
@@ -138,6 +176,9 @@ public class JdbcItemDao implements ItemDao {
 
         } catch (SQLException e) {
             System.out.println("EXCEPTION: " + e);
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
         }
 
         return items;
@@ -155,6 +196,9 @@ public class JdbcItemDao implements ItemDao {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
         }
         return item;
     }
@@ -168,7 +212,9 @@ public class JdbcItemDao implements ItemDao {
             query.setString(4, item.getDescription());
             query.setInt(5, item.getAmount());
             query.setInt(6, item.getAge());
-            query.setBytes(7, item.readFile());
+           // query.setBytes(7, item.readFile());
+            InputStream fileContent = item.getPart().getInputStream();
+            query.setBinaryStream(7, fileContent);
 
             query.executeUpdate();
 
@@ -180,6 +226,8 @@ public class JdbcItemDao implements ItemDao {
 //            LOGGER.error("JdbcCategoryDao create error" + category, e);
 //            throw new ServerException(e);
             e.printStackTrace();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -211,7 +259,19 @@ public class JdbcItemDao implements ItemDao {
         }
     }
 
-    protected static Item getItemFromResultSet(ResultSet resultSet) throws SQLException {
+    protected static Item getItemFromResultSet(ResultSet resultSet) throws SQLException, IOException {
+        InputStream is = resultSet.getBinaryStream(IMAGE);
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        byte[] buffer = new byte[4096];
+        int bytesRead = -1;
+
+        while ((bytesRead = is.read(buffer)) != -1) {
+            outputStream.write(buffer, 0, bytesRead);
+        }
+
+        byte[] imageBytes = outputStream.toByteArray();
+        String base64Image = Base64.getEncoder().encodeToString(imageBytes);
         // TODO: finish and add to the Item image from ResultSet
         return new Item.Builder()
                 .setId(resultSet.getInt(ID))
@@ -221,6 +281,8 @@ public class JdbcItemDao implements ItemDao {
                 .setDescription(resultSet.getString(DESCRIPTION))
                 .setAmount(resultSet.getInt(AMOUNT))
                 .setAage(resultSet.getInt(AGE))
+                .setBase64Image(base64Image)
                 .build();
     }
+
 }
