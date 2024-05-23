@@ -39,9 +39,10 @@ public class JdbcItemDao implements ItemDao {
             "INNER JOIN Category USING (id_category) " +
             "WHERE age=?";
 
-    private static final String SEARCH_BY_NAME = "SELECT * FROM Item " +
+    private static final String SEARCH_BY_NAME_OR_ID = "SELECT * FROM Item " +
             "INNER JOIN Category USING (id_category) " +
-            "WHERE LOWER(item_name) LIKE CONCAT('%', LOWER(?), '%')";
+            "WHERE LOWER(item_name) LIKE CONCAT('%', LOWER(?), '%') " +
+            "OR id_item LIKE CONCAT('%', LOWER(?), '%')";
     private final static String GET_ALL = "SELECT * FROM Item INNER JOIN Category USING (id_category)";
     private final static String GET_BY_ID = "SELECT * FROM Item INNER JOIN Category USING(id_category) WHERE id_item=?";
     private final static String CREATE = "INSERT INTO Item (id_category, item_name, item_price, description, amount, age, image) " +
@@ -149,10 +150,12 @@ public class JdbcItemDao implements ItemDao {
     }
 
     @Override
-    public List<Item> searchByItemName(String name) {
+    public List<Item> searchByItemNameOrId(String nameOrId) {
         List<Item> items = new ArrayList<>();
-        try(PreparedStatement statement = connection.prepareStatement(SEARCH_BY_NAME)) {
-            statement.setString(1, name);
+        try(PreparedStatement statement = connection.prepareStatement(SEARCH_BY_NAME_OR_ID)) {
+            statement.setString(1, nameOrId);
+            statement.setString(2, nameOrId);
+
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next())
                 items.add(getItemFromResultSet(resultSet));

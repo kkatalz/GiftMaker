@@ -1,7 +1,9 @@
 package service;
 
+import converter.ItemDtoItemConverter;
 import dao.DaoFactory;
 import dao.ItemDao;
+import dto.ItemDto;
 import entity.Category;
 import entity.Item;
 
@@ -50,9 +52,9 @@ public class ItemService {
     }
 
 
-    public List<Item> searchItemByName(String name) {
+    public List<Item> searchItemByNameOrId(String nameOrId) {
         try(ItemDao itemDao = daoFactory.createItemDao()) {
-            return itemDao.searchByItemName(name);
+            return itemDao.searchByItemNameOrId(nameOrId);
         }
     }
 
@@ -68,13 +70,15 @@ public class ItemService {
         }
     }
 
-    public void create(Item item) {
+    public void create(ItemDto dto) {
+        Item item = ItemDtoItemConverter.toItem(dto);
         try(ItemDao itemDao = daoFactory.createItemDao()) {
             itemDao.create(item);
         }
     }
 
-    public void update(Item item) {
+    public void update(ItemDto dto) {
+        Item item = ItemDtoItemConverter.toItem(dto);
         try(ItemDao itemDao = daoFactory.createItemDao()) {
             itemDao.update(item);
         }

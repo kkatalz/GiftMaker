@@ -3,10 +3,19 @@ package converter;
 import dto.ItemDto;
 import entity.Item;
 
+import java.math.BigDecimal;
+
 public class ItemDtoItemConverter {
 
     public static Item toItem(ItemDto dto) {
-        // TODO: implement toItem
-        return null;
+        return new Item.Builder()
+                .setCategory(dto.getCategory())
+                .setName(dto.getName())
+                .setPrice(new BigDecimal(dto.getPrice()))
+                .setDescription(dto.getDescription())
+                .setAmount(Integer.parseInt(dto.getAmount()))
+                .setAage(Integer.parseInt(dto.getAge()))
+                .setPart(dto.getPart())
+                .build();
     }
 }
