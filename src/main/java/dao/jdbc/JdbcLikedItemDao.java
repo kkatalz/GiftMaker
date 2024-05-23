@@ -2,6 +2,7 @@ package dao.jdbc;
 
 import entity.LikedItem;
 
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,8 +55,8 @@ public class JdbcLikedItemDao implements AutoCloseable {
             while (resultSet.next())
                 likedItems.add(getLikedItemFromResultSet(resultSet));
 
-        } catch (SQLException e) {
-            System.out.println("EXCEPTION: " + e);
+        } catch (SQLException | IOException e ) {
+            e.printStackTrace();
             // LOGGER.error("JdbcCategoryDao getAll error", e);
             return new ArrayList<>();
         }
@@ -73,8 +74,8 @@ public class JdbcLikedItemDao implements AutoCloseable {
             if (resultSet.next()) {
                 likedItem = Optional.of(getLikedItemFromResultSet(resultSet));
             }
-        } catch (SQLException e) {
-            System.out.println("EXCEPTION: " + e.getMessage());
+        } catch (SQLException | IOException e ) {
+            e.printStackTrace();
             //LOGGER.error("JdbcCategoryDao getById error" + id, e);
             //throw new ServerException(e);
         }
@@ -89,7 +90,7 @@ public class JdbcLikedItemDao implements AutoCloseable {
             while (resultSet.next())
                 likedItems.add(getLikedItemFromResultSet(resultSet));
 
-        } catch (SQLException e) {
+        } catch (SQLException | IOException e) {
             e.printStackTrace();
         }
 
@@ -136,7 +137,7 @@ public class JdbcLikedItemDao implements AutoCloseable {
         }
     }
 
-    protected static LikedItem getLikedItemFromResultSet(ResultSet resultSet) throws SQLException {
+    protected static LikedItem getLikedItemFromResultSet(ResultSet resultSet) throws SQLException, IOException {
         return new LikedItem.Builder()
                 .setUser(JdbcUserDao.getUserFromResultSet(resultSet))
                 .setItem(JdbcItemDao.getItemFromResultSet(resultSet))

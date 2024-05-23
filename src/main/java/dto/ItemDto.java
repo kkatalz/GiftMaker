@@ -3,7 +3,9 @@ package dto;
 import entity.Category;
 import entity.CustomBuilder;
 
+import javax.servlet.http.Part;
 import java.io.File;
+import java.util.regex.Pattern;
 
 public class ItemDto {
 
@@ -16,6 +18,7 @@ public class ItemDto {
     private String age;
     private String base64Image; // might be the proper format to display on the page
     private File imageForInsertion; // should be used in insertion to the table
+    private Part part;
 
     public static class Builder implements CustomBuilder<ItemDto> {
         ItemDto item = new ItemDto();
@@ -62,6 +65,11 @@ public class ItemDto {
 
         public Builder setImageForInsertion(File imageForInsertion) {
             item.imageForInsertion = imageForInsertion;
+            return this;
+        }
+
+        public Builder setPart(Part part) {
+            item.part = part;
             return this;
         }
 
@@ -126,6 +134,14 @@ public class ItemDto {
 
     public void setAge(String age) {
         this.age = age;
+    }
+
+    public Part getPart() {
+        return part;
+    }
+
+    public void setPart(Part part) {
+        this.part = part;
     }
 
     @Override
