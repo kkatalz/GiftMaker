@@ -63,78 +63,78 @@
 <%--    HOME PAGE--%>
 <%--1.    header--%>
 
-<div class="text flex justify-between items-center px-10 py-3">
-    <img src="logoBlack.svg" alt="logo" class="w-40 cursor-pointer">
+<%--<div class="text flex justify-between items-center px-10 py-3">--%>
+<%--    <img src="logoBlack.svg" alt="logo" class="w-40 cursor-pointer">--%>
 
-    <div class="text inline-flex border-[#777777] border-2 p-3 rounded-lg bg-neutral-100 ">
+<%--    <div class="text inline-flex border-[#777777] border-2 p-3 rounded-lg bg-neutral-100 ">--%>
 
-        <input type="text" class="text-lg bg-neutral-100 w-[44vw] italic outline-none"
-               placeholder="Find a gift ...">
-        <img src="search-icon.svg" alt="search-icon"
-             class="w-5 transition duration-300 ease-in hover:ease-in hover:scale-[1.2]">
+<%--        <input type="text" class="text-lg bg-neutral-100 w-[44vw] italic outline-none"--%>
+<%--               placeholder="Find a gift ...">--%>
+<%--        <img src="search-icon.svg" alt="search-icon"--%>
+<%--             class="w-5 transition duration-300 ease-in hover:ease-in hover:scale-[1.2]">--%>
 
-    </div>
+<%--    </div>--%>
 
-    <div class="text flex flex-row gap-5">
+<%--    <div class="text flex flex-row gap-5">--%>
 
-        <div class="flex justify-center items-center flex-col">
-            <img src="myProfile.svg" alt="profile-icon" class="w-10 cursor-pointer ">
-            <a class="text-sm font-medium" href="#">My profile</a>
-        </div>
+<%--        <div class="flex justify-center items-center flex-col">--%>
+<%--            <img src="myProfile.svg" alt="profile-icon" class="w-10 cursor-pointer ">--%>
+<%--            <a class="text-sm font-medium" href="#">My profile</a>--%>
+<%--        </div>--%>
 
-        <div class="flex justify-center items-center flex-col">
-            <img src="liked.svg" alt="liked-items" class="w-10 cursor-pointer">
-            <a class="text-sm font-medium" href="#">Liked</a>
+<%--        <div class="flex justify-center items-center flex-col">--%>
+<%--            <img src="liked.svg" alt="liked-items" class="w-10 cursor-pointer">--%>
+<%--            <a class="text-sm font-medium" href="#">Liked</a>--%>
 
-        </div>
+<%--        </div>--%>
 
-        <div class="flex justify-center items-center flex-col">
-            <img src="basket.svg" alt="basket-icon" class="w-10 cursor-pointer">
-            <a class="text-sm font-medium" href="#">Basket</a>
+<%--        <div class="flex justify-center items-center flex-col">--%>
+<%--            <img src="basket.svg" alt="basket-icon" class="w-10 cursor-pointer">--%>
+<%--            <a class="text-sm font-medium" href="#">Basket</a>--%>
 
-        </div>
-    </div>
+<%--        </div>--%>
+<%--    </div>--%>
 
-</div>
+<%--</div>--%>
 
 <%--2.    main body--%>
-<div class="text flex justify-between items-center text-xl font-medium mx-80 mt-12 ">
-    <h4 class="cursor-pointer">Mother day</h4>
-    <h4 class="cursor-pointer">Certificates</h4>
-    <h4 class="cursor-pointer">Top gifts this month</h4>
-</div>
+<%--<div class="text flex justify-between items-center text-xl font-medium mx-80 mt-12 ">--%>
+<%--    <h4 class="cursor-pointer">Mother day</h4>--%>
+<%--    <h4 class="cursor-pointer">Certificates</h4>--%>
+<%--    <h4 class="cursor-pointer">Top gifts this month</h4>--%>
+<%--</div>--%>
 
-<div class="h-[45%] w-screen bg-blue-200 mt-6 flex justify-between items-center px-56">
+<%--<div class="h-[45%] w-screen bg-blue-200 mt-6 flex justify-between items-center px-56">--%>
 
-    <div class="flex flex-col items-center pl-40 pt-10 space-y-2">
-        <button class="px-16 py-4 rounded-lg shadow-lg bg-white font-bold text-2xl transition duration-300 ease-in hover:ease-in hover:scale-[1.2]">
-            Generate gift
-        </button>
-        <button class="py-2 px-10 ml-16 rounded-lg shadow-md bg-white font-bold text-xl transition duration-300 ease-in hover:ease-in hover:scale-[1.1]">
-            Create gift
-        </button>
-    </div>
+<%--    <div class="flex flex-col items-center pl-40 pt-10 space-y-2">--%>
+<%--        <button class="px-16 py-4 rounded-lg shadow-lg bg-white font-bold text-2xl transition duration-300 ease-in hover:ease-in hover:scale-[1.2]">--%>
+<%--            Generate gift--%>
+<%--        </button>--%>
+<%--        <button class="py-2 px-10 ml-16 rounded-lg shadow-md bg-white font-bold text-xl transition duration-300 ease-in hover:ease-in hover:scale-[1.1]">--%>
+<%--            Create gift--%>
+<%--        </button>--%>
+<%--    </div>--%>
 
-    <div class="relative">
+<%--    <div class="relative">--%>
 
-            <img src="gift-picture.svg" alt="gift-picture" class=" z-1 rounded-[30px] shadow w-5/7 ">
-        <button class="z-2 py-2 absolute bottom-[-20px] left-[20%] w-2/3  rounded-lg shadow-lg bg-white font-bold text-2xl transition duration-300 ease-in hover:ease-in hover:scale-[1.2]">
-            Form to send
-        </button>
-    </div>
+<%--            <img src="gift-picture.svg" alt="gift-picture" class=" z-1 rounded-[30px] shadow w-5/7 ">--%>
+<%--        <button class="z-2 py-2 absolute bottom-[-20px] left-[20%] w-2/3  rounded-lg shadow-lg bg-white font-bold text-2xl transition duration-300 ease-in hover:ease-in hover:scale-[1.2]">--%>
+<%--            Form to send--%>
+<%--        </button>--%>
+<%--    </div>--%>
 
-</div>
+<%--</div>--%>
 
-<div class="text flex justify-between items-center text-xl font-normal mx-80 mt-8 text-neutral-500 ">
-    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Ukrainian brands</button>
-    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Trendy gifts</button>
-    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Gifts for anyone</button>
-</div>
+<%--<div class="text flex justify-between items-center text-xl font-normal mx-80 mt-8 text-neutral-500 ">--%>
+<%--    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Ukrainian brands</button>--%>
+<%--    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Trendy gifts</button>--%>
+<%--    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Gifts for anyone</button>--%>
+<%--</div>--%>
 
-<div class="text flex justify-between items-center text-xl font-normal mx-[33%] mt-5 text-neutral-500 ">
-    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Aesthetic gifts</button>
-    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Handy gifts</button>
-</div>
+<%--<div class="text flex justify-between items-center text-xl font-normal mx-[33%] mt-5 text-neutral-500 ">--%>
+<%--    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Aesthetic gifts</button>--%>
+<%--    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Handy gifts</button>--%>
+<%--</div>--%>
 
 
 <%--WISHLIST--%>
@@ -232,6 +232,90 @@
 
 <%--</div>--%>
 
+<%--BASKET  --%>
+<%--1.    header--%>
+
+<div class="bg-blue-100 h-[100vh]">
+    <div class="text flex justify-between items-center px-10 py-3">
+        <img src="logoBlack.svg" alt="logo" class="w-40 cursor-pointer">
+
+        <%--        FILTERS--%>
+        <%--        Category--%>
+        <div class="relative w-64">
+            <!-- Custom Dropdown Trigger -->
+            <div class="flex justify-between items-center bg-white border border-gray-300 text-gray-700 py-3 px-4 rounded leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+                 id="dropdownTrigger">
+                <div>Category</div>
+                <svg class="transform transition-transform h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </div>
+
+            <!-- Dropdown Menu -->
+            <div class="absolute mt-1 w-full rounded-md bg-white shadow-lg hidden" id="dropdownMenu">
+                <ul class="text-gray-700 max-h-60 overflow-auto">
+                    <li class="flex items-center p-2 hover:bg-gray-100 cursor-pointer" onclick="toggleCheckbox(event)">
+                        <input type="checkbox" class="form-checkbox h-4 w-4 text-green-600">
+                        <span class="ml-2">Kitchen</span>
+                    </li>
+                    <li class="flex items-center p-2 hover:bg-gray-100 cursor-pointer" onclick="toggleCheckbox(event)">
+                        <input type="checkbox" class="form-checkbox h-4 w-4 text-red-600">
+                        <span class="ml-2">Literature</span>
+                    </li>
+                    <li class="flex items-center p-2 hover:bg-gray-100 cursor-pointer" onclick="toggleCheckbox(event)">
+                        <input type="checkbox" class="form-checkbox h-4 w-4 text-yellow-600">
+                        <span class="ml-2">Sport</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <%--3.        search input--%>
+        <div class="text inline-flex border-[#777777] border-2 p-3 rounded-lg bg-neutral-100 ">
+            <input type="text" class="text-lg bg-neutral-100 italic outline-none"
+                   placeholder="Find a gift ...">
+
+
+            <img src="search-icon.svg" alt="search-icon"
+                 class="w-5 transition duration-300 ease-in hover:ease-in hover:scale-[1.2]">
+
+        </div>
+
+    </div>
+</div>
+
 
 </body>
 </html>
+
+
+<script>
+    const dropdownTrigger = document.getElementById('dropdownTrigger');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+
+    // Toggle the dropdown menu and arrow rotation
+    dropdownTrigger.addEventListener('click', function () {
+        dropdownMenu.classList.toggle('hidden');
+        this.querySelector('svg').style.transform = dropdownMenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function (event) {
+        if (!dropdownTrigger.contains(event.target) && !dropdownMenu.contains(event.target)) {
+            dropdownMenu.classList.add('hidden');
+            dropdownTrigger.querySelector('svg').style.transform = 'rotate(0deg)';
+        }
+    });
+
+    // Function to toggle checkbox when clicking on the text or checkbox itself
+    function toggleCheckbox(event) {
+        const target = event.target;
+        if (target.tagName !== 'INPUT') {
+            const checkbox = target.querySelector('input') || target.parentElement.querySelector('input');
+            checkbox.checked = !checkbox.checked;
+        }
+    }
+</script>
+
