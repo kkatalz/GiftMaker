@@ -240,7 +240,7 @@
         <img src="logoBlack.svg" alt="logo" class="w-40 cursor-pointer">
 
 
-        <%--3.        search input--%>
+        <%--3.  search input--%>
         <div class="text inline-flex border-[#777777] border-2 p-3 rounded-lg bg-neutral-100 ">
             <input type="text" class="text-lg bg-neutral-100 italic outline-none"
                    placeholder="Find ...">
@@ -253,7 +253,7 @@
     </div>
 
 
-    <div class="text flex justify-between items-center px-[15%] py-3">
+    <div class="text flex justify-between items-center px-[10%] py-3 mt-4">
         <%--Category--%>
         <div class="relative w-64 ">
             <!-- Custom Dropdown Trigger -->
@@ -325,21 +325,201 @@
             </div>
         </div>
 
-            <%--Age range--%>
-            <div class="flex gap-2 items-center">
-                <div class="flex justify-between items-center bg-white border border-gray-300 text-gray-700 py-3 px-4 rounded">
-                    <input type="text" class="text-lg italic outline-none w-14"
-                           placeholder="From">
-                </div>
-                <h4 class="text-2xl font-semibold text-gray-700">-</h4>
-                <div class="flex justify-between items-center bg-white border border-gray-300 text-gray-700 py-3 px-4 rounded">
-                    <input type="text" class="text-lg italic outline-none w-14"
-                           placeholder="To y.o.">
+        <%--Age range--%>
+        <div class="flex gap-2 items-center">
+            <div class="flex justify-between items-center bg-white border border-gray-300 text-gray-700 py-3 px-4 rounded">
+                <input type="text" class="text-lg italic outline-none w-14"
+                       placeholder="From">
+            </div>
+            <h4 class="text-2xl font-semibold text-gray-700">-</h4>
+            <div class="flex justify-between items-center bg-white border border-gray-300 text-gray-700 py-3 px-4 rounded">
+                <input type="text" class="text-lg italic outline-none w-14"
+                       placeholder="To y.o.">
+            </div>
+        </div>
+
+        <button class="bg-[#6AB7FF] py-3 px-5 rounded-lg transition duration-500 hover:opacity-70 text-white text-xl font-medium">
+            Search
+        </button>
+    </div>
+
+    <%-- main body--%>
+    <div>
+        <h4 class="text-2xl font-semibold text-gray-600 ml-[10%] mt-6">
+            6 items found by your filters
+        </h4>
+    </div>
+    <div>
+        <h4 class="text-2xl font-semibold text-gray-600 ml-[10%] mt-6">
+            Certificates for creative master classes
+        </h4>
+    </div>
+
+
+    <%--    all items in row--%>
+    <div class="flex gap-12 mx-[10%] flex-wrap">
+        <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow ">
+
+            <div class="flex items-center justify-center flex-col gap-2">
+                <img src="harryPotterBooks.svg" alt="harryPotterBooks" class="w-28"/>
+                <h4 class="text-base font-medium leading-5">
+                    Harry Potter<br/>
+                    The Complete Collection: 7 Book Box Set
+                </h4>
+
+                <div class="flex gap-2 font-bold text-left w-full">
+                    <h4 class="text-medium font-medium">
+                        32000
+                    </h4>
+                    <h4 class="text-medium font-medium">
+                        UAH
+                    </h4>
                 </div>
             </div>
 
-        <button class="bg-[#6AB7FF] py-3 px-5 rounded-lg transition duration-500 hover:opacity-70 text-white text-xl font-medium">Search</button>
+
+            <div class="flex flex-col absolute top-2 right-2 gap-1 ">
+                <img src="likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>
+                <img src="basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>
+            </div>
+        </div>
+
+        <%--        2 item--%>
+        <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow ">
+
+            <div class="flex items-center justify-center flex-col gap-2">
+                <img src="harryPotterBooks.svg" alt="harryPotterBooks" class="w-28"/>
+                <h4 class="text-base font-medium leading-5">
+                    Harry Potter<br/>
+                    The Complete Collection: 7 Book Box Set
+                </h4>
+
+                <div class="flex gap-2 font-bold text-left w-full">
+                    <h4 class="text-medium font-medium">
+                        32000
+                    </h4>
+                    <h4 class="text-medium font-medium">
+                        UAH
+                    </h4>
+                </div>
+            </div>
+
+
+            <div class="flex flex-col absolute top-2 right-2 gap-1 ">
+                <img src="likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>
+                <img src="basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>
+            </div>
+        </div>
+
+        <%--        3 item--%>
+        <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow ">
+
+            <div class="flex items-center justify-center flex-col gap-2">
+                <img src="harryPotterBooks.svg" alt="harryPotterBooks" class="w-28"/>
+                <h4 class="text-base font-medium leading-5">
+                    Harry Potter<br/>
+                    The Complete Collection: 7 Book Box Set
+                </h4>
+
+                <div class="flex gap-2 font-bold text-left w-full">
+                    <h4 class="text-medium font-medium">
+                        32000
+                    </h4>
+                    <h4 class="text-medium font-medium">
+                        UAH
+                    </h4>
+                </div>
+            </div>
+
+
+            <div class="flex flex-col absolute top-2 right-2 gap-1 ">
+                <img src="likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>
+                <img src="basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>
+            </div>
+        </div>
+
+        <%--        4 item--%>
+        <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow ">
+
+            <div class="flex items-center justify-center flex-col gap-2">
+                <img src="harryPotterBooks.svg" alt="harryPotterBooks" class="w-28"/>
+                <h4 class="text-base font-medium leading-5">
+                    Harry Potter<br/>
+                    The Complete Collection: 7 Book Box Set
+                </h4>
+
+                <div class="flex gap-2 font-bold text-left w-full">
+                    <h4 class="text-medium font-medium">
+                        32000
+                    </h4>
+                    <h4 class="text-medium font-medium">
+                        UAH
+                    </h4>
+                </div>
+            </div>
+
+
+            <div class="flex flex-col absolute top-2 right-2 gap-1 ">
+                <img src="likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>
+                <img src="basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>
+            </div>
+        </div>
+
+        <%--        5 item--%>
+        <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow ">
+
+            <div class="flex items-center justify-center flex-col gap-2">
+                <img src="harryPotterBooks.svg" alt="harryPotterBooks" class="w-28"/>
+                <h4 class="text-base font-medium leading-5">
+                    Harry Potter<br/>
+                    The Complete Collection: 7 Book Box Set
+                </h4>
+
+                <div class="flex gap-2 font-bold text-left w-full">
+                    <h4 class="text-medium font-medium">
+                        32000
+                    </h4>
+                    <h4 class="text-medium font-medium">
+                        UAH
+                    </h4>
+                </div>
+            </div>
+
+
+            <div class="flex flex-col absolute top-2 right-2 gap-1 ">
+                <img src="likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>
+                <img src="basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>
+            </div>
+        </div>
+
+        <%--        6 item--%>
+        <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow ">
+
+            <div class="flex items-center justify-center flex-col gap-2">
+                <img src="harryPotterBooks.svg" alt="harryPotterBooks" class="w-28"/>
+                <h4 class="text-base font-medium leading-5">
+                    Harry Potter<br/>
+                    The Complete Collection: 7 Book Box Set
+                </h4>
+
+                <div class="flex gap-2 font-bold text-left w-full">
+                    <h4 class="text-medium font-medium">
+                        32000
+                    </h4>
+                    <h4 class="text-medium font-medium">
+                        UAH
+                    </h4>
+                </div>
+            </div>
+
+
+            <div class="flex flex-col absolute top-2 right-2 gap-1 ">
+                <img src="likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>
+                <img src="basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>
+            </div>
+        </div>
     </div>
+
 </div>
 
 
