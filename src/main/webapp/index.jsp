@@ -15,7 +15,7 @@
 
 
 <%--REGISTRATION--%>
-<%--<div class="bg-blue-200 h-[100vh] flex justify-center items-center flex-col gap-1">--%>
+<%--<div class="bg-blue-100 h-[100vh] flex justify-center items-center flex-col gap-1">--%>
 
 <%--    <form class="text-center bg-white py-10 px-20 rounded-lg shadow">--%>
 <%--        <h2 class="text-4xl font-bold ">Create account</h2>--%>
@@ -39,7 +39,7 @@
 
 
 <%--    WELCOME BACK--%>
-<%--<div class="bg-blue-200 h-[100vh] flex justify-center items-center flex-col gap-1">--%>
+<%--<div class="bg-blue-100 h-[100vh] flex justify-center items-center flex-col gap-1">--%>
 
 <%--    <form class="text-center bg-white py-10 px-20 rounded-lg shadow">--%>
 <%--        <h2 class="text-4xl font-bold ">Welcome back!</h2>--%>
@@ -104,7 +104,7 @@
 <%--    <h4 class="cursor-pointer">Top gifts this month</h4>--%>
 <%--</div>--%>
 
-<%--<div class="h-[45%] w-screen bg-blue-200 mt-6 flex justify-between items-center px-56">--%>
+<%--<div class="h-[45%] w-screen bg-blue-100 mt-6 flex justify-between items-center px-56">--%>
 
 <%--    <div class="flex flex-col items-center pl-40 pt-10 space-y-2">--%>
 <%--        <button class="px-16 py-4 rounded-lg shadow-lg bg-white font-bold text-2xl transition duration-300 ease-in hover:ease-in hover:scale-[1.2]">--%>
@@ -232,14 +232,13 @@
 
 <%--</div>--%>
 
-<%--BASKET  --%>
+<%--        FILTERS--%>
 <%--1.    header--%>
 
 <div class="bg-blue-100 h-[100vh]">
     <div class="text flex justify-between items-center px-10 py-3">
         <img src="logoBlack.svg" alt="logo" class="w-40 cursor-pointer">
 
-        <%--        FILTERS--%>
         <%--        Category--%>
         <div class="relative w-64">
             <!-- Custom Dropdown Trigger -->
@@ -271,6 +270,47 @@
             </div>
         </div>
 
+        <%--        For who--%>
+        <div class="relative w-64">
+            <!-- Custom Dropdown Trigger -->
+            <div class="flex justify-between items-center bg-white border border-gray-300 text-gray-700 py-3 px-4 rounded leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+                 id="dropdownTrigger1">
+                <div>Gender</div>
+                <svg class="transform transition-transform h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </div>
+
+            <!-- Dropdown Menu -->
+            <div class="absolute mt-1 w-full rounded-md bg-white shadow-lg hidden" id="dropdownMenu1">
+                <ul class="text-gray-700 max-h-60 overflow-auto">
+                    <li class="flex items-center p-2 hover:bg-gray-100 cursor-pointer" onclick="toggleCheckbox(event)">
+                        <input type="checkbox" class="form-checkbox h-4 w-4 text-green-600">
+                        <span class="ml-2">Female</span>
+                    </li>
+                    <li class="flex items-center p-2 hover:bg-gray-100 cursor-pointer" onclick="toggleCheckbox(event)">
+                        <input type="checkbox" class="form-checkbox h-4 w-4 text-red-600">
+                        <span class="ml-2">Male</span>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+        <%--        Price--%>
+        <div class="flex gap-3 items-center">
+            <div class="flex justify-between items-center bg-white border border-gray-300 text-gray-700 py-3 px-4 rounded">
+                <input type="text" class="text-lg italic outline-none w-14"
+                       placeholder="From">
+            </div>
+            <h4 class="text-2xl font-semibold text-gray-700">-</h4>
+            <div class="flex justify-between items-center bg-white border border-gray-300 text-gray-700 py-3 px-4 rounded">
+                <input type="text" class="text-lg italic outline-none w-14"
+                       placeholder="To">
+            </div>
+        </div>
+
 
         <%--3.        search input--%>
         <div class="text inline-flex border-[#777777] border-2 p-3 rounded-lg bg-neutral-100 ">
@@ -292,6 +332,8 @@
 
 
 <script>
+
+
     const dropdownTrigger = document.getElementById('dropdownTrigger');
     const dropdownMenu = document.getElementById('dropdownMenu');
 
@@ -306,6 +348,34 @@
         if (!dropdownTrigger.contains(event.target) && !dropdownMenu.contains(event.target)) {
             dropdownMenu.classList.add('hidden');
             dropdownTrigger.querySelector('svg').style.transform = 'rotate(0deg)';
+        }
+    });
+
+    // Function to toggle checkbox when clicking on the text or checkbox itself
+    function toggleCheckbox(event) {
+        const target = event.target;
+        if (target.tagName !== 'INPUT') {
+            const checkbox = target.querySelector('input') || target.parentElement.querySelector('input');
+            checkbox.checked = !checkbox.checked;
+        }
+    }
+
+
+    //
+    const dropdownTrigger1 = document.getElementById('dropdownTrigger1');
+    const dropdownMenu1 = document.getElementById('dropdownMenu1');
+
+    // Toggle the dropdown menu and arrow rotation
+    dropdownTrigger1.addEventListener('click', function () {
+        dropdownMenu1.classList.toggle('hidden');
+        this.querySelector('svg').style.transform = dropdownMenu1.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function (event) {
+        if (!dropdownTrigger1.contains(event.target) && !dropdownMenu1.contains(event.target)) {
+            dropdownMenu1.classList.add('hidden');
+            dropdownTrigger1.querySelector('svg').style.transform = 'rotate(0deg)';
         }
     });
 
