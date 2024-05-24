@@ -239,10 +239,25 @@
     <div class="text flex justify-between items-center px-10 py-3">
         <img src="logoBlack.svg" alt="logo" class="w-40 cursor-pointer">
 
-        <%--        Category--%>
-        <div class="relative w-64">
+
+        <%--3.        search input--%>
+        <div class="text inline-flex border-[#777777] border-2 p-3 rounded-lg bg-neutral-100 ">
+            <input type="text" class="text-lg bg-neutral-100 italic outline-none"
+                   placeholder="Find ...">
+
+
+            <img src="search-icon.svg" alt="search-icon"
+                 class="w-5 transition duration-300 ease-in hover:ease-in hover:scale-[1.2]">
+
+        </div>
+    </div>
+
+
+    <div class="text flex justify-between items-center px-[15%] py-3">
+        <%--Category--%>
+        <div class="relative w-64 ">
             <!-- Custom Dropdown Trigger -->
-            <div class="flex justify-between items-center bg-white border border-gray-300 text-gray-700 py-3 px-4 rounded leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+            <div class="flex justify-between items-center bg-white border border-gray-300 text-gray-700 text-lg py-3 px-4 rounded cursor-pointer"
                  id="dropdownTrigger">
                 <div>Category</div>
                 <svg class="transform transition-transform h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -270,18 +285,30 @@
             </div>
         </div>
 
+        <%--Price--%>
+        <div class="flex gap-2 items-center">
+            <div class="flex justify-between items-center bg-white border border-gray-300 py-3 px-4 rounded">
+                <input type="text" class="text-gray-700 text-lg italic outline-none w-14"
+                       placeholder="From">
+            </div>
+            <h4 class="text-2xl font-semibold text-gray-700">-</h4>
+            <div class="flex justify-between items-center bg-white border border-gray-300 py-3 px-4 rounded">
+                <input type="text" class=" text-gray-700 text-lg italic outline-none w-14"
+                       placeholder="To">
+                <img src="currency.svg" alt="currency-icon" class="w-5 pt-1">
+            </div>
+        </div>
+
         <%--        For who--%>
         <div class="relative w-64">
-            <!-- Custom Dropdown Trigger -->
-            <div class="flex justify-between items-center bg-white border border-gray-300 text-gray-700 py-3 px-4 rounded leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+            <div class="flex justify-between items-center bg-white border border-gray-300 py-3 px-4 rounded cursor-pointer"
                  id="dropdownTrigger1">
-                <div>Gender</div>
+                <div class="text-lg text-gray-700">For</div>
                 <svg class="transform transition-transform h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none"
                      viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                 </svg>
             </div>
-
             <!-- Dropdown Menu -->
             <div class="absolute mt-1 w-full rounded-md bg-white shadow-lg hidden" id="dropdownMenu1">
                 <ul class="text-gray-700 max-h-60 overflow-auto">
@@ -298,31 +325,20 @@
             </div>
         </div>
 
-        <%--        Price--%>
-        <div class="flex gap-3 items-center">
-            <div class="flex justify-between items-center bg-white border border-gray-300 text-gray-700 py-3 px-4 rounded">
-                <input type="text" class="text-lg italic outline-none w-14"
-                       placeholder="From">
+            <%--Age range--%>
+            <div class="flex gap-2 items-center">
+                <div class="flex justify-between items-center bg-white border border-gray-300 text-gray-700 py-3 px-4 rounded">
+                    <input type="text" class="text-lg italic outline-none w-14"
+                           placeholder="From">
+                </div>
+                <h4 class="text-2xl font-semibold text-gray-700">-</h4>
+                <div class="flex justify-between items-center bg-white border border-gray-300 text-gray-700 py-3 px-4 rounded">
+                    <input type="text" class="text-lg italic outline-none w-14"
+                           placeholder="To y.o.">
+                </div>
             </div>
-            <h4 class="text-2xl font-semibold text-gray-700">-</h4>
-            <div class="flex justify-between items-center bg-white border border-gray-300 text-gray-700 py-3 px-4 rounded">
-                <input type="text" class="text-lg italic outline-none w-14"
-                       placeholder="To">
-            </div>
-        </div>
 
-
-        <%--3.        search input--%>
-        <div class="text inline-flex border-[#777777] border-2 p-3 rounded-lg bg-neutral-100 ">
-            <input type="text" class="text-lg bg-neutral-100 italic outline-none"
-                   placeholder="Find a gift ...">
-
-
-            <img src="search-icon.svg" alt="search-icon"
-                 class="w-5 transition duration-300 ease-in hover:ease-in hover:scale-[1.2]">
-
-        </div>
-
+        <button class="bg-[#6AB7FF] py-3 px-5 rounded-lg transition duration-500 hover:opacity-70 text-white text-xl font-medium">Search</button>
     </div>
 </div>
 
