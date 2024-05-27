@@ -15,7 +15,7 @@ public class ItemDtoItemConverter {
                 .setDescription(dto.getDescription())
                 .setAmount(Integer.parseInt(dto.getAmount()))
                 .setAage(Integer.parseInt(dto.getAge()))
-                .setPart(dto.getPart())
+                .setParts(dto.getParts())
                 .build();
     }
 }
