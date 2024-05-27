@@ -524,6 +524,99 @@ FILTERS--%>
 <%--</div>--%>
 
 <%--ITEM DETAILED--%>
+<%--<div class="mx-[3%] my-6">--%>
+
+<%--    &lt;%&ndash;1.    header&ndash;%&gt;--%>
+<%--    <div class="flex justify-between items-center">--%>
+<%--        <img src="logoBlack.svg" alt="logo" class="w-40 cursor-pointer">--%>
+
+
+<%--        <div class="text flex flex-row gap-5">--%>
+
+<%--            <div class="flex justify-center items-center flex-col">--%>
+<%--                <img src="myProfile.svg" alt="profile-icon" class="w-10 cursor-pointer ">--%>
+<%--                <a class="text-sm font-medium" href="#">My profile</a>--%>
+<%--            </div>--%>
+
+<%--            <div class="flex justify-center items-center flex-col">--%>
+<%--                <img src="liked.svg" alt="liked-items" class="w-10 cursor-pointer">--%>
+<%--                <a class="text-sm font-medium" href="#">Liked</a>--%>
+
+<%--            </div>--%>
+
+<%--            <div class="flex justify-center items-center flex-col">--%>
+<%--                <img src="basket.svg" alt="basket-icon" class="w-10 cursor-pointer">--%>
+<%--                <a class="text-sm font-medium" href="#">Basket</a>--%>
+
+<%--            </div>--%>
+<%--        </div>--%>
+
+<%--    </div>--%>
+
+<%--    &lt;%&ndash;main body&ndash;%&gt;--%>
+<%--    <div class="flex justify-between items-center gap-12 mx-[12%] my-[2%]">--%>
+
+<%--        <div class="flex gap-12">--%>
+<%--            &lt;%&ndash;    jeft bar with images&ndash;%&gt;--%>
+<%--            <div class="flex flex-col gap-3 max-h-[700px] overflow-y-auto pr-4 text-6xl ">--%>
+
+<%--                <img src="harryPotter.svg" alt="harryPotter" class="max-h-32 max-w-32 min-h-32 w-32 rounded-lg "/>--%>
+<%--                <img src="harryPotter.svg" alt="harryPotter" class="min-h-32 w-32 rounded-lg "/>--%>
+<%--                <img src="harryPotter.svg" alt="harryPotter" class="min-h-32 w-32 rounded-lg "/>--%>
+<%--                <img src="harryPotter.svg" alt="harryPotter" class="min-h-32 w-32 rounded-lg "/>--%>
+<%--                <img src="harryPotter.svg" alt="harryPotter" class="min-h-32 w-32 rounded-lg "/>--%>
+<%--                <img src="harryPotter.svg" alt="harryPotter" class="min-h-32 w-32 rounded-lg "/>--%>
+<%--                <img src="harryPotter.svg" alt="harryPotter" class="min-h-32 w-32 rounded-lg "/>--%>
+<%--                <img src="harryPotter.svg" alt="harryPotter" class="min-h-32 w-32 rounded-lg "/>--%>
+
+
+<%--            </div>--%>
+
+<%--            &lt;%&ndash;        main image&ndash;%&gt;--%>
+<%--            <div class="flex items-center justify-center rounded-lg w-[600px] relative ">--%>
+<%--                <img src="leftArrow.svg" alt="leftArrow" class="w-10 cursor-pointer shadow absolute left-6"/>--%>
+<%--                <img src="harryPotter.svg" alt="harryPotter" class="rounded-lg shadow"/>--%>
+<%--                <img src="rightArrow.svg" alt="rightArrow" class="w-10 cursor-pointer shadow absolute right-6"/>--%>
+
+<%--            </div>--%>
+
+<%--        </div>--%>
+
+<%--        &lt;%&ndash;right menu with details&ndash;%&gt;--%>
+<%--        <div class="flex flex-col gap-8">--%>
+
+<%--            <div class="gap-12">--%>
+<%--                <h4 class="text-xl font-light">id: 1000</h4>--%>
+<%--                <div class="space-y-4">--%>
+<%--                    <h4 class="text-3xl font-medium">Harry Potter The Complete Collection: 7 Book Box Set</h4>--%>
+<%--                    <h4 class="text-3xl font-bold mt-6">3200 UAH</h4>--%>
+
+<%--                    <p class="text-xl">--%>
+<%--                        Harry Potter is a series of seven fantasy novels written by British author J. K. Rowling.<br>--%>
+<%--                        Set consists of: <br>Philosopher's Stone (1997), Chamber of Secrets (1998), Prisoner of Azkaban--%>
+<%--                        (1999),--%>
+<%--                        Goblet of Fire (2000), Order of the Phoenix (2003), Half-Blood Prince (2005), Deathly Hallows--%>
+<%--                        (2007).--%>
+<%--                    </p>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+
+
+<%--            <div class="flex justify-content items-center gap-5 ">--%>
+<%--                <button class="w-[50%] bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70 flex items-center justify-between px-6 py-3 text-white text-3xl font-medium">--%>
+<%--                    Buy--%>
+<%--                    <img src="buyIcon.svg" alt="Buy Icon" class="w-8 h-8"/>--%>
+<%--                </button>--%>
+
+<%--                <img src="likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>--%>
+<%--            </div>--%>
+
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</div>--%>
+
+
+<%--CREATE ITEM DETAILED PAGE--%>
 <div class="mx-[3%] my-6">
 
     <%--1.    header--%>
@@ -554,26 +647,27 @@ FILTERS--%>
     </div>
 
     <%--main body--%>
-    <div class="flex justify-between items-center gap-12 mx-[16%] my-[2%]">
+    <div class="flex justify-between items-center gap-12 mx-[12%] my-[2%]">
 
         <div class="flex gap-12">
             <%--    jeft bar with images--%>
-            <div class="flex flex-col gap-3 max-h-[700px] overflow-y-auto pr-4">
-                <img src="harryPotter.svg" alt="harryPotter" class="w-32 rounded-lg "/>
-                <img src="harryPotter.svg" alt="harryPotter" class="w-32 rounded-lg"/>
-                <img src="harryPotter.svg" alt="harryPotter" class="w-32 rounded-lg"/>
-                <img src="harryPotter.svg" alt="harryPotter" class="w-32 rounded-lg"/>
-                <img src="harryPotter.svg" alt="harryPotter" class="w-32 rounded-lg"/>
-                <img src="harryPotter.svg" alt="harryPotter" class="w-32 rounded-lg"/>
-                <img src="harryPotter.svg" alt="harryPotter" class="w-32 rounded-lg"/>
+            <div class="flex flex-col gap-3 max-h-[700px] overflow-y-auto pr-4 text-6xl ">
+                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>
+                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>
+                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>
+                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>
+                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>
+                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>
+                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>
+
 
             </div>
 
             <%--        main image--%>
-            <div class="flex items-center justify-center rounded-lg w-[600px] relative ">
-                <img src="leftArrow.svg" alt="leftArrow" class="w-10 cursor-pointer shadow absolute left-6"/>
-                <img src="harryPotter.svg" alt="harryPotter" class="rounded-lg shadow"/>
-                <img src="rightArrow.svg" alt="rightArrow" class="w-10 cursor-pointer shadow absolute right-6"/>
+            <div class="flex items-center justify-center rounded-lg w-[600px] relative">
+                <img src="leftArrow.svg" alt="leftArrow" class="w-10 cursor-pointer  absolute left-6"/>
+                <h4 class="flex justify-center items-center h-[600px] w-full text-9xl rounded-lg bg-neutral-200 ">+</h4>
+                <img src="rightArrow.svg" alt="rightArrow" class="w-10 cursor-pointer  absolute right-6"/>
 
             </div>
 
@@ -611,6 +705,7 @@ FILTERS--%>
         </div>
     </div>
 </div>
+
 
 </body>
 </html>
