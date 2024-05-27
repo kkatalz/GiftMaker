@@ -77,6 +77,12 @@
 
 <%--    <div class="text flex flex-row gap-5">--%>
 
+<%--visible only for Manager--%>
+<%--        <div class="flex justify-center items-center flex-col">--%>
+<%--            <img src="giftsProposed.svg" alt="giftsProposed" class="w-10 cursor-pointer ">--%>
+<%--            <a class="text-sm font-medium" href="#">Gifts</a>--%>
+<%--        </div>--%>
+
 <%--        <div class="flex justify-center items-center flex-col">--%>
 <%--            <img src="myProfile.svg" alt="profile-icon" class="w-10 cursor-pointer ">--%>
 <%--            <a class="text-sm font-medium" href="#">My profile</a>--%>
@@ -741,7 +747,8 @@ FILTERS--%>
                     </div>
 
                     <label>
-                        <input type="text" class="w-full text-xl placeholder:italic outline-none p-3 mt-8 rounded-lg border border-neutral-200"
+                        <input type="text"
+                               class="w-full text-xl placeholder:italic outline-none p-3 mt-8 rounded-lg border border-neutral-200"
                                placeholder="Description">
                     </label>
 
