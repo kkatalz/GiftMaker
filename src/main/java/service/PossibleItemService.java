@@ -41,6 +41,7 @@ public class PossibleItemService {
         PossibleItem possibleItem = PossibleItemDtoConverter.toPossibleItem(dto);
         try(PossibleItemDao possibleItemDao = daoFactory.createPossibleItemDao()) {
             possibleItemDao.create(possibleItem);
+            possibleItemDao.saveImages(possibleItem);
         }
     }
 
