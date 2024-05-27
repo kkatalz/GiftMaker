@@ -38,6 +38,16 @@ CREATE TABLE Possible_Item (
     image BLOB NOT NULL
 );
 
+CREATE TABLE Possible_Item_Image (
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  possible_item_id INTEGER NOT NULL,
+  image BLOB NOT NULL,
+  FOREIGN KEY (possible_item_id) REFERENCES Possible_Item(possible_item_id)
+                                 ON DELETE CASCADE
+                                 ON UPDATE CASCADE
+
+);
+
 -- create table User
 CREATE TABLE User (
     id_user INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
