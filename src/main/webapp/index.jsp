@@ -191,6 +191,8 @@
 
 <%--        <div class="flex flex-col">--%>
 <%--            <h5 class="text-lg font-light">id: 1000</h5>--%>
+
+
 <%--            <h4 class="text-2xl font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set </h4>--%>
 <%--        </div>--%>
 
@@ -586,7 +588,10 @@ FILTERS--%>
 <%--        <div class="flex flex-col gap-8">--%>
 
 <%--            <div class="gap-12">--%>
-<%--                <h4 class="text-xl font-light">id: 1000</h4>--%>
+<%--<div class="flex gap-2">--%>
+<%--    <h4 class="text-xl font-light">id: </h4>--%>
+<%--    <h4 class="text-xl font-light">1000</h4>--%>
+<%--</div>--%>
 <%--                <div class="space-y-4">--%>
 <%--                    <h4 class="text-3xl font-medium">Harry Potter The Complete Collection: 7 Book Box Set</h4>--%>
 <%--                    <h4 class="text-3xl font-bold mt-6">3200 UAH</h4>--%>
@@ -674,33 +679,79 @@ FILTERS--%>
         </div>
 
         <%--right menu with details--%>
-        <div class="flex flex-col gap-8">
+        <div class="flex flex-col gap-16">
+            <div class="relative w-64 ">
 
-            <div class="gap-12">
-                <h4 class="text-xl font-light">id: 1000</h4>
-                <div class="space-y-4">
-                    <h4 class="text-3xl font-medium">Harry Potter The Complete Collection: 7 Book Box Set</h4>
-                    <h4 class="text-3xl font-bold mt-6">3200 UAH</h4>
+                <!-- Custom Dropdown Trigger -->
+                <div class="w-[50%] flex justify-between items-center bg-white border border-gray-300 text-gray-700 text-lg py-3 px-4 rounded cursor-pointer"
+                     id="dropdownTrigger">
+                    <div>Category</div>
+                    <svg class="transform transition-transform h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </div>
 
-                    <p class="text-xl">
-                        Harry Potter is a series of seven fantasy novels written by British author J. K. Rowling.<br>
-                        Set consists of: <br>Philosopher's Stone (1997), Chamber of Secrets (1998), Prisoner of Azkaban
-                        (1999),
-                        Goblet of Fire (2000), Order of the Phoenix (2003), Half-Blood Prince (2005), Deathly Hallows
-                        (2007).
-                    </p>
+                <!-- Dropdown Menu -->
+                <div class="absolute mt-1 w-full rounded-md bg-white shadow-lg hidden" id="dropdownMenu">
+                    <ul class="text-gray-700 max-h-60 overflow-auto">
+                        <li class="flex items-center p-2 hover:bg-gray-100 cursor-pointer"
+                            onclick="toggleCheckbox(event)">
+                            <input type="checkbox" class="form-checkbox h-4 w-4 text-green-600">
+                            <span class="ml-2">Kitchen</span>
+                        </li>
+                        <li class="flex items-center p-2 hover:bg-gray-100 cursor-pointer"
+                            onclick="toggleCheckbox(event)">
+                            <input type="checkbox" class="form-checkbox h-4 w-4 text-red-600">
+                            <span class="ml-2">Literature</span>
+                        </li>
+                        <li class="flex items-center p-2 hover:bg-gray-100 cursor-pointer"
+                            onclick="toggleCheckbox(event)">
+                            <input type="checkbox" class="form-checkbox h-4 w-4 text-yellow-600">
+                            <span class="ml-2">Sport</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
+            <%-- info--%>
+            <div>
+                <div class="flex gap-2">
+                    <h4 class="text-xl font-light">id: </h4>
+                    <h4 class="text-xl font-light">x</h4>
+                </div>
 
-            <div class="flex justify-content items-center gap-5 ">
-                <button class="w-[50%] bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70 flex items-center justify-between px-6 py-3 text-white text-3xl font-medium">
-                    Buy
-                    <img src="buyIcon.svg" alt="Buy Icon" class="w-8 h-8"/>
-                </button>
+                <div class="gap-12">
+                    <label>
+                        <input type="text"
+                               class="text-3xl font-medium p-3 mt-3 rounded-lg placeholder:italic outline-none border border-neutral-200"
+                               placeholder="Title">
+                    </label>
 
-                <img src="likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>
+                    <div class="flex items-center p-3 text-3xl font-bold mt-6 rounded-lg border border-neutral-200 w-[60%]">
+                        <div class="flex-grow relative ">
+                            <label>
+                                <input type="text" class="w-full placeholder:italic outline-none "
+                                       placeholder="Price">
+                            </label>
+                            <h4 class="absolute inset-y-0 right-0">
+                                UAH
+                            </h4>
+                        </div>
+                    </div>
+
+                    <label>
+                        <input type="text" class="w-full text-xl placeholder:italic outline-none p-3 mt-8 rounded-lg border border-neutral-200"
+                               placeholder="Description">
+                    </label>
+
+                </div>
             </div>
+
+            <button class="w-[50%] bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70 flex items-center justify-center py-3 text-white text-3xl font-medium">
+                Publish
+            </button>
+
 
         </div>
     </div>
