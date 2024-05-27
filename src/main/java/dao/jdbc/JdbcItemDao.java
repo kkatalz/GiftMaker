@@ -42,7 +42,7 @@ public class JdbcItemDao implements ItemDao {
     private static final String SEARCH_BY_NAME_OR_ID = "SELECT * FROM Item " +
             "INNER JOIN Category USING (id_category) " +
             "WHERE LOWER(item_name) LIKE CONCAT('%', LOWER(?), '%') " +
-            "OR id_item LIKE CONCAT('%', LOWER(?), '%')";
+            "OR id_item LIKE CONCAT('%', ?, '%')";
     private final static String GET_ALL = "SELECT * FROM Item INNER JOIN Category USING (id_category)";
     private final static String GET_BY_ID = "SELECT * FROM Item INNER JOIN Category USING(id_category) WHERE id_item=?";
     private final static String CREATE = "INSERT INTO Item (id_category, item_name, item_price, description, amount, age, image) " +
@@ -215,9 +215,10 @@ public class JdbcItemDao implements ItemDao {
             query.setString(4, item.getDescription());
             query.setInt(5, item.getAmount());
             query.setInt(6, item.getAge());
-           // query.setBytes(7, item.readFile());
+
             InputStream fileContent = item.getPart().getInputStream();
-            query.setBinaryStream(7, fileContent);
+            byte[] imageBytes = readBytesFromInputStream(fileContent);
+            query.setBytes(7, imageBytes);
 
             query.executeUpdate();
 
@@ -230,13 +231,45 @@ public class JdbcItemDao implements ItemDao {
 //            throw new ServerException(e);
             e.printStackTrace();
         } catch (IOException e) {
+            e.printStackTrace();
             throw new RuntimeException(e);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+    }
+
+    private byte[] readBytesFromInputStream(InputStream inputStream) throws Exception {
+        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+        int nRead;
+        byte[] data = new byte[16384];
+        while ((nRead = inputStream.read(data, 0, data.length)) != -1) {
+            buffer.write(data, 0, nRead);
+        }
+        buffer.flush();
+        return buffer.toByteArray();
     }
 
     @Override
     public void update(Item item) {
-        // TODO: implement
+        try(PreparedStatement statement = connection.prepareStatement(UPDATE)) {
+            statement.setInt(1, item.getCategory().getId());
+            statement.setString(2, item.getName());
+            statement.setBigDecimal(3, item.getPrice());
+            statement.setString(4, item.getDescription());
+            statement.setInt(5, item.getAmount());
+            statement.setInt(6, item.getAge());
+
+            InputStream fileContent = item.getPart().getInputStream();
+            byte[] imageBytes = readBytesFromInputStream(fileContent);
+
+            statement.setBytes(7, imageBytes);
+            statement.setInt(8, item.getId());
+
+            statement.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -256,6 +289,7 @@ public class JdbcItemDao implements ItemDao {
             try {
                 connection.close();
             } catch (SQLException e) {
+                e.printStackTrace();
                 //LOGGER.error("JdbcItemDao close error", e);
                 //throw new ServerException(e);
             }
@@ -275,7 +309,6 @@ public class JdbcItemDao implements ItemDao {
 
         byte[] imageBytes = outputStream.toByteArray();
         String base64Image = Base64.getEncoder().encodeToString(imageBytes);
-        // TODO: finish and add to the Item image from ResultSet
         return new Item.Builder()
                 .setId(resultSet.getInt(ID))
                 .setCategory(JdbcCategoryDao.getCategoryFromResultSet(resultSet))
