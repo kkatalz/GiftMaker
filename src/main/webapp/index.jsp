@@ -187,7 +187,7 @@
 
 <%--    <div class="flex items-center justify-center gap-8">--%>
 
-<%--        <img src="harryPotterBooks.svg" alt="harryPotterBooks" class="w-40"/>--%>
+<%--        <img src="harryPotter.svg" alt="harryPotter" class="w-40"/>--%>
 
 <%--        <div class="flex flex-col">--%>
 <%--            <h5 class="text-lg font-light">id: 1000</h5>--%>
@@ -214,7 +214,7 @@
 
 <%--    <div class="flex items-center justify-center gap-8">--%>
 
-<%--        <img src="harryPotterBooks.svg" alt="harryPotterBooks" class="w-40"/>--%>
+<%--        <img src="harryPotter.svg" alt="harryPotter" class="w-40"/>--%>
 
 <%--        <div class="flex flex-col">--%>
 <%--            <h5 class="text-lg font-light">id: 1000</h5>--%>
@@ -362,7 +362,7 @@ FILTERS--%>
 <%--        <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow ">--%>
 
 <%--            <div class="flex items-center justify-center flex-col gap-2">--%>
-<%--                <img src="harryPotterBooks.svg" alt="harryPotterBooks" class="w-28"/>--%>
+<%--                <img src="harryPotter.svg" alt="harryPotter" class="w-28"/>--%>
 <%--                <h4 class="text-base font-medium leading-5">--%>
 <%--                    Harry Potter<br/>--%>
 <%--                    The Complete Collection: 7 Book Box Set--%>
@@ -389,7 +389,7 @@ FILTERS--%>
 <%--        <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow ">--%>
 
 <%--            <div class="flex items-center justify-center flex-col gap-2">--%>
-<%--                <img src="harryPotterBooks.svg" alt="harryPotterBooks" class="w-28"/>--%>
+<%--                <img src="harryPotter.svg" alt="harryPotter" class="w-28"/>--%>
 <%--                <h4 class="text-base font-medium leading-5">--%>
 <%--                    Harry Potter<br/>--%>
 <%--                    The Complete Collection: 7 Book Box Set--%>
@@ -416,7 +416,7 @@ FILTERS--%>
 <%--        <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow ">--%>
 
 <%--            <div class="flex items-center justify-center flex-col gap-2">--%>
-<%--                <img src="harryPotterBooks.svg" alt="harryPotterBooks" class="w-28"/>--%>
+<%--                <img src="harryPotter.svg" alt="harryPotter" class="w-28"/>--%>
 <%--                <h4 class="text-base font-medium leading-5">--%>
 <%--                    Harry Potter<br/>--%>
 <%--                    The Complete Collection: 7 Book Box Set--%>
@@ -443,7 +443,7 @@ FILTERS--%>
 <%--        <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow ">--%>
 
 <%--            <div class="flex items-center justify-center flex-col gap-2">--%>
-<%--                <img src="harryPotterBooks.svg" alt="harryPotterBooks" class="w-28"/>--%>
+<%--                <img src="harryPotter.svg" alt="harryPotter" class="w-28"/>--%>
 <%--                <h4 class="text-base font-medium leading-5">--%>
 <%--                    Harry Potter<br/>--%>
 <%--                    The Complete Collection: 7 Book Box Set--%>
@@ -470,7 +470,7 @@ FILTERS--%>
 <%--        <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow ">--%>
 
 <%--            <div class="flex items-center justify-center flex-col gap-2">--%>
-<%--                <img src="harryPotterBooks.svg" alt="harryPotterBooks" class="w-28"/>--%>
+<%--                <img src="harryPotter.svg" alt="harryPotter" class="w-28"/>--%>
 <%--                <h4 class="text-base font-medium leading-5">--%>
 <%--                    Harry Potter<br/>--%>
 <%--                    The Complete Collection: 7 Book Box Set--%>
@@ -497,7 +497,7 @@ FILTERS--%>
 <%--        <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow ">--%>
 
 <%--            <div class="flex items-center justify-center flex-col gap-2">--%>
-<%--                <img src="harryPotterBooks.svg" alt="harryPotterBooks" class="w-28"/>--%>
+<%--                <img src="harryPotter.svg" alt="harryPotter" class="w-28"/>--%>
 <%--                <h4 class="text-base font-medium leading-5">--%>
 <%--                    Harry Potter<br/>--%>
 <%--                    The Complete Collection: 7 Book Box Set--%>
@@ -554,23 +554,25 @@ FILTERS--%>
     </div>
 
     <%--main body--%>
-    <div class="flex justify-between items-center gap-16 mx-[16%] ">
+    <div class="flex justify-between items-center gap-12 mx-[16%] my-[2%]">
 
-        <div class="flex gap-10">
+        <div class="flex gap-12">
             <%--    jeft bar with images--%>
-            <div class="flex flex-col gap-3 ">
-                <img src="harryPotterBooks.svg" alt="harryPotterBooks" class="w-32 rounded-lg "/>
-                <img src="harryPotterBooks.svg" alt="harryPotterBooks" class="w-32 rounded-lg"/>
-                <img src="harryPotterBooks.svg" alt="harryPotterBooks" class="w-32 rounded-lg"/>
-                <img src="harryPotterBooks.svg" alt="harryPotterBooks" class="w-32 rounded-lg"/>
-                <img src="harryPotterBooks.svg" alt="harryPotterBooks" class="w-32 rounded-lg"/>
-                <img src="harryPotterBooks.svg" alt="harryPotterBooks" class="w-32 rounded-lg"/>
+            <div class="flex flex-col gap-3 max-h-[700px] overflow-y-auto pr-4">
+                <img src="harryPotter.svg" alt="harryPotter" class="w-32 rounded-lg "/>
+                <img src="harryPotter.svg" alt="harryPotter" class="w-32 rounded-lg"/>
+                <img src="harryPotter.svg" alt="harryPotter" class="w-32 rounded-lg"/>
+                <img src="harryPotter.svg" alt="harryPotter" class="w-32 rounded-lg"/>
+                <img src="harryPotter.svg" alt="harryPotter" class="w-32 rounded-lg"/>
+                <img src="harryPotter.svg" alt="harryPotter" class="w-32 rounded-lg"/>
+                <img src="harryPotter.svg" alt="harryPotter" class="w-32 rounded-lg"/>
+
             </div>
 
             <%--        main image--%>
-            <div class="flex items-center justify-center rounded-lg w-[600px] relative">
+            <div class="flex items-center justify-center rounded-lg w-[600px] relative ">
                 <img src="leftArrow.svg" alt="leftArrow" class="w-10 cursor-pointer shadow absolute left-6"/>
-                <img src="harryPotterBooks.svg" alt="harryPotterBooks" class="  "/>
+                <img src="harryPotter.svg" alt="harryPotter" class="rounded-lg shadow"/>
                 <img src="rightArrow.svg" alt="rightArrow" class="w-10 cursor-pointer shadow absolute right-6"/>
 
             </div>
@@ -580,18 +582,20 @@ FILTERS--%>
         <%--right menu with details--%>
         <div class="flex flex-col gap-8">
 
-            <div>
-            <h4 class="text-xl font-light">id: 1000</h4>
-            <div class="space-y-4">
-                <h4 class="text-3xl font-medium">Harry Potter The Complete Collection: 7 Book Box Set</h4>
-                <p class="text-xl">
-                    Harry Potter is a series of seven fantasy novels written by British author J. K. Rowling.<br>
-                    Set consists of: <br>Philosopher's Stone (1997), Chamber of Secrets (1998), Prisoner of Azkaban
-                    (1999),
-                    Goblet of Fire (2000), Order of the Phoenix (2003), Half-Blood Prince (2005), Deathly Hallows (2007).
-                </p>
-            </div>
-            <h4 class="text-2xl font-bold mt-6">3200 UAH</h4>
+            <div class="gap-12">
+                <h4 class="text-xl font-light">id: 1000</h4>
+                <div class="space-y-4">
+                    <h4 class="text-3xl font-medium">Harry Potter The Complete Collection: 7 Book Box Set</h4>
+                    <h4 class="text-2xl font-bold mt-6">3200 UAH</h4>
+
+                    <p class="text-xl">
+                        Harry Potter is a series of seven fantasy novels written by British author J. K. Rowling.<br>
+                        Set consists of: <br>Philosopher's Stone (1997), Chamber of Secrets (1998), Prisoner of Azkaban
+                        (1999),
+                        Goblet of Fire (2000), Order of the Phoenix (2003), Half-Blood Prince (2005), Deathly Hallows
+                        (2007).
+                    </p>
+                </div>
             </div>
 
 
