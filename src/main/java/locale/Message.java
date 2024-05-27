@@ -16,6 +16,7 @@ public final class Message {
     public static final String INVALID_PASSWORD = "Invalid password entered";
     public static final String INVALID_PASSWORD_AND_CONFIRM = "Password and confirm password are not the same.";
 
+    public static final String INVALID_IMAGES = "Must be at least one image of the item.";
 
 
 }

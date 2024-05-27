@@ -54,7 +54,7 @@ public class PostAddUserCommand extends HttpServlet {
                 .setName(request.getParameter("name"))
                 .setSurname(request.getParameter("surname"))
                 .setDateOfBirth(request.getParameter("dateOfBirth"))
-                .setRole(Role.forValue(request.getParameter("role")))
+                .setRole(Role.forValue("client"))
                 .setUsername(request.getParameter("username"))
                 .setPassword(request.getParameter("password"))
                 .setConfirmPassword(request.getParameter("confirmPassword"))
