@@ -13,8 +13,17 @@ CREATE TABLE Item (
     description VARCHAR(100) NOT NULL,
     amount INTEGER NOT NULL,
     age INTEGER NOT NULL,
-    image BLOB NOT NULL,
     FOREIGN KEY (id_category) REFERENCES Category(id_category)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+-- to store images for each item
+CREATE TABLE Item_Image (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    id_item INTEGER NOT NULL,
+    image BLOB NOT NULL,
+    FOREIGN KEY (id_item) REFERENCES Item(id_item)
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
