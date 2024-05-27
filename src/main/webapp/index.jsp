@@ -586,7 +586,7 @@ FILTERS--%>
                 <h4 class="text-xl font-light">id: 1000</h4>
                 <div class="space-y-4">
                     <h4 class="text-3xl font-medium">Harry Potter The Complete Collection: 7 Book Box Set</h4>
-                    <h4 class="text-2xl font-bold mt-6">3200 UAH</h4>
+                    <h4 class="text-3xl font-bold mt-6">3200 UAH</h4>
 
                     <p class="text-xl">
                         Harry Potter is a series of seven fantasy novels written by British author J. K. Rowling.<br>
