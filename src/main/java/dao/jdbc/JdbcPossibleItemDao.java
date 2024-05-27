@@ -3,10 +3,16 @@ package dao.jdbc;
 import dao.PossibleItemDao;
 import entity.PossibleItem;
 
+import javax.servlet.http.Part;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import static dao.jdbc.JdbcItemDao.getBase64ImageFromResultSet;
 
 public class JdbcPossibleItemDao implements PossibleItemDao {
 
@@ -18,8 +24,8 @@ public class JdbcPossibleItemDao implements PossibleItemDao {
     private final static String IMAGE = "image";
     private final static String GET_ALL = "SELECT * FROM Possible_Item";
     private final static String GET_BY_ID = "SELECT * FROM Possible_Item WHERE possible_item_id=?";
-    private final static String CREATE = "INSERT INTO Possible_Item (item_name, item_price, description, age, image) " +
-            "VALUES(?, ?, ?, ?, ?)";
+    private final static String CREATE = "INSERT INTO Possible_Item (item_name, item_price, description, age) " +
+            "VALUES(?, ?, ?, ?)";
     private final static String UPDATE = ""; // TODO: is this needed?
     private final static String DELETE = "DELETE FROM Possible_Item WHERE possible_item_id=?";
 
@@ -48,8 +54,12 @@ public class JdbcPossibleItemDao implements PossibleItemDao {
         try(Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(GET_ALL)) {
 
-            while(resultSet.next())
-                possibleItems.add(getPossibleItemFromResultSet(resultSet));
+            while(resultSet.next()) {
+                PossibleItem possibleItem = getPossibleItemFromResultSet(resultSet);
+                possibleItem.setBase64Image(getBase64ImagesByItemId(possibleItem.getId()));
+                possibleItems.add(possibleItem);
+
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -69,12 +79,70 @@ public class JdbcPossibleItemDao implements PossibleItemDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        possibleItem.ifPresent(value -> value.setBase64Image(getBase64ImagesByItemId(id)));
         return possibleItem;
     }
 
     @Override
     public void create(PossibleItem possibleItem) {
-        // TODO: implement
+        try (PreparedStatement query = connection.prepareStatement(CREATE, Statement.RETURN_GENERATED_KEYS)) {
+            query.setString(1, possibleItem.getName());
+            query.setBigDecimal(2, possibleItem.getPrice());
+            query.setString(3, possibleItem.getDescription());
+            query.setInt(4, possibleItem.getAge());
+
+            query.executeUpdate();
+
+            ResultSet keys = query.getGeneratedKeys();
+            if (keys.next())
+                possibleItem.setId(keys.getInt(1));
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void saveImages(PossibleItem possibleItem) {
+        List<Part> parts = possibleItem.getPart();
+        String CREATE_IMAGES = "INSERT INTO Possible_Item_Image(possible_item_id, image) VALUES(?, ?)";
+
+        try(PreparedStatement statement = connection.prepareStatement(CREATE_IMAGES, Statement.RETURN_GENERATED_KEYS)) {
+            for(Part part : parts) {
+                statement.setInt(1, possibleItem.getId());
+
+                InputStream fileContent = part.getInputStream();
+                byte[] imageBytes = readBytesFromInputStream(fileContent);
+
+                statement.setBytes(2, imageBytes);
+                statement.addBatch();
+            }
+            statement.executeBatch();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @Override
+    public List<String> getBase64ImagesByItemId(Integer possibleItemId) {
+        String GET_IMAGES_BY_ITEM_ID = "SELECT * FROM Possible_Item_Image WHERE possible_item_id=?";
+        List<String> images = new ArrayList<>();
+
+        try(PreparedStatement query = connection.prepareStatement(GET_IMAGES_BY_ITEM_ID)) {
+            query.setInt(1, possibleItemId);
+            ResultSet resultSet = query.executeQuery();
+            while (resultSet.next())
+                images.add(getBase64ImageFromResultSet(resultSet));
+
+        } catch (SQLException | IOException e) {
+            e.printStackTrace();
+        }
+
+        return images;
+
     }
 
     @Override
@@ -106,8 +174,18 @@ public class JdbcPossibleItemDao implements PossibleItemDao {
         }
     }
 
+    private byte[] readBytesFromInputStream(InputStream inputStream) throws Exception {
+        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+        int nRead;
+        byte[] data = new byte[16384];
+        while ((nRead = inputStream.read(data, 0, data.length)) != -1) {
+            buffer.write(data, 0, nRead);
+        }
+        buffer.flush();
+        return buffer.toByteArray();
+    }
+
     protected static PossibleItem getPossibleItemFromResultSet(ResultSet resultSet) throws SQLException {
-        // TODO: finish and add to the PossibleItem image
         return new PossibleItem.Builder()
                 .setId(resultSet.getInt(ID))
                 .setName(resultSet.getString(NAME))

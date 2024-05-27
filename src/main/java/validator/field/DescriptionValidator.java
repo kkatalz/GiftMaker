@@ -20,7 +20,7 @@ public class DescriptionValidator extends AbstractFieldValidatorHandler {
 
     @Override
     public void validateField(String fieldValue, List<String> errors) {
-        if(fieldValue.isEmpty() || fieldValue.length() > 100)
+        if(fieldValue.isEmpty() || fieldValue.length() > 1000)
             errors.add(Message.INVALID_DESCRIPTION);
     }
 }
