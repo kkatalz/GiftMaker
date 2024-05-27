@@ -184,7 +184,7 @@
 <%--</div>--%>
 <%--<hr class="border-neutral-500 mt-6"/>--%>
 
-<%--&lt;%&ndash;Contaier with 1st item&ndash;%&gt;--%>
+<%--Contaier with 1st item--%>
 <%--<div class="custom-grid mt-8">--%>
 
 <%--    <div class="flex items-center justify-center">--%>
@@ -393,7 +393,7 @@ FILTERS--%>
 <%--            </div>--%>
 <%--        </div>--%>
 
-<%--        &lt;%&ndash;        2 item&ndash;%&gt;--%>
+<%--        2 item--%>
 <%--        <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow ">--%>
 
 <%--            <div class="flex items-center justify-center flex-col gap-2">--%>
@@ -561,7 +561,7 @@ FILTERS--%>
 
 <%--    </div>--%>
 
-<%--    &lt;%&ndash;main body&ndash;%&gt;--%>
+<%--    main body--%>
 <%--    <div class="flex justify-between items-center gap-12 mx-[12%] my-[2%]">--%>
 
 <%--        <div class="flex gap-12">--%>
@@ -628,143 +628,342 @@ FILTERS--%>
 
 
 <%--CREATE ITEM DETAILED PAGE--%>
-<div class="mx-[3%] my-6">
+<%--<div class="mx-[3%] my-6">--%>
 
-    <%--1.    header--%>
-    <div class="flex justify-between items-center">
-        <img src="logoBlack.svg" alt="logo" class="w-40 cursor-pointer">
-
-
-        <div class="text flex flex-row gap-5">
-
-            <div class="flex justify-center items-center flex-col">
-                <img src="myProfile.svg" alt="profile-icon" class="w-10 cursor-pointer ">
-                <a class="text-sm font-medium" href="#">My profile</a>
-            </div>
-
-            <div class="flex justify-center items-center flex-col">
-                <img src="liked.svg" alt="liked-items" class="w-10 cursor-pointer">
-                <a class="text-sm font-medium" href="#">Liked</a>
-
-            </div>
-
-            <div class="flex justify-center items-center flex-col">
-                <img src="basket.svg" alt="basket-icon" class="w-10 cursor-pointer">
-                <a class="text-sm font-medium" href="#">Basket</a>
-
-            </div>
-        </div>
-
-    </div>
-
-    <%--main body--%>
-    <div class="flex justify-between items-center gap-12 mx-[12%] my-[2%]">
-
-        <div class="flex gap-12">
-            <%--    jeft bar with images--%>
-            <div class="flex flex-col gap-3 max-h-[700px] overflow-y-auto pr-4 text-6xl ">
-                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>
-                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>
-                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>
-                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>
-                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>
-                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>
-                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>
+<%--    &lt;%&ndash;1.    header&ndash;%&gt;--%>
+<%--    <div class="flex justify-between items-center">--%>
+<%--        <img src="logoBlack.svg" alt="logo" class="w-40 cursor-pointer">--%>
 
 
-            </div>
+<%--        <div class="text flex flex-row gap-5">--%>
 
-            <%--        main image--%>
-            <div class="flex items-center justify-center rounded-lg w-[600px] relative">
-                <img src="leftArrow.svg" alt="leftArrow" class="w-10 cursor-pointer  absolute left-6"/>
-                <h4 class="flex justify-center items-center h-[600px] w-full text-9xl rounded-lg bg-neutral-200 ">+</h4>
-                <img src="rightArrow.svg" alt="rightArrow" class="w-10 cursor-pointer  absolute right-6"/>
+<%--            <div class="flex justify-center items-center flex-col">--%>
+<%--                <img src="myProfile.svg" alt="profile-icon" class="w-10 cursor-pointer ">--%>
+<%--                <a class="text-sm font-medium" href="#">My profile</a>--%>
+<%--            </div>--%>
 
-            </div>
+<%--            <div class="flex justify-center items-center flex-col">--%>
+<%--                <img src="liked.svg" alt="liked-items" class="w-10 cursor-pointer">--%>
+<%--                <a class="text-sm font-medium" href="#">Liked</a>--%>
 
-        </div>
+<%--            </div>--%>
 
-        <%--right menu with details--%>
-        <div class="flex flex-col gap-16">
-            <div class="relative w-64 ">
+<%--            <div class="flex justify-center items-center flex-col">--%>
+<%--                <img src="basket.svg" alt="basket-icon" class="w-10 cursor-pointer">--%>
+<%--                <a class="text-sm font-medium" href="#">Basket</a>--%>
 
-                <!-- Custom Dropdown Trigger -->
-                <div class="w-[50%] flex justify-between items-center bg-white border border-gray-300 text-gray-700 text-lg py-3 px-4 rounded cursor-pointer"
-                     id="dropdownTrigger">
-                    <div>Category</div>
-                    <svg class="transform transition-transform h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none"
-                         viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
+<%--            </div>--%>
+<%--        </div>--%>
+
+<%--    </div>--%>
+
+<%--    &lt;%&ndash;main body&ndash;%&gt;--%>
+<%--    <div class="flex justify-between items-center gap-12 mx-[12%] my-[2%]">--%>
+
+<%--        <div class="flex gap-12">--%>
+<%--            &lt;%&ndash;    jeft bar with images&ndash;%&gt;--%>
+<%--            <div class="flex flex-col gap-3 max-h-[700px] overflow-y-auto pr-4 text-6xl ">--%>
+<%--                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>--%>
+<%--                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>--%>
+<%--                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>--%>
+<%--                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>--%>
+<%--                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>--%>
+<%--                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>--%>
+<%--                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>--%>
+
+
+<%--            </div>--%>
+
+<%--            &lt;%&ndash;        main image&ndash;%&gt;--%>
+<%--            <div class="flex items-center justify-center rounded-lg w-[600px] relative">--%>
+<%--                <img src="leftArrow.svg" alt="leftArrow" class="w-10 cursor-pointer  absolute left-6"/>--%>
+<%--                <h4 class="flex justify-center items-center h-[600px] w-full text-9xl rounded-lg bg-neutral-200 ">+</h4>--%>
+<%--                <img src="rightArrow.svg" alt="rightArrow" class="w-10 cursor-pointer  absolute right-6"/>--%>
+
+<%--            </div>--%>
+
+<%--        </div>--%>
+
+<%--        &lt;%&ndash;right menu with details&ndash;%&gt;--%>
+<%--        <div class="flex flex-col gap-16">--%>
+<%--            <div class="relative w-64 ">--%>
+
+<%--                <!-- Custom Dropdown Trigger -->--%>
+<%--                <div class="w-[50%] flex justify-between items-center bg-white border border-gray-300 text-gray-700 text-lg py-3 px-4 rounded cursor-pointer"--%>
+<%--                     id="dropdownTrigger">--%>
+<%--                    <div>Category</div>--%>
+<%--                    <svg class="transform transition-transform h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none"--%>
+<%--                         viewBox="0 0 24 24" stroke="currentColor">--%>
+<%--                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>--%>
+<%--                    </svg>--%>
+<%--                </div>--%>
+
+<%--                <!-- Dropdown Menu -->--%>
+<%--                <div class="absolute mt-1 w-full rounded-md bg-white shadow-lg hidden" id="dropdownMenu">--%>
+<%--                    <ul class="text-gray-700 max-h-60 overflow-auto">--%>
+<%--                        <li class="flex items-center p-2 hover:bg-gray-100 cursor-pointer"--%>
+<%--                            onclick="toggleCheckbox(event)">--%>
+<%--                            <input type="checkbox" class="form-checkbox h-4 w-4 text-green-600">--%>
+<%--                            <span class="ml-2">Kitchen</span>--%>
+<%--                        </li>--%>
+<%--                        <li class="flex items-center p-2 hover:bg-gray-100 cursor-pointer"--%>
+<%--                            onclick="toggleCheckbox(event)">--%>
+<%--                            <input type="checkbox" class="form-checkbox h-4 w-4 text-red-600">--%>
+<%--                            <span class="ml-2">Literature</span>--%>
+<%--                        </li>--%>
+<%--                        <li class="flex items-center p-2 hover:bg-gray-100 cursor-pointer"--%>
+<%--                            onclick="toggleCheckbox(event)">--%>
+<%--                            <input type="checkbox" class="form-checkbox h-4 w-4 text-yellow-600">--%>
+<%--                            <span class="ml-2">Sport</span>--%>
+<%--                        </li>--%>
+<%--                    </ul>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+
+<%--            &lt;%&ndash; info&ndash;%&gt;--%>
+<%--            <div>--%>
+<%--                <div class="flex gap-2">--%>
+<%--                    <h4 class="text-xl font-light">id: </h4>--%>
+<%--                    <h4 class="text-xl font-light">x</h4>--%>
+<%--                </div>--%>
+
+<%--                <div class="gap-12">--%>
+<%--                    <label>--%>
+<%--                        <input type="text"--%>
+<%--                               class="text-3xl font-medium p-3 mt-3 rounded-lg placeholder:italic outline-none border border-neutral-200"--%>
+<%--                               placeholder="Title">--%>
+<%--                    </label>--%>
+
+<%--                    <div class="flex items-center p-3 text-3xl font-bold mt-6 rounded-lg border border-neutral-200 w-[60%]">--%>
+<%--                        <div class="flex-grow relative ">--%>
+<%--                            <label>--%>
+<%--                                <input type="text" class="w-full placeholder:italic outline-none "--%>
+<%--                                       placeholder="Price">--%>
+<%--                            </label>--%>
+<%--                            <h4 class="absolute inset-y-0 right-0">--%>
+<%--                                UAH--%>
+<%--                            </h4>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+
+<%--                    <label>--%>
+<%--                        <input type="text"--%>
+<%--                               class="w-full text-xl placeholder:italic outline-none p-3 mt-8 rounded-lg border border-neutral-200"--%>
+<%--                               placeholder="Description">--%>
+<%--                    </label>--%>
+
+<%--                </div>--%>
+<%--            </div>--%>
+
+<%--            <button class="w-[50%] bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70 flex items-center justify-center py-3 text-white text-3xl font-medium">--%>
+<%--                Publish--%>
+<%--            </button>--%>
+
+
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</div>--%>
+
+
+<%--BASKET FINAL--%>
+<div>
+    <%--    <div class="mx-[3%] my-6">--%>
+
+    <%--        &lt;%&ndash;1.    header&ndash;%&gt;--%>
+    <%--        <div class="flex justify-between items-center">--%>
+    <%--            <img src="logoBlack.svg" alt="logo" class="w-40 cursor-pointer">--%>
+
+
+    <%--            <div class="text flex flex-row gap-5">--%>
+
+    <%--                <div class="flex justify-center items-center flex-col">--%>
+    <%--                    <img src="myProfile.svg" alt="profile-icon" class="w-10 cursor-pointer ">--%>
+    <%--                    <a class="text-sm font-medium" href="#">My profile</a>--%>
+    <%--                </div>--%>
+
+    <%--                <div class="flex justify-center items-center flex-col">--%>
+    <%--                    <img src="liked.svg" alt="liked-items" class="w-10 cursor-pointer">--%>
+    <%--                    <a class="text-sm font-medium" href="#">Liked</a>--%>
+
+    <%--                </div>--%>
+
+    <%--                <div class="flex justify-center items-center flex-col">--%>
+    <%--                    <img src="basket.svg" alt="basket-icon" class="w-10 cursor-pointer">--%>
+    <%--                    <a class="text-sm font-medium" href="#">Basket</a>--%>
+
+    <%--                </div>--%>
+    <%--            </div>--%>
+
+    <%--        </div>--%>
+
+    <%--        &lt;%&ndash;    main body&ndash;%&gt;--%>
+    <%--        <div class="flex justify-between items-center gap-12 mx-[12%] my-[2%]">--%>
+
+    <%--            <div class="flex gap-12">--%>
+    <%--                &lt;%&ndash;    jeft bar with images&ndash;%&gt;--%>
+    <%--                <div class="flex flex-col gap-3 max-h-[700px] overflow-y-auto pr-4 text-6xl ">--%>
+
+    <%--                    <img src="harryPotter.svg" alt="harryPotter" class="max-h-32 max-w-32 min-h-32 w-32 rounded-lg "/>--%>
+    <%--                    <img src="harryPotter.svg" alt="harryPotter" class="min-h-32 w-32 rounded-lg "/>--%>
+    <%--                    <img src="harryPotter.svg" alt="harryPotter" class="min-h-32 w-32 rounded-lg "/>--%>
+    <%--                    <img src="harryPotter.svg" alt="harryPotter" class="min-h-32 w-32 rounded-lg "/>--%>
+    <%--                    <img src="harryPotter.svg" alt="harryPotter" class="min-h-32 w-32 rounded-lg "/>--%>
+    <%--                    <img src="harryPotter.svg" alt="harryPotter" class="min-h-32 w-32 rounded-lg "/>--%>
+    <%--                    <img src="harryPotter.svg" alt="harryPotter" class="min-h-32 w-32 rounded-lg "/>--%>
+    <%--                    <img src="harryPotter.svg" alt="harryPotter" class="min-h-32 w-32 rounded-lg "/>--%>
+
+
+    <%--                </div>--%>
+
+    <%--                &lt;%&ndash;        main image&ndash;%&gt;--%>
+    <%--                <div class="flex items-center justify-center rounded-lg w-[600px] relative ">--%>
+    <%--                    <img src="leftArrow.svg" alt="leftArrow" class="w-10 cursor-pointer shadow absolute left-6"/>--%>
+    <%--                    <img src="harryPotter.svg" alt="harryPotter" class="rounded-lg shadow"/>--%>
+    <%--                    <img src="rightArrow.svg" alt="rightArrow" class="w-10 cursor-pointer shadow absolute right-6"/>--%>
+
+    <%--                </div>--%>
+
+    <%--            </div>--%>
+
+    <%--            &lt;%&ndash;right menu with details&ndash;%&gt;--%>
+    <%--            <div class="flex flex-col gap-8">--%>
+
+    <%--                <div class="gap-12">--%>
+    <%--                    <div class="flex gap-2">--%>
+    <%--                        <h4 class="text-xl font-light">id: </h4>--%>
+    <%--                        <h4 class="text-xl font-light">1000</h4>--%>
+    <%--                    </div>--%>
+    <%--                    <div class="space-y-4">--%>
+    <%--                        <h4 class="text-3xl font-medium">Harry Potter The Complete Collection: 7 Book Box Set</h4>--%>
+    <%--                        <h4 class="text-3xl font-bold mt-6">3200 UAH</h4>--%>
+
+    <%--                        <p class="text-xl">--%>
+    <%--                            Harry Potter is a series of seven fantasy novels written by British author J. K.--%>
+    <%--                            Rowling.<br>--%>
+    <%--                            Set consists of: <br>Philosopher's Stone (1997), Chamber of Secrets (1998), Prisoner of--%>
+    <%--                            Azkaban--%>
+    <%--                            (1999),--%>
+    <%--                            Goblet of Fire (2000), Order of the Phoenix (2003), Half-Blood Prince (2005), Deathly--%>
+    <%--                            Hallows--%>
+    <%--                            (2007).--%>
+    <%--                        </p>--%>
+    <%--                    </div>--%>
+    <%--                </div>--%>
+
+
+    <%--                <div class="flex justify-content items-center gap-5 ">--%>
+    <button data-modal-target="default-modal" data-modal-toggle="default-modal"
+            class="w-[50%] bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70 flex items-center justify-between px-6 py-3 text-white text-3xl font-medium">
+        Buy
+        <img src="buyIcon.svg" alt="Buy Icon" class="w-8 h-8"/>
+    </button>
+
+    <%--                    <img src="likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>--%>
+    <%--                </div>--%>
+
+    <%--            </div>--%>
+    <%--        </div>--%>
+    <%--    </div>--%>
+
+
+    <!-- Main modal -->
+    <div id="default-modal" tabindex="-1" aria-hidden="true"
+         class="absolute flex hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center h-[calc(100%-1rem)]">
+        <div class=" p-4  max-w-7xl max-h-[90vh]">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                    <h3 class="text-2xl font-semibold text-black">
+                        Basket
+                    </h3>
+                    <button type="button"
+                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                            data-modal-hide="default-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                             viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
                 </div>
 
-                <!-- Dropdown Menu -->
-                <div class="absolute mt-1 w-full rounded-md bg-white shadow-lg hidden" id="dropdownMenu">
-                    <ul class="text-gray-700 max-h-60 overflow-auto">
-                        <li class="flex items-center p-2 hover:bg-gray-100 cursor-pointer"
-                            onclick="toggleCheckbox(event)">
-                            <input type="checkbox" class="form-checkbox h-4 w-4 text-green-600">
-                            <span class="ml-2">Kitchen</span>
-                        </li>
-                        <li class="flex items-center p-2 hover:bg-gray-100 cursor-pointer"
-                            onclick="toggleCheckbox(event)">
-                            <input type="checkbox" class="form-checkbox h-4 w-4 text-red-600">
-                            <span class="ml-2">Literature</span>
-                        </li>
-                        <li class="flex items-center p-2 hover:bg-gray-100 cursor-pointer"
-                            onclick="toggleCheckbox(event)">
-                            <input type="checkbox" class="form-checkbox h-4 w-4 text-yellow-600">
-                            <span class="ml-2">Sport</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+                <!-- Modal body -->
+                <div class="flex flex-col justify-center items-center p-4 space-y-12">
 
-            <%-- info--%>
-            <div>
-                <div class="flex gap-2">
-                    <h4 class="text-xl font-light">id: </h4>
-                    <h4 class="text-xl font-light">x</h4>
-                </div>
+                    <%--1st item--%>
+                    <div class="flex items-center justify-center gap-8">
+                        <img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>
 
-                <div class="gap-12">
-                    <label>
-                        <input type="text"
-                               class="text-3xl font-medium p-3 mt-3 rounded-lg placeholder:italic outline-none border border-neutral-200"
-                               placeholder="Title">
-                    </label>
-
-                    <div class="flex items-center p-3 text-3xl font-bold mt-6 rounded-lg border border-neutral-200 w-[60%]">
-                        <div class="flex-grow relative ">
-                            <label>
-                                <input type="text" class="w-full placeholder:italic outline-none "
-                                       placeholder="Price">
-                            </label>
-                            <h4 class="absolute inset-y-0 right-0">
-                                UAH
+                        <div class="flex flex-col gap-4">
+                            <h4 class="text-lg font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set
                             </h4>
+
+                            <div class="flex flex-row gap-2">
+                                <div class="cursor-pointer flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8">
+                                    -
+                                </div>
+                                <h4 class="flex justify-center items-center text-3xl">
+                                    5
+                                </h4>
+                                <div class="cursor-pointer flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8">
+                                    +
+                                </div>
+                            </div>
+
+                        </div>
+                        <h4 class="text-2xl font-medium flex items-center justify-center">3200</h4>
+
+                        <div class="flex items-center justify-center">
+                            <img src="bin.svg" alt="bin" class=" w-10 cursor-pointer flex items-center justify-center"/>
                         </div>
                     </div>
 
-                    <label>
-                        <input type="text"
-                               class="w-full text-xl placeholder:italic outline-none p-3 mt-8 rounded-lg border border-neutral-200"
-                               placeholder="Description">
-                    </label>
+                    <%--  2nd item--%>
+                    <div class="flex items-center justify-center gap-8">
+                        <img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>
+
+                        <div class="flex flex-col gap-4">
+                            <h4 class="text-lg font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set
+                            </h4>
+
+                            <div class="flex flex-row gap-2">
+                                <div class="flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8 cursor-pointer">
+                                    -
+                                </div>
+                                <h4 class="flex justify-center items-center text-3xl">
+                                    5
+                                </h4>
+                                <div class="cursor-pointer flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8">
+                                    +
+                                </div>
+                            </div>
+
+                        </div>
+                        <h4 class="text-2xl font-medium flex items-center justify-center">3200</h4>
+
+                        <div class="flex items-center justify-center">
+                            <img src="bin.svg" alt="bin" class=" w-10 cursor-pointer flex items-center justify-center"/>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Modal footer -->
+                <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                    <button data-modal-hide="default-modal" type="button"
+                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Purchase
+                    </button>
 
                 </div>
             </div>
-
-            <button class="w-[50%] bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70 flex items-center justify-center py-3 text-white text-3xl font-medium">
-                Publish
-            </button>
-
-
         </div>
     </div>
 </div>
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 </html>
 
