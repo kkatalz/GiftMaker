@@ -74,6 +74,7 @@ public class ItemService {
         Item item = ItemDtoItemConverter.toItem(dto);
         try(ItemDao itemDao = daoFactory.createItemDao()) {
             itemDao.create(item);
+            itemDao.saveImages(item);
         }
     }
 

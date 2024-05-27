@@ -20,7 +20,7 @@ public class SurnameValidator extends AbstractFieldValidatorHandler {
 
     @Override
     public void validateField(String fieldValue, List<String> errors) {
-        if(fieldValue.isEmpty() || fieldValue.length() > 50)
+        if(fieldValue.isEmpty() || fieldValue.length() > 100)
             errors.add(Message.INVALID_SURNAME);
     }
 }

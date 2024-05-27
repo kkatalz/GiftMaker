@@ -12,5 +12,7 @@ public interface ItemDao extends GenericDao<Item, Integer>, AutoCloseable {
     List<Item> filterByPrice(BigDecimal minPrice, BigDecimal maxPrice);
     List<Item> filterByAge(int age);
     List<Item> searchByItemNameOrId(String name);
+    void saveImages(Item item);
+    List<String> getBase64ImagesByItemId(Integer itemId);
     void close();
 }

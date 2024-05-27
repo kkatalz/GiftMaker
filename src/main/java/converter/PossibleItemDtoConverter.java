@@ -13,7 +13,7 @@ public class PossibleItemDtoConverter {
                 .setPrice(new BigDecimal(dto.getPrice()))
                 .setDescription(dto.getDescription())
                 .setAge(Integer.parseInt(dto.getAge()))
-                .setPart(dto.getPart())
+                .setPart(dto.getParts())
                 .build();
     }
 }

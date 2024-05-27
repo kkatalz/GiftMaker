@@ -4,6 +4,7 @@ import entity.CustomBuilder;
 
 import javax.servlet.http.Part;
 import java.io.File;
+import java.util.List;
 
 public class PossibleItemDto {
 
@@ -12,20 +13,19 @@ public class PossibleItemDto {
     private String price;
     private String description;
     private String age;
-    private String base64Image; // might be the proper format to display on the page
-    private File imageForInsertion; // should be used in insertion to the table
-    private Part part;
+    private List<String> base64Images; // might be the proper format to display on the page
+    private List<Part> parts;
 
     public void setId(Integer id) {
         this.id = id;
     }
 
-    public Part getPart() {
-        return part;
+    public List<Part> getParts() {
+        return parts;
     }
 
-    public void setPart(Part part) {
-        this.part = part;
+    public void setPart(List<Part> parts) {
+        this.parts = parts;
     }
 
     public static class Builder implements CustomBuilder<PossibleItemDto> {
@@ -58,18 +58,14 @@ public class PossibleItemDto {
             return this;
         }
 
-        public Builder setBase64Image(String base64Image) {
-            possibleItem.base64Image = base64Image;
+        public Builder setBase64Images(List<String> base64Image) {
+            possibleItem.base64Images = base64Image;
             return this;
         }
 
-        public Builder setImageForInsertion(File imageForInsertion) {
-            possibleItem.imageForInsertion = imageForInsertion;
-            return this;
-        }
 
-        public Builder setPart(Part part) {
-            possibleItem.part = part;
+        public Builder setParts(List<Part> part) {
+            possibleItem.parts = part;
             return this;
         }
 
@@ -120,21 +116,14 @@ public class PossibleItemDto {
         this.age = age;
     }
 
-    public String getBase64Image() {
-        return base64Image;
+    public List<String> getBase64Image() {
+        return base64Images;
     }
 
-    public void setBase64Image(String base64Image) {
-        this.base64Image = base64Image;
+    public void setBase64Image(List<String> base64Image) {
+        this.base64Images = base64Image;
     }
 
-    public File getImageForInsertion() {
-        return imageForInsertion;
-    }
-
-    public void setImageForInsertion(File imageForInsertion) {
-        this.imageForInsertion = imageForInsertion;
-    }
 
     @Override
     public String toString() {
@@ -144,8 +133,7 @@ public class PossibleItemDto {
                 ", price=" + price +
                 ", description='" + description + '\'' +
                 ", age=" + age +
-                ", base64Image='" + base64Image + '\'' +
-                ", imageForInsertion=" + imageForInsertion +
+                ", base64Image='" + base64Images + '\'' +
                 '}';
     }
 }

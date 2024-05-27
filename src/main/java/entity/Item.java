@@ -3,6 +3,8 @@ package entity;
 import javax.servlet.http.Part;
 import java.io.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Item {
     private Integer id;
@@ -12,12 +14,32 @@ public class Item {
     private String description;
     private int amount;
     private int age;
-    private String base64Image; // might be the proper format to display on the page
-    private File imageForInsertion; // should be used in insertion to the table
-    private Part part;
+    private List<String> base64Images = new ArrayList<>(); // for displaying
+    private List<Part> parts = new ArrayList<>();
 
-    public String getBase64Image() {
-        return this.base64Image;
+
+    public void addBase64Image(String image) {
+        this.base64Images.add(image);
+    }
+
+    public void addPart(Part part) {
+        this.parts.add(part);
+    }
+
+    public List<Part> getParts() {
+        return this.parts;
+    }
+
+    public void setParts(List<Part> parts) {
+        this.parts = parts;
+    }
+
+    public List<String> getBase64Images() {
+        return this.base64Images;
+    }
+
+    public void setBase64Images(List<String> base64Images) {
+        this.base64Images = base64Images;
     }
 
 
@@ -59,18 +81,14 @@ public class Item {
             return this;
         }
 
-        public Builder setBase64Image(String base64Image) {
-            item.base64Image = base64Image;
+        public Builder setBase64Image(List<String> base64Images) {
+            item.base64Images = base64Images;
             return this;
         }
 
-        public Builder setImageForInsertion(File imageForInsertion) {
-            item.imageForInsertion = imageForInsertion;
-            return this;
-        }
 
-        public Builder setPart(Part part) {
-            item.part = part;
+        public Builder setParts(List<Part> parts) {
+            item.parts = parts;
             return this;
         }
 
@@ -137,14 +155,6 @@ public class Item {
         this.age = age;
     }
 
-    public Part getPart() {
-        return part;
-    }
-
-    public void setPart(Part part) {
-        this.part = part;
-    }
-
     @Override
     public String toString() {
         return "Item{" +
@@ -155,27 +165,7 @@ public class Item {
                 ", description='" + description + '\'' +
                 ", amount=" + amount +
                 ", age=" + age +
-                ", base64Image='" + base64Image + '\'' +
-                ", imageForInsertion=" + imageForInsertion +
                 '}';
-    }
-
-    public byte[] readFile() {
-        ByteArrayOutputStream bos = null;
-        try {
-            FileInputStream fis = new FileInputStream(this.imageForInsertion);
-            byte[] buffer = new byte[1024];
-            bos = new ByteArrayOutputStream();
-
-            for (int len; (len = fis.read(buffer)) != -1;) {
-                bos.write(buffer, 0, len);
-            }
-
-        } catch (IOException e) {
-            System.err.println(e.getMessage());
-        }
-
-        return bos != null ? bos.toByteArray() : null;
     }
 
 }
