@@ -27,15 +27,16 @@ public class ItemService {
     }
 
 
-    public List<Item> filterItemsByCategoryByPriceByAge(Category category, BigDecimal minPrice, BigDecimal maxPrice, int age) {
+    public List<Item> filterItemsByCategoryByPriceByAge(List<Category> categories, BigDecimal minPrice, BigDecimal maxPrice, int minAge,
+                                                        int maxAge) {
         try(ItemDao itemDao = daoFactory.createItemDao()) {
-            return itemDao.filterItemsByCategoryByPriceByAge(category, minPrice, maxPrice, age);
+            return itemDao.filterItemsByCategoryByPriceByAge(categories, minPrice, maxPrice, minAge, maxAge);
         }
     }
 
-    public List<Item> filterItemsByCategoryName(Category category) {
+    public List<Item> filterItemsByCategoryName(List<Category> categories) {
         try(ItemDao itemDao = daoFactory.createItemDao()) {
-            return itemDao.filterByCategoryName(category);
+            return itemDao.filterByCategoryName(categories);
         }
     }
 
@@ -45,9 +46,9 @@ public class ItemService {
         }
     }
 
-    public List<Item> filterByAge(int age) {
+    public List<Item> filterByAge(int minAge, int maxAge) {
         try(ItemDao itemDao = daoFactory.createItemDao()) {
-            return itemDao.filterByAge(age);
+            return itemDao.filterByAge(minAge, maxAge);
         }
     }
 

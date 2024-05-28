@@ -2,16 +2,14 @@ package controller.command.item;
 
 import dto.ItemDto;
 import entity.Category;
+import entity.Item;
 import service.ItemService;
 import validator.entity.ItemDtoValidator;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,9 +25,15 @@ public class PostAddItemCommand extends HttpServlet {
 
         if(errors.isEmpty()) {
             ItemService.getInstance().create(dto);
+
+            List<Item> items = ItemService.getInstance().getAllItems();
+
+            HttpSession session = request.getSession();
+            session.setAttribute("items", items);
             // TODO: add path to go after successful adding new item
-            String jspPage = "";
-            request.getRequestDispatcher(jspPage).forward(request, response);
+            String jspPage = "/items.jsp";
+            String redirectURL = request.getContextPath() + jspPage;
+            response.sendRedirect(redirectURL);
         }
         else {
             request.setAttribute("errors", errors);
@@ -44,13 +48,22 @@ public class PostAddItemCommand extends HttpServlet {
     private ItemDto getInput(HttpServletRequest request) throws ServletException, IOException {
         List<Part> parts = request.getParts().stream().filter(part -> "files".equals(part.getName()) && part.getSize() > 0)
                 .collect(Collectors.toList());
-        return new ItemDto.Builder()
+      /*  return new ItemDto.Builder()
                 .setCategory(new Category.Builder().setCategoryId(Integer.parseInt(request.getParameter("category"))).build())
                 .setName(request.getParameter("name"))
                 .setPrice(request.getParameter("price"))
                 .setDescription(request.getParameter("description"))
                 .setAmount(request.getParameter("amount"))
                 .setAage(request.getParameter("age"))
+                .setPart(parts)
+                .build();*/
+        return new ItemDto.Builder()
+                .setCategory(new Category.Builder().setCategoryId(1).build())
+                .setName("first")
+                .setPrice("100")
+                .setDescription("descRIPTIN!!")
+                .setAmount("20")
+                .setAage("11")
                 .setPart(parts)
                 .build();
     }
