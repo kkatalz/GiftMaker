@@ -26,7 +26,7 @@ public class JdbcItemDao implements ItemDao {
 
     private static final String GET_BY_CATEGORY_PRICE_AGE = "SELECT * FROM Item " +
             "INNER JOIN Category USING (id_category) " +
-            "WHERE category_name=? AND item_price >=? AND item_price <=? AND age=?";
+            "WHERE category_name=? AND item_price >=? AND item_price <=? AND age>=? AND age<=?";
 
     private static final String GET_BY_CATEGORY = "SELECT * FROM Item " +
             "INNER JOIN Category USING(id_category) " +
@@ -38,12 +38,16 @@ public class JdbcItemDao implements ItemDao {
 
     private static final String GET_BY_AGE = "SELECT * FROM Item " +
             "INNER JOIN Category USING (id_category) " +
-            "WHERE age=?";
+            "WHERE age>=? AND age<=?";
 
     private static final String SEARCH_BY_NAME_OR_ID = "SELECT * FROM Item " +
             "INNER JOIN Category USING (id_category) " +
             "WHERE LOWER(item_name) LIKE CONCAT('%', LOWER(?), '%') " +
             "OR id_item LIKE CONCAT('%', ?, '%')";
+
+    private static final String CREATE_IMAGES = "INSERT INTO Item_Image(id_item, image) VALUES(?, ?)";
+
+    private static final String GET_IMAGES_BY_ITEM_ID = "SELECT * FROM Item_Image WHERE id_item=?";
     private final static String GET_ALL = "SELECT * FROM Item INNER JOIN Category USING (id_category)";
     private final static String GET_BY_ID = "SELECT * FROM Item INNER JOIN Category USING(id_category) WHERE id_item=?";
     private final static String CREATE = "INSERT INTO Item (id_category, item_name, item_price, description, amount, age) " +
@@ -72,50 +76,54 @@ public class JdbcItemDao implements ItemDao {
 
 
     @Override
-    public List<Item> filterItemsByCategoryByPriceByAge(Category category, BigDecimal minPrice, BigDecimal maxPrice, int age) {
+    public List<Item> filterItemsByCategoryByPriceByAge(List<Category> categories, BigDecimal minPrice, BigDecimal maxPrice, int minAge,
+                                                        int maxAge) {
         List<Item> items = new ArrayList<>();
-        try (PreparedStatement statement = connection.prepareStatement(GET_BY_CATEGORY_PRICE_AGE)) {
-            statement.setString(1, category.getName());
-            statement.setBigDecimal(2, minPrice);
-            statement.setBigDecimal(3, maxPrice);
-            statement.setInt(4, age);
-            ResultSet resultSet = statement.executeQuery();
 
-            while (resultSet.next()) {
-                Item currentItem = getItemFromResultSet(resultSet);
-                currentItem.setBase64Images(getBase64ImagesByItemId(currentItem.getId()));
-                items.add(currentItem);
+        for(Category currentCategory : categories) {
+            try (PreparedStatement statement = connection.prepareStatement(GET_BY_CATEGORY_PRICE_AGE)) {
+                statement.setString(1, currentCategory.getName());
+                statement.setBigDecimal(2, minPrice);
+                statement.setBigDecimal(3, maxPrice);
+                statement.setInt(4, minAge);
+                statement.setInt(5, maxAge);
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    Item currentItem = getItemFromResultSet(resultSet);
+                    currentItem.setBase64Images(getBase64ImagesByItemId(currentItem.getId()));
+                    items.add(currentItem);
+                }
+
+            } catch (SQLException | IOException e) {
+                e.printStackTrace();
             }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
         }
 
         return items;
     }
 
+
     @Override
-    public  List<Item> filterByCategoryName(Category category) {
+    public  List<Item> filterByCategoryName(List<Category> categories) {
         List<Item> items = new ArrayList<>();
-        try(PreparedStatement statement = connection.prepareStatement(GET_BY_CATEGORY)) {
-            statement.setString(1, category.getName());
-            ResultSet resultSet = statement.executeQuery();
 
-            while (resultSet.next()) {
-                Item currentItem = getItemFromResultSet(resultSet);
-                currentItem.setBase64Images(getBase64ImagesByItemId(currentItem.getId()));
-                items.add(currentItem);
+        for(Category currentCategory : categories) {
+            try(PreparedStatement statement = connection.prepareStatement(GET_BY_CATEGORY)) {
+                statement.setString(1, currentCategory.getName());
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    Item currentItem = getItemFromResultSet(resultSet);
+                    currentItem.setBase64Images(getBase64ImagesByItemId(currentItem.getId()));
+                    items.add(currentItem);
+                }
+
+            } catch (SQLException | IOException e) {
+                e.printStackTrace();
             }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
         }
+
         return items;
     }
 
@@ -143,10 +151,11 @@ public class JdbcItemDao implements ItemDao {
     }
 
     @Override
-    public List<Item> filterByAge(int age) {
+    public List<Item> filterByAge(int minAge, int maxAge) {
         List<Item> items = new ArrayList<>();
         try (PreparedStatement statement = connection.prepareStatement(GET_BY_AGE)) {
-            statement.setInt(1, age);
+            statement.setInt(1, minAge);
+            statement.setInt(2, maxAge);
 
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
@@ -259,7 +268,6 @@ public class JdbcItemDao implements ItemDao {
     @Override
     public void saveImages(Item item) {
         List<Part> parts = item.getParts();
-        String CREATE_IMAGES = "INSERT INTO Item_Image(id_item, image) VALUES(?, ?)";
 
         try(PreparedStatement statement = connection.prepareStatement(CREATE_IMAGES, Statement.RETURN_GENERATED_KEYS)) {
             for(Part part : parts) {
@@ -281,7 +289,6 @@ public class JdbcItemDao implements ItemDao {
 
     @Override
     public List<String> getBase64ImagesByItemId(Integer itemId) {
-        String GET_IMAGES_BY_ITEM_ID = "SELECT * FROM Item_Image WHERE id_item=?";
         List<String> images = new ArrayList<>();
 
         try(PreparedStatement query = connection.prepareStatement(GET_IMAGES_BY_ITEM_ID)) {

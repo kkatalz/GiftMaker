@@ -22,6 +22,10 @@ public class JdbcPossibleItemDao implements PossibleItemDao {
     private final static String DESCRIPTION = "description";
     private final static String AGE = "age";
     private final static String IMAGE = "image";
+
+    private final static String GET_IMAGES_BY_ITEM_ID = "SELECT * FROM Possible_Item_Image WHERE possible_item_id=?";
+
+    private final static  String CREATE_IMAGES = "INSERT INTO Possible_Item_Image(possible_item_id, image) VALUES(?, ?)";
     private final static String GET_ALL = "SELECT * FROM Possible_Item";
     private final static String GET_BY_ID = "SELECT * FROM Possible_Item WHERE possible_item_id=?";
     private final static String CREATE = "INSERT INTO Possible_Item (item_name, item_price, description, age) " +
@@ -106,7 +110,6 @@ public class JdbcPossibleItemDao implements PossibleItemDao {
     @Override
     public void saveImages(PossibleItem possibleItem) {
         List<Part> parts = possibleItem.getPart();
-        String CREATE_IMAGES = "INSERT INTO Possible_Item_Image(possible_item_id, image) VALUES(?, ?)";
 
         try(PreparedStatement statement = connection.prepareStatement(CREATE_IMAGES, Statement.RETURN_GENERATED_KEYS)) {
             for(Part part : parts) {
@@ -128,7 +131,6 @@ public class JdbcPossibleItemDao implements PossibleItemDao {
 
     @Override
     public List<String> getBase64ImagesByItemId(Integer possibleItemId) {
-        String GET_IMAGES_BY_ITEM_ID = "SELECT * FROM Possible_Item_Image WHERE possible_item_id=?";
         List<String> images = new ArrayList<>();
 
         try(PreparedStatement query = connection.prepareStatement(GET_IMAGES_BY_ITEM_ID)) {
