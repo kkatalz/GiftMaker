@@ -62,6 +62,13 @@ public class ItemInCartService {
         }
     }
 
+    public void updateItemInCart(ItemInCartDto dto) throws Exception {
+        ItemInCart itemInCart = ItemInCartDtoConverter.toItemInCart(dto);
+        try(JdbcItemInCartDao itemInCartDao = daoFactory.createItemInCartDao()) {
+            itemInCartDao.update(itemInCart);
+        }
+    }
+
     public void deleteItemInCart(int userId, int itemId) throws Exception {
         try(JdbcItemInCartDao itemInCartDao = daoFactory.createItemInCartDao()) {
             itemInCartDao.delete(userId, itemId);
