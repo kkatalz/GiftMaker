@@ -27,6 +27,17 @@ public class UserService {
     }
 
 
+    /**
+     *
+     * @param username
+     * @return User if user with such username exists, otherwise returns Optional.empty
+     */
+    public Optional<User> getUserByUsername(String username) {
+        try(UserDao userDao = daoFactory.createUserDao()) {
+            return userDao.getUserByUsername(username);
+        }
+    }
+
     public List<User> getAllUsers() {
         try(UserDao userDao = daoFactory.createUserDao()) {
             return userDao.getAll();

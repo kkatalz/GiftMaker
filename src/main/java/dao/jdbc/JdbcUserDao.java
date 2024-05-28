@@ -17,6 +17,8 @@ public class JdbcUserDao implements UserDao {
     private static final String ROLE = "role";
     private static final String USERNAME = "username";
     private static final String PASSWORD = "password";
+
+    private static final String GET_BY_USERNAME = "SELECT * FROM User WHERE username=?";
     private static final String GET_ALL = "SELECT * FROM User";
     private static final String GET_BY_ID = "SELECT * FROM User WHERE id_user=?";
     private static final String CREATE = "INSERT INTO User (name, surname, date_birth, role, username, password) " +
@@ -43,6 +45,24 @@ public class JdbcUserDao implements UserDao {
     public void setConnection(Connection connection) {
         this.connection = connection;
     }
+
+
+    @Override
+    public Optional<User> getUserByUsername(String username) {
+        Optional<User> user = Optional.empty();
+        try(PreparedStatement statement = connection.prepareStatement(GET_BY_USERNAME)) {
+            statement.setString(1, username);
+            ResultSet resultSet = statement.executeQuery();
+            if(resultSet.next())
+                user = Optional.of(getUserFromResultSet(resultSet));
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return user;
+    }
+
+
     @Override
     public List<User> getAll() {
         List<User> users = new ArrayList<>();
