@@ -890,8 +890,8 @@ FILTERS--%>
                 </div>
 
                 <!-- Modal body -->
-                <div class="flex justify-center items-center gap-16">
-                    <div class="flex flex-col justify-center items-center p-4 gap-y-12">
+                <div class="flex gap-16">
+                    <div class="flex flex-col m-4 p-4 gap-y-12 max-h-[70vh] overflow-y-scroll">
 
                         <%--1st item--%>
                         <div class="flex items-center justify-center gap-8">
@@ -951,10 +951,121 @@ FILTERS--%>
                             </div>
                         </div>
 
+
+
+                            <div class="flex items-center justify-center gap-8">
+                                <img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>
+
+                                <div class="flex flex-col gap-4">
+                                    <h4 class="text-lg font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set
+                                    </h4>
+
+                                    <div class="flex flex-row gap-2">
+                                        <div class="flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8 cursor-pointer">
+                                            -
+                                        </div>
+                                        <h4 class="flex justify-center items-center text-lg">
+                                            2
+                                        </h4>
+                                        <div class="cursor-pointer flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8">
+                                            +
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <h4 class="text-lg font-bold flex items-center justify-center">3200</h4>
+
+                                <div class="flex items-center justify-center">
+                                    <img src="bin.svg" alt="bin"
+                                         class=" w-10 cursor-pointer flex items-center justify-center"/>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-center gap-8">
+                                <img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>
+
+                                <div class="flex flex-col gap-4">
+                                    <h4 class="text-lg font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set
+                                    </h4>
+
+                                    <div class="flex flex-row gap-2">
+                                        <div class="flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8 cursor-pointer">
+                                            -
+                                        </div>
+                                        <h4 class="flex justify-center items-center text-lg">
+                                            2
+                                        </h4>
+                                        <div class="cursor-pointer flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8">
+                                            +
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <h4 class="text-lg font-bold flex items-center justify-center">3200</h4>
+
+                                <div class="flex items-center justify-center">
+                                    <img src="bin.svg" alt="bin"
+                                         class=" w-10 cursor-pointer flex items-center justify-center"/>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-center gap-8">
+                                <img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>
+
+                                <div class="flex flex-col gap-4">
+                                    <h4 class="text-lg font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set
+                                    </h4>
+
+                                    <div class="flex flex-row gap-2">
+                                        <div class="flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8 cursor-pointer">
+                                            -
+                                        </div>
+                                        <h4 class="flex justify-center items-center text-lg">
+                                            2
+                                        </h4>
+                                        <div class="cursor-pointer flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8">
+                                            +
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <h4 class="text-lg font-bold flex items-center justify-center">3200</h4>
+
+                                <div class="flex items-center justify-center">
+                                    <img src="bin.svg" alt="bin"
+                                         class=" w-10 cursor-pointer flex items-center justify-center"/>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-center gap-8">
+                                <img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>
+
+                                <div class="flex flex-col gap-4">
+                                    <h4 class="text-lg font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set
+                                    </h4>
+
+                                    <div class="flex flex-row gap-2">
+                                        <div class="flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8 cursor-pointer">
+                                            -
+                                        </div>
+                                        <h4 class="flex justify-center items-center text-lg">
+                                            2
+                                        </h4>
+                                        <div class="cursor-pointer flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8">
+                                            +
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <h4 class="text-lg font-bold flex items-center justify-center">3200</h4>
+
+                                <div class="flex items-center justify-center">
+                                    <img src="bin.svg" alt="bin"
+                                         class=" w-10 cursor-pointer flex items-center justify-center"/>
+                                </div>
+                            </div>
+
                     </div>
 
                     <%--right info purchase panel --%>
-                    <div class="flex flex-col gap-16 bg-neutral-100 w-[35%] h-full p-4 rounded-lg">
+                    <div class="flex flex-col gap-16 bg-neutral-100 w-[35%] h-full m-4 p-4 rounded-lg max-h-[70vh] overflow-y-scroll">
 
                         <div class="flex flex-col gap-8">
                             <%--1st item--%>
@@ -990,6 +1101,89 @@ FILTERS--%>
 
                                 </div>
                             </div>
+
+                                <div class="flex items-center justify-between ">
+                                    <div class="flex justify-center items-center gap-8">
+                                        <h4 class="text-lg font-medium">Harry Potter. The Complete Collection: 7 Book Box
+                                            Set
+                                        </h4>
+                                        <div class="flex flex-col gap-2 items-center justify-center">
+                                            <div class="flex items-center justify-between font-medium ">
+                                                <h4 class="text-lg font-medium">x</h4>
+                                                <h4 class="text-xl font-bold">2</h4>
+                                            </div>
+                                            <h4 class="text-xl font-bold">6400</h4>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="flex items-center justify-between ">
+                                    <div class="flex justify-center items-center gap-8">
+                                        <h4 class="text-lg font-medium">Harry Potter. The Complete Collection: 7 Book Box
+                                            Set
+                                        </h4>
+                                        <div class="flex flex-col gap-2 items-center justify-center">
+                                            <div class="flex items-center justify-between font-medium ">
+                                                <h4 class="text-lg font-medium">x</h4>
+                                                <h4 class="text-xl font-bold">2</h4>
+                                            </div>
+                                            <h4 class="text-xl font-bold">6400</h4>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="flex items-center justify-between ">
+                                    <div class="flex justify-center items-center gap-8">
+                                        <h4 class="text-lg font-medium">Harry Potter. The Complete Collection: 7 Book Box
+                                            Set
+                                        </h4>
+                                        <div class="flex flex-col gap-2 items-center justify-center">
+                                            <div class="flex items-center justify-between font-medium ">
+                                                <h4 class="text-lg font-medium">x</h4>
+                                                <h4 class="text-xl font-bold">2</h4>
+                                            </div>
+                                            <h4 class="text-xl font-bold">6400</h4>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="flex items-center justify-between ">
+                                    <div class="flex justify-center items-center gap-8">
+                                        <h4 class="text-lg font-medium">Harry Potter. The Complete Collection: 7 Book Box
+                                            Set
+                                        </h4>
+                                        <div class="flex flex-col gap-2 items-center justify-center">
+                                            <div class="flex items-center justify-between font-medium ">
+                                                <h4 class="text-lg font-medium">x</h4>
+                                                <h4 class="text-xl font-bold">2</h4>
+                                            </div>
+                                            <h4 class="text-xl font-bold">6400</h4>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center justify-between ">
+                                    <div class="flex justify-center items-center gap-8">
+                                        <h4 class="text-lg font-medium">Harry Potter. The Complete Collection: 7 Book Box
+                                            Set
+                                        </h4>
+                                        <div class="flex flex-col gap-2 items-center justify-center">
+                                            <div class="flex items-center justify-between font-medium ">
+                                                <h4 class="text-lg font-medium">x</h4>
+                                                <h4 class="text-xl font-bold">2</h4>
+                                            </div>
+                                            <h4 class="text-xl font-bold">6400</h4>
+                                        </div>
+
+                                    </div>
+                                </div>
                         </div>
 
 
@@ -1013,7 +1207,7 @@ FILTERS--%>
             </div>
         </div>
     </div>
-
+</div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 </html>
