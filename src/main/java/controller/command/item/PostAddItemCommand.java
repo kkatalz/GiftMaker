@@ -48,22 +48,13 @@ public class PostAddItemCommand extends HttpServlet {
     private ItemDto getInput(HttpServletRequest request) throws ServletException, IOException {
         List<Part> parts = request.getParts().stream().filter(part -> "files".equals(part.getName()) && part.getSize() > 0)
                 .collect(Collectors.toList());
-      /*  return new ItemDto.Builder()
+        return new ItemDto.Builder()
                 .setCategory(new Category.Builder().setCategoryId(Integer.parseInt(request.getParameter("category"))).build())
                 .setName(request.getParameter("name"))
                 .setPrice(request.getParameter("price"))
                 .setDescription(request.getParameter("description"))
                 .setAmount(request.getParameter("amount"))
                 .setAage(request.getParameter("age"))
-                .setPart(parts)
-                .build();*/
-        return new ItemDto.Builder()
-                .setCategory(new Category.Builder().setCategoryId(1).build())
-                .setName("first")
-                .setPrice("100")
-                .setDescription("descRIPTIN!!")
-                .setAmount("20")
-                .setAage("11")
                 .setPart(parts)
                 .build();
     }
