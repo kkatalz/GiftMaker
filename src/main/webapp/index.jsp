@@ -9,6 +9,11 @@
             grid-template-columns: 10% 40% 30% 20%;
             padding-inline: 100px;
         }
+
+        .custom-grid-offered-gifts {
+            display: grid;
+            grid-template-columns: 40% 20% 20% 20%;
+        }
     </style>
 </head>
 <body>
@@ -184,8 +189,8 @@
 <%--</div>--%>
 <%--<hr class="border-neutral-500 mt-6"/>--%>
 
-<%--Contaier with 1st item--%>
-<%--<div class="custom-grid mt-8">--%>
+<%--&lt;%&ndash;Contaier with 1st item&ndash;%&gt;--%>
+<%--<div class="custom-grid mt-12">--%>
 
 <%--    <div class="flex items-center justify-center">--%>
 <%--        <img src="bin.svg" alt="bin" class=" w-10 cursor-pointer flex items-center justify-center"/>--%>
@@ -193,7 +198,8 @@
 
 <%--    <div class="flex items-center justify-center gap-8">--%>
 
-<%--        <img src="harryPotter.svg" alt="harryPotter" class="w-40"/>--%>
+<%--<img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>--%>
+
 
 <%--        <div class="flex flex-col">--%>
 <%--            <h5 class="text-lg font-light">id: 1000</h5>--%>
@@ -214,7 +220,7 @@
 <%--</div>--%>
 
 <%--&lt;%&ndash;Container with 2nd item&ndash;%&gt;--%>
-<%--<div class="custom-grid mt-8">--%>
+<%--<div class="custom-grid mt-12">--%>
 
 <%--    <div class="flex items-center justify-center">--%>
 <%--        <img src="bin.svg" alt="bin" class=" w-10 cursor-pointer flex items-center justify-center"/>--%>
@@ -222,7 +228,7 @@
 
 <%--    <div class="flex items-center justify-center gap-8">--%>
 
-<%--        <img src="harryPotter.svg" alt="harryPotter" class="w-40"/>--%>
+<%--<img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>--%>
 
 <%--        <div class="flex flex-col">--%>
 <%--            <h5 class="text-lg font-light">id: 1000</h5>--%>
@@ -661,7 +667,7 @@ FILTERS--%>
 <%--    <div class="flex justify-between items-center gap-12 mx-[12%] my-[2%]">--%>
 
 <%--        <div class="flex gap-12">--%>
-<%--    jeft bar with images--%>
+<%--            &lt;%&ndash;    jeft bar with images&ndash;%&gt;--%>
 <%--            <div class="flex flex-col gap-3 max-h-[700px] overflow-y-auto pr-4 text-6xl ">--%>
 <%--                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>--%>
 <%--                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>--%>
@@ -686,6 +692,7 @@ FILTERS--%>
 
 <%--        &lt;%&ndash;right menu with details&ndash;%&gt;--%>
 <%--        <div class="flex flex-col gap-16">--%>
+
 <%--            <div class="relative w-64 ">--%>
 
 <%--                <!-- Custom Dropdown Trigger -->--%>
@@ -730,11 +737,11 @@ FILTERS--%>
 <%--                <div class="gap-12">--%>
 <%--                    <label>--%>
 <%--                        <input type="text"--%>
-<%--                               class="text-3xl font-medium p-3 mt-3 rounded-lg placeholder:italic outline-none border border-neutral-200"--%>
+<%--                               class="text-2xl font-medium p-3 mt-3 rounded-lg placeholder:italic outline-none border border-neutral-200"--%>
 <%--                               placeholder="Title">--%>
 <%--                    </label>--%>
 
-<%--                    <div class="flex items-center p-3 text-3xl font-bold mt-6 rounded-lg border border-neutral-200 w-[60%]">--%>
+<%--                    <div class="flex items-center p-3 text-2xl font-bold mt-6 rounded-lg border border-neutral-200 w-[60%]">--%>
 <%--                        <div class="flex-grow relative ">--%>
 <%--                            <label>--%>
 <%--                                <input type="text" class="w-full placeholder:italic outline-none "--%>
@@ -765,499 +772,692 @@ FILTERS--%>
 <%--</div>--%>
 
 
-<%--BASKET FINAL--%>
+<%--BASKET PAGE FINAL --%>
+<%--<div>--%>
+<%--    <div class="mx-[3%] my-6">--%>
+
+<%--        &lt;%&ndash;1.    header&ndash;%&gt;--%>
+<%--        <div class="flex justify-between items-center">--%>
+<%--            <img src="logoBlack.svg" alt="logo" class="w-40 cursor-pointer">--%>
+
+
+<%--            <div class="text flex flex-row gap-5">--%>
+
+<%--                <div class="flex justify-center items-center flex-col">--%>
+<%--                    <img src="myProfile.svg" alt="profile-icon" class="w-10 cursor-pointer ">--%>
+<%--                    <a class="text-sm font-medium" href="#">My profile</a>--%>
+<%--                </div>--%>
+
+<%--                <div class="flex justify-center items-center flex-col">--%>
+<%--                    <img src="liked.svg" alt="liked-items" class="w-10 cursor-pointer">--%>
+<%--                    <a class="text-sm font-medium" href="#">Liked</a>--%>
+
+<%--                </div>--%>
+
+<%--                <div class="flex justify-center items-center flex-col">--%>
+<%--                    <img src="basket.svg" alt="basket-icon" class="w-10 cursor-pointer">--%>
+<%--                    <a class="text-sm font-medium" href="#">Basket</a>--%>
+
+<%--                </div>--%>
+<%--            </div>--%>
+
+<%--        </div>--%>
+
+<%--        &lt;%&ndash;    main body&ndash;%&gt;--%>
+<%--        <div class="flex justify-between items-center gap-12 mx-[12%] my-[2%]">--%>
+
+<%--            <div class="flex gap-12">--%>
+<%--                &lt;%&ndash;    jeft bar with images&ndash;%&gt;--%>
+<%--                <div class="flex flex-col gap-3 max-h-[700px] overflow-y-auto pr-4 text-6xl ">--%>
+
+<%--                    <img src="harryPotter.svg" alt="harryPotter" class="max-h-32 max-w-32 min-h-32 w-32 rounded-lg "/>--%>
+<%--                    <img src="harryPotter.svg" alt="harryPotter" class="min-h-32 w-32 rounded-lg "/>--%>
+<%--                    <img src="harryPotter.svg" alt="harryPotter" class="min-h-32 w-32 rounded-lg "/>--%>
+<%--                    <img src="harryPotter.svg" alt="harryPotter" class="min-h-32 w-32 rounded-lg "/>--%>
+<%--                    <img src="harryPotter.svg" alt="harryPotter" class="min-h-32 w-32 rounded-lg "/>--%>
+<%--                    <img src="harryPotter.svg" alt="harryPotter" class="min-h-32 w-32 rounded-lg "/>--%>
+<%--                    <img src="harryPotter.svg" alt="harryPotter" class="min-h-32 w-32 rounded-lg "/>--%>
+<%--                    <img src="harryPotter.svg" alt="harryPotter" class="min-h-32 w-32 rounded-lg "/>--%>
+
+
+<%--                </div>--%>
+
+<%--                &lt;%&ndash;        main image&ndash;%&gt;--%>
+<%--                <div class="flex items-center justify-center rounded-lg w-[600px] relative ">--%>
+<%--                    <img src="leftArrow.svg" alt="leftArrow" class="w-10 cursor-pointer shadow absolute left-6"/>--%>
+<%--                    <img src="harryPotter.svg" alt="harryPotter" class="rounded-lg shadow"/>--%>
+<%--                    <img src="rightArrow.svg" alt="rightArrow" class="w-10 cursor-pointer shadow absolute right-6"/>--%>
+
+<%--                </div>--%>
+
+<%--            </div>--%>
+
+<%--            &lt;%&ndash;right menu with details&ndash;%&gt;--%>
+<%--            <div class="flex flex-col gap-8">--%>
+
+<%--                <div class="gap-12">--%>
+<%--                    <div class="flex gap-2">--%>
+<%--                        <h4 class="text-xl font-light">id: </h4>--%>
+<%--                        <h4 class="text-xl font-light">1000</h4>--%>
+<%--                    </div>--%>
+<%--                    <div class="space-y-4">--%>
+<%--                        <h4 class="text-3xl font-medium">Harry Potter The Complete Collection: 7 Book Box Set</h4>--%>
+<%--                        <h4 class="text-3xl font-bold mt-6">3200 UAH</h4>--%>
+
+<%--                        <p class="text-xl">--%>
+<%--                            Harry Potter is a series of seven fantasy novels written by British author J. K.--%>
+<%--                            Rowling.<br>--%>
+<%--                            Set consists of: <br>Philosopher's Stone (1997), Chamber of Secrets (1998), Prisoner of--%>
+<%--                            Azkaban--%>
+<%--                            (1999),--%>
+<%--                            Goblet of Fire (2000), Order of the Phoenix (2003), Half-Blood Prince (2005), Deathly--%>
+<%--                            Hallows--%>
+<%--                            (2007).--%>
+<%--                        </p>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+
+
+<%--                <div class="flex justify-content items-center gap-5 ">--%>
+<%--                    <button data-modal-target="default-modal" data-modal-toggle="default-modal"--%>
+<%--                            class="w-[50%] bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70 flex items-center justify-between px-6 py-3 text-white text-3xl font-medium">--%>
+<%--                        Buy--%>
+<%--                        <img src="buyIcon.svg" alt="Buy Icon" class="w-8 h-8"/>--%>
+<%--                    </button>--%>
+
+<%--                    <img src="likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>--%>
+<%--                </div>--%>
+
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+
+
+<%--    <!-- Main modal -->--%>
+<%--    <div id="default-modal" tabindex="-1" aria-hidden="true"--%>
+<%--         class="absolute flex hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center h-[calc(100%-1rem)]">--%>
+<%--        <div class=" p-4  max-w-7xl max-h-[90vh]">--%>
+<%--            <!-- Modal content -->--%>
+<%--            <div class="relative bg-white rounded-lg shadow">--%>
+<%--                <!-- Modal header -->--%>
+<%--                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">--%>
+<%--                    <h3 class="text-2xl font-semibold text-black">--%>
+<%--                        Basket--%>
+<%--                    </h3>--%>
+<%--                    <button type="button"--%>
+<%--                            class="text-gray-400 bg-transparent transition-all duration-300 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"--%>
+<%--                            data-modal-hide="default-modal">--%>
+<%--                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"--%>
+<%--                             viewBox="0 0 14 14">--%>
+<%--                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"--%>
+<%--                                  d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>--%>
+<%--                        </svg>--%>
+<%--                        <span class="sr-only">Close modal</span>--%>
+<%--                    </button>--%>
+<%--                </div>--%>
+
+<%--                <!-- Modal body -->--%>
+<%--                <div class="flex gap-16">--%>
+<%--                    <div class="flex flex-col m-4 p-4 gap-y-12 max-h-[70vh] overflow-y-scroll">--%>
+
+<%--                        &lt;%&ndash;1st item&ndash;%&gt;--%>
+<%--                        <div class="flex items-center justify-center gap-8">--%>
+<%--                            <img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>--%>
+
+<%--                            <div class="flex flex-col gap-4">--%>
+<%--                                <h4 class="text-lg font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set--%>
+<%--                                </h4>--%>
+
+<%--                                <div class="flex flex-row gap-2">--%>
+<%--                                    <div class="cursor-pointer flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8">--%>
+<%--                                        ---%>
+<%--                                    </div>--%>
+<%--                                    <h4 class="flex justify-center items-center text-lg">--%>
+<%--                                        1--%>
+<%--                                    </h4>--%>
+<%--                                    <div class="cursor-pointer flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8">--%>
+<%--                                        +--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+
+<%--                            </div>--%>
+<%--                            <h4 class="text-lg font-bold flex items-center justify-center">3200</h4>--%>
+
+<%--                            <div class="flex items-center justify-center">--%>
+<%--                                <img src="bin.svg" alt="bin"--%>
+<%--                                     class=" w-10 cursor-pointer flex items-center justify-center"/>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+
+<%--                        &lt;%&ndash;  2nd item&ndash;%&gt;--%>
+<%--                        <div class="flex items-center justify-center gap-8">--%>
+<%--                            <img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>--%>
+
+<%--                            <div class="flex flex-col gap-4">--%>
+<%--                                <h4 class="text-lg font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set--%>
+<%--                                </h4>--%>
+
+<%--                                <div class="flex flex-row gap-2">--%>
+<%--                                    <div class="flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8 cursor-pointer">--%>
+<%--                                        ---%>
+<%--                                    </div>--%>
+<%--                                    <h4 class="flex justify-center items-center text-lg">--%>
+<%--                                        2--%>
+<%--                                    </h4>--%>
+<%--                                    <div class="cursor-pointer flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8">--%>
+<%--                                        +--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+
+<%--                            </div>--%>
+<%--                            <h4 class="text-lg font-bold flex items-center justify-center">3200</h4>--%>
+
+<%--                            <div class="flex items-center justify-center">--%>
+<%--                                <img src="bin.svg" alt="bin"--%>
+<%--                                     class=" w-10 cursor-pointer flex items-center justify-center"/>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+
+
+<%--                            <div class="flex items-center justify-center gap-8">--%>
+<%--                                <img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>--%>
+
+<%--                                <div class="flex flex-col gap-4">--%>
+<%--                                    <h4 class="text-lg font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set--%>
+<%--                                    </h4>--%>
+
+<%--                                    <div class="flex flex-row gap-2">--%>
+<%--                                        <div class="flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8 cursor-pointer">--%>
+<%--                                            ---%>
+<%--                                        </div>--%>
+<%--                                        <h4 class="flex justify-center items-center text-lg">--%>
+<%--                                            2--%>
+<%--                                        </h4>--%>
+<%--                                        <div class="cursor-pointer flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8">--%>
+<%--                                            +--%>
+<%--                                        </div>--%>
+<%--                                    </div>--%>
+
+<%--                                </div>--%>
+<%--                                <h4 class="text-lg font-bold flex items-center justify-center">3200</h4>--%>
+
+<%--                                <div class="flex items-center justify-center">--%>
+<%--                                    <img src="bin.svg" alt="bin"--%>
+<%--                                         class=" w-10 cursor-pointer flex items-center justify-center"/>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                            <div class="flex items-center justify-center gap-8">--%>
+<%--                                <img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>--%>
+
+<%--                                <div class="flex flex-col gap-4">--%>
+<%--                                    <h4 class="text-lg font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set--%>
+<%--                                    </h4>--%>
+
+<%--                                    <div class="flex flex-row gap-2">--%>
+<%--                                        <div class="flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8 cursor-pointer">--%>
+<%--                                            ---%>
+<%--                                        </div>--%>
+<%--                                        <h4 class="flex justify-center items-center text-lg">--%>
+<%--                                            2--%>
+<%--                                        </h4>--%>
+<%--                                        <div class="cursor-pointer flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8">--%>
+<%--                                            +--%>
+<%--                                        </div>--%>
+<%--                                    </div>--%>
+
+<%--                                </div>--%>
+<%--                                <h4 class="text-lg font-bold flex items-center justify-center">3200</h4>--%>
+
+<%--                                <div class="flex items-center justify-center">--%>
+<%--                                    <img src="bin.svg" alt="bin"--%>
+<%--                                         class=" w-10 cursor-pointer flex items-center justify-center"/>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                            <div class="flex items-center justify-center gap-8">--%>
+<%--                                <img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>--%>
+
+<%--                                <div class="flex flex-col gap-4">--%>
+<%--                                    <h4 class="text-lg font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set--%>
+<%--                                    </h4>--%>
+
+<%--                                    <div class="flex flex-row gap-2">--%>
+<%--                                        <div class="flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8 cursor-pointer">--%>
+<%--                                            ---%>
+<%--                                        </div>--%>
+<%--                                        <h4 class="flex justify-center items-center text-lg">--%>
+<%--                                            2--%>
+<%--                                        </h4>--%>
+<%--                                        <div class="cursor-pointer flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8">--%>
+<%--                                            +--%>
+<%--                                        </div>--%>
+<%--                                    </div>--%>
+
+<%--                                </div>--%>
+<%--                                <h4 class="text-lg font-bold flex items-center justify-center">3200</h4>--%>
+
+<%--                                <div class="flex items-center justify-center">--%>
+<%--                                    <img src="bin.svg" alt="bin"--%>
+<%--                                         class=" w-10 cursor-pointer flex items-center justify-center"/>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                            <div class="flex items-center justify-center gap-8">--%>
+<%--                                <img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>--%>
+
+<%--                                <div class="flex flex-col gap-4">--%>
+<%--                                    <h4 class="text-lg font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set--%>
+<%--                                    </h4>--%>
+
+<%--                                    <div class="flex flex-row gap-2">--%>
+<%--                                        <div class="flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8 cursor-pointer">--%>
+<%--                                            ---%>
+<%--                                        </div>--%>
+<%--                                        <h4 class="flex justify-center items-center text-lg">--%>
+<%--                                            2--%>
+<%--                                        </h4>--%>
+<%--                                        <div class="cursor-pointer flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8">--%>
+<%--                                            +--%>
+<%--                                        </div>--%>
+<%--                                    </div>--%>
+
+<%--                                </div>--%>
+<%--                                <h4 class="text-lg font-bold flex items-center justify-center">3200</h4>--%>
+
+<%--                                <div class="flex items-center justify-center">--%>
+<%--                                    <img src="bin.svg" alt="bin"--%>
+<%--                                         class=" w-10 cursor-pointer flex items-center justify-center"/>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+
+<%--                    </div>--%>
+
+<%--                    &lt;%&ndash;right info purchase panel &ndash;%&gt;--%>
+<%--                    <div class="flex flex-col gap-16 bg-neutral-100 w-[35%] h-full m-4 p-4 rounded-lg max-h-[70vh] overflow-y-scroll">--%>
+
+<%--                        <div class="flex flex-col gap-8">--%>
+<%--                            &lt;%&ndash;1st item&ndash;%&gt;--%>
+<%--                            <div class="flex items-center justify-between ">--%>
+<%--                                <div class="flex justify-center items-center gap-8">--%>
+<%--                                    <h4 class="text-lg font-medium">Harry Potter. The Complete Collection: 7 Book Box--%>
+<%--                                        Set--%>
+<%--                                    </h4>--%>
+<%--                                    <div class="flex flex-col gap-2 items-center justify-center">--%>
+<%--                                        <div class="flex items-center justify-between">--%>
+<%--                                            <h4 class="text-lg font-medium">x</h4>--%>
+<%--                                            <h4 class="text-xl font-bold">1</h4>--%>
+<%--                                        </div>--%>
+<%--                                        <h4 class="text-xl font-bold">3200</h4>--%>
+<%--                                    </div>--%>
+
+<%--                                </div>--%>
+<%--                            </div>--%>
+
+<%--                            &lt;%&ndash; 2nd item&ndash;%&gt;--%>
+<%--                            <div class="flex items-center justify-between ">--%>
+<%--                                <div class="flex justify-center items-center gap-8">--%>
+<%--                                    <h4 class="text-lg font-medium">Harry Potter. The Complete Collection: 7 Book Box--%>
+<%--                                        Set--%>
+<%--                                    </h4>--%>
+<%--                                    <div class="flex flex-col gap-2 items-center justify-center">--%>
+<%--                                        <div class="flex items-center justify-between font-medium ">--%>
+<%--                                            <h4 class="text-lg font-medium">x</h4>--%>
+<%--                                            <h4 class="text-xl font-bold">2</h4>--%>
+<%--                                        </div>--%>
+<%--                                        <h4 class="text-xl font-bold">6400</h4>--%>
+<%--                                    </div>--%>
+
+<%--                                </div>--%>
+<%--                            </div>--%>
+
+<%--                                <div class="flex items-center justify-between ">--%>
+<%--                                    <div class="flex justify-center items-center gap-8">--%>
+<%--                                        <h4 class="text-lg font-medium">Harry Potter. The Complete Collection: 7 Book Box--%>
+<%--                                            Set--%>
+<%--                                        </h4>--%>
+<%--                                        <div class="flex flex-col gap-2 items-center justify-center">--%>
+<%--                                            <div class="flex items-center justify-between font-medium ">--%>
+<%--                                                <h4 class="text-lg font-medium">x</h4>--%>
+<%--                                                <h4 class="text-xl font-bold">2</h4>--%>
+<%--                                            </div>--%>
+<%--                                            <h4 class="text-xl font-bold">6400</h4>--%>
+<%--                                        </div>--%>
+
+<%--                                    </div>--%>
+<%--                                </div>--%>
+
+
+<%--                                <div class="flex items-center justify-between ">--%>
+<%--                                    <div class="flex justify-center items-center gap-8">--%>
+<%--                                        <h4 class="text-lg font-medium">Harry Potter. The Complete Collection: 7 Book Box--%>
+<%--                                            Set--%>
+<%--                                        </h4>--%>
+<%--                                        <div class="flex flex-col gap-2 items-center justify-center">--%>
+<%--                                            <div class="flex items-center justify-between font-medium ">--%>
+<%--                                                <h4 class="text-lg font-medium">x</h4>--%>
+<%--                                                <h4 class="text-xl font-bold">2</h4>--%>
+<%--                                            </div>--%>
+<%--                                            <h4 class="text-xl font-bold">6400</h4>--%>
+<%--                                        </div>--%>
+
+<%--                                    </div>--%>
+<%--                                </div>--%>
+
+
+<%--                                <div class="flex items-center justify-between ">--%>
+<%--                                    <div class="flex justify-center items-center gap-8">--%>
+<%--                                        <h4 class="text-lg font-medium">Harry Potter. The Complete Collection: 7 Book Box--%>
+<%--                                            Set--%>
+<%--                                        </h4>--%>
+<%--                                        <div class="flex flex-col gap-2 items-center justify-center">--%>
+<%--                                            <div class="flex items-center justify-between font-medium ">--%>
+<%--                                                <h4 class="text-lg font-medium">x</h4>--%>
+<%--                                                <h4 class="text-xl font-bold">2</h4>--%>
+<%--                                            </div>--%>
+<%--                                            <h4 class="text-xl font-bold">6400</h4>--%>
+<%--                                        </div>--%>
+
+<%--                                    </div>--%>
+<%--                                </div>--%>
+
+
+<%--                                <div class="flex items-center justify-between ">--%>
+<%--                                    <div class="flex justify-center items-center gap-8">--%>
+<%--                                        <h4 class="text-lg font-medium">Harry Potter. The Complete Collection: 7 Book Box--%>
+<%--                                            Set--%>
+<%--                                        </h4>--%>
+<%--                                        <div class="flex flex-col gap-2 items-center justify-center">--%>
+<%--                                            <div class="flex items-center justify-between font-medium ">--%>
+<%--                                                <h4 class="text-lg font-medium">x</h4>--%>
+<%--                                                <h4 class="text-xl font-bold">2</h4>--%>
+<%--                                            </div>--%>
+<%--                                            <h4 class="text-xl font-bold">6400</h4>--%>
+<%--                                        </div>--%>
+
+<%--                                    </div>--%>
+<%--                                </div>--%>
+
+<%--                                <div class="flex items-center justify-between ">--%>
+<%--                                    <div class="flex justify-center items-center gap-8">--%>
+<%--                                        <h4 class="text-lg font-medium">Harry Potter. The Complete Collection: 7 Book Box--%>
+<%--                                            Set--%>
+<%--                                        </h4>--%>
+<%--                                        <div class="flex flex-col gap-2 items-center justify-center">--%>
+<%--                                            <div class="flex items-center justify-between font-medium ">--%>
+<%--                                                <h4 class="text-lg font-medium">x</h4>--%>
+<%--                                                <h4 class="text-xl font-bold">2</h4>--%>
+<%--                                            </div>--%>
+<%--                                            <h4 class="text-xl font-bold">6400</h4>--%>
+<%--                                        </div>--%>
+
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                        </div>--%>
+
+
+<%--                        <div class="flex flex-col gap-4">--%>
+<%--                            <div class="flex justify-between">--%>
+<%--                                <h4 class="text-lg font-medium">Total: </h4>--%>
+<%--                                <h4 class="text-xl font-bold">9600 UAH</h4>--%>
+<%--                            </div>--%>
+
+<%--                            <div class="flex justify-center rounded-lg bg-neutral-300 transition-all duration-300 hover:opacity-80">--%>
+<%--                                <button data-modal-hide="default-modal" type="button"--%>
+<%--                                        class="font-medium text-lg p-4  ">--%>
+<%--                                    Purchase--%>
+<%--                                </button>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+
+<%--                    </div>--%>
+
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</div>--%>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
+
+<%--PROPOSED GIFTS PAGE--%>
 <div>
-    <div class="mx-[3%] my-6">
-
-        <%--1.    header--%>
-        <div class="flex justify-between items-center">
-            <img src="logoBlack.svg" alt="logo" class="w-40 cursor-pointer">
+    <div class="text flex justify-between items-center px-10 py-3">
+        <img src="logoBlack.svg" alt="logo" class="w-40 cursor-pointer">
 
 
-            <div class="text flex flex-row gap-5">
+        <div class="text flex flex-row gap-5">
 
-                <div class="flex justify-center items-center flex-col">
-                    <img src="myProfile.svg" alt="profile-icon" class="w-10 cursor-pointer ">
-                    <a class="text-sm font-medium" href="#">My profile</a>
-                </div>
-
-                <div class="flex justify-center items-center flex-col">
-                    <img src="liked.svg" alt="liked-items" class="w-10 cursor-pointer">
-                    <a class="text-sm font-medium" href="#">Liked</a>
-
-                </div>
-
-                <div class="flex justify-center items-center flex-col">
-                    <img src="basket.svg" alt="basket-icon" class="w-10 cursor-pointer">
-                    <a class="text-sm font-medium" href="#">Basket</a>
-
-                </div>
+            <div class="flex justify-center items-center flex-col">
+                <img src="myProfile.svg" alt="profile-icon" class="w-10 cursor-pointer ">
+                <a class="text-sm font-medium" href="#">My profile</a>
             </div>
 
-        </div>
-
-        <%--    main body--%>
-        <div class="flex justify-between items-center gap-12 mx-[12%] my-[2%]">
-
-            <div class="flex gap-12">
-                <%--    jeft bar with images--%>
-                <div class="flex flex-col gap-3 max-h-[700px] overflow-y-auto pr-4 text-6xl ">
-
-                    <img src="harryPotter.svg" alt="harryPotter" class="max-h-32 max-w-32 min-h-32 w-32 rounded-lg "/>
-                    <img src="harryPotter.svg" alt="harryPotter" class="min-h-32 w-32 rounded-lg "/>
-                    <img src="harryPotter.svg" alt="harryPotter" class="min-h-32 w-32 rounded-lg "/>
-                    <img src="harryPotter.svg" alt="harryPotter" class="min-h-32 w-32 rounded-lg "/>
-                    <img src="harryPotter.svg" alt="harryPotter" class="min-h-32 w-32 rounded-lg "/>
-                    <img src="harryPotter.svg" alt="harryPotter" class="min-h-32 w-32 rounded-lg "/>
-                    <img src="harryPotter.svg" alt="harryPotter" class="min-h-32 w-32 rounded-lg "/>
-                    <img src="harryPotter.svg" alt="harryPotter" class="min-h-32 w-32 rounded-lg "/>
-
-
-                </div>
-
-                <%--        main image--%>
-                <div class="flex items-center justify-center rounded-lg w-[600px] relative ">
-                    <img src="leftArrow.svg" alt="leftArrow" class="w-10 cursor-pointer shadow absolute left-6"/>
-                    <img src="harryPotter.svg" alt="harryPotter" class="rounded-lg shadow"/>
-                    <img src="rightArrow.svg" alt="rightArrow" class="w-10 cursor-pointer shadow absolute right-6"/>
-
-                </div>
+            <div class="flex justify-center items-center flex-col">
+                <img src="liked.svg" alt="liked-items" class="w-10 cursor-pointer">
+                <a class="text-sm font-medium" href="#">Liked</a>
 
             </div>
 
-            <%--right menu with details--%>
-            <div class="flex flex-col gap-8">
-
-                <div class="gap-12">
-                    <div class="flex gap-2">
-                        <h4 class="text-xl font-light">id: </h4>
-                        <h4 class="text-xl font-light">1000</h4>
-                    </div>
-                    <div class="space-y-4">
-                        <h4 class="text-3xl font-medium">Harry Potter The Complete Collection: 7 Book Box Set</h4>
-                        <h4 class="text-3xl font-bold mt-6">3200 UAH</h4>
-
-                        <p class="text-xl">
-                            Harry Potter is a series of seven fantasy novels written by British author J. K.
-                            Rowling.<br>
-                            Set consists of: <br>Philosopher's Stone (1997), Chamber of Secrets (1998), Prisoner of
-                            Azkaban
-                            (1999),
-                            Goblet of Fire (2000), Order of the Phoenix (2003), Half-Blood Prince (2005), Deathly
-                            Hallows
-                            (2007).
-                        </p>
-                    </div>
-                </div>
-
-
-                <div class="flex justify-content items-center gap-5 ">
-                    <button data-modal-target="default-modal" data-modal-toggle="default-modal"
-                            class="w-[50%] bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70 flex items-center justify-between px-6 py-3 text-white text-3xl font-medium">
-                        Buy
-                        <img src="buyIcon.svg" alt="Buy Icon" class="w-8 h-8"/>
-                    </button>
-
-                    <img src="likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>
-                </div>
+            <div class="flex justify-center items-center flex-col">
+                <img src="basket.svg" alt="basket-icon" class="w-10 cursor-pointer">
+                <a class="text-sm font-medium" href="#">Basket</a>
 
             </div>
         </div>
+
     </div>
 
 
-    <!-- Main modal -->
-    <div id="default-modal" tabindex="-1" aria-hidden="true"
-         class="absolute flex hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center h-[calc(100%-1rem)]">
-        <div class=" p-4  max-w-7xl max-h-[90vh]">
-            <!-- Modal content -->
-            <div class="relative bg-white rounded-lg shadow">
-                <!-- Modal header -->
-                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                    <h3 class="text-2xl font-semibold text-black">
-                        Basket
-                    </h3>
-                    <button type="button"
-                            class="text-gray-400 bg-transparent transition-all duration-300 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                            data-modal-hide="default-modal">
-                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                             viewBox="0 0 14 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                        </svg>
-                        <span class="sr-only">Close modal</span>
+    <div class="flex justify-center items-center flex-col">
+        <img src="giftsProposed.svg" alt="giftsProposed" class="w-16">
+        <h4 class="font-bold text-2xl">Offered gifts</h4>
+    </div>
+
+    <div class="mx-8">
+        <div class="custom-grid-offered-gifts text-2xl font-medium mt-8">
+            <h4 class="flex items-center justify-center">Item</h4>
+            <h4 class="flex items-center justify-center">Category</h4>
+            <h4 class="flex items-center justify-center">Price (UAH)</h4>
+        </div>
+        <hr class="border-neutral-500 mt-6"/>
+
+        <%--all items container--%>
+        <div class="grid mt-8 gap-12 ">
+            <%--Contaier with 1st item--%>
+            <div class="custom-grid-offered-gifts px-12 ">
+
+
+                <div class="flex items-center justify-center gap-6">
+
+                    <div class="flex items-center justify-center">
+                        <img src="bin.svg" alt="bin" class="w-12 cursor-pointer"/>
+                    </div>
+
+
+                    <img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>
+                    <div class="flex flex-col">
+                        <h5 class="text-lg font-light">id: 1000</h5>
+                        <h4 class="text-xl font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set </h4>
+                    </div>
+
+                </div>
+
+                <%--category--%>
+                <div class="relative flex justify-center items-center">
+                    <div class="relative w-[50%]">
+                        <!-- Custom Dropdown Trigger -->
+                        <div class=" flex justify-between items-center bg-white border border-gray-300 text-gray-700 text-lg py-3 px-4 rounded cursor-pointer"
+                             id="dropdownTriggerFirst">
+                            <div>Category</div>
+                            <svg class="transform transition-transform h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                 fill="none"
+                                 viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </div>
+
+                        <!-- Dropdown Menu -->
+                        <div class="absolute mt-1 w-full rounded-md bg-white shadow-lg hidden" id="dropdownMenuFirst">
+                            <ul class="text-gray-700 max-h-60 overflow-auto">
+                                <li class="flex items-center p-2 hover:bg-gray-100 cursor-pointer"
+                                    onclick="toggleCheckbox(event)">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-green-600">
+                                    <span class="ml-2">Kitchen</span>
+                                </li>
+                                <li class="flex items-center p-2 hover:bg-gray-100 cursor-pointer"
+                                    onclick="toggleCheckbox(event)">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-red-600">
+                                    <span class="ml-2">Literature</span>
+                                </li>
+                                <li class="flex items-center p-2 hover:bg-gray-100 cursor-pointer"
+                                    onclick="toggleCheckbox(event)">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-yellow-600">
+                                    <span class="ml-2">Sport</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <h4 class="text-2xl font-medium flex items-center justify-center">3200</h4>
+
+                <div class="flex items-center justify-center">
+                    <button class="flex w-[50%] cursor-pointer bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70  self-center p-3 justify-between px-4 text-white text-3xl font-medium flex-shrink">
+                        Buy
+                        <img src="buyIcon.svg" alt="buyIcon"/>
                     </button>
                 </div>
 
-                <!-- Modal body -->
-                <div class="flex gap-16">
-                    <div class="flex flex-col m-4 p-4 gap-y-12 max-h-[70vh] overflow-y-scroll">
+            </div>
 
-                        <%--1st item--%>
-                        <div class="flex items-center justify-center gap-8">
-                            <img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>
-
-                            <div class="flex flex-col gap-4">
-                                <h4 class="text-lg font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set
-                                </h4>
-
-                                <div class="flex flex-row gap-2">
-                                    <div class="cursor-pointer flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8">
-                                        -
-                                    </div>
-                                    <h4 class="flex justify-center items-center text-lg">
-                                        1
-                                    </h4>
-                                    <div class="cursor-pointer flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8">
-                                        +
-                                    </div>
-                                </div>
-
-                            </div>
-                            <h4 class="text-lg font-bold flex items-center justify-center">3200</h4>
-
-                            <div class="flex items-center justify-center">
-                                <img src="bin.svg" alt="bin"
-                                     class=" w-10 cursor-pointer flex items-center justify-center"/>
-                            </div>
-                        </div>
-
-                        <%--  2nd item--%>
-                        <div class="flex items-center justify-center gap-8">
-                            <img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>
-
-                            <div class="flex flex-col gap-4">
-                                <h4 class="text-lg font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set
-                                </h4>
-
-                                <div class="flex flex-row gap-2">
-                                    <div class="flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8 cursor-pointer">
-                                        -
-                                    </div>
-                                    <h4 class="flex justify-center items-center text-lg">
-                                        2
-                                    </h4>
-                                    <div class="cursor-pointer flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8">
-                                        +
-                                    </div>
-                                </div>
-
-                            </div>
-                            <h4 class="text-lg font-bold flex items-center justify-center">3200</h4>
-
-                            <div class="flex items-center justify-center">
-                                <img src="bin.svg" alt="bin"
-                                     class=" w-10 cursor-pointer flex items-center justify-center"/>
-                            </div>
-                        </div>
+            <%--Container with 2nd item--%>
+            <div class="custom-grid-offered-gifts px-12 ">
 
 
+                <div class="flex items-center justify-center gap-6">
 
-                            <div class="flex items-center justify-center gap-8">
-                                <img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>
-
-                                <div class="flex flex-col gap-4">
-                                    <h4 class="text-lg font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set
-                                    </h4>
-
-                                    <div class="flex flex-row gap-2">
-                                        <div class="flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8 cursor-pointer">
-                                            -
-                                        </div>
-                                        <h4 class="flex justify-center items-center text-lg">
-                                            2
-                                        </h4>
-                                        <div class="cursor-pointer flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8">
-                                            +
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <h4 class="text-lg font-bold flex items-center justify-center">3200</h4>
-
-                                <div class="flex items-center justify-center">
-                                    <img src="bin.svg" alt="bin"
-                                         class=" w-10 cursor-pointer flex items-center justify-center"/>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-center gap-8">
-                                <img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>
-
-                                <div class="flex flex-col gap-4">
-                                    <h4 class="text-lg font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set
-                                    </h4>
-
-                                    <div class="flex flex-row gap-2">
-                                        <div class="flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8 cursor-pointer">
-                                            -
-                                        </div>
-                                        <h4 class="flex justify-center items-center text-lg">
-                                            2
-                                        </h4>
-                                        <div class="cursor-pointer flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8">
-                                            +
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <h4 class="text-lg font-bold flex items-center justify-center">3200</h4>
-
-                                <div class="flex items-center justify-center">
-                                    <img src="bin.svg" alt="bin"
-                                         class=" w-10 cursor-pointer flex items-center justify-center"/>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-center gap-8">
-                                <img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>
-
-                                <div class="flex flex-col gap-4">
-                                    <h4 class="text-lg font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set
-                                    </h4>
-
-                                    <div class="flex flex-row gap-2">
-                                        <div class="flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8 cursor-pointer">
-                                            -
-                                        </div>
-                                        <h4 class="flex justify-center items-center text-lg">
-                                            2
-                                        </h4>
-                                        <div class="cursor-pointer flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8">
-                                            +
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <h4 class="text-lg font-bold flex items-center justify-center">3200</h4>
-
-                                <div class="flex items-center justify-center">
-                                    <img src="bin.svg" alt="bin"
-                                         class=" w-10 cursor-pointer flex items-center justify-center"/>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-center gap-8">
-                                <img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>
-
-                                <div class="flex flex-col gap-4">
-                                    <h4 class="text-lg font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set
-                                    </h4>
-
-                                    <div class="flex flex-row gap-2">
-                                        <div class="flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8 cursor-pointer">
-                                            -
-                                        </div>
-                                        <h4 class="flex justify-center items-center text-lg">
-                                            2
-                                        </h4>
-                                        <div class="cursor-pointer flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8">
-                                            +
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <h4 class="text-lg font-bold flex items-center justify-center">3200</h4>
-
-                                <div class="flex items-center justify-center">
-                                    <img src="bin.svg" alt="bin"
-                                         class=" w-10 cursor-pointer flex items-center justify-center"/>
-                                </div>
-                            </div>
-
+                    <div class="flex items-center justify-center">
+                        <img src="bin.svg" alt="bin" class="w-12 cursor-pointer"/>
                     </div>
 
-                    <%--right info purchase panel --%>
-                    <div class="flex flex-col gap-16 bg-neutral-100 w-[35%] h-full m-4 p-4 rounded-lg max-h-[70vh] overflow-y-scroll">
 
-                        <div class="flex flex-col gap-8">
-                            <%--1st item--%>
-                            <div class="flex items-center justify-between ">
-                                <div class="flex justify-center items-center gap-8">
-                                    <h4 class="text-lg font-medium">Harry Potter. The Complete Collection: 7 Book Box
-                                        Set
-                                    </h4>
-                                    <div class="flex flex-col gap-2 items-center justify-center">
-                                        <div class="flex items-center justify-between">
-                                            <h4 class="text-lg font-medium">x</h4>
-                                            <h4 class="text-xl font-bold">1</h4>
-                                        </div>
-                                        <h4 class="text-xl font-bold">3200</h4>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <%-- 2nd item--%>
-                            <div class="flex items-center justify-between ">
-                                <div class="flex justify-center items-center gap-8">
-                                    <h4 class="text-lg font-medium">Harry Potter. The Complete Collection: 7 Book Box
-                                        Set
-                                    </h4>
-                                    <div class="flex flex-col gap-2 items-center justify-center">
-                                        <div class="flex items-center justify-between font-medium ">
-                                            <h4 class="text-lg font-medium">x</h4>
-                                            <h4 class="text-xl font-bold">2</h4>
-                                        </div>
-                                        <h4 class="text-xl font-bold">6400</h4>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                                <div class="flex items-center justify-between ">
-                                    <div class="flex justify-center items-center gap-8">
-                                        <h4 class="text-lg font-medium">Harry Potter. The Complete Collection: 7 Book Box
-                                            Set
-                                        </h4>
-                                        <div class="flex flex-col gap-2 items-center justify-center">
-                                            <div class="flex items-center justify-between font-medium ">
-                                                <h4 class="text-lg font-medium">x</h4>
-                                                <h4 class="text-xl font-bold">2</h4>
-                                            </div>
-                                            <h4 class="text-xl font-bold">6400</h4>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-
-                                <div class="flex items-center justify-between ">
-                                    <div class="flex justify-center items-center gap-8">
-                                        <h4 class="text-lg font-medium">Harry Potter. The Complete Collection: 7 Book Box
-                                            Set
-                                        </h4>
-                                        <div class="flex flex-col gap-2 items-center justify-center">
-                                            <div class="flex items-center justify-between font-medium ">
-                                                <h4 class="text-lg font-medium">x</h4>
-                                                <h4 class="text-xl font-bold">2</h4>
-                                            </div>
-                                            <h4 class="text-xl font-bold">6400</h4>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-
-                                <div class="flex items-center justify-between ">
-                                    <div class="flex justify-center items-center gap-8">
-                                        <h4 class="text-lg font-medium">Harry Potter. The Complete Collection: 7 Book Box
-                                            Set
-                                        </h4>
-                                        <div class="flex flex-col gap-2 items-center justify-center">
-                                            <div class="flex items-center justify-between font-medium ">
-                                                <h4 class="text-lg font-medium">x</h4>
-                                                <h4 class="text-xl font-bold">2</h4>
-                                            </div>
-                                            <h4 class="text-xl font-bold">6400</h4>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-
-                                <div class="flex items-center justify-between ">
-                                    <div class="flex justify-center items-center gap-8">
-                                        <h4 class="text-lg font-medium">Harry Potter. The Complete Collection: 7 Book Box
-                                            Set
-                                        </h4>
-                                        <div class="flex flex-col gap-2 items-center justify-center">
-                                            <div class="flex items-center justify-between font-medium ">
-                                                <h4 class="text-lg font-medium">x</h4>
-                                                <h4 class="text-xl font-bold">2</h4>
-                                            </div>
-                                            <h4 class="text-xl font-bold">6400</h4>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="flex items-center justify-between ">
-                                    <div class="flex justify-center items-center gap-8">
-                                        <h4 class="text-lg font-medium">Harry Potter. The Complete Collection: 7 Book Box
-                                            Set
-                                        </h4>
-                                        <div class="flex flex-col gap-2 items-center justify-center">
-                                            <div class="flex items-center justify-between font-medium ">
-                                                <h4 class="text-lg font-medium">x</h4>
-                                                <h4 class="text-xl font-bold">2</h4>
-                                            </div>
-                                            <h4 class="text-xl font-bold">6400</h4>
-                                        </div>
-
-                                    </div>
-                                </div>
-                        </div>
-
-
-                        <div class="flex flex-col gap-4">
-                            <div class="flex justify-between">
-                                <h4 class="text-lg font-medium">Total: </h4>
-                                <h4 class="text-xl font-bold">9600 UAH</h4>
-                            </div>
-
-                            <div class="flex justify-center rounded-lg bg-neutral-300 transition-all duration-300 hover:opacity-80">
-                                <button data-modal-hide="default-modal" type="button"
-                                        class="font-medium text-lg p-4  ">
-                                    Purchase
-                                </button>
-                            </div>
-                        </div>
-
+                    <img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>
+                    <div class="flex flex-col">
+                        <h5 class="text-lg font-light">id: 1000</h5>
+                        <h4 class="text-xl font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set </h4>
                     </div>
 
                 </div>
+
+                <%--category--%>
+                <div class="relative flex justify-center items-center">
+                    <div class="relative w-[50%]">
+                        <!-- Custom Dropdown Trigger -->
+                        <div class=" flex justify-between items-center bg-white border border-gray-300 text-gray-700 text-lg py-3 px-4 rounded cursor-pointer"
+                             id="dropdownTriggerSecond">
+                            <div>Category</div>
+                            <svg class="transform transition-transform h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                 fill="none"
+                                 viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </div>
+
+                        <!-- Dropdown Menu -->
+                        <div class="absolute mt-1 w-full rounded-md bg-white shadow-lg hidden" id="dropdownMenuSecond">
+                            <ul class="text-gray-700 max-h-60 overflow-auto">
+                                <li class="flex items-center p-2 hover:bg-gray-100 cursor-pointer"
+                                    onclick="toggleCheckbox(event)">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-green-600">
+                                    <span class="ml-2">Kitchen</span>
+                                </li>
+                                <li class="flex items-center p-2 hover:bg-gray-100 cursor-pointer"
+                                    onclick="toggleCheckbox(event)">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-red-600">
+                                    <span class="ml-2">Literature</span>
+                                </li>
+                                <li class="flex items-center p-2 hover:bg-gray-100 cursor-pointer"
+                                    onclick="toggleCheckbox(event)">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-yellow-600">
+                                    <span class="ml-2">Sport</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <h4 class="text-2xl font-medium flex items-center justify-center">3200</h4>
+
+                <div class="flex items-center justify-center">
+                    <button class="flex w-[50%] cursor-pointer bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70  self-center p-3 justify-between px-4 text-white text-3xl font-medium flex-shrink">
+                        Buy
+                        <img src="buyIcon.svg" alt="buyIcon"/>
+                    </button>
+                </div>
+
             </div>
+
         </div>
     </div>
 </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 </html>
 
 
 <script>
-
-
-    const dropdownTrigger = document.getElementById('dropdownTrigger');
-    const dropdownMenu = document.getElementById('dropdownMenu');
-
-    // Toggle the dropdown menu and arrow rotation
-    dropdownTrigger.addEventListener('click', function () {
-        dropdownMenu.classList.toggle('hidden');
-        this.querySelector('svg').style.transform = dropdownMenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
-    });
-
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function (event) {
-        if (!dropdownTrigger.contains(event.target) && !dropdownMenu.contains(event.target)) {
-            dropdownMenu.classList.add('hidden');
-            dropdownTrigger.querySelector('svg').style.transform = 'rotate(0deg)';
-        }
-    });
-
-    // Function to toggle checkbox when clicking on the text or checkbox itself
-    function toggleCheckbox(event) {
-        const target = event.target;
-        if (target.tagName !== 'INPUT') {
-            const checkbox = target.querySelector('input') || target.parentElement.querySelector('input');
-            checkbox.checked = !checkbox.checked;
-        }
-    }
-
+    // const dropdownTrigger = document.getElementById('dropdownTrigger');
+    // const dropdownMenu = document.getElementById('dropdownMenu');
+    //
+    // // Toggle the dropdown menu and arrow rotation
+    // dropdownTrigger.addEventListener('click', function () {
+    //     dropdownMenu.classList.toggle('hidden');
+    //     this.querySelector('svg').style.transform = dropdownMenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+    // });
+    //
+    // // Close dropdown when clicking outside
+    // document.addEventListener('click', function (event) {
+    //     if (!dropdownTrigger.contains(event.target) && !dropdownMenu.contains(event.target)) {
+    //         dropdownMenu.classList.add('hidden');
+    //         dropdownTrigger.querySelector('svg').style.transform = 'rotate(0deg)';
+    //     }
+    // });
 
     //
-    const dropdownTrigger1 = document.getElementById('dropdownTrigger1');
-    const dropdownMenu1 = document.getElementById('dropdownMenu1');
+    const dropdownTriggerFirst = document.getElementById('dropdownTriggerFirst');
+    const dropdownMenuFirst = document.getElementById('dropdownMenuFirst');
 
     // Toggle the dropdown menu and arrow rotation
-    dropdownTrigger1.addEventListener('click', function () {
-        dropdownMenu1.classList.toggle('hidden');
-        this.querySelector('svg').style.transform = dropdownMenu1.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+    dropdownTriggerFirst.addEventListener('click', function () {
+        console.log("clicked");
+        dropdownMenuFirst.classList.toggle('hidden');
+        this.querySelector('svg').style.transform = dropdownMenuFirst.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
     });
 
     // Close dropdown when clicking outside
     document.addEventListener('click', function (event) {
-        if (!dropdownTrigger1.contains(event.target) && !dropdownMenu1.contains(event.target)) {
-            dropdownMenu1.classList.add('hidden');
-            dropdownTrigger1.querySelector('svg').style.transform = 'rotate(0deg)';
+        if (!dropdownTriggerFirst.contains(event.target) && !dropdownMenuFirst.contains(event.target)) {
+            dropdownMenuFirst.classList.add('hidden');
+            dropdownTriggerFirst.querySelector('svg').style.transform = 'rotate(0deg)';
+        }
+    });
+
+    //
+    const dropdownTriggerSecond = document.getElementById('dropdownTriggerSecond');
+    const dropdownMenuSecond = document.getElementById('dropdownMenuSecond');
+
+    // Toggle the dropdown menu and arrow rotation
+    dropdownTriggerSecond.addEventListener('click', function () {
+        dropdownMenuSecond.classList.toggle('hidden');
+        this.querySelector('svg').style.transform = dropdownMenuSecond.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function (event) {
+        if (!dropdownTriggerSecond.contains(event.target) && !dropdownMenuSecond.contains(event.target)) {
+            dropdownMenuSecond.classList.add('hidden');
+            dropdownTriggerSecond.querySelector('svg').style.transform = 'rotate(0deg)';
         }
     });
 
