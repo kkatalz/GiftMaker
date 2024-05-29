@@ -10,10 +10,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.List;
 
+/**
+ * To add new user (client).
+ */
 
 @WebServlet("/sendNewClient")
 public class PostAddUserCommand extends HttpServlet {
@@ -22,6 +26,7 @@ public class PostAddUserCommand extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserDto dto = getInput(request);
         List<String> errors = validateInput(dto);
+        HttpSession session = request.getSession();
 
         // success
         if(errors.isEmpty()) {
@@ -33,18 +38,19 @@ public class PostAddUserCommand extends HttpServlet {
 
             // TODO: add path to go after successful adding new client
             String jspPage = "";
-            request.getRequestDispatcher(jspPage).forward(request, response);
+            String redirectURL = request.getContextPath() + jspPage;
+            response.sendRedirect(redirectURL);
         }
 
 
         else {
             // TODO: add path to go after NOT successful adding new client
             // failure scenario
+            session.setAttribute("errors", errors);
+            session.setAttribute("userDto", dto);
             String jspPage = "";
-            request.setAttribute("errors", errors);
-            request.setAttribute("userDto", dto);
-            request.getRequestDispatcher(jspPage).forward(request, response);
-
+            String redirectURL = request.getContextPath() + jspPage;
+            response.sendRedirect(redirectURL);
         }
 
     }
