@@ -18,6 +18,7 @@ public class GetAddCategoryCommand extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO: add path
         String jspPage = "";
-        request.getRequestDispatcher(jspPage).forward(request, response);
+        String redirectURL = request.getContextPath() + jspPage;
+        response.sendRedirect(redirectURL);
     }
 }

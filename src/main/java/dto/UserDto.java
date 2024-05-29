@@ -12,8 +12,6 @@ public class UserDto {
     private Role role;
     private String username;
     private String clearPassword;
-    private String confirmPassword;
-
 
     public static class Builder implements CustomBuilder<UserDto> {
         UserDto user = new UserDto();
@@ -54,10 +52,6 @@ public class UserDto {
             return this;
         }
 
-        public Builder setConfirmPassword(String confirmPassword) {
-            user.confirmPassword = confirmPassword;
-            return this;
-        }
 
         @Override
         public UserDto build() {
@@ -122,13 +116,7 @@ public class UserDto {
         this.clearPassword = encryptedPassword;
     }
 
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
 
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
-    }
 
     @Override
     public String toString() {
@@ -140,7 +128,6 @@ public class UserDto {
                 ", role=" + role +
                 ", username='" + username + '\'' +
                 ", clearPassword='" + clearPassword + '\'' +
-                ", confirmPassword='" + confirmPassword + '\'' +
                 '}';
     }
 }

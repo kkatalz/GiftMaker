@@ -3,6 +3,7 @@ package controller.command.item;
 import dto.ItemDto;
 import entity.Category;
 import entity.Item;
+import entity.User;
 import service.ItemService;
 import validator.entity.ItemDtoValidator;
 
@@ -22,29 +23,42 @@ public class PostAddItemCommand extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ItemDto dto = getInput(request);
         List<String> errors = validate(dto);
+        HttpSession session = request.getSession(false);
 
-        if(errors.isEmpty()) {
-            ItemService.getInstance().create(dto);
+        String jspPage = "";
+        if(errors.isEmpty() && session != null) {
+            User user = (User) session.getAttribute("currentUser");
+            if(user != null && user.getRole().getValue().equals("administrator")) {
+                ItemService.getInstance().create(dto);
+                List<Item> items = ItemService.getInstance().getAllItems();
 
-            List<Item> items = ItemService.getInstance().getAllItems();
+                session.setAttribute("items", items);
+                // TODO: add path to go after successful adding new item
+                jspPage = "/items.jsp";
+            }
 
-            HttpSession session = request.getSession();
-            session.setAttribute("items", items);
-            // TODO: add path to go after successful adding new item
-            String jspPage = "/items.jsp";
-            String redirectURL = request.getContextPath() + jspPage;
-            response.sendRedirect(redirectURL);
+            // unauthorized access
+            else {
+                // TODO: complete path in case of unauthorized access
+                jspPage = "";
+            }
+
         }
-        else {
-            HttpSession session = request.getSession();
+        else if(session != null){
             session.setAttribute("errors", errors);
             session.setAttribute("itemDto", dto);
             // TODO: add path to go after NOT successful adding new item
-            String jspPage = "";
-            String redirectURL = request.getContextPath() + jspPage;
-            response.sendRedirect(redirectURL);
+            jspPage = "";
         }
 
+        // session is null
+        else {
+            // complete path, the same as unauthorized access
+            jspPage = "";
+        }
+
+        String redirectURL = request.getContextPath() + jspPage;
+        response.sendRedirect(redirectURL);
     }
 
     private ItemDto getInput(HttpServletRequest request) throws ServletException, IOException {

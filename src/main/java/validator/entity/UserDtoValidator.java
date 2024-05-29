@@ -30,8 +30,6 @@ public class UserDtoValidator implements Validator<UserDto> {
         fieldValidator.validateField(FieldValidatorKey.USERNAME, dto.getUsername(), errors);
         fieldValidator.validateField(FieldValidatorKey.PASSWORD, dto.getPassword(), errors);
 
-        if(!dto.getPassword().equals(dto.getConfirmPassword()))
-            errors.add(Message.INVALID_PASSWORD_AND_CONFIRM);
         return errors;
     }
 }
