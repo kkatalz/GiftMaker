@@ -3,7 +3,7 @@ package dto;
 import entity.CustomBuilder;
 
 import javax.servlet.http.Part;
-import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PossibleItemDto {
@@ -13,8 +13,7 @@ public class PossibleItemDto {
     private String price;
     private String description;
     private String age;
-    private List<String> base64Images; // might be the proper format to display on the page
-    private List<Part> parts;
+    private List<Part> parts = new ArrayList<>();
 
     public void setId(Integer id) {
         this.id = id;
@@ -55,11 +54,6 @@ public class PossibleItemDto {
 
         public Builder setAge(String age) {
             possibleItem.age = age;
-            return this;
-        }
-
-        public Builder setBase64Images(List<String> base64Image) {
-            possibleItem.base64Images = base64Image;
             return this;
         }
 
@@ -116,14 +110,6 @@ public class PossibleItemDto {
         this.age = age;
     }
 
-    public List<String> getBase64Image() {
-        return base64Images;
-    }
-
-    public void setBase64Image(List<String> base64Image) {
-        this.base64Images = base64Image;
-    }
-
 
     @Override
     public String toString() {
@@ -133,7 +119,6 @@ public class PossibleItemDto {
                 ", price=" + price +
                 ", description='" + description + '\'' +
                 ", age=" + age +
-                ", base64Image='" + base64Images + '\'' +
                 '}';
     }
 }
