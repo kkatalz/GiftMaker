@@ -367,7 +367,7 @@ public class JdbcItemDao implements ItemDao {
                 .setPrice(resultSet.getBigDecimal(PRICE))
                 .setDescription(resultSet.getString(DESCRIPTION))
                 .setAmount(resultSet.getInt(AMOUNT))
-                .setAage(resultSet.getInt(AGE))
+                .setAge(resultSet.getInt(AGE))
                 .build();
     }
 

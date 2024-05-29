@@ -14,7 +14,7 @@ public class ItemDtoItemConverter {
                 .setPrice(new BigDecimal(dto.getPrice()))
                 .setDescription(dto.getDescription())
                 .setAmount(Integer.parseInt(dto.getAmount()))
-                .setAage(Integer.parseInt(dto.getAge()))
+                .setAge(Integer.parseInt(dto.getAge()))
                 .setParts(dto.getParts())
                 .build();
     }

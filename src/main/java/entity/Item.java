@@ -1,7 +1,6 @@
 package entity;
 
 import javax.servlet.http.Part;
-import java.io.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -76,7 +75,7 @@ public class Item {
             return this;
         }
 
-        public Builder setAage(int age) {
+        public Builder setAge(int age) {
             item.age = age;
             return this;
         }
