@@ -18,10 +18,10 @@ import java.util.Optional;
  */
 
 @WebServlet("/login")
-public class LoginCommand extends HttpServlet {
+public class PostLoginCommand extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Optional<User> user = getInput(request);
 
         // successful logging in
