@@ -36,11 +36,13 @@ public class PostAddItemCommand extends HttpServlet {
             response.sendRedirect(redirectURL);
         }
         else {
-            request.setAttribute("errors", errors);
-            request.setAttribute("itemDto", dto);
+            HttpSession session = request.getSession();
+            session.setAttribute("errors", errors);
+            session.setAttribute("itemDto", dto);
             // TODO: add path to go after NOT successful adding new item
             String jspPage = "";
-            request.getRequestDispatcher(jspPage).forward(request, response);
+            String redirectURL = request.getContextPath() + jspPage;
+            response.sendRedirect(redirectURL);
         }
 
     }
