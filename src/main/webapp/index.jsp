@@ -29,7 +29,7 @@
 <%--            <a class="text-[#6AB7FF] underline" href="#">Log in</a>--%>
 <%--        </div>--%>
 
-<%--        <div class="text-lg flex flex-col gap-3 w-[44vh]">--%>
+<%--        <div class="text-lg flex flex-col gap-3 w-[20vw]">--%>
 <%--            <input type="text" class="p-3 rounded-lg bg-neutral-100" placeholder="First name">--%>
 <%--            <input type="text" class="p-3 rounded-lg bg-neutral-100" placeholder="Last name">--%>
 <%--            <input type="text" class="p-3 rounded-lg bg-neutral-100" placeholder="Username">--%>
@@ -53,7 +53,7 @@
 <%--            <a class="text-[#6AB7FF] underline" href="#">Sign up</a>--%>
 <%--        </div>--%>
 
-<%--        <div class="text-lg flex flex-col gap-3 w-[44vh]">--%>
+<%--        <div class="text-lg flex flex-col gap-3  w-[20vw]">--%>
 <%--            <input type="text" class="p-3 rounded-lg bg-neutral-100" placeholder="Username">--%>
 <%--            <input type="password" class="p-3 rounded-lg bg-neutral-100" placeholder="Password">--%>
 <%--        </div>--%>
