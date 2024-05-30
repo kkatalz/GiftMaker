@@ -16,12 +16,14 @@ public class GetUserInfo extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession(false);
         if(session != null) {
-            // attribute "currentUser"
-            // TODO: add path to show user's info
-            String jspPage = "";
-            String redirectURL = request.getContextPath() + jspPage;
-            response.sendRedirect(redirectURL);
-
+            User user = (User) session.getAttribute("currentUser");
+            if(user != null) {
+                // attribute "currentUser"
+                // TODO: add path to show user's info
+                String jspPage = "";
+                String redirectURL = request.getContextPath() + jspPage;
+                response.sendRedirect(redirectURL);
+            }
         }
 
         // TODO: process failure scenario?
