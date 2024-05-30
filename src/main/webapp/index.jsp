@@ -43,7 +43,7 @@
 <%--</div>--%>
 
 
-<%--    WELCOME BACK--%>
+<%--&lt;%&ndash;    WELCOME BACK&ndash;%&gt;--%>
 <%--<div class="bg-blue-100 h-[100vh] flex justify-center items-center flex-col gap-1">--%>
 
 <%--    <form class="text-center bg-white py-10 px-20 rounded-lg shadow">--%>
@@ -1209,13 +1209,214 @@
 
 
 <%--PROPOSED GIFTS PAGE--%>
-<div>
+<%--<div>--%>
+<%--    <div class="text flex justify-between items-center px-10 py-3">--%>
+<%--        <img src="logoBlack.svg" alt="logo" class="w-40 cursor-pointer">--%>
+
+
+<%--        <div class="text flex flex-row gap-5">--%>
+
+<%--            <div class="flex justify-center items-center flex-col">--%>
+<%--                <img src="myProfile.svg" alt="profile-icon" class="w-10 cursor-pointer ">--%>
+<%--                <a class="text-sm font-medium" href="#">My profile</a>--%>
+<%--            </div>--%>
+
+<%--            <div class="flex justify-center items-center flex-col">--%>
+<%--                <img src="liked.svg" alt="liked-items" class="w-10 cursor-pointer">--%>
+<%--                <a class="text-sm font-medium" href="#">Liked</a>--%>
+
+<%--            </div>--%>
+
+<%--            <div class="flex justify-center items-center flex-col">--%>
+<%--                <img src="basket.svg" alt="basket-icon" class="w-10 cursor-pointer">--%>
+<%--                <a class="text-sm font-medium" href="#">Basket</a>--%>
+
+<%--            </div>--%>
+<%--        </div>--%>
+
+<%--    </div>--%>
+
+
+<%--    <div class="flex justify-center items-center flex-col">--%>
+<%--        <img src="giftsProposed.svg" alt="giftsProposed" class="w-16">--%>
+<%--        <h4 class="font-bold text-2xl">Offered gifts</h4>--%>
+<%--    </div>--%>
+
+<%--    <div class="mx-8">--%>
+<%--        <div class="custom-grid-offered-gifts text-2xl font-medium mt-8">--%>
+<%--            <h4 class="flex items-center justify-center">Item</h4>--%>
+<%--            <h4 class="flex items-center justify-center">Category</h4>--%>
+<%--            <h4 class="flex items-center justify-center">Price (UAH)</h4>--%>
+<%--        </div>--%>
+<%--        <hr class="border-neutral-500 mt-6"/>--%>
+
+<%--        &lt;%&ndash;all items container&ndash;%&gt;--%>
+<%--        <div class="grid mt-8 gap-12 ">--%>
+<%--            &lt;%&ndash;Contaier with 1st item&ndash;%&gt;--%>
+<%--            <div class="custom-grid-offered-gifts px-12 ">--%>
+
+
+<%--                <div class="flex items-center justify-center gap-6">--%>
+
+<%--                    <div class="flex items-center justify-center">--%>
+<%--                        <img src="bin.svg" alt="bin" class="w-12 cursor-pointer"/>--%>
+<%--                    </div>--%>
+
+
+<%--                    <img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>--%>
+<%--                    <div class="flex flex-col">--%>
+<%--                        <h5 class="text-lg font-light">id: 1000</h5>--%>
+<%--                        <h4 class="text-xl font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set </h4>--%>
+<%--                    </div>--%>
+
+<%--                </div>--%>
+
+<%--                &lt;%&ndash;category&ndash;%&gt;--%>
+<%--                <div class="relative flex justify-center items-center">--%>
+<%--                    <button id="dropdownRadioBgHoverButton2" data-dropdown-toggle="dropdownRadioBgHover2"--%>
+<%--                            class="w-[50%] flex justify-between items-center bg-white border border-gray-300 text-gray-700 text-lg py-3 px-4 rounded cursor-pointer"--%>
+<%--                            type="button">Category--%>
+<%--                        <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"--%>
+<%--                             viewBox="0 0 10 6">--%>
+<%--                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"--%>
+<%--                                  d="m1 1 4 4 4-4"/>--%>
+<%--                        </svg>--%>
+<%--                    </button>--%>
+
+<%--                    <!-- Dropdown menu -->--%>
+<%--                    <div id="dropdownRadioBgHover2"--%>
+<%--                         class="z-10 hidden w-[50%] bg-white rounded-lg shadow">--%>
+<%--                        <ul class="p-3 space-y-1 text-sm text-gray-700"--%>
+<%--                            aria-labelledby="dropdownRadioBgHoverButton2">--%>
+<%--                            <li>--%>
+<%--                                <div class="flex items-center p-2 rounded hover:bg-gray-100">--%>
+<%--                                    <input id="default-radio-10" type="radio" value="" name="default-radio"--%>
+<%--                                           class="w-4 h-4 bg-gray-100 border-gray-300">--%>
+<%--                                    <label for="default-radio-10"--%>
+<%--                                           class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Kitchen</label>--%>
+<%--                                </div>--%>
+<%--                            </li>--%>
+<%--                            <li>--%>
+<%--                                <div class="flex items-center p-2 rounded hover:bg-gray-100">--%>
+<%--                                    <input id="default-radio-11" type="radio" value="" name="default-radio"--%>
+<%--                                           class="w-4 h-4 bg-gray-100 border-gray-300">--%>
+<%--                                    <label for="default-radio-11"--%>
+<%--                                           class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Sport</label>--%>
+<%--                                </div>--%>
+<%--                            </li>--%>
+<%--                            <li>--%>
+<%--                                <div class="flex items-center p-2 rounded hover:bg-gray-100">--%>
+<%--                                    <input id="default-radio-12" type="radio" value="" name="default-radio"--%>
+<%--                                           class="w-4 h-4 bg-gray-100 border-gray-300">--%>
+<%--                                    <label for="default-radio-12"--%>
+<%--                                           class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Literature</label>--%>
+<%--                                </div>--%>
+<%--                            </li>--%>
+<%--                        </ul>--%>
+<%--                    </div>--%>
+
+<%--                </div>--%>
+
+<%--                <h4 class="text-2xl font-medium flex items-center justify-center">3200</h4>--%>
+
+<%--                <div class="flex items-center justify-center">--%>
+<%--                    <button class="flex w-[50%] cursor-pointer bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70  self-center p-3 justify-between px-4 text-white text-3xl font-medium flex-shrink">--%>
+<%--                        Buy--%>
+<%--                        <img src="buyIcon.svg" alt="buyIcon"/>--%>
+<%--                    </button>--%>
+<%--                </div>--%>
+
+<%--            </div>--%>
+
+<%--            &lt;%&ndash;Container with 2nd item&ndash;%&gt;--%>
+<%--            <div class="custom-grid-offered-gifts px-12 ">--%>
+
+
+<%--                <div class="flex items-center justify-center gap-6">--%>
+
+<%--                    <div class="flex items-center justify-center">--%>
+<%--                        <img src="bin.svg" alt="bin" class="w-12 cursor-pointer"/>--%>
+<%--                    </div>--%>
+
+
+<%--                    <img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>--%>
+<%--                    <div class="flex flex-col">--%>
+<%--                        <h5 class="text-lg font-light">id: 1000</h5>--%>
+<%--                        <h4 class="text-xl font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set </h4>--%>
+<%--                    </div>--%>
+
+<%--                </div>--%>
+
+<%--                &lt;%&ndash;category&ndash;%&gt;--%>
+<%--                <div class="relative flex justify-center items-center">--%>
+<%--                    <button id="dropdownRadioBgHoverButton3" data-dropdown-toggle="dropdownRadioBgHover3"--%>
+<%--                            class="w-[50%] flex justify-between items-center bg-white border border-gray-300 text-gray-700 text-lg py-3 px-4 rounded cursor-pointer"--%>
+<%--                            type="button">Category--%>
+<%--                        <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"--%>
+<%--                             viewBox="0 0 10 6">--%>
+<%--                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"--%>
+<%--                                  d="m1 1 4 4 4-4"/>--%>
+<%--                        </svg>--%>
+<%--                    </button>--%>
+
+<%--                    <!-- Dropdown menu -->--%>
+<%--                    <div id="dropdownRadioBgHover3"--%>
+<%--                         class="z-10 hidden w-[50%] bg-white rounded-lg shadow">--%>
+<%--                        <ul class="p-3 space-y-1 text-sm text-gray-700"--%>
+<%--                            aria-labelledby="dropdownRadioBgHoverButton3">--%>
+<%--                            <li>--%>
+<%--                                <div class="flex items-center p-2 rounded hover:bg-gray-100">--%>
+<%--                                    <input id="default-radio-13" type="radio" value="" name="default-radio"--%>
+<%--                                           class="w-4 h-4 bg-gray-100 border-gray-300">--%>
+<%--                                    <label for="default-radio-13"--%>
+<%--                                           class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Kitchen</label>--%>
+<%--                                </div>--%>
+<%--                            </li>--%>
+<%--                            <li>--%>
+<%--                                <div class="flex items-center p-2 rounded hover:bg-gray-100">--%>
+<%--                                    <input id="default-radio-14" type="radio" value="" name="default-radio"--%>
+<%--                                           class="w-4 h-4 bg-gray-100 border-gray-300">--%>
+<%--                                    <label for="default-radio-14"--%>
+<%--                                           class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Sport</label>--%>
+<%--                                </div>--%>
+<%--                            </li>--%>
+<%--                            <li>--%>
+<%--                                <div class="flex items-center p-2 rounded hover:bg-gray-100">--%>
+<%--                                    <input id="default-radio-15" type="radio" value="" name="default-radio"--%>
+<%--                                           class="w-4 h-4 bg-gray-100 border-gray-300">--%>
+<%--                                    <label for="default-radio-15"--%>
+<%--                                           class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Literature</label>--%>
+<%--                                </div>--%>
+<%--                            </li>--%>
+<%--                        </ul>--%>
+<%--                    </div>--%>
+
+<%--                </div>--%>
+
+<%--                <h4 class="text-2xl font-medium flex items-center justify-center">3200</h4>--%>
+
+<%--                <div class="flex items-center justify-center">--%>
+<%--                    <button class="flex w-[50%] cursor-pointer bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70  self-center p-3 justify-between px-4 text-white text-3xl font-medium flex-shrink">--%>
+<%--                        Buy--%>
+<%--                        <img src="buyIcon.svg" alt="buyIcon"/>--%>
+<%--                    </button>--%>
+<%--                </div>--%>
+
+<%--            </div>--%>
+
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</div>--%>
+
+
+<%--MY PROFILE PAGE--%>
+<div class="bg-blue-100 h-[100vh] ">
+
+    <%--header--%>
     <div class="text flex justify-between items-center px-10 py-3">
         <img src="logoBlack.svg" alt="logo" class="w-40 cursor-pointer">
 
-
         <div class="text flex flex-row gap-5">
-
             <div class="flex justify-center items-center flex-col">
                 <img src="myProfile.svg" alt="profile-icon" class="w-10 cursor-pointer ">
                 <a class="text-sm font-medium" href="#">My profile</a>
@@ -1236,243 +1437,31 @@
 
     </div>
 
-
-    <div class="flex justify-center items-center flex-col">
-        <img src="giftsProposed.svg" alt="giftsProposed" class="w-16">
-        <h4 class="font-bold text-2xl">Offered gifts</h4>
-    </div>
-
-    <div class="mx-8">
-        <div class="custom-grid-offered-gifts text-2xl font-medium mt-8">
-            <h4 class="flex items-center justify-center">Item</h4>
-            <h4 class="flex items-center justify-center">Category</h4>
-            <h4 class="flex items-center justify-center">Price (UAH)</h4>
-        </div>
-        <hr class="border-neutral-500 mt-6"/>
-
-        <%--all items container--%>
-        <div class="grid mt-8 gap-12 ">
-            <%--Contaier with 1st item--%>
-            <div class="custom-grid-offered-gifts px-12 ">
-
-
-                <div class="flex items-center justify-center gap-6">
-
-                    <div class="flex items-center justify-center">
-                        <img src="bin.svg" alt="bin" class="w-12 cursor-pointer"/>
-                    </div>
-
-
-                    <img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>
-                    <div class="flex flex-col">
-                        <h5 class="text-lg font-light">id: 1000</h5>
-                        <h4 class="text-xl font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set </h4>
-                    </div>
-
-                </div>
-
-                <%--category--%>
-                <div class="relative flex justify-center items-center">
-                    <button id="dropdownRadioBgHoverButton2" data-dropdown-toggle="dropdownRadioBgHover2"
-                            class="w-[50%] flex justify-between items-center bg-white border border-gray-300 text-gray-700 text-lg py-3 px-4 rounded cursor-pointer"
-                            type="button">Category
-                        <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                             viewBox="0 0 10 6">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="m1 1 4 4 4-4"/>
-                        </svg>
-                    </button>
-
-                    <!-- Dropdown menu -->
-                    <div id="dropdownRadioBgHover2"
-                         class="z-10 hidden w-[50%] bg-white rounded-lg shadow">
-                        <ul class="p-3 space-y-1 text-sm text-gray-700"
-                            aria-labelledby="dropdownRadioBgHoverButton2">
-                            <li>
-                                <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                                    <input id="default-radio-10" type="radio" value="" name="default-radio"
-                                           class="w-4 h-4 bg-gray-100 border-gray-300">
-                                    <label for="default-radio-10"
-                                           class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Kitchen</label>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                                    <input id="default-radio-11" type="radio" value="" name="default-radio"
-                                           class="w-4 h-4 bg-gray-100 border-gray-300">
-                                    <label for="default-radio-11"
-                                           class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Sport</label>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                                    <input id="default-radio-12" type="radio" value="" name="default-radio"
-                                           class="w-4 h-4 bg-gray-100 border-gray-300">
-                                    <label for="default-radio-12"
-                                           class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Literature</label>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
-
-                <h4 class="text-2xl font-medium flex items-center justify-center">3200</h4>
-
-                <div class="flex items-center justify-center">
-                    <button class="flex w-[50%] cursor-pointer bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70  self-center p-3 justify-between px-4 text-white text-3xl font-medium flex-shrink">
-                        Buy
-                        <img src="buyIcon.svg" alt="buyIcon"/>
-                    </button>
-                </div>
-
+    <div class="flex justify-center mt-16 ">
+        <form class="flex items-center flex-col text-center bg-white py-10 rounded-lg shadow w-[40vw]">
+            <div class="flex justify-center items-center flex-col">
+                <img src="myProfile.svg" alt="myProfile" class="w-16">
+                <h4 class="font-bold text-2xl">My profile</h4>
             </div>
 
-            <%--Container with 2nd item--%>
-            <div class="custom-grid-offered-gifts px-12 ">
-
-
-                <div class="flex items-center justify-center gap-6">
-
-                    <div class="flex items-center justify-center">
-                        <img src="bin.svg" alt="bin" class="w-12 cursor-pointer"/>
-                    </div>
-
-
-                    <img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>
-                    <div class="flex flex-col">
-                        <h5 class="text-lg font-light">id: 1000</h5>
-                        <h4 class="text-xl font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set </h4>
-                    </div>
-
-                </div>
-
-                <%--category--%>
-                <div class="relative flex justify-center items-center">
-                    <button id="dropdownRadioBgHoverButton3" data-dropdown-toggle="dropdownRadioBgHover3"
-                            class="w-[50%] flex justify-between items-center bg-white border border-gray-300 text-gray-700 text-lg py-3 px-4 rounded cursor-pointer"
-                            type="button">Category
-                        <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                             viewBox="0 0 10 6">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="m1 1 4 4 4-4"/>
-                        </svg>
-                    </button>
-
-                    <!-- Dropdown menu -->
-                    <div id="dropdownRadioBgHover3"
-                         class="z-10 hidden w-[50%] bg-white rounded-lg shadow">
-                        <ul class="p-3 space-y-1 text-sm text-gray-700"
-                            aria-labelledby="dropdownRadioBgHoverButton3">
-                            <li>
-                                <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                                    <input id="default-radio-13" type="radio" value="" name="default-radio"
-                                           class="w-4 h-4 bg-gray-100 border-gray-300">
-                                    <label for="default-radio-13"
-                                           class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Kitchen</label>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                                    <input id="default-radio-14" type="radio" value="" name="default-radio"
-                                           class="w-4 h-4 bg-gray-100 border-gray-300">
-                                    <label for="default-radio-14"
-                                           class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Sport</label>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                                    <input id="default-radio-15" type="radio" value="" name="default-radio"
-                                           class="w-4 h-4 bg-gray-100 border-gray-300">
-                                    <label for="default-radio-15"
-                                           class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Literature</label>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
-
-                <h4 class="text-2xl font-medium flex items-center justify-center">3200</h4>
-
-                <div class="flex items-center justify-center">
-                    <button class="flex w-[50%] cursor-pointer bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70  self-center p-3 justify-between px-4 text-white text-3xl font-medium flex-shrink">
-                        Buy
-                        <img src="buyIcon.svg" alt="buyIcon"/>
-                    </button>
-                </div>
-
+            <div class="text-lg flex flex-col gap-3 w-[60%] mt-6">
+                <h4 class="p-3 rounded-lg bg-neutral-100 text-neutral-500 italic">Administator</h4>
+                <h4 class="p-3 rounded-lg bg-neutral-100 text-neutral-500 italic">Akuna</h4>
+                <h4 class="p-3 rounded-lg bg-neutral-100 text-neutral-500 italic">Matata</h4>
+                <h4 class="p-3 rounded-lg bg-neutral-100 text-neutral-500 italic">@matata</h4>
+                <h4 class="p-3 rounded-lg bg-neutral-100 text-neutral-500 italic">********</h4>
             </div>
-
-        </div>
+        </form>
     </div>
+
 </div>
+
+
 </body>
 </html>
 
 
 <script>
-    // const dropdownTrigger = document.getElementById('dropdownTrigger');
-    // const dropdownMenu = document.getElementById('dropdownMenu');
-    //
-    // // Toggle the dropdown menu and arrow rotation
-    // dropdownTrigger.addEventListener('click', function () {
-    //     dropdownMenu.classList.toggle('hidden');
-    //     this.querySelector('svg').style.transform = dropdownMenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
-    // });
-    //
-    // // Close dropdown when clicking outside
-    // document.addEventListener('click', function (event) {
-    //     if (!dropdownTrigger.contains(event.target) && !dropdownMenu.contains(event.target)) {
-    //         dropdownMenu.classList.add('hidden');
-    //         dropdownTrigger.querySelector('svg').style.transform = 'rotate(0deg)';
-    //     }
-    // });
 
-    //
-    const dropdownTriggerFirst = document.getElementById('dropdownTriggerFirst');
-    const dropdownMenuFirst = document.getElementById('dropdownMenuFirst');
-
-    // Toggle the dropdown menu and arrow rotation
-    dropdownTriggerFirst.addEventListener('click', function () {
-        console.log("clicked");
-        dropdownMenuFirst.classList.toggle('hidden');
-        this.querySelector('svg').style.transform = dropdownMenuFirst.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
-    });
-
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function (event) {
-        if (!dropdownTriggerFirst.contains(event.target) && !dropdownMenuFirst.contains(event.target)) {
-            dropdownMenuFirst.classList.add('hidden');
-            dropdownTriggerFirst.querySelector('svg').style.transform = 'rotate(0deg)';
-        }
-    });
-
-    //
-    const dropdownTriggerSecond = document.getElementById('dropdownTriggerSecond');
-    const dropdownMenuSecond = document.getElementById('dropdownMenuSecond');
-
-    // Toggle the dropdown menu and arrow rotation
-    dropdownTriggerSecond.addEventListener('click', function () {
-        dropdownMenuSecond.classList.toggle('hidden');
-        this.querySelector('svg').style.transform = dropdownMenuSecond.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
-    });
-
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function (event) {
-        if (!dropdownTriggerSecond.contains(event.target) && !dropdownMenuSecond.contains(event.target)) {
-            dropdownMenuSecond.classList.add('hidden');
-            dropdownTriggerSecond.querySelector('svg').style.transform = 'rotate(0deg)';
-        }
-    });
-
-    // Function to toggle checkbox when clicking on the text or checkbox itself
-    function toggleCheckbox(event) {
-        const target = event.target;
-        if (target.tagName !== 'INPUT') {
-            const checkbox = target.querySelector('input') || target.parentElement.querySelector('input');
-            checkbox.checked = !checkbox.checked;
-        }
-    }
 </script>
 
