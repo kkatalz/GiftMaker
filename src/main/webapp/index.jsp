@@ -554,7 +554,7 @@
 
 <%--    </div>--%>
 
-<%--    main body--%>
+<%--&lt;%&ndash;    main body&ndash;%&gt;--%>
 <%--    <div class="flex justify-between items-center gap-12 mx-[12%] my-[2%]">--%>
 
 <%--        <div class="flex gap-12">--%>
@@ -592,8 +592,8 @@
 <%--    <h4 class="text-xl font-light">1000</h4>--%>
 <%--</div>--%>
 <%--                <div class="space-y-4">--%>
-<%--                    <h4 class="text-3xl font-medium">Harry Potter The Complete Collection: 7 Book Box Set</h4>--%>
-<%--                    <h4 class="text-3xl font-bold mt-6">3200 UAH</h4>--%>
+<%--                    <h4 class="text-2xl font-medium">Harry Potter The Complete Collection: 7 Book Box Set</h4>--%>
+<%--                    <h4 class="text-2xl font-bold mt-6">3200 UAH</h4>--%>
 
 <%--                    <p class="text-xl">--%>
 <%--                        Harry Potter is a series of seven fantasy novels written by British author J. K. Rowling.<br>--%>
@@ -651,9 +651,9 @@
     </div>
 
     <%--main body--%>
-    <div class="flex justify-between items-center gap-12 mx-[12%] my-[2%]">
+    <div class="flex justify-center items-center gap-8 mx-[6%] my-[2%]">
 
-        <div class="flex gap-12">
+        <div class="flex gap-8">
             <%--    jeft bar with images--%>
             <div class="flex flex-col gap-3 max-h-[700px] overflow-y-auto pr-4 text-6xl ">
                 <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>
@@ -678,7 +678,7 @@
         </div>
 
         <%--right menu with details--%>
-        <div class="flex flex-col gap-16">
+        <div class="flex flex-col gap-4 w-[25vw]">
 
             <%--Category--%>
             <button id="dropdownRadioBgHoverButton" data-dropdown-toggle="dropdownRadioBgHover"
@@ -730,18 +730,16 @@
                     <h4 class="text-xl font-light">x</h4>
                 </div>
 
-                <div class="gap-12">
-                    <label>
-                        <input type="text"
-                               class="text-2xl font-medium p-3 mt-3 rounded-lg placeholder:italic outline-none border border-neutral-200"
-                               placeholder="Title">
-                    </label>
+                <div class="flex flex-col space-y-4">
+                    <textarea name="text" placeholder="Title (max. 68 words)" rows="2"
+                              class="text-2xl font-medium p-2 mt-3 rounded-lg placeholder:italic outline-none border border-neutral-200" maxlength="68"></textarea>
 
-                    <div class="flex items-center p-3 text-2xl font-bold mt-6 rounded-lg border border-neutral-200 w-[60%]">
+
+                    <div class="flex items-center p-3 text-2xl font-bold rounded-lg border border-neutral-200 w-[60%]">
                         <div class="flex-grow relative ">
                             <label>
                                 <input type="text" class="w-full placeholder:italic outline-none "
-                                       placeholder="Price">
+                                       placeholder="Price" maxlength="8">
                             </label>
                             <h4 class="absolute inset-y-0 right-0">
                                 UAH
@@ -749,16 +747,13 @@
                         </div>
                     </div>
 
-                    <label>
-                        <input type="text"
-                               class="w-full text-xl placeholder:italic outline-none p-3 mt-8 rounded-lg border border-neutral-200"
-                               placeholder="Description">
-                    </label>
+                    <textarea name="text" placeholder="Description (max. 291 words)" rows="8"
+                              class="text-xl p-2 mt-3 rounded-lg placeholder:italic outline-none border border-neutral-200" maxlength="291"></textarea>
 
                 </div>
             </div>
 
-            <button class="w-[50%] bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70 flex items-center justify-center py-3 text-white text-3xl font-medium">
+            <button class="w-[55%] bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70 flex items-center justify-center py-3 text-white text-3xl font-medium">
                 Publish
             </button>
 
