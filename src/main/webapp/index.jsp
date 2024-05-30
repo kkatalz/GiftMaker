@@ -621,146 +621,146 @@
 
 
 <%--CREATE ITEM DETAILED PAGE--%>
-<div class="mx-[3%] my-6">
+<%--<div class="mx-[3%] my-6">--%>
 
-    <%--1.    header--%>
-    <div class="flex justify-between items-center">
-        <img src="logoBlack.svg" alt="logo" class="w-40 cursor-pointer">
-
-
-        <div class="text flex flex-row gap-5">
-
-            <div class="flex justify-center items-center flex-col">
-                <img src="myProfile.svg" alt="profile-icon" class="w-10 cursor-pointer ">
-                <a class="text-sm font-medium" href="#">My profile</a>
-            </div>
-
-            <div class="flex justify-center items-center flex-col">
-                <img src="liked.svg" alt="liked-items" class="w-10 cursor-pointer">
-                <a class="text-sm font-medium" href="#">Liked</a>
-
-            </div>
-
-            <div class="flex justify-center items-center flex-col">
-                <img src="basket.svg" alt="basket-icon" class="w-10 cursor-pointer">
-                <a class="text-sm font-medium" href="#">Basket</a>
-
-            </div>
-        </div>
-
-    </div>
-
-    <%--main body--%>
-    <div class="flex justify-center items-center gap-8 mx-[6%] my-[2%]">
-
-        <div class="flex gap-8">
-            <%--    jeft bar with images--%>
-            <div class="flex flex-col gap-3 max-h-[700px] overflow-y-auto pr-4 text-6xl ">
-                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>
-                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>
-                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>
-                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>
-                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>
-                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>
-                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>
+<%--    &lt;%&ndash;1.    header&ndash;%&gt;--%>
+<%--    <div class="flex justify-between items-center">--%>
+<%--        <img src="logoBlack.svg" alt="logo" class="w-40 cursor-pointer">--%>
 
 
-            </div>
+<%--        <div class="text flex flex-row gap-5">--%>
 
-            <%--        main image--%>
-            <div class="flex items-center justify-center rounded-lg w-[600px] relative">
-                <img src="leftArrow.svg" alt="leftArrow" class="w-10 cursor-pointer  absolute left-6"/>
-                <h4 class="flex justify-center items-center h-[600px] w-full text-9xl rounded-lg bg-neutral-200 ">+</h4>
-                <img src="rightArrow.svg" alt="rightArrow" class="w-10 cursor-pointer  absolute right-6"/>
+<%--            <div class="flex justify-center items-center flex-col">--%>
+<%--                <img src="myProfile.svg" alt="profile-icon" class="w-10 cursor-pointer ">--%>
+<%--                <a class="text-sm font-medium" href="#">My profile</a>--%>
+<%--            </div>--%>
 
-            </div>
+<%--            <div class="flex justify-center items-center flex-col">--%>
+<%--                <img src="liked.svg" alt="liked-items" class="w-10 cursor-pointer">--%>
+<%--                <a class="text-sm font-medium" href="#">Liked</a>--%>
 
-        </div>
+<%--            </div>--%>
 
-        <%--right menu with details--%>
-        <div class="flex flex-col gap-4 w-[25vw]">
+<%--            <div class="flex justify-center items-center flex-col">--%>
+<%--                <img src="basket.svg" alt="basket-icon" class="w-10 cursor-pointer">--%>
+<%--                <a class="text-sm font-medium" href="#">Basket</a>--%>
 
-            <%--Category--%>
-            <button id="dropdownRadioBgHoverButton" data-dropdown-toggle="dropdownRadioBgHover"
-                    class="w-64 flex justify-between items-center bg-white border border-gray-300 text-gray-700 text-lg py-3 px-4 rounded cursor-pointer"
-                    type="button">Category
-                <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                     viewBox="0 0 10 6">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="m1 1 4 4 4-4"/>
-                </svg>
-            </button>
+<%--            </div>--%>
+<%--        </div>--%>
 
-            <!-- Dropdown menu -->
-            <div id="dropdownRadioBgHover"
-                 class="z-10 hidden w-64 bg-white rounded-lg shadow">
-                <ul class="p-3 space-y-1 text-sm text-gray-700"
-                    aria-labelledby="dropdownRadioBgHoverButton">
-                    <li>
-                        <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                            <input id="default-radio-7" type="radio" value="" name="default-radio"
-                                   class="w-4 h-4 bg-gray-100 border-gray-300">
-                            <label for="default-radio-7"
-                                   class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Kitchen</label>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                            <input id="default-radio-8" type="radio" value="" name="default-radio"
-                                   class="w-4 h-4 bg-gray-100 border-gray-300">
-                            <label for="default-radio-8"
-                                   class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Sport</label>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                            <input id="default-radio-9" type="radio" value="" name="default-radio"
-                                   class="w-4 h-4 bg-gray-100 border-gray-300">
-                            <label for="default-radio-9"
-                                   class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Literature</label>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+<%--    </div>--%>
 
-            <%-- info--%>
-            <div>
-                <div class="flex gap-2">
-                    <h4 class="text-xl font-light">id: </h4>
-                    <h4 class="text-xl font-light">x</h4>
-                </div>
+<%--    &lt;%&ndash;main body&ndash;%&gt;--%>
+<%--    <div class="flex justify-center items-center gap-8 mx-[6%] my-[2%]">--%>
 
-                <div class="flex flex-col space-y-4">
-                    <textarea name="text" placeholder="Title (max. 68 words)" rows="2"
-                              class="text-2xl font-medium p-2 mt-3 rounded-lg placeholder:italic outline-none border border-neutral-200" maxlength="68"></textarea>
+<%--        <div class="flex gap-8">--%>
+<%--            &lt;%&ndash;    jeft bar with images&ndash;%&gt;--%>
+<%--            <div class="flex flex-col gap-3 max-h-[700px] overflow-y-auto pr-4 text-6xl ">--%>
+<%--                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>--%>
+<%--                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>--%>
+<%--                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>--%>
+<%--                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>--%>
+<%--                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>--%>
+<%--                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>--%>
+<%--                <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>--%>
 
 
-                    <div class="flex items-center p-3 text-2xl font-bold rounded-lg border border-neutral-200 w-[60%]">
-                        <div class="flex-grow relative ">
-                            <label>
-                                <input type="text" class="w-full placeholder:italic outline-none "
-                                       placeholder="Price" maxlength="8">
-                            </label>
-                            <h4 class="absolute inset-y-0 right-0">
-                                UAH
-                            </h4>
-                        </div>
-                    </div>
+<%--            </div>--%>
 
-                    <textarea name="text" placeholder="Description (max. 291 words)" rows="8"
-                              class="text-xl p-2 mt-3 rounded-lg placeholder:italic outline-none border border-neutral-200" maxlength="291"></textarea>
+<%--            &lt;%&ndash;        main image&ndash;%&gt;--%>
+<%--            <div class="flex items-center justify-center rounded-lg w-[600px] relative">--%>
+<%--                <img src="leftArrow.svg" alt="leftArrow" class="w-10 cursor-pointer  absolute left-6"/>--%>
+<%--                <h4 class="flex justify-center items-center h-[600px] w-full text-9xl rounded-lg bg-neutral-200 ">+</h4>--%>
+<%--                <img src="rightArrow.svg" alt="rightArrow" class="w-10 cursor-pointer  absolute right-6"/>--%>
 
-                </div>
-            </div>
+<%--            </div>--%>
 
-            <button class="w-[55%] bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70 flex items-center justify-center py-3 text-white text-3xl font-medium">
-                Publish
-            </button>
+<%--        </div>--%>
+
+<%--        &lt;%&ndash;right menu with details&ndash;%&gt;--%>
+<%--        <div class="flex flex-col gap-4 w-[25vw]">--%>
+
+<%--            &lt;%&ndash;Category&ndash;%&gt;--%>
+<%--            <button id="dropdownRadioBgHoverButton1" data-dropdown-toggle="dropdownRadioBgHover1"--%>
+<%--                    class="w-64 flex justify-between items-center bg-white border border-gray-300 text-gray-700 text-lg py-3 px-4 rounded cursor-pointer"--%>
+<%--                    type="button">Category--%>
+<%--                <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"--%>
+<%--                     viewBox="0 0 10 6">--%>
+<%--                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"--%>
+<%--                          d="m1 1 4 4 4-4"/>--%>
+<%--                </svg>--%>
+<%--            </button>--%>
+
+<%--            <!-- Dropdown menu -->--%>
+<%--            <div id="dropdownRadioBgHover1"--%>
+<%--                 class="z-10 hidden w-64 bg-white rounded-lg shadow">--%>
+<%--                <ul class="p-3 space-y-1 text-sm text-gray-700"--%>
+<%--                    aria-labelledby="dropdownRadioBgHoverButton1">--%>
+<%--                    <li>--%>
+<%--                        <div class="flex items-center p-2 rounded hover:bg-gray-100">--%>
+<%--                            <input id="default-radio-7" type="radio" value="" name="default-radio"--%>
+<%--                                   class="w-4 h-4 bg-gray-100 border-gray-300">--%>
+<%--                            <label for="default-radio-7"--%>
+<%--                                   class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Kitchen</label>--%>
+<%--                        </div>--%>
+<%--                    </li>--%>
+<%--                    <li>--%>
+<%--                        <div class="flex items-center p-2 rounded hover:bg-gray-100">--%>
+<%--                            <input id="default-radio-8" type="radio" value="" name="default-radio"--%>
+<%--                                   class="w-4 h-4 bg-gray-100 border-gray-300">--%>
+<%--                            <label for="default-radio-8"--%>
+<%--                                   class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Sport</label>--%>
+<%--                        </div>--%>
+<%--                    </li>--%>
+<%--                    <li>--%>
+<%--                        <div class="flex items-center p-2 rounded hover:bg-gray-100">--%>
+<%--                            <input id="default-radio-9" type="radio" value="" name="default-radio"--%>
+<%--                                   class="w-4 h-4 bg-gray-100 border-gray-300">--%>
+<%--                            <label for="default-radio-9"--%>
+<%--                                   class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Literature</label>--%>
+<%--                        </div>--%>
+<%--                    </li>--%>
+<%--                </ul>--%>
+<%--            </div>--%>
+
+<%--            &lt;%&ndash; info&ndash;%&gt;--%>
+<%--            <div>--%>
+<%--                <div class="flex gap-2">--%>
+<%--                    <h4 class="text-xl font-light">id: </h4>--%>
+<%--                    <h4 class="text-xl font-light">x</h4>--%>
+<%--                </div>--%>
+
+<%--                <div class="flex flex-col space-y-4">--%>
+<%--                    <textarea name="text" placeholder="Title (max. 68 words)" rows="2"--%>
+<%--                              class="text-2xl font-medium p-2 mt-3 rounded-lg placeholder:italic outline-none border border-neutral-200" maxlength="68"></textarea>--%>
 
 
-        </div>
-    </div>
-</div>
+<%--                    <div class="flex items-center p-3 text-2xl font-bold rounded-lg border border-neutral-200 w-[60%]">--%>
+<%--                        <div class="flex-grow relative ">--%>
+<%--                            <label>--%>
+<%--                                <input type="text" class="w-full placeholder:italic outline-none "--%>
+<%--                                       placeholder="Price" maxlength="8">--%>
+<%--                            </label>--%>
+<%--                            <h4 class="absolute inset-y-0 right-0">--%>
+<%--                                UAH--%>
+<%--                            </h4>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+
+<%--                    <textarea name="text" placeholder="Description (max. 291 words)" rows="8"--%>
+<%--                              class="text-xl p-2 mt-3 rounded-lg placeholder:italic outline-none border border-neutral-200" maxlength="291"></textarea>--%>
+
+<%--                </div>--%>
+<%--            </div>--%>
+
+<%--            <button class="w-[55%] bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70 flex items-center justify-center py-3 text-white text-3xl font-medium">--%>
+<%--                Publish--%>
+<%--            </button>--%>
+
+
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</div>--%>
 
 
 <%--BASKET PAGE FINAL --%>
@@ -1209,190 +1209,204 @@
 
 
 <%--PROPOSED GIFTS PAGE--%>
-<%--<div>--%>
-<%--    <div class="text flex justify-between items-center px-10 py-3">--%>
-<%--        <img src="logoBlack.svg" alt="logo" class="w-40 cursor-pointer">--%>
+<div>
+    <div class="text flex justify-between items-center px-10 py-3">
+        <img src="logoBlack.svg" alt="logo" class="w-40 cursor-pointer">
 
 
-<%--        <div class="text flex flex-row gap-5">--%>
+        <div class="text flex flex-row gap-5">
 
-<%--            <div class="flex justify-center items-center flex-col">--%>
-<%--                <img src="myProfile.svg" alt="profile-icon" class="w-10 cursor-pointer ">--%>
-<%--                <a class="text-sm font-medium" href="#">My profile</a>--%>
-<%--            </div>--%>
+            <div class="flex justify-center items-center flex-col">
+                <img src="myProfile.svg" alt="profile-icon" class="w-10 cursor-pointer ">
+                <a class="text-sm font-medium" href="#">My profile</a>
+            </div>
 
-<%--            <div class="flex justify-center items-center flex-col">--%>
-<%--                <img src="liked.svg" alt="liked-items" class="w-10 cursor-pointer">--%>
-<%--                <a class="text-sm font-medium" href="#">Liked</a>--%>
+            <div class="flex justify-center items-center flex-col">
+                <img src="liked.svg" alt="liked-items" class="w-10 cursor-pointer">
+                <a class="text-sm font-medium" href="#">Liked</a>
 
-<%--            </div>--%>
+            </div>
 
-<%--            <div class="flex justify-center items-center flex-col">--%>
-<%--                <img src="basket.svg" alt="basket-icon" class="w-10 cursor-pointer">--%>
-<%--                <a class="text-sm font-medium" href="#">Basket</a>--%>
+            <div class="flex justify-center items-center flex-col">
+                <img src="basket.svg" alt="basket-icon" class="w-10 cursor-pointer">
+                <a class="text-sm font-medium" href="#">Basket</a>
 
-<%--            </div>--%>
-<%--        </div>--%>
+            </div>
+        </div>
 
-<%--    </div>--%>
-
-
-<%--    <div class="flex justify-center items-center flex-col">--%>
-<%--        <img src="giftsProposed.svg" alt="giftsProposed" class="w-16">--%>
-<%--        <h4 class="font-bold text-2xl">Offered gifts</h4>--%>
-<%--    </div>--%>
-
-<%--    <div class="mx-8">--%>
-<%--        <div class="custom-grid-offered-gifts text-2xl font-medium mt-8">--%>
-<%--            <h4 class="flex items-center justify-center">Item</h4>--%>
-<%--            <h4 class="flex items-center justify-center">Category</h4>--%>
-<%--            <h4 class="flex items-center justify-center">Price (UAH)</h4>--%>
-<%--        </div>--%>
-<%--        <hr class="border-neutral-500 mt-6"/>--%>
-
-<%--        &lt;%&ndash;all items container&ndash;%&gt;--%>
-<%--        <div class="grid mt-8 gap-12 ">--%>
-<%--            &lt;%&ndash;Contaier with 1st item&ndash;%&gt;--%>
-<%--            <div class="custom-grid-offered-gifts px-12 ">--%>
+    </div>
 
 
-<%--                <div class="flex items-center justify-center gap-6">--%>
+    <div class="flex justify-center items-center flex-col">
+        <img src="giftsProposed.svg" alt="giftsProposed" class="w-16">
+        <h4 class="font-bold text-2xl">Offered gifts</h4>
+    </div>
 
-<%--                    <div class="flex items-center justify-center">--%>
-<%--                        <img src="bin.svg" alt="bin" class="w-12 cursor-pointer"/>--%>
-<%--                    </div>--%>
+    <div class="mx-8">
+        <div class="custom-grid-offered-gifts text-2xl font-medium mt-8">
+            <h4 class="flex items-center justify-center">Item</h4>
+            <h4 class="flex items-center justify-center">Category</h4>
+            <h4 class="flex items-center justify-center">Price (UAH)</h4>
+        </div>
+        <hr class="border-neutral-500 mt-6"/>
 
-
-<%--                    <img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>--%>
-<%--                    <div class="flex flex-col">--%>
-<%--                        <h5 class="text-lg font-light">id: 1000</h5>--%>
-<%--                        <h4 class="text-xl font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set </h4>--%>
-<%--                    </div>--%>
-
-<%--                </div>--%>
-
-<%--                &lt;%&ndash;category&ndash;%&gt;--%>
-<%--                <div class="relative flex justify-center items-center">--%>
-<%--                    <div class="relative w-[50%]">--%>
-<%--                        <!-- Custom Dropdown Trigger -->--%>
-<%--                        <div class=" flex justify-between items-center bg-white border border-gray-300 text-gray-700 text-lg py-3 px-4 rounded cursor-pointer"--%>
-<%--                             id="dropdownTriggerFirst">--%>
-<%--                            <div>Category</div>--%>
-<%--                            <svg class="transform transition-transform h-4 w-4" xmlns="http://www.w3.org/2000/svg"--%>
-<%--                                 fill="none"--%>
-<%--                                 viewBox="0 0 24 24" stroke="currentColor">--%>
-<%--                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"--%>
-<%--                                      d="M19 9l-7 7-7-7"/>--%>
-<%--                            </svg>--%>
-<%--                        </div>--%>
-
-<%--                        <!-- Dropdown Menu -->--%>
-<%--                        <div class="absolute mt-1 w-full rounded-md bg-white shadow-lg hidden" id="dropdownMenuFirst">--%>
-<%--                            <ul class="text-gray-700 max-h-60 overflow-auto">--%>
-<%--                                <li class="flex items-center p-2 hover:bg-gray-100 cursor-pointer"--%>
-<%--                                    onclick="toggleCheckbox(event)">--%>
-<%--                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-green-600">--%>
-<%--                                    <span class="ml-2">Kitchen</span>--%>
-<%--                                </li>--%>
-<%--                                <li class="flex items-center p-2 hover:bg-gray-100 cursor-pointer"--%>
-<%--                                    onclick="toggleCheckbox(event)">--%>
-<%--                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-red-600">--%>
-<%--                                    <span class="ml-2">Literature</span>--%>
-<%--                                </li>--%>
-<%--                                <li class="flex items-center p-2 hover:bg-gray-100 cursor-pointer"--%>
-<%--                                    onclick="toggleCheckbox(event)">--%>
-<%--                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-yellow-600">--%>
-<%--                                    <span class="ml-2">Sport</span>--%>
-<%--                                </li>--%>
-<%--                            </ul>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-
-<%--                </div>--%>
-
-<%--                <h4 class="text-2xl font-medium flex items-center justify-center">3200</h4>--%>
-
-<%--                <div class="flex items-center justify-center">--%>
-<%--                    <button class="flex w-[50%] cursor-pointer bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70  self-center p-3 justify-between px-4 text-white text-3xl font-medium flex-shrink">--%>
-<%--                        Buy--%>
-<%--                        <img src="buyIcon.svg" alt="buyIcon"/>--%>
-<%--                    </button>--%>
-<%--                </div>--%>
-
-<%--            </div>--%>
-
-<%--            &lt;%&ndash;Container with 2nd item&ndash;%&gt;--%>
-<%--            <div class="custom-grid-offered-gifts px-12 ">--%>
+        <%--all items container--%>
+        <div class="grid mt-8 gap-12 ">
+            <%--Contaier with 1st item--%>
+            <div class="custom-grid-offered-gifts px-12 ">
 
 
-<%--                <div class="flex items-center justify-center gap-6">--%>
+                <div class="flex items-center justify-center gap-6">
 
-<%--                    <div class="flex items-center justify-center">--%>
-<%--                        <img src="bin.svg" alt="bin" class="w-12 cursor-pointer"/>--%>
-<%--                    </div>--%>
+                    <div class="flex items-center justify-center">
+                        <img src="bin.svg" alt="bin" class="w-12 cursor-pointer"/>
+                    </div>
 
 
-<%--                    <img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>--%>
-<%--                    <div class="flex flex-col">--%>
-<%--                        <h5 class="text-lg font-light">id: 1000</h5>--%>
-<%--                        <h4 class="text-xl font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set </h4>--%>
-<%--                    </div>--%>
+                    <img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>
+                    <div class="flex flex-col">
+                        <h5 class="text-lg font-light">id: 1000</h5>
+                        <h4 class="text-xl font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set </h4>
+                    </div>
 
-<%--                </div>--%>
+                </div>
 
-<%--                &lt;%&ndash;category&ndash;%&gt;--%>
-<%--                <div class="relative flex justify-center items-center">--%>
-<%--                    <div class="relative w-[50%]">--%>
-<%--                        <!-- Custom Dropdown Trigger -->--%>
-<%--                        <div class=" flex justify-between items-center bg-white border border-gray-300 text-gray-700 text-lg py-3 px-4 rounded cursor-pointer"--%>
-<%--                             id="dropdownTriggerSecond">--%>
-<%--                            <div>Category</div>--%>
-<%--                            <svg class="transform transition-transform h-4 w-4" xmlns="http://www.w3.org/2000/svg"--%>
-<%--                                 fill="none"--%>
-<%--                                 viewBox="0 0 24 24" stroke="currentColor">--%>
-<%--                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"--%>
-<%--                                      d="M19 9l-7 7-7-7"/>--%>
-<%--                            </svg>--%>
-<%--                        </div>--%>
+                <%--category--%>
+                <div class="relative flex justify-center items-center">
+                    <button id="dropdownRadioBgHoverButton2" data-dropdown-toggle="dropdownRadioBgHover2"
+                            class="w-[50%] flex justify-between items-center bg-white border border-gray-300 text-gray-700 text-lg py-3 px-4 rounded cursor-pointer"
+                            type="button">Category
+                        <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                             viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="m1 1 4 4 4-4"/>
+                        </svg>
+                    </button>
 
-<%--                        <!-- Dropdown Menu -->--%>
-<%--                        <div class="absolute mt-1 w-full rounded-md bg-white shadow-lg hidden" id="dropdownMenuSecond">--%>
-<%--                            <ul class="text-gray-700 max-h-60 overflow-auto">--%>
-<%--                                <li class="flex items-center p-2 hover:bg-gray-100 cursor-pointer"--%>
-<%--                                    onclick="toggleCheckbox(event)">--%>
-<%--                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-green-600">--%>
-<%--                                    <span class="ml-2">Kitchen</span>--%>
-<%--                                </li>--%>
-<%--                                <li class="flex items-center p-2 hover:bg-gray-100 cursor-pointer"--%>
-<%--                                    onclick="toggleCheckbox(event)">--%>
-<%--                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-red-600">--%>
-<%--                                    <span class="ml-2">Literature</span>--%>
-<%--                                </li>--%>
-<%--                                <li class="flex items-center p-2 hover:bg-gray-100 cursor-pointer"--%>
-<%--                                    onclick="toggleCheckbox(event)">--%>
-<%--                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-yellow-600">--%>
-<%--                                    <span class="ml-2">Sport</span>--%>
-<%--                                </li>--%>
-<%--                            </ul>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
+                    <!-- Dropdown menu -->
+                    <div id="dropdownRadioBgHover2"
+                         class="z-10 hidden w-[50%] bg-white rounded-lg shadow">
+                        <ul class="p-3 space-y-1 text-sm text-gray-700"
+                            aria-labelledby="dropdownRadioBgHoverButton2">
+                            <li>
+                                <div class="flex items-center p-2 rounded hover:bg-gray-100">
+                                    <input id="default-radio-10" type="radio" value="" name="default-radio"
+                                           class="w-4 h-4 bg-gray-100 border-gray-300">
+                                    <label for="default-radio-10"
+                                           class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Kitchen</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="flex items-center p-2 rounded hover:bg-gray-100">
+                                    <input id="default-radio-11" type="radio" value="" name="default-radio"
+                                           class="w-4 h-4 bg-gray-100 border-gray-300">
+                                    <label for="default-radio-11"
+                                           class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Sport</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="flex items-center p-2 rounded hover:bg-gray-100">
+                                    <input id="default-radio-12" type="radio" value="" name="default-radio"
+                                           class="w-4 h-4 bg-gray-100 border-gray-300">
+                                    <label for="default-radio-12"
+                                           class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Literature</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
 
-<%--                </div>--%>
+                </div>
 
-<%--                <h4 class="text-2xl font-medium flex items-center justify-center">3200</h4>--%>
+                <h4 class="text-2xl font-medium flex items-center justify-center">3200</h4>
 
-<%--                <div class="flex items-center justify-center">--%>
-<%--                    <button class="flex w-[50%] cursor-pointer bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70  self-center p-3 justify-between px-4 text-white text-3xl font-medium flex-shrink">--%>
-<%--                        Buy--%>
-<%--                        <img src="buyIcon.svg" alt="buyIcon"/>--%>
-<%--                    </button>--%>
-<%--                </div>--%>
+                <div class="flex items-center justify-center">
+                    <button class="flex w-[50%] cursor-pointer bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70  self-center p-3 justify-between px-4 text-white text-3xl font-medium flex-shrink">
+                        Buy
+                        <img src="buyIcon.svg" alt="buyIcon"/>
+                    </button>
+                </div>
 
-<%--            </div>--%>
+            </div>
 
-<%--        </div>--%>
-<%--    </div>--%>
-<%--</div>--%>
+            <%--Container with 2nd item--%>
+            <div class="custom-grid-offered-gifts px-12 ">
+
+
+                <div class="flex items-center justify-center gap-6">
+
+                    <div class="flex items-center justify-center">
+                        <img src="bin.svg" alt="bin" class="w-12 cursor-pointer"/>
+                    </div>
+
+
+                    <img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>
+                    <div class="flex flex-col">
+                        <h5 class="text-lg font-light">id: 1000</h5>
+                        <h4 class="text-xl font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set </h4>
+                    </div>
+
+                </div>
+
+                <%--category--%>
+                <div class="relative flex justify-center items-center">
+                    <button id="dropdownRadioBgHoverButton3" data-dropdown-toggle="dropdownRadioBgHover3"
+                            class="w-[50%] flex justify-between items-center bg-white border border-gray-300 text-gray-700 text-lg py-3 px-4 rounded cursor-pointer"
+                            type="button">Category
+                        <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                             viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="m1 1 4 4 4-4"/>
+                        </svg>
+                    </button>
+
+                    <!-- Dropdown menu -->
+                    <div id="dropdownRadioBgHover3"
+                         class="z-10 hidden w-[50%] bg-white rounded-lg shadow">
+                        <ul class="p-3 space-y-1 text-sm text-gray-700"
+                            aria-labelledby="dropdownRadioBgHoverButton3">
+                            <li>
+                                <div class="flex items-center p-2 rounded hover:bg-gray-100">
+                                    <input id="default-radio-13" type="radio" value="" name="default-radio"
+                                           class="w-4 h-4 bg-gray-100 border-gray-300">
+                                    <label for="default-radio-13"
+                                           class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Kitchen</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="flex items-center p-2 rounded hover:bg-gray-100">
+                                    <input id="default-radio-14" type="radio" value="" name="default-radio"
+                                           class="w-4 h-4 bg-gray-100 border-gray-300">
+                                    <label for="default-radio-14"
+                                           class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Sport</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="flex items-center p-2 rounded hover:bg-gray-100">
+                                    <input id="default-radio-15" type="radio" value="" name="default-radio"
+                                           class="w-4 h-4 bg-gray-100 border-gray-300">
+                                    <label for="default-radio-15"
+                                           class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Literature</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <h4 class="text-2xl font-medium flex items-center justify-center">3200</h4>
+
+                <div class="flex items-center justify-center">
+                    <button class="flex w-[50%] cursor-pointer bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70  self-center p-3 justify-between px-4 text-white text-3xl font-medium flex-shrink">
+                        Buy
+                        <img src="buyIcon.svg" alt="buyIcon"/>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
 </body>
 </html>
 
