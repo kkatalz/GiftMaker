@@ -20,7 +20,16 @@ public class ItemDto {
     private String age;
     private List<String> base64Images = new ArrayList<>(); // for displaying
     private List<Part> parts = new ArrayList<>();
+    private List<byte[]> imageBytes = new ArrayList<>();
 
+
+    public List<byte[]> getImageBytes() {
+        return imageBytes;
+    }
+
+    public void setImageBytes(List<byte[]> imageBytes) {
+        this.imageBytes = imageBytes;
+    }
 
     public void addBase64Image(String image) {
         this.base64Images.add(image);

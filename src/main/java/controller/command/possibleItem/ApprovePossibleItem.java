@@ -43,8 +43,7 @@ public class ApprovePossibleItem extends HttpServlet {
                 itemDto.setPrice(possibleItem.getPrice().toString());
                 itemDto.setDescription(possibleItem.getDescription());
                 itemDto.setAge(String.valueOf(possibleItem.getAge()));
-                // TODO: set images to the itemDto from Possible Item
-                //itemDto.setPart(possibleItem.);
+                itemDto.setImageBytes(possibleItem.getImageBytes());
 
 
                 // delete from the table Possible_Item
@@ -53,7 +52,7 @@ public class ApprovePossibleItem extends HttpServlet {
                 ItemService.getInstance().create(itemDto);
 
                 session.setAttribute("possibleItems", PossibleItemService.getInstance().getAllPossibleItems());
-                // TODO: success after deleting (not approving) possible item
+                // TODO: success after approving possible item
                 jspPage = "";
 
             }

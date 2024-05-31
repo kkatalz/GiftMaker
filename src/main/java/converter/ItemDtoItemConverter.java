@@ -16,6 +16,7 @@ public class ItemDtoItemConverter {
                 .setAmount(Integer.parseInt(dto.getAmount()))
                 .setAge(Integer.parseInt(dto.getAge()))
                 .setParts(dto.getParts())
+                .setImageBytes(dto.getImageBytes())
                 .build();
     }
 }

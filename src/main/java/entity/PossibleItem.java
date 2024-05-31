@@ -14,6 +14,8 @@ public class PossibleItem {
     private int age;
     private List<String> base64Images = new ArrayList<>(); // might be the proper format to display on the page
     private List<Part> parts = new ArrayList<>();
+    private List<byte[]> imageBytes = new ArrayList<>(); // for retrieving bytes from the database and then add them
+    // to the table Item
 
 
 
@@ -35,6 +37,14 @@ public class PossibleItem {
 
     public void setPart(List<Part> parts) {
         this.parts = parts;
+    }
+
+    public List<byte[]> getImageBytes() {
+        return imageBytes;
+    }
+
+    public void setImageBytes(List<byte[]> imageBytes) {
+        this.imageBytes = imageBytes;
     }
 
     public static class Builder implements CustomBuilder<PossibleItem> {
@@ -75,6 +85,11 @@ public class PossibleItem {
 
         public Builder setPart(List<Part> part) {
             possibleItem.parts = part;
+            return this;
+        }
+
+        public Builder setImageBytes(List<byte[]> imageBytes) {
+            possibleItem.imageBytes = imageBytes;
             return this;
         }
 

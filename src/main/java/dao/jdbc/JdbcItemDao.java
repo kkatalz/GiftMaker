@@ -270,15 +270,28 @@ public class JdbcItemDao implements ItemDao {
         List<Part> parts = item.getParts();
 
         try(PreparedStatement statement = connection.prepareStatement(CREATE_IMAGES, Statement.RETURN_GENERATED_KEYS)) {
-            for(Part part : parts) {
-                statement.setInt(1, item.getId());
+            if(!parts.isEmpty()) { // when the administrator creates new item
+                for(Part part : parts) {
+                    statement.setInt(1, item.getId());
 
-                InputStream fileContent = part.getInputStream();
-                byte[] imageBytes = readBytesFromInputStream(fileContent);
+                    InputStream fileContent = part.getInputStream();
+                    byte[] imageBytes = readBytesFromInputStream(fileContent);
 
-                statement.setBytes(2, imageBytes);
-                statement.addBatch();
+                    statement.setBytes(2, imageBytes);
+                    statement.addBatch();
+                }
             }
+
+
+            else { // when new item creates from possible item(offered gift)
+                List<byte[]> bytes = item.getImageBytes();
+                for(byte[] current : bytes) {
+                    statement.setInt(1, item.getId());
+                    statement.setBytes(2, current);
+                    statement.addBatch();
+                }
+            }
+
             statement.executeBatch();
 
         } catch (Exception e) {
