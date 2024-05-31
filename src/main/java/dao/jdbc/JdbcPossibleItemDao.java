@@ -24,7 +24,7 @@ public class JdbcPossibleItemDao implements PossibleItemDao {
     private final static String IMAGE = "image";
 
     private final static String GET_IMAGES_BY_ITEM_ID = "SELECT * FROM Possible_Item_Image WHERE possible_item_id=?";
-
+    private final static String GET_IMAGE_BYTES_BY_ITEM_ID = "SELECT image FROM Possible_Item_Image WHERE possible_item_id=?";
     private final static  String CREATE_IMAGES = "INSERT INTO Possible_Item_Image(possible_item_id, image) VALUES(?, ?)";
     private final static String GET_ALL = "SELECT * FROM Possible_Item";
     private final static String GET_BY_ID = "SELECT * FROM Possible_Item WHERE possible_item_id=?";
@@ -61,6 +61,7 @@ public class JdbcPossibleItemDao implements PossibleItemDao {
             while(resultSet.next()) {
                 PossibleItem possibleItem = getPossibleItemFromResultSet(resultSet);
                 possibleItem.setBase64Image(getBase64ImagesByItemId(possibleItem.getId()));
+                possibleItem.setImageBytes(getImageBytesByItemId(possibleItem.getId()));
                 possibleItems.add(possibleItem);
 
             }
@@ -85,6 +86,7 @@ public class JdbcPossibleItemDao implements PossibleItemDao {
         }
 
         possibleItem.ifPresent(value -> value.setBase64Image(getBase64ImagesByItemId(id)));
+        possibleItem.ifPresent(value -> value.setImageBytes(getImageBytesByItemId(id)));
         return possibleItem;
     }
 
@@ -145,6 +147,22 @@ public class JdbcPossibleItemDao implements PossibleItemDao {
 
         return images;
 
+    }
+
+    @Override
+    public List<byte[]> getImageBytesByItemId(Integer itemId) {
+        List<byte[]> bytes = new ArrayList<>();
+        try(PreparedStatement statement = connection.prepareStatement(GET_IMAGE_BYTES_BY_ITEM_ID)) {
+            statement.setInt(1, itemId);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next())
+                bytes.add(resultSet.getBytes(IMAGE));
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return bytes;
     }
 
     @Override

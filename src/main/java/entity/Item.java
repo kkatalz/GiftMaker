@@ -15,6 +15,17 @@ public class Item {
     private int age;
     private List<String> base64Images = new ArrayList<>(); // for displaying
     private List<Part> parts = new ArrayList<>();
+    private List<byte[]> imageBytes = new ArrayList<>(); // for inserting to the table (bytes from the table
+    // Possible_Item
+
+
+    public List<byte[]> getImageBytes() {
+        return imageBytes;
+    }
+
+    public void setImageBytes(List<byte[]> imageBytes) {
+        this.imageBytes = imageBytes;
+    }
 
 
     public void addBase64Image(String image) {
@@ -88,6 +99,11 @@ public class Item {
 
         public Builder setParts(List<Part> parts) {
             item.parts = parts;
+            return this;
+        }
+
+        public Builder setImageBytes(List<byte[]> imageBytes) {
+            item.imageBytes = imageBytes;
             return this;
         }
 
