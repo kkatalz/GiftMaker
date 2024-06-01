@@ -3,8 +3,8 @@ package entity;
 import locale.Message;
 
 public enum Role {
-    MANAGER("administrator", Message.ROLE_ADMIN),
-    CASHIER("client", Message.ROLE_CLIENT);
+    ADMINISTRATOR("administrator", Message.ROLE_ADMIN),
+    CLIENT("client", Message.ROLE_CLIENT);
 
     private String value;
     private String localizedValue;
