@@ -1,5 +1,6 @@
 package dao.jdbc;
 
+import dao.DaoFactory;
 import entity.LikedItem;
 
 import java.io.IOException;
@@ -52,8 +53,11 @@ public class JdbcLikedItemDao implements AutoCloseable {
         try (Statement query = connection.createStatement();
              ResultSet resultSet = query.executeQuery(GET_ALL)) {
 
-            while (resultSet.next())
-                likedItems.add(getLikedItemFromResultSet(resultSet));
+            while (resultSet.next()) {
+                LikedItem likedItem = getLikedItemFromResultSet(resultSet);
+                likedItem.getItem().setBase64Images(DaoFactory.getDaoFactory().createItemDao().getBase64ImagesByItemId(likedItem.getItem().getId()));
+                likedItems.add(likedItem);
+            }
 
         } catch (SQLException | IOException e ) {
             e.printStackTrace();
@@ -73,7 +77,10 @@ public class JdbcLikedItemDao implements AutoCloseable {
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 likedItem = Optional.of(getLikedItemFromResultSet(resultSet));
+                likedItem.get().getItem().setBase64Images(DaoFactory.getDaoFactory().createItemDao().getBase64ImagesByItemId(likedItem.get().getItem().getId()));
             }
+
+
         } catch (SQLException | IOException e ) {
             e.printStackTrace();
             //LOGGER.error("JdbcCategoryDao getById error" + id, e);
@@ -82,13 +89,17 @@ public class JdbcLikedItemDao implements AutoCloseable {
         return likedItem;
     }
 
+
     public List<LikedItem> getByUserId(Integer userId) {
         List<LikedItem> likedItems = new ArrayList<>();
         try(PreparedStatement statement = connection.prepareStatement(GET_BY_USER_ID)) {
             statement.setInt(1, userId);
             ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next())
-                likedItems.add(getLikedItemFromResultSet(resultSet));
+            while (resultSet.next()) {
+                LikedItem likedItem = getLikedItemFromResultSet(resultSet);
+                likedItem.getItem().setBase64Images(DaoFactory.getDaoFactory().createItemDao().getBase64ImagesByItemId(likedItem.getItem().getId()));
+                likedItems.add(likedItem);
+            }
 
         } catch (SQLException | IOException e) {
             e.printStackTrace();
