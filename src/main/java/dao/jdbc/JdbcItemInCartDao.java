@@ -1,5 +1,6 @@
 package dao.jdbc;
 
+import dao.DaoFactory;
 import entity.ItemInCart;
 
 import java.io.IOException;
@@ -52,12 +53,15 @@ public class JdbcItemInCartDao implements AutoCloseable {
 
 
     public List<ItemInCart> getAll() {
-        List<ItemInCart> itemInCarts = new ArrayList<>();
+        List<ItemInCart> itemsInCarts = new ArrayList<>();
         try (Statement query = connection.createStatement();
              ResultSet resultSet = query.executeQuery(GET_ALL)) {
 
-            while (resultSet.next())
-                itemInCarts.add(getItemInCartFromResultSet(resultSet));
+            while (resultSet.next()) {
+                ItemInCart itemInCart = getItemInCartFromResultSet(resultSet);
+                itemInCart.getItem().setBase64Images(DaoFactory.getDaoFactory().createItemDao().getBase64ImagesByItemId(itemInCart.getItem().getId()));
+                itemsInCarts.add(itemInCart);
+            }
 
         } catch (SQLException e) {
             System.out.println("EXCEPTION: " + e);
@@ -67,7 +71,7 @@ public class JdbcItemInCartDao implements AutoCloseable {
             e.printStackTrace();
             throw new RuntimeException(e);
         }
-        return itemInCarts;
+        return itemsInCarts;
     }
 
     public Optional<ItemInCart> getById(Integer userId, Integer itemId) {
@@ -80,7 +84,10 @@ public class JdbcItemInCartDao implements AutoCloseable {
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 itemInCart = Optional.of(getItemInCartFromResultSet(resultSet));
-            }
+                itemInCart.get().getItem().setBase64Images(DaoFactory.getDaoFactory().createItemDao().
+                        getBase64ImagesByItemId(itemInCart.get().getItem().getId()));
+           }
+
         } catch (SQLException e) {
            e.printStackTrace();
         } catch (IOException e) {
@@ -96,8 +103,12 @@ public class JdbcItemInCartDao implements AutoCloseable {
             statement.setInt(1, userId);
             ResultSet resultSet = statement.executeQuery();
 
-            while (resultSet.next())
-                itemsInCart.add(getItemInCartFromResultSet(resultSet));
+            while (resultSet.next()) {
+                ItemInCart itemInCart = getItemInCartFromResultSet(resultSet);
+                itemInCart.getItem().setBase64Images(DaoFactory.getDaoFactory().createItemDao().
+                        getBase64ImagesByItemId(itemInCart.getItem().getId()));
+                itemsInCart.add(itemInCart);
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
