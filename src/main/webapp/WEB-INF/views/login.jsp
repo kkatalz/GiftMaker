@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
     <title>Log in</title>
@@ -21,12 +22,11 @@
             <input name="password" type="password" class="p-3 rounded-lg bg-neutral-100" placeholder="Password">
         </div>
         <c:if test="${not empty requestScope.errors}">
-            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-2" role="alert">
-                <strong class="font-bold">There is an error!</strong>
-                <span class="block sm:inline">Wrong credentials.</span>
-
+            <div class="alert alert-danger">
+                    ${requestScope.errors}
             </div>
         </c:if>
+
         <button type="submit" class="p-3 rounded-lg bg-[#6AB7FF] text-white font-bold w-full mt-4 text-lg transition-all duration-300 hover:opacity-80">
             Log in
         </button>

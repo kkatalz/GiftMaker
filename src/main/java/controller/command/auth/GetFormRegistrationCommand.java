@@ -1,5 +1,6 @@
 package controller.command.auth;
 
+import dto.UserDto;
 import entity.User;
 import org.mindrot.jbcrypt.BCrypt;
 import service.UserService;
@@ -33,9 +34,13 @@ public class GetFormRegistrationCommand extends HttpServlet {
 //        String lastName = request.getParameter("lastName");
 //        String username = request.getParameter("username");
 //        String password = request.getParameter("password");
+//        String  dateOfBirth = request.getParameter("dateOfBirth");
+//        String role = request.getParameter("role");
+//
+//        String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
 //
 //
+////        UserDto userDto = new UserDto().setName(firstName).set
 //
-//        return UserService.getInstance().createUser();
 //    }
 }

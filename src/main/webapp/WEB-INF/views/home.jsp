@@ -1,12 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
 <head>
     <title>Home Page</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
 <%--    HOME PAGE--%>
 <%--1.    header--%>
 
@@ -24,26 +22,26 @@
 
     <div class="text flex flex-row gap-5">
 
-        visible only for Manager
+<%--        visible only for Manager--%>
         <div class="flex justify-center items-center flex-col">
             <img src="<%=request.getContextPath()%>/giftsProposed.svg" alt="giftsProposed" class="w-10 cursor-pointer ">
-            <a class="text-sm font-medium" href="#">Gifts</a>
+            <a class="text-sm font-medium" href="offeredItems">Gifts</a>
         </div>
 
         <div class="flex justify-center items-center flex-col">
             <img src="<%=request.getContextPath()%>/myProfile.svg" alt="profile-icon" class="w-10 cursor-pointer ">
-            <a class="text-sm font-medium" href="#">My profile</a>
+            <a class="text-sm font-medium" href="myProfile">My profile</a>
         </div>
 
         <div class="flex justify-center items-center flex-col">
             <img src="<%=request.getContextPath()%>/liked.svg" alt="liked-items" class="w-10 cursor-pointer">
-            <a class="text-sm font-medium" href="#">Liked</a>
+            <a class="text-sm font-medium" href="likedItems">Liked</a>
 
         </div>
 
         <div class="flex justify-center items-center flex-col">
             <img src="<%=request.getContextPath()%>/basket.svg" alt="basket-icon" class="w-10 cursor-pointer">
-            <a class="text-sm font-medium" href="#">Basket</a>
+            <a class="text-sm font-medium" href="itemsInCart">Basket</a>
 
         </div>
     </div>
@@ -89,5 +87,3 @@
     <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Aesthetic gifts</button>
     <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Handy gifts</button>
 </div>
-</body>
-</html>

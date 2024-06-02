@@ -30,7 +30,7 @@ public class PostLoginCommand extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         Optional<User> user = getInput(request);
 
         System.out.println("user: " + user);
@@ -47,9 +47,10 @@ public class PostLoginCommand extends HttpServlet {
 
         // not successful logging in
         else {
-            String jspPage = "/login";
-            String redirectURL = request.getContextPath() + jspPage;
-            response.sendRedirect(redirectURL);
+            String jspPage = "/WEB-INF/views/login.jsp";
+            request.setAttribute("errors", "Invalid username or password");
+            RequestDispatcher dispatcher = request.getRequestDispatcher(jspPage);
+            dispatcher.forward(request, response);
         }
     }
 
