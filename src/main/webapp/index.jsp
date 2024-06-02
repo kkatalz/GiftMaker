@@ -68,83 +68,83 @@
 <%--    HOME PAGE--%>
 <%--1.    header--%>
 
-<div class="text flex justify-between items-center px-10 py-3">
-    <img src="logoBlack.svg" alt="logo" class="w-40 cursor-pointer">
+<%--<div class="text flex justify-between items-center px-10 py-3">--%>
+<%--    <img src="logoBlack.svg" alt="logo" class="w-40 cursor-pointer">--%>
 
-    <div class="text inline-flex border-[#777777] border-2 p-3 rounded-lg bg-neutral-100 ">
+<%--    <div class="text inline-flex border-[#777777] border-2 p-3 rounded-lg bg-neutral-100 ">--%>
 
-        <input type="text" class="text-lg bg-neutral-100 w-[44vw] italic outline-none"
-               placeholder="Find a gift ...">
-        <img src="search-icon.svg" alt="search-icon"
-             class="w-5 transition duration-300 ease-in hover:ease-in hover:scale-[1.2]">
+<%--        <input type="text" class="text-lg bg-neutral-100 w-[44vw] italic outline-none"--%>
+<%--               placeholder="Find a gift ...">--%>
+<%--        <img src="search-icon.svg" alt="search-icon"--%>
+<%--             class="w-5 transition duration-300 ease-in hover:ease-in hover:scale-[1.2]">--%>
 
-    </div>
+<%--    </div>--%>
 
-    <div class="text flex flex-row gap-5">
+<%--    <div class="text flex flex-row gap-5">--%>
 
-<%--visible only for Manager--%>
-        <div class="flex justify-center items-center flex-col">
-            <img src="giftsProposed.svg" alt="giftsProposed" class="w-10 cursor-pointer ">
-            <a class="text-sm font-medium" href="#">Gifts</a>
-        </div>
+<%--&lt;%&ndash;visible only for Manager&ndash;%&gt;--%>
+<%--        <div class="flex justify-center items-center flex-col">--%>
+<%--            <img src="giftsProposed.svg" alt="giftsProposed" class="w-10 cursor-pointer ">--%>
+<%--            <a class="text-sm font-medium" href="#">Gifts</a>--%>
+<%--        </div>--%>
 
-        <div class="flex justify-center items-center flex-col">
-            <img src="myProfile.svg" alt="profile-icon" class="w-10 cursor-pointer ">
-            <a class="text-sm font-medium" href="#">My profile</a>
-        </div>
+<%--        <div class="flex justify-center items-center flex-col">--%>
+<%--            <img src="myProfile.svg" alt="profile-icon" class="w-10 cursor-pointer ">--%>
+<%--            <a class="text-sm font-medium" href="#">My profile</a>--%>
+<%--        </div>--%>
 
-        <div class="flex justify-center items-center flex-col">
-            <img src="liked.svg" alt="liked-items" class="w-10 cursor-pointer">
-            <a class="text-sm font-medium" href="#">Liked</a>
+<%--        <div class="flex justify-center items-center flex-col">--%>
+<%--            <img src="liked.svg" alt="liked-items" class="w-10 cursor-pointer">--%>
+<%--            <a class="text-sm font-medium" href="#">Liked</a>--%>
 
-        </div>
+<%--        </div>--%>
 
-        <div class="flex justify-center items-center flex-col">
-            <img src="basket.svg" alt="basket-icon" class="w-10 cursor-pointer">
-            <a class="text-sm font-medium" href="#">Basket</a>
+<%--        <div class="flex justify-center items-center flex-col">--%>
+<%--            <img src="basket.svg" alt="basket-icon" class="w-10 cursor-pointer">--%>
+<%--            <a class="text-sm font-medium" href="#">Basket</a>--%>
 
-        </div>
-    </div>
+<%--        </div>--%>
+<%--    </div>--%>
 
-</div>
+<%--</div>--%>
 
 <%--2.    main body--%>
-<div class="text flex justify-between items-center text-xl font-medium mx-80 mt-12 ">
-    <h4 class="cursor-pointer">Mother day</h4>
-    <h4 class="cursor-pointer">Certificates</h4>
-    <h4 class="cursor-pointer">Top gifts this month</h4>
-</div>
+<%--<div class="text flex justify-between items-center text-xl font-medium mx-80 mt-12 ">--%>
+<%--    <h4 class="cursor-pointer">Mother day</h4>--%>
+<%--    <h4 class="cursor-pointer">Certificates</h4>--%>
+<%--    <h4 class="cursor-pointer">Top gifts this month</h4>--%>
+<%--</div>--%>
 
-<div class="h-[45%] w-screen bg-blue-100 mt-6 flex justify-between items-center px-56">
+<%--<div class="h-[45%] w-screen bg-blue-100 mt-6 flex justify-between items-center px-56">--%>
 
-    <div class="flex flex-col items-center pl-40 pt-10 space-y-2">
-        <button class="px-16 py-4 rounded-lg shadow-lg bg-white font-bold text-2xl transition duration-300 ease-in hover:ease-in hover:scale-[1.2]">
-            Generate gift
-        </button>
-        <button class="py-2 px-10 ml-16 rounded-lg shadow-md bg-white font-bold text-xl transition duration-300 ease-in hover:ease-in hover:scale-[1.1]">
-            Create gift
-        </button>
-    </div>
+<%--    <div class="flex flex-col items-center pl-40 pt-10 space-y-2">--%>
+<%--        <button class="px-16 py-4 rounded-lg shadow-lg bg-white font-bold text-2xl transition duration-300 ease-in hover:ease-in hover:scale-[1.2]">--%>
+<%--            Generate gift--%>
+<%--        </button>--%>
+<%--        <button class="py-2 px-10 ml-16 rounded-lg shadow-md bg-white font-bold text-xl transition duration-300 ease-in hover:ease-in hover:scale-[1.1]">--%>
+<%--            Create gift--%>
+<%--        </button>--%>
+<%--    </div>--%>
 
-    <div class="relative">
-        <img src="<%=request.getContextPath()%>/gift-picture.svg" alt="gift-picture"
-             class="rounded-[30px] shadow w-[420px] h-[280px] object-cover ">        <button class="z-2 py-2 absolute bottom-[-20px] left-[20%] w-2/3  rounded-lg shadow-lg bg-white font-bold text-2xl transition duration-300 ease-in hover:ease-in hover:scale-[1.2]">
-            Form to send
-        </button>
-    </div>
+<%--    <div class="relative">--%>
+<%--        <img src="<%=request.getContextPath()%>/gift-picture.svg" alt="gift-picture"--%>
+<%--             class="rounded-[30px] shadow w-[420px] h-[280px] object-cover ">        <button class="z-2 py-2 absolute bottom-[-20px] left-[20%] w-2/3  rounded-lg shadow-lg bg-white font-bold text-2xl transition duration-300 ease-in hover:ease-in hover:scale-[1.2]">--%>
+<%--            Form to send--%>
+<%--        </button>--%>
+<%--    </div>--%>
 
-</div>
+<%--</div>--%>
 
-<div class="text flex justify-between items-center text-xl font-normal mx-80 mt-8 text-neutral-500 ">
-    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Ukrainian brands</button>
-    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Trendy gifts</button>
-    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Gifts for anyone</button>
-</div>
+<%--<div class="text flex justify-between items-center text-xl font-normal mx-80 mt-8 text-neutral-500 ">--%>
+<%--    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Ukrainian brands</button>--%>
+<%--    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Trendy gifts</button>--%>
+<%--    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Gifts for anyone</button>--%>
+<%--</div>--%>
 
-<div class="text flex justify-between items-center text-xl font-normal mx-[33%] mt-5 text-neutral-500 ">
-    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Aesthetic gifts</button>
-    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Handy gifts</button>
-</div>
+<%--<div class="text flex justify-between items-center text-xl font-normal mx-[33%] mt-5 text-neutral-500 ">--%>
+<%--    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Aesthetic gifts</button>--%>
+<%--    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Handy gifts</button>--%>
+<%--</div>--%>
 
 
 <%--WISHLIST--%>
@@ -248,280 +248,280 @@
 <%-- ALL ITEMS PAGE FILTERS--%>
 <%--1.    header--%>
 
-<%--<div class="bg-blue-100 h-[100vh]">--%>
-<%--    <div class="text flex justify-between items-center px-10 py-3">--%>
-<%--        <img src="logoBlack.svg" alt="logo" class="w-40 cursor-pointer">--%>
+<div class="bg-blue-100 h-[100vh]">
+    <div class="text flex justify-between items-center px-10 py-3">
+        <img src="logoBlack.svg" alt="logo" class="w-40 cursor-pointer">
 
 
-<%--        &lt;%&ndash;3.  search input&ndash;%&gt;--%>
-<%--        <div class="text inline-flex border-[#777777] border-2 p-3 rounded-lg bg-neutral-100 ">--%>
-<%--            <input type="text" class="text-lg bg-neutral-100 italic outline-none"--%>
-<%--                   placeholder="Find ...">--%>
+        <%--3.  search input--%>
+        <div class="text inline-flex border-[#777777] border-2 p-3 rounded-lg bg-neutral-100 ">
+            <input type="text" class="text-lg bg-neutral-100 italic outline-none"
+                   placeholder="Find ...">
 
 
-<%--            <img src="search-icon.svg" alt="search-icon"--%>
-<%--                 class="w-5 transition duration-300 ease-in hover:ease-in hover:scale-[1.2]">--%>
+            <img src="search-icon.svg" alt="search-icon"
+                 class="w-5 transition duration-300 ease-in hover:ease-in hover:scale-[1.2]">
 
-<%--        </div>--%>
-<%--    </div>--%>
-
-
-<%--    <div class="text flex justify-between items-center px-[15%] mt-8">--%>
-
-<%--        &lt;%&ndash;Price&ndash;%&gt;--%>
-<%--        <div class="flex gap-2 items-center">--%>
-<%--            <div class="flex justify-between items-center bg-white border border-gray-300 py-3 px-4 rounded">--%>
-<%--                <input type="text" class="text-gray-700 text-lg italic outline-none w-14"--%>
-<%--                       placeholder="From">--%>
-<%--            </div>--%>
-<%--            <h4 class="text-2xl font-semibold text-gray-700">-</h4>--%>
-<%--            <div class="flex justify-between items-center bg-white border border-gray-300 py-3 px-4 rounded">--%>
-<%--                <input type="text" class=" text-gray-700 text-lg italic outline-none w-14"--%>
-<%--                       placeholder="To">--%>
-<%--                <img src="currency.svg" alt="currency-icon" class="w-5 pt-1">--%>
-<%--            </div>--%>
-<%--        </div>--%>
-
-<%--        &lt;%&ndash;Category&ndash;%&gt;--%>
-<%--        <button id="dropdownRadioBgHoverButton" data-dropdown-toggle="dropdownRadioBgHover"--%>
-<%--                class="w-64 flex justify-between items-center bg-white border border-gray-300 text-gray-700 text-lg py-3 px-4 rounded cursor-pointer"--%>
-<%--                type="button">Category--%>
-<%--            <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"--%>
-<%--                 viewBox="0 0 10 6">--%>
-<%--                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"--%>
-<%--                      d="m1 1 4 4 4-4"/>--%>
-<%--            </svg>--%>
-<%--        </button>--%>
-
-<%--        <!-- Dropdown menu -->--%>
-<%--        <div id="dropdownRadioBgHover"--%>
-<%--             class="z-10 hidden w-64 bg-white rounded-lg shadow">--%>
-<%--            <ul class="p-3 space-y-1 text-sm text-gray-700"--%>
-<%--                aria-labelledby="dropdownRadioBgHoverButton">--%>
-<%--                <li>--%>
-<%--                    <div class="flex items-center p-2 rounded hover:bg-gray-100">--%>
-<%--                        <input id="default-radio-4" type="radio" value="" name="default-radio"--%>
-<%--                               class="w-4 h-4 bg-gray-100 border-gray-300">--%>
-<%--                        <label for="default-radio-4"--%>
-<%--                               class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Kitchen</label>--%>
-<%--                    </div>--%>
-<%--                </li>--%>
-<%--                <li>--%>
-<%--                    <div class="flex items-center p-2 rounded hover:bg-gray-100">--%>
-<%--                        <input id="default-radio-5" type="radio" value="" name="default-radio"--%>
-<%--                               class="w-4 h-4 bg-gray-100 border-gray-300">--%>
-<%--                        <label for="default-radio-5"--%>
-<%--                               class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Sport</label>--%>
-<%--                    </div>--%>
-<%--                </li>--%>
-<%--                <li>--%>
-<%--                    <div class="flex items-center p-2 rounded hover:bg-gray-100">--%>
-<%--                        <input id="default-radio-6" type="radio" value="" name="default-radio"--%>
-<%--                               class="w-4 h-4 bg-gray-100 border-gray-300">--%>
-<%--                        <label for="default-radio-6"--%>
-<%--                               class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Literature</label>--%>
-<%--                    </div>--%>
-<%--                </li>--%>
-<%--            </ul>--%>
-<%--        </div>--%>
+        </div>
+    </div>
 
 
-<%--        &lt;%&ndash;Age range&ndash;%&gt;--%>
-<%--        <div class="flex gap-2 items-center">--%>
-<%--            <div class="flex justify-between items-center bg-white border border-gray-300 text-gray-700 py-3 px-4 rounded">--%>
-<%--                <input type="text" class="text-lg italic outline-none w-14"--%>
-<%--                       placeholder="From">--%>
-<%--            </div>--%>
-<%--            <h4 class="text-2xl font-semibold text-gray-700">-</h4>--%>
-<%--            <div class="flex justify-between items-center bg-white border border-gray-300 text-gray-700 py-3 px-4 rounded">--%>
-<%--                <input type="text" class="text-lg italic outline-none w-14"--%>
-<%--                       placeholder="To y.o.">--%>
-<%--            </div>--%>
-<%--        </div>--%>
+    <div class="text flex justify-between items-center px-[15%] mt-8">
 
-<%--        <button class="bg-[#6AB7FF] py-3 px-5 rounded-lg transition duration-500 hover:opacity-70 text-white text-xl font-medium">--%>
-<%--            Search--%>
-<%--        </button>--%>
-<%--    </div>--%>
+        <%--Price--%>
+        <div class="flex gap-2 items-center">
+            <div class="flex justify-between items-center bg-white border border-gray-300 py-3 px-4 rounded">
+                <input type="text" class="text-gray-700 text-lg italic outline-none w-14"
+                       placeholder="From">
+            </div>
+            <h4 class="text-2xl font-semibold text-gray-700">-</h4>
+            <div class="flex justify-between items-center bg-white border border-gray-300 py-3 px-4 rounded">
+                <input type="text" class=" text-gray-700 text-lg italic outline-none w-14"
+                       placeholder="To">
+                <img src="currency.svg" alt="currency-icon" class="w-5 pt-1">
+            </div>
+        </div>
 
-<%--    &lt;%&ndash; main body&ndash;%&gt;--%>
-<%--    <div>--%>
-<%--        <h4 class="text-2xl font-semibold text-gray-600 ml-[10%] mt-6">--%>
-<%--            6 items found by your filters--%>
-<%--        </h4>--%>
-<%--    </div>--%>
-<%--    <div>--%>
-<%--        <h4 class="text-2xl font-semibold text-gray-600 ml-[10%] mt-6">--%>
-<%--            Certificates for creative master classes--%>
-<%--        </h4>--%>
-<%--    </div>--%>
+        <%--Category--%>
+        <button id="dropdownRadioBgHoverButton" data-dropdown-toggle="dropdownRadioBgHover"
+                class="w-64 flex justify-between items-center bg-white border border-gray-300 text-gray-700 text-lg py-3 px-4 rounded cursor-pointer"
+                type="button">Category
+            <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                 viewBox="0 0 10 6">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="m1 1 4 4 4-4"/>
+            </svg>
+        </button>
 
-
-<%--    &lt;%&ndash;    all items in row&ndash;%&gt;--%>
-<%--    <div class="flex gap-12 mx-[10%] flex-wrap">--%>
-<%--        <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow ">--%>
-
-<%--            <div class="flex items-center justify-center flex-col gap-2">--%>
-<%--                <img src="harryPotter.svg" alt="harryPotter" class="w-28"/>--%>
-<%--                <h4 class="text-base font-medium leading-5">--%>
-<%--                    Harry Potter<br/>--%>
-<%--                    The Complete Collection: 7 Book Box Set--%>
-<%--                </h4>--%>
-
-<%--                <div class="flex gap-2 font-bold text-left w-full">--%>
-<%--                    <h4 class="text-medium font-medium">--%>
-<%--                        3200--%>
-<%--                    </h4>--%>
-<%--                    <h4 class="text-medium font-medium">--%>
-<%--                        UAH--%>
-<%--                    </h4>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-
-
-<%--            <div class="flex flex-col absolute top-2 right-2 gap-1 ">--%>
-<%--                <img src="likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>--%>
-<%--                <img src="basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-
-<%--        &lt;%&ndash;        2 item&ndash;%&gt;--%>
-<%--        <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow ">--%>
-
-<%--            <div class="flex items-center justify-center flex-col gap-2">--%>
-<%--                <img src="harryPotter.svg" alt="harryPotter" class="w-28"/>--%>
-<%--                <h4 class="text-base font-medium leading-5">--%>
-<%--                    Harry Potter<br/>--%>
-<%--                    The Complete Collection: 7 Book Box Set--%>
-<%--                </h4>--%>
-
-<%--                <div class="flex gap-2 font-bold text-left w-full">--%>
-<%--                    <h4 class="text-medium font-medium">--%>
-<%--                        3200--%>
-<%--                    </h4>--%>
-<%--                    <h4 class="text-medium font-medium">--%>
-<%--                        UAH--%>
-<%--                    </h4>--%>
-<%--                </div>--%>
-<%--            </div>--%>
+        <!-- Dropdown menu -->
+        <div id="dropdownRadioBgHover"
+             class="z-10 hidden w-64 bg-white rounded-lg shadow">
+            <ul class="p-3 space-y-1 text-sm text-gray-700"
+                aria-labelledby="dropdownRadioBgHoverButton">
+                <li>
+                    <div class="flex items-center p-2 rounded hover:bg-gray-100">
+                        <input id="default-radio-4" type="radio" value="" name="default-radio"
+                               class="w-4 h-4 bg-gray-100 border-gray-300">
+                        <label for="default-radio-4"
+                               class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Kitchen</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex items-center p-2 rounded hover:bg-gray-100">
+                        <input id="default-radio-5" type="radio" value="" name="default-radio"
+                               class="w-4 h-4 bg-gray-100 border-gray-300">
+                        <label for="default-radio-5"
+                               class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Sport</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex items-center p-2 rounded hover:bg-gray-100">
+                        <input id="default-radio-6" type="radio" value="" name="default-radio"
+                               class="w-4 h-4 bg-gray-100 border-gray-300">
+                        <label for="default-radio-6"
+                               class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Literature</label>
+                    </div>
+                </li>
+            </ul>
+        </div>
 
 
-<%--            <div class="flex flex-col absolute top-2 right-2 gap-1 ">--%>
-<%--                <img src="likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>--%>
-<%--                <img src="basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>--%>
-<%--            </div>--%>
-<%--        </div>--%>
+        <%--Age range--%>
+        <div class="flex gap-2 items-center">
+            <div class="flex justify-between items-center bg-white border border-gray-300 text-gray-700 py-3 px-4 rounded">
+                <input type="text" class="text-lg italic outline-none w-14"
+                       placeholder="From">
+            </div>
+            <h4 class="text-2xl font-semibold text-gray-700">-</h4>
+            <div class="flex justify-between items-center bg-white border border-gray-300 text-gray-700 py-3 px-4 rounded">
+                <input type="text" class="text-lg italic outline-none w-14"
+                       placeholder="To y.o.">
+            </div>
+        </div>
 
-<%--        &lt;%&ndash;        3 item&ndash;%&gt;--%>
-<%--        <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow ">--%>
+        <button class="bg-[#6AB7FF] py-3 px-5 rounded-lg transition duration-500 hover:opacity-70 text-white text-xl font-medium">
+            Search
+        </button>
+    </div>
 
-<%--            <div class="flex items-center justify-center flex-col gap-2">--%>
-<%--                <img src="harryPotter.svg" alt="harryPotter" class="w-28"/>--%>
-<%--                <h4 class="text-base font-medium leading-5">--%>
-<%--                    Harry Potter<br/>--%>
-<%--                    The Complete Collection: 7 Book Box Set--%>
-<%--                </h4>--%>
-
-<%--                <div class="flex gap-2 font-bold text-left w-full">--%>
-<%--                    <h4 class="text-medium font-medium">--%>
-<%--                        3200--%>
-<%--                    </h4>--%>
-<%--                    <h4 class="text-medium font-medium">--%>
-<%--                        UAH--%>
-<%--                    </h4>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-
-
-<%--            <div class="flex flex-col absolute top-2 right-2 gap-1 ">--%>
-<%--                <img src="likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>--%>
-<%--                <img src="basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-
-<%--        &lt;%&ndash;        4 item&ndash;%&gt;--%>
-<%--        <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow ">--%>
-
-<%--            <div class="flex items-center justify-center flex-col gap-2">--%>
-<%--                <img src="harryPotter.svg" alt="harryPotter" class="w-28"/>--%>
-<%--                <h4 class="text-base font-medium leading-5">--%>
-<%--                    Harry Potter<br/>--%>
-<%--                    The Complete Collection: 7 Book Box Set--%>
-<%--                </h4>--%>
-
-<%--                <div class="flex gap-2 font-bold text-left w-full">--%>
-<%--                    <h4 class="text-medium font-medium">--%>
-<%--                        3200--%>
-<%--                    </h4>--%>
-<%--                    <h4 class="text-medium font-medium">--%>
-<%--                        UAH--%>
-<%--                    </h4>--%>
-<%--                </div>--%>
-<%--            </div>--%>
+    <%-- main body--%>
+    <div>
+        <h4 class="text-2xl font-semibold text-gray-600 ml-[10%] mt-6">
+            6 items found by your filters
+        </h4>
+    </div>
+    <div>
+        <h4 class="text-2xl font-semibold text-gray-600 ml-[10%] mt-6">
+            Certificates for creative master classes
+        </h4>
+    </div>
 
 
-<%--            <div class="flex flex-col absolute top-2 right-2 gap-1 ">--%>
-<%--                <img src="likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>--%>
-<%--                <img src="basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>--%>
-<%--            </div>--%>
-<%--        </div>--%>
+    <%--    all items in row--%>
+    <div class="flex gap-12 mx-[10%] flex-wrap">
+        <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow ">
 
-<%--        &lt;%&ndash;        5 item&ndash;%&gt;--%>
-<%--        <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow ">--%>
+            <div class="flex items-center justify-center flex-col gap-2">
+                <img src="harryPotter.svg" alt="harryPotter" class="w-28"/>
+                <h4 class="text-base font-medium leading-5">
+                    Harry Potter<br/>
+                    The Complete Collection: 7 Book Box Set
+                </h4>
 
-<%--            <div class="flex items-center justify-center flex-col gap-2">--%>
-<%--                <img src="harryPotter.svg" alt="harryPotter" class="w-28"/>--%>
-<%--                <h4 class="text-base font-medium leading-5">--%>
-<%--                    Harry Potter<br/>--%>
-<%--                    The Complete Collection: 7 Book Box Set--%>
-<%--                </h4>--%>
-
-<%--                <div class="flex gap-2 font-bold text-left w-full">--%>
-<%--                    <h4 class="text-medium font-medium">--%>
-<%--                        3200--%>
-<%--                    </h4>--%>
-<%--                    <h4 class="text-medium font-medium">--%>
-<%--                        UAH--%>
-<%--                    </h4>--%>
-<%--                </div>--%>
-<%--            </div>--%>
+                <div class="flex gap-2 font-bold text-left w-full">
+                    <h4 class="text-medium font-medium">
+                        3200
+                    </h4>
+                    <h4 class="text-medium font-medium">
+                        UAH
+                    </h4>
+                </div>
+            </div>
 
 
-<%--            <div class="flex flex-col absolute top-2 right-2 gap-1 ">--%>
-<%--                <img src="likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>--%>
-<%--                <img src="basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>--%>
-<%--            </div>--%>
-<%--        </div>--%>
+            <div class="flex flex-col absolute top-2 right-2 gap-1 ">
+                <img src="likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>
+                <img src="basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>
+            </div>
+        </div>
 
-<%--        &lt;%&ndash;        6 item&ndash;%&gt;--%>
-<%--        <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow ">--%>
+        <%--        2 item--%>
+        <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow ">
 
-<%--            <div class="flex items-center justify-center flex-col gap-2">--%>
-<%--                <img src="harryPotter.svg" alt="harryPotter" class="w-28"/>--%>
-<%--                <h4 class="text-base font-medium leading-5">--%>
-<%--                    Harry Potter<br/>--%>
-<%--                    The Complete Collection: 7 Book Box Set--%>
-<%--                </h4>--%>
+            <div class="flex items-center justify-center flex-col gap-2">
+                <img src="harryPotter.svg" alt="harryPotter" class="w-28"/>
+                <h4 class="text-base font-medium leading-5">
+                    Harry Potter<br/>
+                    The Complete Collection: 7 Book Box Set
+                </h4>
 
-<%--                <div class="flex gap-2 font-bold text-left w-full">--%>
-<%--                    <h4 class="text-medium font-medium">--%>
-<%--                        3200--%>
-<%--                    </h4>--%>
-<%--                    <h4 class="text-medium font-medium">--%>
-<%--                        UAH--%>
-<%--                    </h4>--%>
-<%--                </div>--%>
-<%--            </div>--%>
+                <div class="flex gap-2 font-bold text-left w-full">
+                    <h4 class="text-medium font-medium">
+                        3200
+                    </h4>
+                    <h4 class="text-medium font-medium">
+                        UAH
+                    </h4>
+                </div>
+            </div>
 
 
-<%--            <div class="flex flex-col absolute top-2 right-2 gap-1 ">--%>
-<%--                <img src="likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>--%>
-<%--                <img src="basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
+            <div class="flex flex-col absolute top-2 right-2 gap-1 ">
+                <img src="likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>
+                <img src="basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>
+            </div>
+        </div>
 
-<%--</div>--%>
+        <%--        3 item--%>
+        <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow ">
+
+            <div class="flex items-center justify-center flex-col gap-2">
+                <img src="harryPotter.svg" alt="harryPotter" class="w-28"/>
+                <h4 class="text-base font-medium leading-5">
+                    Harry Potter<br/>
+                    The Complete Collection: 7 Book Box Set
+                </h4>
+
+                <div class="flex gap-2 font-bold text-left w-full">
+                    <h4 class="text-medium font-medium">
+                        3200
+                    </h4>
+                    <h4 class="text-medium font-medium">
+                        UAH
+                    </h4>
+                </div>
+            </div>
+
+
+            <div class="flex flex-col absolute top-2 right-2 gap-1 ">
+                <img src="likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>
+                <img src="basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>
+            </div>
+        </div>
+
+        <%--        4 item--%>
+        <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow ">
+
+            <div class="flex items-center justify-center flex-col gap-2">
+                <img src="harryPotter.svg" alt="harryPotter" class="w-28"/>
+                <h4 class="text-base font-medium leading-5">
+                    Harry Potter<br/>
+                    The Complete Collection: 7 Book Box Set
+                </h4>
+
+                <div class="flex gap-2 font-bold text-left w-full">
+                    <h4 class="text-medium font-medium">
+                        3200
+                    </h4>
+                    <h4 class="text-medium font-medium">
+                        UAH
+                    </h4>
+                </div>
+            </div>
+
+
+            <div class="flex flex-col absolute top-2 right-2 gap-1 ">
+                <img src="likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>
+                <img src="basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>
+            </div>
+        </div>
+
+        <%--        5 item--%>
+        <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow ">
+
+            <div class="flex items-center justify-center flex-col gap-2">
+                <img src="harryPotter.svg" alt="harryPotter" class="w-28"/>
+                <h4 class="text-base font-medium leading-5">
+                    Harry Potter<br/>
+                    The Complete Collection: 7 Book Box Set
+                </h4>
+
+                <div class="flex gap-2 font-bold text-left w-full">
+                    <h4 class="text-medium font-medium">
+                        3200
+                    </h4>
+                    <h4 class="text-medium font-medium">
+                        UAH
+                    </h4>
+                </div>
+            </div>
+
+
+            <div class="flex flex-col absolute top-2 right-2 gap-1 ">
+                <img src="likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>
+                <img src="basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>
+            </div>
+        </div>
+
+        <%--        6 item--%>
+        <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow ">
+
+            <div class="flex items-center justify-center flex-col gap-2">
+                <img src="harryPotter.svg" alt="harryPotter" class="w-28"/>
+                <h4 class="text-base font-medium leading-5">
+                    Harry Potter<br/>
+                    The Complete Collection: 7 Book Box Set
+                </h4>
+
+                <div class="flex gap-2 font-bold text-left w-full">
+                    <h4 class="text-medium font-medium">
+                        3200
+                    </h4>
+                    <h4 class="text-medium font-medium">
+                        UAH
+                    </h4>
+                </div>
+            </div>
+
+
+            <div class="flex flex-col absolute top-2 right-2 gap-1 ">
+                <img src="likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>
+                <img src="basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>
+            </div>
+        </div>
+    </div>
+
+</div>
 
 <%--ITEM DETAILED--%>
 <%--<div class="mx-[3%] my-6">--%>
@@ -1458,9 +1458,3 @@
 
 </body>
 </html>
-
-
-<script>
-
-</script>
-
