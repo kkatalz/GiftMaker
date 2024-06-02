@@ -165,7 +165,10 @@ public class JdbcUserDao implements UserDao {
 
     protected static User getUserFromResultSet(ResultSet resultSet) throws SQLException {
         String temp = resultSet.getString(BIRTH_DATE);
-        java.sql.Date dateOfBirth = java.sql.Date.valueOf(temp);
+        java.sql.Date dateOfBirth = null;
+        if (temp != null && !temp.isEmpty()) {
+            dateOfBirth = java.sql.Date.valueOf(temp);
+        }
 
         return new User.Builder()
                 .setId(resultSet.getInt(ID))
