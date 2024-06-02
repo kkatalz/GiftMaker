@@ -68,84 +68,83 @@
 <%--    HOME PAGE--%>
 <%--1.    header--%>
 
-<%--<div class="text flex justify-between items-center px-10 py-3">--%>
-<%--    <img src="logoBlack.svg" alt="logo" class="w-40 cursor-pointer">--%>
+<div class="text flex justify-between items-center px-10 py-3">
+    <img src="logoBlack.svg" alt="logo" class="w-40 cursor-pointer">
 
-<%--    <div class="text inline-flex border-[#777777] border-2 p-3 rounded-lg bg-neutral-100 ">--%>
+    <div class="text inline-flex border-[#777777] border-2 p-3 rounded-lg bg-neutral-100 ">
 
-<%--        <input type="text" class="text-lg bg-neutral-100 w-[44vw] italic outline-none"--%>
-<%--               placeholder="Find a gift ...">--%>
-<%--        <img src="search-icon.svg" alt="search-icon"--%>
-<%--             class="w-5 transition duration-300 ease-in hover:ease-in hover:scale-[1.2]">--%>
+        <input type="text" class="text-lg bg-neutral-100 w-[44vw] italic outline-none"
+               placeholder="Find a gift ...">
+        <img src="search-icon.svg" alt="search-icon"
+             class="w-5 transition duration-300 ease-in hover:ease-in hover:scale-[1.2]">
 
-<%--    </div>--%>
+    </div>
 
-<%--    <div class="text flex flex-row gap-5">--%>
+    <div class="text flex flex-row gap-5">
 
 <%--visible only for Manager--%>
-<%--        <div class="flex justify-center items-center flex-col">--%>
-<%--            <img src="giftsProposed.svg" alt="giftsProposed" class="w-10 cursor-pointer ">--%>
-<%--            <a class="text-sm font-medium" href="#">Gifts</a>--%>
-<%--        </div>--%>
+        <div class="flex justify-center items-center flex-col">
+            <img src="giftsProposed.svg" alt="giftsProposed" class="w-10 cursor-pointer ">
+            <a class="text-sm font-medium" href="#">Gifts</a>
+        </div>
 
-<%--        <div class="flex justify-center items-center flex-col">--%>
-<%--            <img src="myProfile.svg" alt="profile-icon" class="w-10 cursor-pointer ">--%>
-<%--            <a class="text-sm font-medium" href="#">My profile</a>--%>
-<%--        </div>--%>
+        <div class="flex justify-center items-center flex-col">
+            <img src="myProfile.svg" alt="profile-icon" class="w-10 cursor-pointer ">
+            <a class="text-sm font-medium" href="#">My profile</a>
+        </div>
 
-<%--        <div class="flex justify-center items-center flex-col">--%>
-<%--            <img src="liked.svg" alt="liked-items" class="w-10 cursor-pointer">--%>
-<%--            <a class="text-sm font-medium" href="#">Liked</a>--%>
+        <div class="flex justify-center items-center flex-col">
+            <img src="liked.svg" alt="liked-items" class="w-10 cursor-pointer">
+            <a class="text-sm font-medium" href="#">Liked</a>
 
-<%--        </div>--%>
+        </div>
 
-<%--        <div class="flex justify-center items-center flex-col">--%>
-<%--            <img src="basket.svg" alt="basket-icon" class="w-10 cursor-pointer">--%>
-<%--            <a class="text-sm font-medium" href="#">Basket</a>--%>
+        <div class="flex justify-center items-center flex-col">
+            <img src="basket.svg" alt="basket-icon" class="w-10 cursor-pointer">
+            <a class="text-sm font-medium" href="#">Basket</a>
 
-<%--        </div>--%>
-<%--    </div>--%>
+        </div>
+    </div>
 
-<%--</div>--%>
+</div>
 
 <%--2.    main body--%>
-<%--<div class="text flex justify-between items-center text-xl font-medium mx-80 mt-12 ">--%>
-<%--    <h4 class="cursor-pointer">Mother day</h4>--%>
-<%--    <h4 class="cursor-pointer">Certificates</h4>--%>
-<%--    <h4 class="cursor-pointer">Top gifts this month</h4>--%>
-<%--</div>--%>
+<div class="text flex justify-between items-center text-xl font-medium mx-80 mt-12 ">
+    <h4 class="cursor-pointer">Mother day</h4>
+    <h4 class="cursor-pointer">Certificates</h4>
+    <h4 class="cursor-pointer">Top gifts this month</h4>
+</div>
 
-<%--<div class="h-[45%] w-screen bg-blue-100 mt-6 flex justify-between items-center px-56">--%>
+<div class="h-[45%] w-screen bg-blue-100 mt-6 flex justify-between items-center px-56">
 
-<%--    <div class="flex flex-col items-center pl-40 pt-10 space-y-2">--%>
-<%--        <button class="px-16 py-4 rounded-lg shadow-lg bg-white font-bold text-2xl transition duration-300 ease-in hover:ease-in hover:scale-[1.2]">--%>
-<%--            Generate gift--%>
-<%--        </button>--%>
-<%--        <button class="py-2 px-10 ml-16 rounded-lg shadow-md bg-white font-bold text-xl transition duration-300 ease-in hover:ease-in hover:scale-[1.1]">--%>
-<%--            Create gift--%>
-<%--        </button>--%>
-<%--    </div>--%>
+    <div class="flex flex-col items-center pl-40 pt-10 space-y-2">
+        <button class="px-16 py-4 rounded-lg shadow-lg bg-white font-bold text-2xl transition duration-300 ease-in hover:ease-in hover:scale-[1.2]">
+            Generate gift
+        </button>
+        <button class="py-2 px-10 ml-16 rounded-lg shadow-md bg-white font-bold text-xl transition duration-300 ease-in hover:ease-in hover:scale-[1.1]">
+            Create gift
+        </button>
+    </div>
 
-<%--    <div class="relative">--%>
+    <div class="relative">
+        <img src="<%=request.getContextPath()%>/gift-picture.svg" alt="gift-picture"
+             class="rounded-[30px] shadow w-[420px] h-[280px] object-cover ">        <button class="z-2 py-2 absolute bottom-[-20px] left-[20%] w-2/3  rounded-lg shadow-lg bg-white font-bold text-2xl transition duration-300 ease-in hover:ease-in hover:scale-[1.2]">
+            Form to send
+        </button>
+    </div>
 
-<%--            <img src="gift-picture.svg" alt="gift-picture" class=" z-1 rounded-[30px] shadow w-5/7 ">--%>
-<%--        <button class="z-2 py-2 absolute bottom-[-20px] left-[20%] w-2/3  rounded-lg shadow-lg bg-white font-bold text-2xl transition duration-300 ease-in hover:ease-in hover:scale-[1.2]">--%>
-<%--            Form to send--%>
-<%--        </button>--%>
-<%--    </div>--%>
+</div>
 
-<%--</div>--%>
+<div class="text flex justify-between items-center text-xl font-normal mx-80 mt-8 text-neutral-500 ">
+    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Ukrainian brands</button>
+    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Trendy gifts</button>
+    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Gifts for anyone</button>
+</div>
 
-<%--<div class="text flex justify-between items-center text-xl font-normal mx-80 mt-8 text-neutral-500 ">--%>
-<%--    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Ukrainian brands</button>--%>
-<%--    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Trendy gifts</button>--%>
-<%--    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Gifts for anyone</button>--%>
-<%--</div>--%>
-
-<%--<div class="text flex justify-between items-center text-xl font-normal mx-[33%] mt-5 text-neutral-500 ">--%>
-<%--    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Aesthetic gifts</button>--%>
-<%--    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Handy gifts</button>--%>
-<%--</div>--%>
+<div class="text flex justify-between items-center text-xl font-normal mx-[33%] mt-5 text-neutral-500 ">
+    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Aesthetic gifts</button>
+    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70">Handy gifts</button>
+</div>
 
 
 <%--WISHLIST--%>
@@ -1410,51 +1409,51 @@
 
 
 <%--MY PROFILE PAGE--%>
-<div class="bg-blue-100 h-[100vh] ">
+<%--<div class="bg-blue-100 h-[100vh] ">--%>
 
-    <%--header--%>
-    <div class="text flex justify-between items-center px-10 py-3">
-        <img src="logoBlack.svg" alt="logo" class="w-40 cursor-pointer">
+<%--    &lt;%&ndash;header&ndash;%&gt;--%>
+<%--    <div class="text flex justify-between items-center px-10 py-3">--%>
+<%--        <img src="logoBlack.svg" alt="logo" class="w-40 cursor-pointer">--%>
 
-        <div class="text flex flex-row gap-5">
-            <div class="flex justify-center items-center flex-col">
-                <img src="myProfile.svg" alt="profile-icon" class="w-10 cursor-pointer ">
-                <a class="text-sm font-medium" href="#">My profile</a>
-            </div>
+<%--        <div class="text flex flex-row gap-5">--%>
+<%--            <div class="flex justify-center items-center flex-col">--%>
+<%--                <img src="myProfile.svg" alt="profile-icon" class="w-10 cursor-pointer ">--%>
+<%--                <a class="text-sm font-medium" href="#">My profile</a>--%>
+<%--            </div>--%>
 
-            <div class="flex justify-center items-center flex-col">
-                <img src="liked.svg" alt="liked-items" class="w-10 cursor-pointer">
-                <a class="text-sm font-medium" href="#">Liked</a>
+<%--            <div class="flex justify-center items-center flex-col">--%>
+<%--                <img src="liked.svg" alt="liked-items" class="w-10 cursor-pointer">--%>
+<%--                <a class="text-sm font-medium" href="#">Liked</a>--%>
 
-            </div>
+<%--            </div>--%>
 
-            <div class="flex justify-center items-center flex-col">
-                <img src="basket.svg" alt="basket-icon" class="w-10 cursor-pointer">
-                <a class="text-sm font-medium" href="#">Basket</a>
+<%--            <div class="flex justify-center items-center flex-col">--%>
+<%--                <img src="basket.svg" alt="basket-icon" class="w-10 cursor-pointer">--%>
+<%--                <a class="text-sm font-medium" href="#">Basket</a>--%>
 
-            </div>
-        </div>
+<%--            </div>--%>
+<%--        </div>--%>
 
-    </div>
+<%--    </div>--%>
 
-    <div class="flex justify-center mt-16 ">
-        <form class="flex items-center flex-col text-center bg-white py-10 rounded-lg shadow w-[40vw]">
-            <div class="flex justify-center items-center flex-col">
-                <img src="myProfile.svg" alt="myProfile" class="w-16">
-                <h4 class="font-bold text-2xl">My profile</h4>
-            </div>
+<%--    <div class="flex justify-center mt-16 ">--%>
+<%--        <form class="flex items-center flex-col text-center bg-white py-10 rounded-lg shadow w-[40vw]">--%>
+<%--            <div class="flex justify-center items-center flex-col">--%>
+<%--                <img src="myProfile.svg" alt="myProfile" class="w-16">--%>
+<%--                <h4 class="font-bold text-2xl">My profile</h4>--%>
+<%--            </div>--%>
 
-            <div class="text-lg flex flex-col gap-3 w-[60%] mt-6">
-                <h4 class="p-3 rounded-lg bg-neutral-100 text-neutral-500 italic">Administator</h4>
-                <h4 class="p-3 rounded-lg bg-neutral-100 text-neutral-500 italic">Akuna</h4>
-                <h4 class="p-3 rounded-lg bg-neutral-100 text-neutral-500 italic">Matata</h4>
-                <h4 class="p-3 rounded-lg bg-neutral-100 text-neutral-500 italic">@matata</h4>
-                <h4 class="p-3 rounded-lg bg-neutral-100 text-neutral-500 italic">********</h4>
-            </div>
-        </form>
-    </div>
+<%--            <div class="text-lg flex flex-col gap-3 w-[60%] mt-6">--%>
+<%--                <h4 class="p-3 rounded-lg bg-neutral-100 text-neutral-500 italic">Administator</h4>--%>
+<%--                <h4 class="p-3 rounded-lg bg-neutral-100 text-neutral-500 italic">Akuna</h4>--%>
+<%--                <h4 class="p-3 rounded-lg bg-neutral-100 text-neutral-500 italic">Matata</h4>--%>
+<%--                <h4 class="p-3 rounded-lg bg-neutral-100 text-neutral-500 italic">@matata</h4>--%>
+<%--                <h4 class="p-3 rounded-lg bg-neutral-100 text-neutral-500 italic">********</h4>--%>
+<%--            </div>--%>
+<%--        </form>--%>
+<%--    </div>--%>
 
-</div>
+<%--</div>--%>
 
 
 </body>

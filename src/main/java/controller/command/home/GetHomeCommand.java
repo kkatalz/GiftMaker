@@ -1,4 +1,4 @@
-package controller.command.auth;
+package controller.command.home;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,17 +8,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
 /**
- * Go to page of logging in.
+ * Go to homePage.
  */
 
-@WebServlet("/formLogin")
-public class GetFormLogin extends HttpServlet {
+@WebServlet("/home")
+public class GetHomeCommand extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        // TODO: add path to go to the form of logging in
-        String jspPage = "/WEB-INF/views/login.jsp";
+        String jspPage = "/WEB-INF/views/home.jsp";
         RequestDispatcher dispatcher = request.getRequestDispatcher(jspPage);
         dispatcher.forward(request, response);
     }

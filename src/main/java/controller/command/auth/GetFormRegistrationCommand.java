@@ -8,17 +8,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Go to page of logging in.
- */
-
-@WebServlet("/formLogin")
-public class GetFormLogin extends HttpServlet {
+@WebServlet("/formRegistration")
+public class GetFormRegistrationCommand extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        // TODO: add path to go to the form of logging in
-        String jspPage = "/WEB-INF/views/login.jsp";
+        String jspPage = "/WEB-INF/views/registration.jsp";
         RequestDispatcher dispatcher = request.getRequestDispatcher(jspPage);
         dispatcher.forward(request, response);
     }

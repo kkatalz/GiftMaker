@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Zlata
-  Date: 02.06.2024
-  Time: 11:57
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -33,7 +26,7 @@
             Log in
         </button>
     </form>
-    <img src="../../logo.svg" alt="logo" class="w-40">
+    <img src="<%=request.getContextPath()%>/logo.svg" alt="logo" class="w-40">
 </div>
 </body>
 </html>
