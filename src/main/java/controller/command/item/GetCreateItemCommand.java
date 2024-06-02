@@ -13,7 +13,7 @@ public class GetCreateItemCommand extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-            String jspPage = "/WEB-INF/views/createItemDetails.jsp";
+        String jspPage = "/WEB-INF/views/createItemDetails.jsp";
         RequestDispatcher dispatcher = request.getRequestDispatcher(jspPage);
         dispatcher.forward(request, response);
     }
