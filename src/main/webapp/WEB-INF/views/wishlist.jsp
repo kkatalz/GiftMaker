@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Zlata
-  Date: 02.06.2024
-  Time: 12:29
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -12,6 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .custom-grid {
+            display: grid;
+            grid-template-columns: 10% 40% 30% 20%;
+            padding-inline: 100px;
+        }
+
+    </style>
 </head>
 <body>
 <%--WISHLIST--%>
@@ -59,7 +60,8 @@
 <div class="custom-grid mt-12">
 
     <div class="flex items-center justify-center">
-        <img src="<%=request.getContextPath()%>/bin.svg" alt="bin" class=" w-10 cursor-pointer flex items-center justify-center"/>
+        <img src="<%=request.getContextPath()%>/bin.svg" alt="bin"
+             class=" w-10 cursor-pointer flex items-center justify-center"/>
     </div>
 
     <div class="flex items-center justify-center gap-8">
@@ -89,7 +91,8 @@
 <div class="custom-grid mt-12">
 
     <div class="flex items-center justify-center">
-        <img src="<%=request.getContextPath()%>/bin.svg" alt="bin" class=" w-10 cursor-pointer flex items-center justify-center"/>
+        <img src="<%=request.getContextPath()%>/bin.svg" alt="bin"
+             class=" w-10 cursor-pointer flex items-center justify-center"/>
     </div>
 
     <div class="flex items-center justify-center gap-8">
