@@ -9,3 +9,5 @@
 
 /target
 /.idea
+/src/main/resources/db.properties
+/src/main/webapp/META-INF/context.xml
