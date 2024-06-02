@@ -21,7 +21,7 @@
                    placeholder="Find ...">
 
 
-            <img src="../../search-icon.svg" alt="search-icon"
+            <img src="<%=request.getContextPath()%>/search-icon.svg" alt="search-icon"
                  class="w-5 transition duration-300 ease-in hover:ease-in hover:scale-[1.2]">
 
         </div>
@@ -142,8 +142,8 @@
 
 
             <div class="flex flex-col absolute top-2 right-2 gap-1 ">
-                <img src="../../likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>
-                <img src="../../basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>
+                <img src="<%=request.getContextPath()%>/likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>
+                <img src="<%=request.getContextPath()%>/basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>
             </div>
         </div>
 
@@ -178,7 +178,7 @@
         <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow ">
 
             <div class="flex items-center justify-center flex-col gap-2">
-                <img src="../../harryPotter.svg" alt="harryPotter" class="w-28"/>
+                <img src="<%=request.getContextPath()%>/harryPotter.svg" alt="harryPotter" class="w-28"/>
                 <h4 class="text-base font-medium leading-5">
                     Harry Potter<br/>
                     The Complete Collection: 7 Book Box Set
@@ -284,5 +284,8 @@
     </div>
 
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
 </body>
 </html>
