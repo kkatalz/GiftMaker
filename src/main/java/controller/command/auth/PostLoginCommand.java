@@ -4,6 +4,8 @@ import entity.User;
 import org.mindrot.jbcrypt.BCrypt;
 import service.UserService;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,24 +23,31 @@ import java.util.Optional;
 public class PostLoginCommand extends HttpServlet {
 
     @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        String jspPage = "/WEB-INF/views/login.jsp";
+        RequestDispatcher dispatcher = request.getRequestDispatcher(jspPage);
+        dispatcher.forward(request, response);
+    }
+
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Optional<User> user = getInput(request);
 
+        System.out.println("user: " + user);
+
         // successful logging in
-        if(user.isPresent()) {
+        if (user.isPresent()) {
             HttpSession session = request.getSession(true);
             session.setAttribute("currentUser", user.get());
 
-            // TODO: add path to go after successful logging in
-            String jspPage = "";
+            String jspPage = "/home";
             String redirectURL = request.getContextPath() + jspPage;
             response.sendRedirect(redirectURL);
         }
 
         // not successful logging in
         else {
-            // TODO: add path to go after NOT successful logging in
-            String jspPage = "/index.jsp";
+            String jspPage = "/login";
             String redirectURL = request.getContextPath() + jspPage;
             response.sendRedirect(redirectURL);
         }
@@ -47,10 +56,13 @@ public class PostLoginCommand extends HttpServlet {
     private Optional<User> getInput(HttpServletRequest request) {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+
+        System.out.println("username: " + username);
+        System.out.println("password: " + password);
         Optional<User> potentialUser = UserService.getInstance().getUserByUsername(username);
 
-        if(potentialUser.isPresent()) {
-            if(BCrypt.checkpw(password, potentialUser.get().getEncryptedPassword())) {
+        if (potentialUser.isPresent()) {
+            if (BCrypt.checkpw(password, potentialUser.get().getEncryptedPassword())) {
                 return potentialUser;
             }
         }
