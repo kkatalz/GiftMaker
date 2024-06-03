@@ -17,7 +17,7 @@
 <%--CREATE ITEM DETAILED PAGE--%>
 <div class="mx-[3%] my-6">
 
-    <%@include file="header.jsp"%>
+    <%@include file="header.jsp" %>
 
     <%--main body--%>
     <div class="flex justify-center items-center gap-8 mx-[6%] my-[2%]">
@@ -38,9 +38,11 @@
 
             <%--        main image--%>
             <div class="flex items-center justify-center rounded-lg w-[600px] relative">
-                <img src="<%=request.getContextPath()%>/leftArrow.svg" alt="leftArrow" class="w-10 cursor-pointer  absolute left-6"/>
+                <img src="<%=request.getContextPath()%>/leftArrow.svg" alt="leftArrow"
+                     class="w-10 cursor-pointer  absolute left-6"/>
                 <h4 class="flex justify-center items-center h-[600px] w-full text-9xl rounded-lg bg-neutral-200 ">+</h4>
-                <img src="<%=request.getContextPath()%>/rightArrow.svg" alt="rightArrow" class="w-10 cursor-pointer  absolute right-6"/>
+                <img src="<%=request.getContextPath()%>/rightArrow.svg" alt="rightArrow"
+                     class="w-10 cursor-pointer  absolute right-6"/>
 
             </div>
 
@@ -136,5 +138,7 @@
         </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
 </body>
 </html>

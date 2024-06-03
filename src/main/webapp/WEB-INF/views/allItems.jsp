@@ -123,7 +123,9 @@
 
     <%--    all items in row--%>
     <div class="flex gap-12 mx-[10%] flex-wrap">
-        <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow ">
+
+        <%--item 1--%>
+        <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow">
 
             <div class="flex items-center justify-center flex-col gap-2">
                 <img src="<%=request.getContextPath()%>/harryPotter.svg" alt="harryPotter" class="w-28"/>
@@ -146,7 +148,7 @@
             <div class="flex flex-col absolute top-2 right-2 gap-1 ">
                 <img src="<%=request.getContextPath()%>/likedBlue.svg" alt="likedBlue"
                      class="w-8 cursor-pointer likedItem"/>
-                <img src="<%=request.getContextPath()%>/basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>
+                <img src="<%=request.getContextPath()%>/basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer basketFilled"/>
             </div>
         </div>
 
@@ -174,7 +176,7 @@
             <div class="flex flex-col absolute top-2 right-2 gap-1 ">
                 <img src="<%=request.getContextPath()%>/likedBlue.svg" alt="likedBlue"
                      class="w-8 cursor-pointer likedItem"/>
-                <img src="<%=request.getContextPath()%>/basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>
+                <img src="<%=request.getContextPath()%>/basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer basketFilled"/>
             </div>
         </div>
 
@@ -202,7 +204,7 @@
             <div class="flex flex-col absolute top-2 right-2 gap-1 ">
                 <img src="<%=request.getContextPath()%>/likedBlue.svg" alt="likedBlue"
                      class="w-8 cursor-pointer likedItem"/>
-                <img src="<%=request.getContextPath()%>/basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>
+                <img src="<%=request.getContextPath()%>/basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer basketFilled"/>
             </div>
         </div>
 
@@ -230,7 +232,7 @@
             <div class="flex flex-col absolute top-2 right-2 gap-1 ">
                 <img src="<%=request.getContextPath()%>/likedBlue.svg" alt="likedBlue"
                      class="w-8 cursor-pointer likedItem"/>
-                <img src="<%=request.getContextPath()%>/basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>
+                <img src="<%=request.getContextPath()%>/basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer basketFilled"/>
             </div>
         </div>
 
@@ -258,7 +260,7 @@
             <div class="flex flex-col absolute top-2 right-2 gap-1 ">
                 <img src="<%=request.getContextPath()%>/likedBlue.svg" alt="likedBlue"
                      class="w-8 cursor-pointer likedItem"/>
-                <img src="<%=request.getContextPath()%>/basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>
+                <img src="<%=request.getContextPath()%>/basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer basketFilled"/>
             </div>
         </div>
 
@@ -286,7 +288,7 @@
             <div class="flex flex-col absolute top-2 right-2 gap-1 ">
                 <img src="<%=request.getContextPath()%>/likedBlue.svg" alt="likedBlue"
                      class="w-8 cursor-pointer likedItem"/>
-                <img src="<%=request.getContextPath()%>/basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>
+                <img src="<%=request.getContextPath()%>/basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer basketFilled"/>
             </div>
         </div>
     </div>
@@ -304,6 +306,16 @@
             this.src = this.src.includes('likedBlue.svg') ? '<%=request.getContextPath()%>/likedFilled.svg' : '<%=request.getContextPath()%>/likedBlue.svg';
         });
     }
+
+    let basketItems = document.getElementsByClassName('basketFilled');
+
+    for (let i = 0; i < basketItems.length; i++) {
+        basketItems[i].addEventListener('click', function () {
+            this.src = this.src.includes('basketBlue.svg') ? '<%=request.getContextPath()%>/basketFilled.svg' : '<%=request.getContextPath()%>/basketBlue.svg';
+        });
+    }
+
+
 </script>
 
 </body>

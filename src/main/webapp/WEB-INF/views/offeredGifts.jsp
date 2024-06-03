@@ -132,9 +132,8 @@
                 <h4 class="text-2xl font-medium flex items-center justify-center">3200</h4>
 
                 <div class="flex items-center justify-center">
-                    <button class="flex w-[50%] cursor-pointer bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70  self-center p-3 justify-between px-4 text-white text-3xl font-medium flex-shrink">
-                        Buy
-                        <img src="<%=request.getContextPath()%>/buyIcon.svg" alt="buyIcon"/>
+                    <button class="flex justify-center w-[50%] cursor-pointer bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70  p-3 px-4 text-white text-3xl font-medium">
+                        Publish
                     </button>
                 </div>
 
@@ -208,9 +207,8 @@
                 <h4 class="text-2xl font-medium flex items-center justify-center">3200</h4>
 
                 <div class="flex items-center justify-center">
-                    <button class="flex w-[50%] cursor-pointer bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70  self-center p-3 justify-between px-4 text-white text-3xl font-medium flex-shrink">
-                        Buy
-                        <img src="<%=request.getContextPath()%>/buyIcon.svg" alt="buyIcon"/>
+                    <button class="flex justify-center w-[50%] cursor-pointer bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70  p-3 px-4 text-white text-3xl font-medium">
+                        Publish
                     </button>
                 </div>
 

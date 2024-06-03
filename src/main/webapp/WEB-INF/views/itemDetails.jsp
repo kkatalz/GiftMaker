@@ -97,7 +97,7 @@
 
 
             <div class="flex justify-content items-center gap-5 ">
-                <button class="w-[50%] bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70 flex items-center justify-between px-6 py-3 text-white text-3xl font-medium">
+                <button id="open_modal" class="w-[50%] bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70 flex items-center justify-between px-6 py-3 text-white text-3xl font-medium">
                     Buy
                     <img src="<%=request.getContextPath()%>/buyIcon.svg" alt="Buy Icon" class="w-8 h-8"/>
                 </button>
@@ -108,5 +108,12 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    // document.getElementById('open_modal').addEventListener('click', function () {
+    //     window.location.href = '/GiftMaker/basketModal';
+    // });
+</script>
 </body>
 </html>
