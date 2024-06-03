@@ -14,7 +14,7 @@ public class GetProposedItemsCommand extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String jspPage = "/WEB-INF/views/proposedGifts.jsp";
+        String jspPage = "/WEB-INF/views/offeredGifts.jsp";
         RequestDispatcher dispatcher = request.getRequestDispatcher(jspPage);
         dispatcher.forward(request, response);
     }

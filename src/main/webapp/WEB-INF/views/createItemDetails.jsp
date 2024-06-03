@@ -124,8 +124,12 @@
                 </div>
             </div>
 
+
             <button class="w-[55%] bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70 flex items-center justify-center py-3 text-white text-3xl font-medium">
-                Publish
+
+                <a href="home">
+                    Publish
+                </a>
             </button>
 
 

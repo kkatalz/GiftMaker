@@ -20,7 +20,10 @@
 <%--PROPOSED GIFTS PAGE--%>
 <div>
     <div class="text flex justify-between items-center px-10 py-3">
-        <img src="<%=request.getContextPath()%>/logoBlack.svg" alt="logo" class="w-40 cursor-pointer">
+        <a href="home">
+            <img src="<%=request.getContextPath()%>/logoBlack.svg" alt="logo" class="w-40 cursor-pointer">
+
+        </a>
 
 
         <div class="text flex flex-row gap-5">
@@ -216,5 +219,8 @@
         </div>
     </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
 </body>
 </html>

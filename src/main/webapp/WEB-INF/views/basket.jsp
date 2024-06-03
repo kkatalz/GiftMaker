@@ -13,25 +13,28 @@
 
         <%--1.    header--%>
         <div class="flex justify-between items-center">
-            <img src="logoBlack.svg" alt="logo" class="w-40 cursor-pointer">
+            <a href="home">
+                <img src="logoBlack.svg" alt="logo" class="w-40 cursor-pointer">
+
+            </a>
 
 
             <div class="text flex flex-row gap-5">
 
                 <div class="flex justify-center items-center flex-col">
                     <img src="myProfile.svg" alt="profile-icon" class="w-10 cursor-pointer ">
-                    <a class="text-sm font-medium" href="#">My profile</a>
+                    <a class="text-sm font-medium" href="myProfile">My profile</a>
                 </div>
 
                 <div class="flex justify-center items-center flex-col">
                     <img src="liked.svg" alt="liked-items" class="w-10 cursor-pointer">
-                    <a class="text-sm font-medium" href="#">Liked</a>
+                    <a class="text-sm font-medium" href="likedItems">Liked</a>
 
                 </div>
 
                 <div class="flex justify-center items-center flex-col">
                     <img src="basket.svg" alt="basket-icon" class="w-10 cursor-pointer">
-                    <a class="text-sm font-medium" href="#">Basket</a>
+                    <a class="text-sm font-medium" href="">Basket</a>
 
                 </div>
             </div>
@@ -100,7 +103,7 @@
                         <img src="buyIcon.svg" alt="Buy Icon" class="w-8 h-8"/>
                     </button>
 
-                    <img src="likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>
+                    <img src="likedBlue.svg" alt="likedBlue" id="likedItem" class="w-8 cursor-pointer"/>
                 </div>
 
             </div>
@@ -450,7 +453,19 @@
     </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js">
+</script>
+
+<script>
+
+    document.getElementById('likedItem').addEventListener('click', function () {
+        this.src = this.src.includes('likedBlue.svg') ? 'likedFilled.svg' : 'likedBlue.svg';
+    });
+
+    document.getElementById('generate_item').addEventListener('click', function () {
+        window.location.href = '/GiftMaker/items';
+    });
+</script>
 
 </body>
 </html>

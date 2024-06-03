@@ -20,10 +20,10 @@
             <input name="firstName" type="text" class="p-3 rounded-lg bg-neutral-100" placeholder="First Name">
             <input name="lastName" type="text" class="p-3 rounded-lg bg-neutral-100" placeholder="Last Name">
             <input name="dateOfBirth" type="date" class="p-3 rounded-lg bg-neutral-100" placeholder="Date of birth">
-            <select name="role" class="p-3 rounded-lg bg-neutral-100 ">
-                <option value="USER">User</option>
-                <option value="ADMIN">Admin</option>
-            </select>
+<%--            <select name="role" class="p-3 rounded-lg bg-neutral-100 ">--%>
+<%--                <option value="USER">User</option>--%>
+<%--                <option value="ADMIN">Admin</option>--%>
+<%--            </select>--%>
             <input name="username" type="text" class="p-3 rounded-lg bg-neutral-100" placeholder="Username">
             <input name="password" type="password" class="p-3 rounded-lg bg-neutral-100" placeholder="Password">
         </div>

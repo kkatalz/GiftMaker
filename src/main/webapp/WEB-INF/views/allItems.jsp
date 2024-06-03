@@ -12,8 +12,10 @@
 
 <div class="bg-blue-100 h-[100vh]">
     <div class="text flex justify-between items-center px-10 py-3">
-        <img src="<%=request.getContextPath()%>/logoBlack.svg" alt="logo" class="w-40 cursor-pointer">
+        <a href="home">
+            <img src="<%=request.getContextPath()%>/logoBlack.svg" alt="logo" class="w-40 cursor-pointer">
 
+        </a>
 
         <%--3.  search input--%>
         <div class="text inline-flex border-[#777777] border-2 p-3 rounded-lg bg-neutral-100 ">
@@ -97,7 +99,7 @@
             <h4 class="text-2xl font-semibold text-gray-700">-</h4>
             <div class="flex justify-between items-center bg-white border border-gray-300 text-gray-700 py-3 px-4 rounded">
                 <input type="text" class="text-lg italic outline-none w-14"
-                       placeholder="To y.o.">
+                       placeholder="To y.o." maxlength="3">
             </div>
         </div>
 
@@ -142,7 +144,8 @@
 
 
             <div class="flex flex-col absolute top-2 right-2 gap-1 ">
-                <img src="<%=request.getContextPath()%>/likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>
+                <img src="<%=request.getContextPath()%>/likedBlue.svg" alt="likedBlue"
+                     class="w-8 cursor-pointer likedItem"/>
                 <img src="<%=request.getContextPath()%>/basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>
             </div>
         </div>
@@ -169,7 +172,8 @@
 
 
             <div class="flex flex-col absolute top-2 right-2 gap-1 ">
-                <img src="<%=request.getContextPath()%>/likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>
+                <img src="<%=request.getContextPath()%>/likedBlue.svg" alt="likedBlue"
+                     class="w-8 cursor-pointer likedItem"/>
                 <img src="<%=request.getContextPath()%>/basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>
             </div>
         </div>
@@ -196,7 +200,8 @@
 
 
             <div class="flex flex-col absolute top-2 right-2 gap-1 ">
-                <img src="<%=request.getContextPath()%>/likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>
+                <img src="<%=request.getContextPath()%>/likedBlue.svg" alt="likedBlue"
+                     class="w-8 cursor-pointer likedItem"/>
                 <img src="<%=request.getContextPath()%>/basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>
             </div>
         </div>
@@ -223,7 +228,8 @@
 
 
             <div class="flex flex-col absolute top-2 right-2 gap-1 ">
-                <img src="<%=request.getContextPath()%>/likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>
+                <img src="<%=request.getContextPath()%>/likedBlue.svg" alt="likedBlue"
+                     class="w-8 cursor-pointer likedItem"/>
                 <img src="<%=request.getContextPath()%>/basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>
             </div>
         </div>
@@ -250,7 +256,8 @@
 
 
             <div class="flex flex-col absolute top-2 right-2 gap-1 ">
-                <img src="<%=request.getContextPath()%>/likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>
+                <img src="<%=request.getContextPath()%>/likedBlue.svg" alt="likedBlue"
+                     class="w-8 cursor-pointer likedItem"/>
                 <img src="<%=request.getContextPath()%>/basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>
             </div>
         </div>
@@ -277,7 +284,8 @@
 
 
             <div class="flex flex-col absolute top-2 right-2 gap-1 ">
-                <img src="<%=request.getContextPath()%>/likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>
+                <img src="<%=request.getContextPath()%>/likedBlue.svg" alt="likedBlue"
+                     class="w-8 cursor-pointer likedItem"/>
                 <img src="<%=request.getContextPath()%>/basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer"/>
             </div>
         </div>
@@ -286,6 +294,17 @@
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+<script>
+
+    let likedItems = document.getElementsByClassName('likedItem');
+
+    // Loop through the collection and add an event listener to each element
+    for (let i = 0; i < likedItems.length; i++) {
+        likedItems[i].addEventListener('click', function () {
+            this.src = this.src.includes('likedBlue.svg') ? '<%=request.getContextPath()%>/likedFilled.svg' : '<%=request.getContextPath()%>/likedBlue.svg';
+        });
+    }
+</script>
 
 </body>
 </html>
