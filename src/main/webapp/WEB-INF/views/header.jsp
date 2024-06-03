@@ -1,4 +1,4 @@
-<div class="flex justify-between items-center">
+<div class="text flex justify-between items-center px-10 py-3">
     <a href="home">
         <img src="<%=request.getContextPath()%>/logoBlack.svg" alt="logo" class="w-40 cursor-pointer">
 

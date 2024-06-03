@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Zlata
-  Date: 02.06.2024
-  Time: 13:37
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -15,12 +8,12 @@
 </head>
 <body>
 <%--CREATE ITEM DETAILED PAGE--%>
-<div class="mx-[3%] my-6">
+<div class="overflow-hidden max-h-[100vh]">
 
     <%@include file="header.jsp" %>
 
     <%--main body--%>
-    <div class="flex justify-center items-center gap-8 mx-[6%] my-[2%]">
+    <div class="flex justify-center items-center gap-8 mx-[6%] my-[1.5%]">
 
         <div class="flex gap-8">
             <%--    jeft bar with images--%>
