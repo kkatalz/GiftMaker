@@ -58,8 +58,6 @@ public class PostLoginCommand extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        System.out.println("username: " + username);
-        System.out.println("password: " + password);
         Optional<User> potentialUser = UserService.getInstance().getUserByUsername(username);
 
         if (potentialUser.isPresent()) {
