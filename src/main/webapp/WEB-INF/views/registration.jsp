@@ -4,12 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .error {
+            border-color: red;
+            border-width: 2px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("signupForm");
+            form.addEventListener("submit", function (event) {
+                // Prevent form submission
+                event.preventDefault();
+
+                // Clear previous error messages and styles
+                const errorMessages = document.querySelectorAll(".error-message");
+                errorMessages.forEach(function (error) {
+                    error.remove();
+                });
+
+                const errorInputs = document.querySelectorAll(".error");
+                errorInputs.forEach(function (input) {
+                    input.classList.remove("error");
+                });
+
+                // Form validation logic
+                let isValid = true;
+                const firstName = form.elements["firstName"];
+                const lastName = form.elements["lastName"];
+                const dateOfBirth = form.elements["dateOfBirth"];
+                const username = form.elements["username"];
+                const password = form.elements["password"];
+
+                if (firstName.value.trim() === "") {
+                    showError(firstName, "First Name is required");
+                    isValid = false;
+                }
+
+                if (lastName.value.trim() === "") {
+                    showError(lastName, "Last Name is required");
+                    isValid = false;
+                }
+
+                if (dateOfBirth.value.trim() === "") {
+                    showError(dateOfBirth, "Date of Birth is required");
+                    isValid = false;
+                }
+
+                if (username.value.trim() === "") {
+                    showError(username, "Username is required");
+                    isValid = false;
+                }
+
+                if (password.value.trim() === "") {
+                    showError(password, "Password is required");
+                    isValid = false;
+                }
+
+                // If the form is valid, submit it
+                if (isValid) {
+                    form.submit();
+                }
+            });
+
+            function showError(input, message) {
+                input.classList.add("error");
+                const error = document.createElement("div");
+                error.className = "error-message text-red-500 text-sm mt-[-1] text-left";
+                error.textContent = message;
+                input.parentNode.insertBefore(error, input.nextSibling);
+            }
+        });
+    </script>
 </head>
 
 <%--REGISTRATION--%>
 <div class="bg-blue-100 h-[100vh] flex justify-center items-center flex-col gap-1">
 
-    <form class="text-center bg-white py-10 px-20 rounded-lg shadow" action="./register" method="POST" role="form">
+    <form id="signupForm" class="text-center bg-white py-10 px-20 rounded-lg shadow" action="./register" method="POST" role="form">
         <h2 class="text-4xl font-bold ">Create account</h2>
         <div class="text-lg flex justify-center gap-3 mb-4 mt-1">
             <h4>Already have an account?</h4>
@@ -20,16 +92,22 @@
             <input name="firstName" type="text" class="p-3 rounded-lg bg-neutral-100" placeholder="First Name">
             <input name="lastName" type="text" class="p-3 rounded-lg bg-neutral-100" placeholder="Last Name">
             <input name="dateOfBirth" type="date" class="p-3 rounded-lg bg-neutral-100" placeholder="Date of birth">
-<%--            <select name="role" class="p-3 rounded-lg bg-neutral-100 ">--%>
-<%--                <option value="USER">User</option>--%>
-<%--                <option value="ADMIN">Admin</option>--%>
-<%--            </select>--%>
             <input name="username" type="text" class="p-3 rounded-lg bg-neutral-100" placeholder="Username">
             <input name="password" type="password" class="p-3 rounded-lg bg-neutral-100" placeholder="Password">
         </div>
         <button type="submit" class="p-3 rounded-lg bg-[#6AB7FF] text-white font-bold w-full mt-4 text-lg transition-all duration-300 hover:opacity-80">
             Sign up
         </button>
+
+        <c:if test="${not empty requestScope.errors}">
+            <div class="alert alert-danger">
+                <c:forEach items="${requestScope.errors}" var="error">
+                    <p>
+                        Wrong credentials!
+                    </p>
+                </c:forEach>
+            </div>
+        </c:if>
     </form>
     <img src="<%=request.getContextPath()%>/logo.svg" alt="logo" class="w-40">
 </div>

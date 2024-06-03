@@ -5,12 +5,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .error {
+            border-color: red;
+            border-width: 2px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("loginForm");
+            form.addEventListener("submit", function (event) {
+                // Prevent form submission
+                event.preventDefault();
+
+                // Clear previous error messages and styles
+                const errorMessages = document.querySelectorAll(".error-message");
+                errorMessages.forEach(function (error) {
+                    error.remove();
+                });
+
+                const errorInputs = document.querySelectorAll(".error");
+                errorInputs.forEach(function (input) {
+                    input.classList.remove("error");
+                });
+
+                // Form validation logic
+                let isValid = true;
+                const username = form.elements["username"];
+                const password = form.elements["password"];
+
+                if (username.value.trim() === "") {
+                    showError(username, "Username is required");
+                    isValid = false;
+                }
+
+                if (password.value.trim() === "") {
+                    showError(password, "Password is required");
+                    isValid = false;
+                }
+
+                // If the form is valid, submit it
+                if (isValid) {
+                    form.submit();
+                }
+            });
+
+            function showError(input, message) {
+                input.classList.add("error");
+                const error = document.createElement("div");
+                error.className = "error-message text-red-500 text-sm text-left";
+                error.textContent = message;
+                input.parentNode.insertBefore(error, input.nextSibling);
+            }
+        });
+    </script>
 </head>
 
 <%--LOG IN--%>
 <div class="bg-blue-100 h-[100vh] flex justify-center items-center flex-col gap-1">
 
-    <form class="text-center bg-white py-10 px-20 rounded-lg shadow" action="./login" method="POST" role="form">
+    <form id="loginForm" class="text-center bg-white py-10 px-20 rounded-lg shadow" action="./login" method="POST" role="form">
         <h2 class="text-4xl font-bold ">Welcome back!</h2>
         <div class="text-lg flex justify-center gap-3 mb-4 mt-1">
             <h4>Don't have an account yet?</h4>
