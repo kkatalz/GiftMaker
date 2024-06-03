@@ -1,60 +1,26 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Basket Main</title>
-</head>
-<body>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
 <head>
     <title>Basket</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+
+
 <%--BASKET PAGE FINAL --%>
-<div>
-        <%--1.    header--%>
-        <div class="text flex justify-between items-center px-10 py-3">
-            <a href="home">
-                <img src="<%=request.getContextPath()%>/logoBlack.svg" alt="logo" class="w-40 cursor-pointer">
-
-            </a>
+<div class="max-h-[100vh] overflow-hidden">
+    <%@include file="header.jsp" %>
 
 
-            <div class="text flex flex-row gap-5">
-
-                <div class="flex justify-center items-center flex-col">
-                    <img src="<%=request.getContextPath()%>/myProfile.svg" alt="profile-icon"
-                         class="w-10 cursor-pointer ">
-                    <a class="text-sm font-medium" href="myProfile">My profile</a>
-                </div>
-
-                <div class="flex justify-center items-center flex-col">
-                    <img src="<%=request.getContextPath()%>/liked.svg" alt="liked-items" class="w-10 cursor-pointer">
-                    <a class="text-sm font-medium" href="likedItems">Liked</a>
-
-                </div>
-
-                <div class="flex justify-center items-center flex-col">
-                    <img src="<%=request.getContextPath()%>/basket.svg" alt="basket-icon" class="w-10 cursor-pointer">
-                    <a class="text-sm font-medium" href="">Basket</a>
-
-                </div>
-            </div>
-
-        </div>
-
-        <div class="flex justify-center items-center flex-col">
-            <img src="<%=request.getContextPath()%>/basket.svg" alt="liked-items" class="w-16">
-            <h4 class="font-bold text-2xl">Basket</h4>
-        </div>
+    <div class="flex justify-center items-center flex-col">
+        <img src="<%=request.getContextPath()%>/basket.svg" alt="liked-items" class="w-16">
+        <h4 class="font-bold text-2xl">Basket</h4>
+    </div>
 
 
     <!-- body -->
-    <div class="flex gap-16 mx-12 justify-center align-items mt-12">
-        <div class="flex flex-col m-4 p-4 gap-y-12 max-h-[70vh] overflow-y-scroll">
+    <div class="flex gap-16 mx-12 justify-center align-items mt-10">
+        <div class="flex flex-col m-4 p-4 gap-y-10 max-h-[70vh] overflow-y-scroll">
 
             <%--1st item--%>
             <div class="flex items-center justify-center gap-8">
@@ -114,7 +80,7 @@
                 </div>
             </div>
 
-
+            <%--3rd item--%>
             <div class="flex items-center justify-center gap-8">
                 <img src="harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>
 
@@ -381,10 +347,3 @@
             window.location.href = '/GiftMaker/items';
         });
     </script>
-
-</body>
-</html>
-
-
-</body>
-</html>
