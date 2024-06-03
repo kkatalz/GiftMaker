@@ -30,6 +30,7 @@ public class JdbcItemInCartDao implements AutoCloseable {
     private static final String DELETE = "DELETE FROM Item_In_Cart WHERE id_user=? AND id_item=?";
 
     private static final String UPDATE = "UPDATE Item_In_Cart SET item_amount=? WHERE id_user=? AND id_item=?";
+    private static final String DELETE_BY_USER_ID = "DELETE FROM Item_In_Cart WHERE id_user=?";
 
     private static final String AMOUNT = "item_amount";
 
@@ -137,6 +138,16 @@ public class JdbcItemInCartDao implements AutoCloseable {
             statement.setInt(1, itemInCart.getAmount());
             statement.setInt(2, itemInCart.getUser().getId());
             statement.setInt(3, itemInCart.getItem().getId());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteByUserId(Integer userId) {
+        try(PreparedStatement statement = connection.prepareStatement(DELETE_BY_USER_ID)) {
+            statement.setInt(1, userId);
+
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
