@@ -35,7 +35,7 @@
                 <h4 class="p-3 rounded-lg bg-neutral-100 text-neutral-500 italic">username: <%='@' + user.getUsername()%>
                 </h4>
 
-                <h4 class="p-3 rounded-lg bg-neutral-100 text-neutral-500 italic">birthday: <%=user.getDateOfBirth()%>
+                <h4 class="p-3 rounded-lg bg-neutral-100 text-neutral-500 italic">birthday: <%=user.getDateOfBirth()!=null ? user.getDateOfBirth() : "not given" %>
                 </h4>
             </div>
         </form>

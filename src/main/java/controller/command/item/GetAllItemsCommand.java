@@ -51,12 +51,12 @@ public class GetAllItemsCommand extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
-        String search = request.getParameter("search");
-        String fromPriceStr = request.getParameter("fromPrice");
-        String toPriceStr = request.getParameter("toPrice");
-        String[] categoryIds = request.getParameterValues("categoryIds");
-        String fromAgeStr = request.getParameter("fromDate");
-        String toAgeStr = request.getParameter("toDate");
+        String search = request.getParameter("search") != null ? request.getParameter("search") : "";
+        String fromPriceStr = request.getParameter("fromPrice") != null ? request.getParameter("fromPrice") : "";
+        String toPriceStr = request.getParameter("toPrice") != null ? request.getParameter("toPrice") : "";
+        String[] categoryIds = request.getParameterValues("categoryIds") != null ? request.getParameterValues("categoryIds") : new String[]{};
+        String fromAgeStr = request.getParameter("fromDate") != null ? request.getParameter("fromDate") : "";
+        String toAgeStr = request.getParameter("toDate") != null ? request.getParameter("toDate") : "";
 
         ItemService itemService = new ItemService(DaoFactory.getDaoFactory());
         CategoryService categoryService = new CategoryService(DaoFactory.getDaoFactory());

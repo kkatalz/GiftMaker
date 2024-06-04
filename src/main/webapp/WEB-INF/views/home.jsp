@@ -13,14 +13,16 @@
 <div class="text flex justify-between items-center px-10 py-3">
     <img src="<%=request.getContextPath()%>/logoBlack.svg" alt="logo" class="w-40 cursor-pointer">
 
-    <div class="text inline-flex border-[#777777] border-2 p-3 rounded-lg bg-neutral-100 ">
-
-        <input type="text" class="text-lg bg-neutral-100 w-[44vw] italic outline-none"
+    <form method="POST" action="allItems" class="text inline-flex border-[#777777] border-2 p-3 rounded-lg bg-neutral-100 ">
+        <input name="search" type="text" class="text-lg bg-neutral-100 w-[44vw] italic outline-none"
                placeholder="Find a gift ...">
-        <img src="<%=request.getContextPath()%>/search-icon.svg" alt="search-icon"
-             class="w-5 transition duration-300 ease-in hover:ease-in hover:scale-[1.2]">
+        <button type="submit">
+            <img src="<%=request.getContextPath()%>/search-icon.svg" alt="search-icon"
+                 class="w-5 transition duration-300 ease-in hover:ease-in hover:scale-[1.2]">
+        </button>
 
-    </div>
+
+    </form>
 
     <div class="text flex flex-row gap-5">
 
@@ -52,9 +54,9 @@
 
 <%--2. main body--%>
 <div class="text flex justify-between items-center text-xl font-medium mx-80 mt-12 ">
-    <h4 class="cursor-pointer goToAllItems">Mother day</h4>
-    <h4 class="cursor-pointer goToAllItems">Certificates</h4>
-    <h4 class="cursor-pointer goToAllItems">Top gifts this month</h4>
+    <h4 class="cursor-pointer goToAllItems">Books</h4>
+    <h4 class="cursor-pointer goToAllItems">Clothing</h4>
+    <h4 class="cursor-pointer goToAllItems">Home & Kitchen</h4>
 
 
 </div>
@@ -85,21 +87,19 @@
 </div>
 
 <div class="text flex justify-between items-center text-xl font-normal mx-80 mt-8 text-neutral-500 ">
-    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70 goToAllItems">Ukrainian
-        brands
+    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70 goToAllItems">Building Sets
     </button>
-    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70 goToAllItems">Trendy gifts
+    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70 goToAllItems"> Aesthetic
+        gifts
     </button>
-    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70 goToAllItems">Gifts for
-        anyone
+    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70 goToAllItems">Self care
     </button>
 </div>
 
 <div class="text flex justify-between items-center text-xl font-normal mx-[33%] mt-5 text-neutral-500 ">
-    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70 goToAllItems">Aesthetic
-        gifts
+    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70 goToAllItems">Toys
     </button>
-    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70 goToAllItems">Handy gifts
+    <button class="bg-neutral-200 p-4 rounded-lg transition duration-500 hover:opacity-70 goToAllItems">Sweets
     </button>
 </div>
 
