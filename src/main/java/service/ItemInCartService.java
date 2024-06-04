@@ -74,4 +74,10 @@ public class ItemInCartService {
             itemInCartDao.delete(userId, itemId);
         }
     }
+
+    public void deleteAllItemsInCartByUserId(int userId) throws Exception {
+        try(JdbcItemInCartDao itemInCartDao = daoFactory.createItemInCartDao()) {
+            itemInCartDao.deleteByUserId(userId);
+        }
+    }
 }

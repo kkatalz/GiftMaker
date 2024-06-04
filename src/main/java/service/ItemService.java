@@ -8,8 +8,11 @@ import entity.Category;
 import entity.Item;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ItemService {
     private final DaoFactory daoFactory;
@@ -25,6 +28,57 @@ public class ItemService {
     public static ItemService getInstance() {
         return Holder.INSTANCE;
     }
+
+
+    public List<Item> filterItems(List<Category> categories, BigDecimal minPrice, BigDecimal maxPrice, int minAge,
+                                  int maxAge) {
+        boolean isCategories = categories != null && !categories.isEmpty();
+        boolean isPrice = minPrice != null && maxPrice != null;
+        boolean isAge = minAge != 0 && maxAge != 0;
+
+        // filter by all parameters
+        if(isCategories && isPrice && isAge)
+            return filterItemsByCategoryByPriceByAge(categories, minPrice, maxPrice, minAge, maxAge);
+
+        // by categories and price
+        if(isCategories && isPrice) {
+            List<Item> byCategories = filterItemsByCategoryName(categories);
+            List<Item> byPrice = filterByPrice(minPrice, maxPrice);
+            return Stream.concat(byCategories.stream(), byPrice.stream()).collect(Collectors.toList());
+        }
+
+        // by categories and age
+        if(isCategories && isAge) {
+            List<Item> byCategories = filterItemsByCategoryName(categories);
+            List<Item> byAge = filterByAge(minAge, maxAge);
+            return Stream.concat(byCategories.stream(), byAge.stream()).collect(Collectors.toList());
+        }
+
+
+        // by price and age
+        if(isPrice && isAge) {
+            List<Item> byAge = filterByAge(minAge, maxAge);
+            List<Item> byPrice = filterByPrice(minPrice, maxPrice);
+            return Stream.concat(byAge.stream(), byPrice.stream()).collect(Collectors.toList());
+
+        }
+
+        // filter by category
+        if(isCategories)
+            return filterItemsByCategoryName(categories);
+
+
+        // filter by price
+        if(isPrice)
+            return filterByPrice(minPrice, maxPrice);
+
+        // filter by age
+        if(isAge)
+            return filterByAge(minAge, maxAge);
+
+        return new ArrayList<>();
+    }
+
 
 
     public List<Item> filterItemsByCategoryByPriceByAge(List<Category> categories, BigDecimal minPrice, BigDecimal maxPrice, int minAge,
