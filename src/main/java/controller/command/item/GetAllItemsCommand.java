@@ -59,9 +59,9 @@ public class GetAllItemsCommand extends HttpServlet {
         }
 
         BigDecimal fromPrice = fromPriceStr.isEmpty() ? BigDecimal.ZERO : new BigDecimal(fromPriceStr);
-        BigDecimal toPrice = toPriceStr.isEmpty() ? BigDecimal.ZERO : new BigDecimal(toPriceStr);
+        BigDecimal toPrice = toPriceStr.isEmpty() ? BigDecimal.valueOf(Double.MAX_VALUE) : new BigDecimal(toPriceStr);
         int fromAge = fromAgeStr.isEmpty() ? 0 : Integer.parseInt(fromAgeStr);
-        int toAge = toAgeStr.isEmpty() ? 0 : Integer.parseInt(toAgeStr);
+        int toAge = toAgeStr.isEmpty() ? Integer.MAX_VALUE : Integer.parseInt(toAgeStr);
 
         List<Category> selectedCategories = new ArrayList<>();
         if (categoryIds != null) {
@@ -72,7 +72,12 @@ public class GetAllItemsCommand extends HttpServlet {
             }
         }
 
-        items = itemService.filterItems(selectedCategories, fromPrice, toPrice, fromAge, toAge);
+        // do not filter if there is not filter values
+        if (!(selectedCategories.isEmpty() && fromPrice.equals(BigDecimal.ZERO) && toPrice.equals(BigDecimal.valueOf(Double.MAX_VALUE))
+                && fromAge == 0 && toAge == Integer.MAX_VALUE)) {
+            items = itemService.filterItems(selectedCategories, fromPrice, toPrice, fromAge, toAge);
+
+        }
 
         HttpSession session = request.getSession();
         session.setAttribute("items", items);

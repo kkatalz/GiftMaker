@@ -1,3 +1,6 @@
+<%@ page import="entity.Category" %>
+<%@ page import="java.util.List" %>
+<%@ page import="entity.LikedItem" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
     <title>WishList</title>
@@ -18,6 +21,8 @@
 </head>
 <%--WISHLIST--%>
 
+<div class="min-h-[100vh] pb-20">
+
 <%@include file="header.jsp" %>
 
 <div class="flex justify-center items-center flex-col">
@@ -32,42 +37,32 @@
 </div>
 <hr class="border-neutral-500 mt-6"/>
 
-<%--Container with 1st item--%>
+    <%
+        List<LikedItem> likedItems = (List<LikedItem>) session.getAttribute("likedItems");
+        if (likedItems != null) {
+            for (LikedItem likedItem : likedItems) {
+    %>
 <div class="custom-grid mt-12">
     <div class="flex items-center justify-center">
-        <img src="<%=request.getContextPath()%>/bin.svg" alt="bin" class=" w-10 cursor-pointer flex items-center justify-center"/>
+        <img src="<%=request.getContextPath()%>/bin.svg" alt="bin" class=" w-10  cursor-pointer flex items-center justify-center"/>
     </div>
     <div class="flex items-center justify-center gap-8">
-        <img src="<%=request.getContextPath()%>/harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>
+        <img src="data:image/png;base64,<%=likedItem.getItem().getBase64Images().getFirst()%>" alt="<%=likedItem.getItem().getName()%>" class="w-[300px] rounded-lg h-40 object-cover"/>
         <div class="flex flex-col">
-            <h5 class="text-lg font-light">id: 1000</h5>
-            <h4 class="text-2xl font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set </h4>
+            <h5 class="text-lg font-light">id: <%=likedItem.getItem().getId()%></h5>
+            <h4 class="text-2xl font-medium line-clamp-3"><%=likedItem.getItem().getName()%></h4>
         </div>
     </div>
-    <h4 class="text-2xl font-medium flex items-center justify-center">3200</h4>
+    <h4 class="text-2xl font-medium flex items-center justify-center"><%=likedItem.getItem().getPrice()%></h4>
     <button class="w-[70%] cursor-pointer bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70 flex self-center p-3 items-center justify-between px-4 text-white text-3xl font-medium flex-shrink addedToBasket">
         Buy
         <img src="<%=request.getContextPath()%>/buyIcon.svg" alt="buyIcon"/>
     </button>
 </div>
-
-<%--Container with 2nd item--%>
-<div class="custom-grid mt-12">
-    <div class="flex items-center justify-center">
-        <img src="<%=request.getContextPath()%>/bin.svg" alt="bin" class=" w-10 cursor-pointer flex items-center justify-center"/>
-    </div>
-    <div class="flex items-center justify-center gap-8">
-        <img src="<%=request.getContextPath()%>/harryPotter.svg" alt="harryPotter" class="w-40 rounded-lg"/>
-        <div class="flex flex-col">
-            <h5 class="text-lg font-light">id: 1000</h5>
-            <h4 class="text-2xl font-medium">Harry Potter<br> The Complete Collection: 7 Book Box Set </h4>
-        </div>
-    </div>
-    <h4 class="text-2xl font-medium flex items-center justify-center">3200</h4>
-    <button class="w-[70%] cursor-pointer bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70 flex self-center p-3 items-center justify-between px-4 text-white text-3xl font-medium flex-shrink addedToBasket">
-        Buy
-        <img src="<%=request.getContextPath()%>/buyIcon.svg" alt="buyIcon"/>
-    </button>
+    <%
+            }
+        }
+    %>
 </div>
 
 <script>
