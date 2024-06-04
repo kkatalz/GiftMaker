@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
 <%@ page import="entity.Item" %>
+<%@ page import="entity.Category" %>
 <html>
 <head>
     <title>All Items</title>
@@ -15,11 +16,11 @@
             <img src="<%=request.getContextPath()%>/logoBlack.svg" alt="logo" class="w-40 cursor-pointer">
         </a>
         <div class="text inline-flex border-[#777777] border-2 p-3 rounded-lg bg-neutral-100">
-                <input name="search" type="text" class="text-lg bg-neutral-100 italic outline-none" placeholder="Find ...">
-                <img src="<%=request.getContextPath()%>/search-icon.svg" alt="search-icon" class="w-5 transition duration-300 ease-in hover:ease-in hover:scale-[1.2]">
+            <input name="search" type="text" class="text-lg bg-neutral-100 italic outline-none" placeholder="Find ...">
+            <img src="<%=request.getContextPath()%>/search-icon.svg" alt="search-icon" class="w-5 transition duration-300 ease-in hover:ease-in hover:scale-[1.2]">
         </div>
     </div>
-    <div  class="text flex justify-between items-center px-[15%] mt-8">
+    <div class="text flex justify-between items-center px-[15%] mt-8">
         <div class="flex gap-2 items-center">
             <div class="flex justify-between items-center bg-white border border-gray-300 py-3 px-4 rounded">
                 <input name="fromPrice" type="text" class="text-gray-700 text-lg italic outline-none w-14" placeholder="From">
@@ -30,31 +31,29 @@
                 <img src="<%=request.getContextPath()%>/currency.svg" alt="currency-icon" class="w-5 pt-1">
             </div>
         </div>
-        <button id="dropdownRadioBgHoverButton" data-dropdown-toggle="dropdownRadioBgHover" class="w-64 flex justify-between items-center bg-white border border-gray-300 text-gray-700 text-lg py-3 px-4 rounded cursor-pointer" type="button">Category
+        <button id="dropdownCheckboxButton" data-dropdown-toggle="dropdownCheckbox" class="w-64 flex justify-between items-center bg-white border border-gray-300 text-gray-700 text-lg py-3 px-4 rounded cursor-pointer" type="button">
+            <span id="selectedCategoriesText" class="truncate max-w-[90%]">Category</span>
             <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
             </svg>
         </button>
-        <div id="dropdownRadioBgHover" class="z-10 hidden w-64 bg-white rounded-lg shadow">
-            <ul class="p-3 space-y-1 text-sm text-gray-700" aria-labelledby="dropdownRadioBgHoverButton">
+        <div id="dropdownCheckbox" class="z-10 hidden w-64 bg-white rounded-lg shadow">
+            <ul class="p-3 space-y-1 text-sm text-gray-700" aria-labelledby="dropdownCheckboxButton">
+                <%
+                    List<Category> categories = (List<Category>) session.getAttribute("categories");
+                    if (categories != null) {
+                        for (Category cat : categories) {
+                %>
                 <li>
                     <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                        <input id="default-radio-4" type="radio" value="Kitchen" name="category" class="w-4 h-4 bg-gray-100 border-gray-300">
-                        <label for="default-radio-4" class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Kitchen</label>
+                        <input id="category-<%=cat.getId()%>" type="checkbox" value="<%=cat.getId()%>" name="categoryIds" class="w-4 h-4 bg-gray-100 border-gray-300" data-category-name="<%=cat.getName()%>" onclick="updateSelectedCategories()">
+                        <label for="category-<%=cat.getId()%>" class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300"><%=cat.getName()%></label>
                     </div>
                 </li>
-                <li>
-                    <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                        <input id="default-radio-5" type="radio" value="Sport" name="category" class="w-4 h-4 bg-gray-100 border-gray-300">
-                        <label for="default-radio-5" class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Sport</label>
-                    </div>
-                </li>
-                <li>
-                    <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                        <input id="default-radio-6" type="radio" value="Literature" name="category" class="w-4 h-4 bg-gray-100 border-gray-300">
-                        <label for="default-radio-6" class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">Literature</label>
-                    </div>
-                </li>
+                <%
+                        }
+                    }
+                %>
             </ul>
         </div>
         <div class="flex gap-2 items-center">
@@ -106,6 +105,15 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 <script>
+    function updateSelectedCategories() {
+        const checkboxes = document.querySelectorAll('input[name="categoryIds"]:checked');
+        let selectedCategoryNames = [];
+        checkboxes.forEach((checkbox) => {
+            selectedCategoryNames.push(checkbox.getAttribute('data-category-name'));
+        });
+        document.getElementById('selectedCategoriesText').innerText = selectedCategoryNames.join(', ') || 'Category';
+    }
+
     let likedItems = document.getElementsByClassName('likedItem');
     for (let i = 0; i < likedItems.length; i++) {
         likedItems[i].addEventListener('click', function () {
