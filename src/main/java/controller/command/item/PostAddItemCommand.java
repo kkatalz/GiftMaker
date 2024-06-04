@@ -4,9 +4,11 @@ import dto.ItemDto;
 import entity.Category;
 import entity.Item;
 import entity.User;
+import service.CategoryService;
 import service.ItemService;
 import validator.entity.ItemDtoValidator;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -15,9 +17,28 @@ import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@WebServlet("/admin/uploadItem")
+@WebServlet("/addItem")
 @MultipartConfig
 public class PostAddItemCommand extends HttpServlet {
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        String jspPage = "/home";
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            User user = (User) session.getAttribute("currentUser");
+            if(user != null && user.getRole().getValue().equals("administrator")) {
+                session.setAttribute("categories", CategoryService.getInstance().getAllCategories());
+
+                // TODO: add path
+                jspPage = "/WEB-INF/views/createItemDetails.jsp";
+            }
+        }
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher(jspPage);
+        dispatcher.forward(request, response);
+    }
+
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

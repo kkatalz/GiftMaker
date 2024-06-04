@@ -11,15 +11,14 @@ import java.io.IOException;
 public class LogoutCommand extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession(false);
         if(session != null) {
             session.removeAttribute("currentUser");
             session.invalidate();
         }
 
-        // TODO: add path to go after logging out
-        String jspPage = "/index.jsp";
+        String jspPage = "/login";
         String redirectURL = request.getContextPath() + jspPage;
         response.sendRedirect(redirectURL);
     }
