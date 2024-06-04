@@ -2,6 +2,7 @@ package dao.jdbc;
 
 import dao.DaoFactory;
 import entity.ItemInCart;
+import service.ItemService;
 
 import java.io.IOException;
 import java.sql.*;
@@ -60,7 +61,9 @@ public class JdbcItemInCartDao implements AutoCloseable {
 
             while (resultSet.next()) {
                 ItemInCart itemInCart = getItemInCartFromResultSet(resultSet);
-                itemInCart.getItem().setBase64Images(DaoFactory.getDaoFactory().createItemDao().getBase64ImagesByItemId(itemInCart.getItem().getId()));
+
+                ItemService itemService = ItemService.getInstance();
+                itemInCart.getItem().setBase64Images(itemService.getBase64ImagesByItemId(itemInCart.getItem().getId()));
                 itemsInCarts.add(itemInCart);
             }
 
@@ -85,8 +88,9 @@ public class JdbcItemInCartDao implements AutoCloseable {
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 itemInCart = Optional.of(getItemInCartFromResultSet(resultSet));
-                itemInCart.get().getItem().setBase64Images(DaoFactory.getDaoFactory().createItemDao().
-                        getBase64ImagesByItemId(itemInCart.get().getItem().getId()));
+
+                ItemService itemService = ItemService.getInstance();
+                itemInCart.get().getItem().setBase64Images(itemService.getBase64ImagesByItemId(itemInCart.get().getItem().getId()));
            }
 
         } catch (SQLException e) {
@@ -106,8 +110,9 @@ public class JdbcItemInCartDao implements AutoCloseable {
 
             while (resultSet.next()) {
                 ItemInCart itemInCart = getItemInCartFromResultSet(resultSet);
-                itemInCart.getItem().setBase64Images(DaoFactory.getDaoFactory().createItemDao().
-                        getBase64ImagesByItemId(itemInCart.getItem().getId()));
+
+                ItemService itemService = ItemService.getInstance();
+                itemInCart.getItem().setBase64Images(itemService.getBase64ImagesByItemId(itemInCart.getItem().getId()));
                 itemsInCart.add(itemInCart);
             }
 

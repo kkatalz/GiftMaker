@@ -146,4 +146,10 @@ public class ItemService {
         }
     }
 
+    public List<String> getBase64ImagesByItemId(Integer itemId) {
+        try(ItemDao itemDao = daoFactory.createItemDao()) {
+            return itemDao.getBase64ImagesByItemId(itemId);
+        }
+    }
+
 }
