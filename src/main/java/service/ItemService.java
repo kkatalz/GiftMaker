@@ -8,9 +8,7 @@ import entity.Category;
 import entity.Item;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -33,7 +31,7 @@ public class ItemService {
     public List<Item> filterItems(List<Category> categories, BigDecimal minPrice, BigDecimal maxPrice, int minAge,
                                   int maxAge) {
         boolean isCategories = categories != null && !categories.isEmpty();
-        boolean isPrice = minPrice != null && maxPrice != null;
+        boolean isPrice = true;
         boolean isAge = minAge != 0 && maxAge != 0;
 
         // filter by all parameters
@@ -44,14 +42,22 @@ public class ItemService {
         if(isCategories && isPrice) {
             List<Item> byCategories = filterItemsByCategoryName(categories);
             List<Item> byPrice = filterByPrice(minPrice, maxPrice);
-            return Stream.concat(byCategories.stream(), byPrice.stream()).collect(Collectors.toList());
+
+            Set<Item> mergedSet = new HashSet<>(byCategories);
+            mergedSet.addAll(byPrice);
+
+            return new ArrayList<>(mergedSet);
         }
 
         // by categories and age
         if(isCategories && isAge) {
             List<Item> byCategories = filterItemsByCategoryName(categories);
             List<Item> byAge = filterByAge(minAge, maxAge);
-            return Stream.concat(byCategories.stream(), byAge.stream()).collect(Collectors.toList());
+
+            Set<Item> mergedSet = new HashSet<>(byCategories);
+            mergedSet.addAll(byAge);
+
+            return new ArrayList<>(mergedSet);
         }
 
 
@@ -59,7 +65,11 @@ public class ItemService {
         if(isPrice && isAge) {
             List<Item> byAge = filterByAge(minAge, maxAge);
             List<Item> byPrice = filterByPrice(minPrice, maxPrice);
-            return Stream.concat(byAge.stream(), byPrice.stream()).collect(Collectors.toList());
+
+            Set<Item> mergedSet = new HashSet<>(byAge);
+            mergedSet.addAll(byPrice);
+
+            return new ArrayList<>(mergedSet);
 
         }
 
@@ -143,6 +153,12 @@ public class ItemService {
     public void delete(Integer id) {
         try(ItemDao itemDao = daoFactory.createItemDao()) {
             itemDao.delete(id);
+        }
+    }
+
+    public List<String> getBase64ImagesByItemId(Integer itemId) {
+        try(ItemDao itemDao = daoFactory.createItemDao()) {
+            return itemDao.getBase64ImagesByItemId(itemId);
         }
     }
 

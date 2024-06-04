@@ -2,6 +2,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="entity.Item" %>
 <%@ page import="entity.Category" %>
+<%@ page import="entity.LikedItem" %>
 <html>
 <head>
     <title>All Items</title>
@@ -80,7 +81,17 @@
     <div class="flex gap-12 mx-[10%] flex-wrap">
         <%
             if (items != null) {
+                List<LikedItem> likedItems = (List<LikedItem>) session.getAttribute("likedItems");
                 for (Item item : items) {
+                    boolean isLiked = false;
+                    if (likedItems != null) {
+                        for (LikedItem likedItem : likedItems) {
+                            if (likedItem.getItem().getId() == item.getId()) {
+                                isLiked = true;
+                                break;
+                            }
+                        }
+                    }
         %>
         <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow">
             <div class="flex items-center justify-center flex-col gap-2">
@@ -92,7 +103,7 @@
                 </div>
             </div>
             <div class="flex flex-col absolute top-2 right-2 gap-1">
-                <img src="<%=request.getContextPath()%>/likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer likedItem"/>
+                <img src="<%=request.getContextPath()%>/<%=isLiked ? "likedFilled.svg" : "likedBlue.svg"%>" alt="likedBlue" class="w-8 cursor-pointer likedItem" data-item-id="<%=item.getId()%>"/>
                 <img src="<%=request.getContextPath()%>/basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer basketFilled"/>
             </div>
         </div>
@@ -117,7 +128,31 @@
     let likedItems = document.getElementsByClassName('likedItem');
     for (let i = 0; i < likedItems.length; i++) {
         likedItems[i].addEventListener('click', function () {
-            this.src = this.src.includes('likedBlue.svg') ? '<%=request.getContextPath()%>/likedFilled.svg' : '<%=request.getContextPath()%>/likedBlue.svg';
+            const itemId = this.getAttribute('data-item-id');
+            const currentElement = this;
+
+            fetch('addLikedItem', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    'itemId': itemId
+                })
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.text();
+                    } else {
+                        throw new Error('Failed to like/unlike item');
+                    }
+                })
+                .then(data => {
+                    currentElement.src = currentElement.src.includes('likedBlue.svg') ? '<%=request.getContextPath()%>/likedFilled.svg' : '<%=request.getContextPath()%>/likedBlue.svg';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
         });
     }
 

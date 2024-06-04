@@ -2,6 +2,7 @@ package dao.jdbc;
 
 import dao.DaoFactory;
 import entity.LikedItem;
+import service.ItemService;
 
 import java.io.IOException;
 import java.sql.*;
@@ -55,7 +56,9 @@ public class JdbcLikedItemDao implements AutoCloseable {
 
             while (resultSet.next()) {
                 LikedItem likedItem = getLikedItemFromResultSet(resultSet);
-                likedItem.getItem().setBase64Images(DaoFactory.getDaoFactory().createItemDao().getBase64ImagesByItemId(likedItem.getItem().getId()));
+
+                ItemService itemService = ItemService.getInstance();
+                likedItem.getItem().setBase64Images(itemService.getBase64ImagesByItemId(likedItem.getItem().getId()));
                 likedItems.add(likedItem);
             }
 
@@ -77,7 +80,9 @@ public class JdbcLikedItemDao implements AutoCloseable {
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 likedItem = Optional.of(getLikedItemFromResultSet(resultSet));
-                likedItem.get().getItem().setBase64Images(DaoFactory.getDaoFactory().createItemDao().getBase64ImagesByItemId(likedItem.get().getItem().getId()));
+
+                ItemService itemService = ItemService.getInstance();
+                likedItem.get().getItem().setBase64Images(itemService.getBase64ImagesByItemId(likedItem.get().getItem().getId()));
             }
 
 
@@ -97,7 +102,10 @@ public class JdbcLikedItemDao implements AutoCloseable {
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 LikedItem likedItem = getLikedItemFromResultSet(resultSet);
-                likedItem.getItem().setBase64Images(DaoFactory.getDaoFactory().createItemDao().getBase64ImagesByItemId(likedItem.getItem().getId()));
+
+                ItemService itemService = ItemService.getInstance();
+                likedItem.getItem().setBase64Images(itemService.getBase64ImagesByItemId(likedItem.getItem().getId()));
+
                 likedItems.add(likedItem);
             }
 

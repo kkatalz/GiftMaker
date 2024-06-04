@@ -3,8 +3,11 @@ package controller.command.item;
 import dao.DaoFactory;
 import entity.Category;
 import entity.Item;
+import entity.LikedItem;
+import entity.User;
 import service.CategoryService;
 import service.ItemService;
+import service.LikedItemService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,15 +25,23 @@ import java.util.stream.Collectors;
 public class GetAllItemsCommand extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws IOException, ServletException {
+        HttpSession session = request.getSession();
+
+        User currentUser = (User) session.getAttribute("currentUser");
+        int idUser = currentUser.getId();
+
         ItemService itemService = new ItemService(DaoFactory.getDaoFactory());
         CategoryService categoryService = new CategoryService(DaoFactory.getDaoFactory());
+        LikedItemService likedItemService = new LikedItemService(DaoFactory.getDaoFactory());
         List<Item> items = itemService.getAllItems();
         List<Category> categories = categoryService.getAllCategories();
+        List<LikedItem> likedItems = likedItemService.getLikedItemsByUserId(idUser);
 
-        HttpSession session = request.getSession();
         session.setAttribute("items", items);
         session.setAttribute("categories", categories);
+        session.setAttribute("likedItems", likedItems);
 
         String jspPage = "/WEB-INF/views/allItems.jsp";
         RequestDispatcher dispatcher = request.getRequestDispatcher(jspPage);
@@ -38,7 +49,8 @@ public class GetAllItemsCommand extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws IOException, ServletException {
         String search = request.getParameter("search");
         String fromPriceStr = request.getParameter("fromPrice");
         String toPriceStr = request.getParameter("toPrice");
@@ -80,10 +92,16 @@ public class GetAllItemsCommand extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("items", items);
 
+        User currentUser = (User) session.getAttribute("currentUser");
+        int idUser = currentUser.getId();
+
+        LikedItemService likedItemService = new LikedItemService(DaoFactory.getDaoFactory());
+        List<LikedItem> likedItems = likedItemService.getLikedItemsByUserId(idUser);
+        session.setAttribute("likedItems", likedItems);
+
         String jspPage = "/WEB-INF/views/allItems.jsp";
         RequestDispatcher dispatcher = request.getRequestDispatcher(jspPage);
         dispatcher.forward(request, response);
     }
-
 
 }
