@@ -32,8 +32,6 @@ public class GetAllItemsCommand extends HttpServlet {
         session.setAttribute("items", items);
         session.setAttribute("categories", categories);
 
-//        System.out.println("items: ");
-        System.out.println(items);
 
         String jspPage = "/WEB-INF/views/allItems.jsp";
         RequestDispatcher dispatcher = request.getRequestDispatcher(jspPage);
@@ -64,6 +62,8 @@ public class GetAllItemsCommand extends HttpServlet {
         int toAge = toAgeStr.isEmpty() ? Integer.MAX_VALUE : Integer.parseInt(toAgeStr);
 
         List<Category> selectedCategories = new ArrayList<>();
+
+        System.out.println(categoryIds);
         if (categoryIds != null) {
             for (String categoryId : categoryIds) {
                 Integer id = Integer.parseInt(categoryId);
@@ -71,6 +71,8 @@ public class GetAllItemsCommand extends HttpServlet {
                 categoryOpt.ifPresent(selectedCategories::add);
             }
         }
+
+        System.out.println(selectedCategories);
 
         // do not filter if there is not filter values
         if (!(selectedCategories.isEmpty() && fromPrice.equals(BigDecimal.ZERO) && toPrice.equals(BigDecimal.valueOf(Double.MAX_VALUE))

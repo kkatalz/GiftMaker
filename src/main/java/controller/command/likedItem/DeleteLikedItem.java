@@ -4,6 +4,8 @@ import entity.LikedItem;
 import entity.User;
 import service.LikedItemService;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +21,7 @@ import java.util.List;
 @WebServlet("/deleteLikedItem")
 public class DeleteLikedItem extends HttpServlet {
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         HttpSession session = request.getSession(false);
         if (session != null) {
             int idItem = Integer.parseInt(request.getParameter("idItem"));
@@ -30,10 +32,9 @@ public class DeleteLikedItem extends HttpServlet {
             List<LikedItem> likedItems = LikedItemService.getInstance().getLikedItemsByUserId(idUser);
             session.setAttribute("likedItems", likedItems);
 
-            // TODO: add path after deleting item from the liked items
-            String jspPage = "/";
-            String redirectURL = request.getContextPath() + jspPage;
-            response.sendRedirect(redirectURL);
+            String jspPage = "/WEB-INF/views/wishlist.jsp";
+            RequestDispatcher dispatcher = request.getRequestDispatcher(jspPage);
+            dispatcher.forward(request, response);
         }
     }
 }
