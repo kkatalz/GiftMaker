@@ -47,7 +47,7 @@
         <img src="<%=request.getContextPath()%>/bin.svg" alt="bin" class=" w-10  cursor-pointer flex items-center justify-center"/>
     </div>
     <div class="flex items-center justify-center gap-8">
-        <img src="data:image/png;base64,<%=likedItem.getItem().getBase64Images().getFirst()%>" alt="<%=likedItem.getItem().getName()%>" class="w-[300px] rounded-lg h-40 object-cover"/>
+        <img src="data:image/png;base64,<%=likedItem.getItem().getBase64Images().get(0)%>" alt="<%=likedItem.getItem().getName()%>" class="w-[300px] rounded-lg h-40 object-cover"/>
         <div class="flex flex-col">
             <h5 class="text-lg font-light">id: <%=likedItem.getItem().getId()%></h5>
             <h4 class="text-2xl font-medium line-clamp-3"><%=likedItem.getItem().getName()%></h4>

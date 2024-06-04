@@ -113,7 +113,7 @@
     let changePage = document.getElementsByClassName('goToAllItems');
     for (let i = 0; i < changePage.length; i++) {
         changePage[i].addEventListener('click', function () {
-            window.location.href = '/GiftMaker/items';
+            window.location.href = '/GiftMaker/allItems';
         });
     }
 

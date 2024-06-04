@@ -32,9 +32,6 @@ public class GetAllItemsCommand extends HttpServlet {
         session.setAttribute("items", items);
         session.setAttribute("categories", categories);
 
-//        System.out.println("items: ");
-        System.out.println(items);
-
         String jspPage = "/WEB-INF/views/allItems.jsp";
         RequestDispatcher dispatcher = request.getRequestDispatcher(jspPage);
         dispatcher.forward(request, response);
@@ -58,10 +55,10 @@ public class GetAllItemsCommand extends HttpServlet {
             items = itemService.searchItemByNameOrId(search);
         }
 
-        BigDecimal fromPrice = fromPriceStr.isEmpty() ? BigDecimal.ZERO : new BigDecimal(fromPriceStr);
-        BigDecimal toPrice = toPriceStr.isEmpty() ? BigDecimal.valueOf(Double.MAX_VALUE) : new BigDecimal(toPriceStr);
-        int fromAge = fromAgeStr.isEmpty() ? 0 : Integer.parseInt(fromAgeStr);
-        int toAge = toAgeStr.isEmpty() ? Integer.MAX_VALUE : Integer.parseInt(toAgeStr);
+        BigDecimal fromPrice = fromPriceStr.isEmpty() ? null : new BigDecimal(fromPriceStr);
+        BigDecimal toPrice = toPriceStr.isEmpty() ? null : new BigDecimal(toPriceStr);
+        Integer fromAge = fromAgeStr.isEmpty() ? 0 : Integer.parseInt(fromAgeStr);
+        Integer toAge = toAgeStr.isEmpty() ? Integer.MAX_VALUE : Integer.parseInt(toAgeStr);
 
         List<Category> selectedCategories = new ArrayList<>();
         if (categoryIds != null) {
@@ -72,8 +69,9 @@ public class GetAllItemsCommand extends HttpServlet {
             }
         }
 
-        // do not filter if there is not filter values
-        if (!(selectedCategories.isEmpty() && fromPrice.equals(BigDecimal.ZERO) && toPrice.equals(BigDecimal.valueOf(Double.MAX_VALUE))
+        // do not filter if there is no filter values
+
+        if (!(selectedCategories.isEmpty() && fromPrice == null && toPrice == null
                 && fromAge == 0 && toAge == Integer.MAX_VALUE)) {
             items = itemService.filterItems(selectedCategories, fromPrice, toPrice, fromAge, toAge);
 

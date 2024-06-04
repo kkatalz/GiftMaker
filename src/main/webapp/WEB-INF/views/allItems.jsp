@@ -23,11 +23,11 @@
     <div class="text flex justify-between items-center px-[15%] mt-8">
         <div class="flex gap-2 items-center">
             <div class="flex justify-between items-center bg-white border border-gray-300 py-3 px-4 rounded">
-                <input name="fromPrice" type="text" class="text-gray-700 text-lg italic outline-none w-14" placeholder="From">
+                <input name="fromPrice" type="number" class="text-gray-700 text-lg italic outline-none w-14" min=0 placeholder="From">
             </div>
             <h4 class="text-2xl font-semibold text-gray-700">-</h4>
             <div class="flex justify-between items-center bg-white border border-gray-300 py-3 px-4 rounded">
-                <input name="toPrice" type="text" class="text-gray-700 text-lg italic outline-none w-14" placeholder="To">
+                <input name="toPrice" type="number" class="text-gray-700 text-lg italic outline-none w-14" placeholder="To">
                 <img src="<%=request.getContextPath()%>/currency.svg" alt="currency-icon" class="w-5 pt-1">
             </div>
         </div>
@@ -58,11 +58,11 @@
         </div>
         <div class="flex gap-2 items-center">
             <div class="flex justify-between items-center bg-white border border-gray-300 text-gray-700 py-3 px-4 rounded">
-                <input name="fromDate" type="text" class="text-lg italic outline-none w-14" placeholder="From">
+                <input name="fromDate" type="number" class="text-lg italic outline-none w-14" min="0" placeholder="From">
             </div>
             <h4 class="text-2xl font-semibold text-gray-700">-</h4>
             <div class="flex justify-between items-center bg-white border border-gray-300 text-gray-700 py-3 px-4 rounded">
-                <input name="toDate" type="text" class="text-lg italic outline-none w-14" placeholder="To y.o." maxlength="3">
+                <input name="toDate" type="number" class="text-lg italic outline-none w-14" placeholder="To y.o." max="120">
             </div>
         </div>
         <button type="submit" class="bg-[#6AB7FF] py-3 px-5 rounded-lg transition duration-500 hover:opacity-70 text-white text-xl font-medium">Search</button>
@@ -84,7 +84,7 @@
         %>
         <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow">
             <div class="flex items-center justify-center flex-col gap-2">
-                <img src="data:image/png;base64,<%=item.getBase64Images().getFirst()%>" alt="item" class="w-32 h-32"/>
+                <img src="data:image/png;base64,<%=item.getBase64Images().get(0)%>" alt="item" class="w-32 h-32"/>
                 <h4 class="text-base font-medium leading-5 line-clamp-2 min-h-[40px] w-48"><%=item.getName()%></h4>
                 <div class="flex gap-2 font-bold text-left w-full">
                     <h4 class="text-medium font-medium"><%=item.getPrice()%></h4>
