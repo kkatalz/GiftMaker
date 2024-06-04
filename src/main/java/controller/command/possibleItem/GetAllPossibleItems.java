@@ -23,7 +23,7 @@ public class GetAllPossibleItems extends HttpServlet {
         String jspPage;
         if(session == null) {
             // TODO: unauthorized access
-            jspPage = "";
+            jspPage = "/home";
 
         } else {
             User user = (User) session.getAttribute("currentUser");
@@ -35,7 +35,7 @@ public class GetAllPossibleItems extends HttpServlet {
             }
             else {
                 // TODO: unauthorized access
-                jspPage = "";
+                jspPage = "/home";
             }
         }
 

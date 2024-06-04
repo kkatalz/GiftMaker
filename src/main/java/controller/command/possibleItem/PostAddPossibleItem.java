@@ -6,6 +6,7 @@ import service.PossibleItemService;
 import validator.entity.PossibleItemDtoValidator;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
@@ -17,7 +18,41 @@ import java.util.stream.Collectors;
  */
 
 @WebServlet("/addPossibleItem")
+@MultipartConfig
 public class PostAddPossibleItem extends HttpServlet {
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)throws IOException {
+        HttpSession session = request.getSession(false);
+        String jspPage;
+        if(session == null) {
+            // unauthorized access
+            // TODO: add path to unauthorized access
+            jspPage = "/home";
+        }
+
+        // session not null
+        else {
+            User user = (User) session.getAttribute("currentUser");
+            if(user == null || !user.getRole().getValue().equals("client")) {
+                // unauthorized access
+                // TODO: add path to unauthorized access
+                jspPage = "/home";
+
+            }
+
+            // everything is correct
+            else {
+                // TODO: path to show the form for adding possible item
+                jspPage = "";
+            }
+        }
+
+        String redirectURL = request.getContextPath() + jspPage;
+        response.sendRedirect(redirectURL);
+    }
+
+
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
