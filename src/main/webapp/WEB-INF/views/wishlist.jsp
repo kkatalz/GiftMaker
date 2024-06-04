@@ -51,7 +51,7 @@
             </form>
         </div>
         <div class="flex items-center justify-center gap-8">
-            <img src="data:image/png;base64,<%= likedItem.getItem().getBase64Images().getFirst() %>" alt="<%= likedItem.getItem().getName() %>" class="w-[150px] rounded-lg h-[100px] object-cover"/>
+            <img src="data:image/png;base64,<%= likedItem.getItem().getBase64Images().get(0) %>" alt="<%= likedItem.getItem().getName() %>" class="w-[150px] rounded-lg h-[100px] object-cover"/>
             <div class="flex flex-col">
                 <h5 class="text-lg font-light">id: <%= likedItem.getItem().getId() %></h5>
                 <h4 class="text-2xl font-medium line-clamp-3"><%= likedItem.getItem().getName() %></h4>

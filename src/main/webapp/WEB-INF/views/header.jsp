@@ -9,6 +9,7 @@
 
         <div class="flex justify-center items-center flex-col">
             <img src="<%=request.getContextPath()%>/myProfile.svg" alt="profile-icon" class="w-10 cursor-pointer ">
+
             <a class="text-sm font-medium" href="myProfile">My profile</a>
         </div>
 

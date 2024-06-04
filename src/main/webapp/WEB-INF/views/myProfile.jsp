@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Zlata
-  Date: 02.06.2024
-  Time: 14:05
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="entity.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -27,12 +21,22 @@
                 <h4 class="font-bold text-2xl">My profile</h4>
             </div>
 
+            <%
+                User user = (User) session.getAttribute("currentUser");
+            %>
+
             <div class="text-lg flex flex-col gap-3 w-[60%] mt-6">
-                <h4 class="p-3 rounded-lg bg-neutral-100 text-neutral-500 italic">Administator</h4>
-                <h4 class="p-3 rounded-lg bg-neutral-100 text-neutral-500 italic">Akuna</h4>
-                <h4 class="p-3 rounded-lg bg-neutral-100 text-neutral-500 italic">Matata</h4>
-                <h4 class="p-3 rounded-lg bg-neutral-100 text-neutral-500 italic">@matata</h4>
-                <h4 class="p-3 rounded-lg bg-neutral-100 text-neutral-500 italic">********</h4>
+                <h4 class="p-3 rounded-lg bg-neutral-100 text-neutral-500 italic">role: <%= user.getRole() %>
+                </h4>
+                <h4 class="p-3 rounded-lg bg-neutral-100 text-neutral-500 italic">name: <%= user.getName() %>
+                </h4>
+                <h4 class="p-3 rounded-lg bg-neutral-100 text-neutral-500 italic">surname: <%=user.getSurname()%>
+                </h4>
+                <h4 class="p-3 rounded-lg bg-neutral-100 text-neutral-500 italic">username: <%='@' + user.getUsername()%>
+                </h4>
+
+                <h4 class="p-3 rounded-lg bg-neutral-100 text-neutral-500 italic">birthday: <%=user.getDateOfBirth()%>
+                </h4>
             </div>
         </form>
     </div>

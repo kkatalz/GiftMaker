@@ -20,7 +20,7 @@ public class GetUserInfo extends HttpServlet {
             if(user != null) {
                 // attribute "currentUser"
                 // TODO: add path to show user's info
-                String jspPage = "";
+                String jspPage = "/WEB-INF/views/myProfile.jsp";
                 String redirectURL = request.getContextPath() + jspPage;
                 response.sendRedirect(redirectURL);
             }
