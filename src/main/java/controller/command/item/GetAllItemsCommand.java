@@ -64,6 +64,8 @@ public class GetAllItemsCommand extends HttpServlet {
         List<Category> selectedCategories = new ArrayList<>();
 
         System.out.println(categoryIds);
+        System.out.println(fromAge);
+        System.out.println(toAge);
         if (categoryIds != null) {
             for (String categoryId : categoryIds) {
                 Integer id = Integer.parseInt(categoryId);
