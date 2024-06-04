@@ -4,6 +4,7 @@ import javax.servlet.http.Part;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Item {
     private Integer id;
@@ -169,6 +170,20 @@ public class Item {
     public void setAge(int age) {
         this.age = age;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Item item = (Item) o;
+        return Objects.equals(id, item.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
 
     @Override
     public String toString() {
