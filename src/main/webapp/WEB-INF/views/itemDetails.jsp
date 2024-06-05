@@ -15,7 +15,7 @@
 </head>
 <body>
 <%--ITEM DETAILED--%>
-<div class="overflow-hidden max-h-[100vh]">
+<div class="max-h-[100vh]">
 
     <%@include file="header.jsp" %>
 

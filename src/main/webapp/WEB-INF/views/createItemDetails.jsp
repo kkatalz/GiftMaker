@@ -8,14 +8,14 @@
 </head>
 <body>
 <%--CREATE ITEM DETAILED PAGE--%>
-<div class="overflow-hidden max-h-[100vh]">
+<div class="max-h-[100vh]">
 
     <%@include file="header.jsp" %>
 
     <%--main body--%>
-    <div class="flex justify-center items-center gap-8 mx-[6%] my-[1.5%]">
+    <div class="flex justify-between items-center gap-12 mx-[12%] my-[2%]">
 
-        <div class="flex gap-8">
+        <div class="flex gap-12">
             <%--    jeft bar with images--%>
             <div class="flex flex-col gap-3 max-h-[700px] overflow-y-auto pr-4 text-6xl ">
                 <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>
