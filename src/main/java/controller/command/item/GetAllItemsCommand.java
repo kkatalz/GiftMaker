@@ -1,11 +1,9 @@
 package controller.command.item;
 
 import dao.DaoFactory;
-import entity.Category;
-import entity.Item;
-import entity.LikedItem;
-import entity.User;
+import entity.*;
 import service.CategoryService;
+import service.ItemInCartService;
 import service.ItemService;
 import service.LikedItemService;
 
@@ -27,25 +25,33 @@ public class GetAllItemsCommand extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
-        HttpSession session = request.getSession();
+        try {
+            HttpSession session = request.getSession();
 
-        User currentUser = (User) session.getAttribute("currentUser");
-        int idUser = currentUser.getId();
+            User currentUser = (User) session.getAttribute("currentUser");
+            int idUser = currentUser.getId();
 
-        ItemService itemService = new ItemService(DaoFactory.getDaoFactory());
-        CategoryService categoryService = new CategoryService(DaoFactory.getDaoFactory());
-        LikedItemService likedItemService = new LikedItemService(DaoFactory.getDaoFactory());
-        List<Item> items = itemService.getAllItems();
-        List<Category> categories = categoryService.getAllCategories();
-        List<LikedItem> likedItems = likedItemService.getLikedItemsByUserId(idUser);
+            ItemService itemService = ItemService.getInstance();
+            CategoryService categoryService = CategoryService.getInstance();
+            LikedItemService likedItemService = LikedItemService.getInstance();
+            ItemInCartService itemInCartService = ItemInCartService.getInstance();
+            List<Item> items = itemService.getAllItems();
+            List<Category> categories = categoryService.getAllCategories();
+            List<LikedItem> likedItems = likedItemService.getLikedItemsByUserId(idUser);
+            List<ItemInCart> itemsInCart = itemInCartService.getItemsInCartByUserId(idUser);
 
-        session.setAttribute("items", items);
-        session.setAttribute("categories", categories);
-        session.setAttribute("likedItems", likedItems);
+            session.setAttribute("items", items);
+            session.setAttribute("categories", categories);
+            session.setAttribute("likedItems", likedItems);
+            session.setAttribute("itemsInCart", itemsInCart);
 
-        String jspPage = "/WEB-INF/views/allItems.jsp";
-        RequestDispatcher dispatcher = request.getRequestDispatcher(jspPage);
-        dispatcher.forward(request, response);
+            String jspPage = "/WEB-INF/views/allItems.jsp";
+            RequestDispatcher dispatcher = request.getRequestDispatcher(jspPage);
+            dispatcher.forward(request, response);
+        } catch (Exception e) {
+            System.out.println("Error in GetAllItemsCommand: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -58,8 +64,8 @@ public class GetAllItemsCommand extends HttpServlet {
         String fromAgeStr = request.getParameter("fromDate") != null ? request.getParameter("fromDate") : "";
         String toAgeStr = request.getParameter("toDate") != null ? request.getParameter("toDate") : "";
 
-        ItemService itemService = new ItemService(DaoFactory.getDaoFactory());
-        CategoryService categoryService = new CategoryService(DaoFactory.getDaoFactory());
+        ItemService itemService = ItemService.getInstance();
+        CategoryService categoryService = CategoryService.getInstance();
         List<Item> items = new ArrayList<>();
 
         // Filter items based on search parameters
@@ -95,9 +101,21 @@ public class GetAllItemsCommand extends HttpServlet {
         User currentUser = (User) session.getAttribute("currentUser");
         int idUser = currentUser.getId();
 
-        LikedItemService likedItemService = new LikedItemService(DaoFactory.getDaoFactory());
+        LikedItemService likedItemService = LikedItemService.getInstance();
         List<LikedItem> likedItems = likedItemService.getLikedItemsByUserId(idUser);
         session.setAttribute("likedItems", likedItems);
+
+        List<Category> categories = categoryService.getAllCategories();
+        session.setAttribute("categories", categories);
+
+        ItemInCartService itemInCartService = ItemInCartService.getInstance();
+        List<ItemInCart> itemsInCart = null;
+        try {
+            itemsInCart = itemInCartService.getItemsInCartByUserId(idUser);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        session.setAttribute("itemsInCart", itemsInCart);
 
         String jspPage = "/WEB-INF/views/allItems.jsp";
         RequestDispatcher dispatcher = request.getRequestDispatcher(jspPage);

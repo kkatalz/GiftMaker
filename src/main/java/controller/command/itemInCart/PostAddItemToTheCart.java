@@ -7,6 +7,7 @@ import entity.ItemInCart;
 import entity.User;
 import service.ItemInCartService;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,8 +29,7 @@ public class PostAddItemToTheCart extends HttpServlet {
         HttpSession session = request.getSession(false);
         String jspPage;
         if(session == null) {
-            // TODO: unauthorized access
-            jspPage = "";
+            jspPage = "/WEB-INF/views/login.jsp";
         }
 
         else {
@@ -37,14 +37,12 @@ public class PostAddItemToTheCart extends HttpServlet {
             if(user != null && user.getRole().getValue().equals("client")) {
                 int itemId = Integer.parseInt(request.getParameter("itemId"));
 
-                // check if this item already in the cart
                 try {
                     Optional<ItemInCart> isInTheCart = ItemInCartService.getInstance().getById(user.getId(), itemId);
 
                     if(isInTheCart.isPresent()) { // item already in the cart, update its amount in the cart
                        updateItemInCart(isInTheCart.get(), user);
 
-                        // no such item in the user's cart. Add to the database
                     } else {
                         createItemInCart(itemId, user);
                     }
@@ -55,8 +53,8 @@ public class PostAddItemToTheCart extends HttpServlet {
                     throw new RuntimeException(e);
                 }
 
-                // TODO: success after updating or adding item in the user's cart
-                jspPage = "";
+                jspPage = "/WEB-INF/views/itemsInCart.jsp";
+
                 try {
                     session.setAttribute("itemsInCart", ItemInCartService.getInstance().getItemsInCartByUserId(user.getId()));
                 } catch (Exception e) {
@@ -66,12 +64,12 @@ public class PostAddItemToTheCart extends HttpServlet {
             }
 
             else
-                // TODO: unauthorized access
-                jspPage = "";
+                jspPage = "/WEB-INF/views/allItems.jsp";
+
         }
 
-        String redirectURL = request.getContextPath() + jspPage;
-        response.sendRedirect(redirectURL);
+        RequestDispatcher dispatcher = request.getRequestDispatcher(jspPage);
+        dispatcher.forward(request, response);
     }
 
     private void updateItemInCart(ItemInCart itemInCart, User user) throws Exception {

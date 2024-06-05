@@ -3,6 +3,7 @@
 <%@ page import="entity.Item" %>
 <%@ page import="entity.Category" %>
 <%@ page import="entity.LikedItem" %>
+<%@ page import="entity.ItemInCart" %>
 <html>
 <head>
     <title>All Items</title>
@@ -82,12 +83,22 @@
         <%
             if (items != null) {
                 List<LikedItem> likedItems = (List<LikedItem>) session.getAttribute("likedItems");
+                List<ItemInCart> itemsInCart = (List<ItemInCart>) session.getAttribute("itemsInCart");
                 for (Item item : items) {
                     boolean isLiked = false;
+                    boolean isInBasket = false;
                     if (likedItems != null) {
                         for (LikedItem likedItem : likedItems) {
                             if (likedItem.getItem().getId() == item.getId()) {
                                 isLiked = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (itemsInCart != null) {
+                        for (ItemInCart itemInCart : itemsInCart) {
+                            if (itemInCart.getItem().getId() == item.getId()) {
+                                isInBasket = true;
                                 break;
                             }
                         }
@@ -107,7 +118,7 @@
             </div>
             <div class="flex flex-col absolute top-2 right-2 gap-1">
                 <img src="<%=request.getContextPath()%>/<%=isLiked ? "likedFilled.svg" : "likedBlue.svg"%>" alt="likedBlue" class="w-8 cursor-pointer likedItem" data-item-id="<%=item.getId()%>"/>
-                <img src="<%=request.getContextPath()%>/basketBlue.svg" alt="basketBlue" class="w-8 cursor-pointer basketFilled"/>
+                <img src="<%=request.getContextPath()%>/<%=isInBasket ? "basketFilled.svg" : "basketBlue.svg"%>" alt="basketBlue" class="w-8 cursor-pointer basketFilled" data-item-id="<%=item.getId()%>"/>
             </div>
         </div>
         <%
@@ -162,7 +173,29 @@
     let basketItems = document.getElementsByClassName('basketFilled');
     for (let i = 0; i < basketItems.length; i++) {
         basketItems[i].addEventListener('click', function () {
-            this.src = this.src.includes('basketBlue.svg') ? '<%=request.getContextPath()%>/basketFilled.svg' : '<%=request.getContextPath()%>/basketBlue.svg';
+            const itemId = this.getAttribute('data-item-id');
+            const currentElement = this;
+
+            fetch('updateBasketItem', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    'itemId': itemId
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        currentElement.src = currentElement.src.includes('basketBlue.svg') ? '<%=request.getContextPath()%>/basketFilled.svg' : '<%=request.getContextPath()%>/basketBlue.svg';
+                    } else {
+                        alert('Failed to update basket');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
         });
     }
 </script>
