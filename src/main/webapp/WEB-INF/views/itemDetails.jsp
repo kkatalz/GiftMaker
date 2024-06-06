@@ -1,10 +1,6 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Zlata
-  Date: 02.06.2024
-  Time: 13:33
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="entity.Item" %>
+<%@ page import="java.util.List" %>
+<%@ page import="entity.LikedItem" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -15,86 +11,103 @@
 </head>
 <body>
 <%--ITEM DETAILED--%>
-<div class="max-h-[100vh]">
-
-    <%@include file="header.jsp" %>
-
-    <%--    main body--%>
-    <div class="flex justify-between items-center gap-12 mx-[12%] my-[2%]">
-
-        <div class="flex gap-12">
-            <%--    jeft bar with images--%>
-            <div class="flex flex-col gap-3 max-h-[700px] overflow-y-auto pr-4 text-6xl ">
-
-                <img src="<%=request.getContextPath()%>/harryPotter.svg" alt="harryPotter"
-                     class="max-h-32 max-w-32 min-h-32 w-32 rounded-lg "/>
-                <img src="<%=request.getContextPath()%>/harryPotter.svg" alt="harryPotter"
-                     class="min-h-32 w-32 rounded-lg "/>
-                <img src="<%=request.getContextPath()%>/harryPotter.svg" alt="harryPotter"
-                     class="min-h-32 w-32 rounded-lg "/>
-                <img src="<%=request.getContextPath()%>/harryPotter.svg" alt="harryPotter"
-                     class="min-h-32 w-32 rounded-lg "/>
-                <img src="<%=request.getContextPath()%>/harryPotter.svg" alt="harryPotter"
-                     class="min-h-32 w-32 rounded-lg "/>
-                <img src="<%=request.getContextPath()%>/harryPotter.svg" alt="harryPotter"
-                     class="min-h-32 w-32 rounded-lg "/>
-                <img src="<%=request.getContextPath()%>/harryPotter.svg" alt="harryPotter"
-                     class="min-h-32 w-32 rounded-lg "/>
-                <img src="<%=request.getContextPath()%>/harryPotter.svg" alt="harryPotter"
-                     class="min-h-32 w-32 rounded-lg "/>
 
 
+<%@include file="header.jsp" %>
+
+<%--    main body--%>
+<%
+    Item item = (Item) session.getAttribute("item");
+    if (item != null) {
+%>
+
+<div class="flex justify-between items-center gap-10 mx-[12%] my-[2%]">
+
+    <div class="flex gap-10">
+        <%--    jeft bar with images--%>
+            <div class="flex flex-col gap-3 max-h-[540px] overflow-y-auto pr-4">
+                <% if (item != null && item.getBase64Images() != null && !item.getBase64Images().isEmpty()) {
+                    List<String> base64Images = item.getBase64Images();
+                    for (int i = 1; i < base64Images.size(); i++) { %>
+                <img src="data:image/png;base64,<%=base64Images.get(i)%>" alt="item"
+                     class="max-h-32 max-w-32 min-h-32 w-32 rounded-lg object-cover"/>
+                <% }
+                } else { %>
+                <img src="<%=request.getContextPath()%>/gift-picture.svg" alt="default image"
+                     class="max-h-32 max-w-32 min-h-32 w-32 rounded-lg object-cover"/>
+                <% } %>
             </div>
 
-            <%--        main image--%>
-            <div class="flex items-center justify-center rounded-lg w-[600px] relative ">
-                <img src="<%=request.getContextPath()%>/leftArrow.svg" alt="leftArrow"
-                     class="w-10 cursor-pointer shadow absolute left-6"/>
-                <img src="<%=request.getContextPath()%>/harryPotter.svg" alt="harryPotter" class="rounded-lg shadow"/>
-                <img src="<%=request.getContextPath()%>/rightArrow.svg" alt="rightArrow"
-                     class="w-10 cursor-pointer shadow absolute right-6"/>
 
-            </div>
+        <%--        main image--%>
+        <div class="flex items-center justify-center rounded-lg w-[540px] relative">
+
+            <img src="<%=request.getContextPath()%>/leftArrow.svg" alt="leftArrow"
+                 class="w-10 cursor-pointer shadow absolute left-6"/>
+
+            <% if (item != null && item.getBase64Images() != null && !item.getBase64Images().isEmpty()) { %>
+
+            <img src="data:image/png;base64,<%=item.getBase64Images().get(0)%>" alt="item"
+                 class="h-[540px] w-full rounded-lg"/>
+
+            <% } else { %>
+            <img src="<%=request.getContextPath()%>/gift-picture.svg" alt="default image"
+                 class="h-[540px] w-full rounded-lg"/>
+            <% } %>
+
+
+            <img src="<%=request.getContextPath()%>/rightArrow.svg" alt="rightArrow"
+                 class="w-10 cursor-pointer shadow absolute right-6"/>
+
 
         </div>
 
-        <%--right menu with details--%>
-        <div class="flex flex-col gap-8">
+    </div>
 
-            <div class="gap-12">
-                <div class="flex gap-2">
-                    <h4 class="text-xl font-light">id: </h4>
-                    <h4 class="text-xl font-light">1000</h4>
-                </div>
-                <div class="space-y-4">
-                    <h4 class="text-2xl font-medium">Harry Potter The Complete Collection: 7 Book Box Set</h4>
-                    <h4 class="text-2xl font-bold mt-6">3200 UAH</h4>
+    <%--right menu with details--%>
+    <div class="flex flex-col gap-8">
 
-                    <p class="text-xl">
-                        Harry Potter is a series of seven fantasy novels written by British author J. K. Rowling.<br>
-                        Set consists of: <br>Philosopher's Stone (1997), Chamber of Secrets (1998), Prisoner of Azkaban
-                        (1999),
-                        Goblet of Fire (2000), Order of the Phoenix (2003), Half-Blood Prince (2005), Deathly Hallows
-                        (2007).
-                    </p>
-                </div>
+        <div class="gap-12">
+            <div class="flex gap-2">
+                <h4 class="text-xl font-light">id: </h4>
+                <h4 class="text-xl font-light"><%=item.getId()%>
+                </h4>
             </div>
+            <div class="space-y-4">
+                <h4 class="text-2xl font-medium"><%=item.getName()%>
+                </h4>
+                <h4 class="text-2xl font-bold mt-6"><%=item.getPrice()%> UAH</h4>
+
+                <p class="text-xl max-h-72 overflow-y-auto">
+                    <%=item.getDescription()%>
+                </p>
 
 
-            <div class="flex justify-content items-center gap-5 ">
-                <button id="open_modal"
-                        class="w-[50%] bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70 flex items-center justify-between px-6 py-3 text-white text-3xl font-medium">
-                    Buy
-                    <img src="<%=request.getContextPath()%>/buyIcon.svg" alt="Buy Icon" class="w-8 h-8"/>
-                </button>
-
-                <img src="<%=request.getContextPath()%>/likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>
             </div>
-
         </div>
+
+
+        <div class="flex justify-content items-center gap-5 ">
+            <button id="open_modal"
+                    class="w-48 bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70 flex items-center justify-between px-6 py-3 text-white text-3xl font-medium">
+                Buy
+                <img src="<%=request.getContextPath()%>/buyIcon.svg" alt="Buy Icon" class="w-8 h-8"/>
+            </button>
+
+            <img src="<%=request.getContextPath()%>/likedBlue.svg" alt="likedBlue" class="w-8 cursor-pointer"/>
+        </div>
+
     </div>
 </div>
 
+<%
+
+} else {
+%>
+<div class="flex justify-center align-items text-xl font-light text-red-500">Item not found</div>
+<%
+    }
+%>
 
 <script>
     // document.getElementById('open_modal').addEventListener('click', function () {

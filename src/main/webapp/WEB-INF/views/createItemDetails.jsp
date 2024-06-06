@@ -8,14 +8,13 @@
 </head>
 <body>
 <%--CREATE ITEM DETAILED PAGE--%>
-<div class="max-h-[100vh]">
 
     <%@include file="header.jsp" %>
 
     <%--main body--%>
-    <div class="flex justify-between items-center gap-12 mx-[12%] my-[2%]">
+    <div class="flex justify-between items-center gap-10 mx-[12%] my-[2%]">
 
-        <div class="flex gap-12">
+        <div class="flex gap-10">
             <%--    jeft bar with images--%>
             <div class="flex flex-col gap-3 max-h-[700px] overflow-y-auto pr-4 text-6xl ">
                 <h4 class="flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 ">+</h4>
@@ -30,12 +29,12 @@
             </div>
 
             <%--        main image--%>
-            <div class="flex items-center justify-center rounded-lg w-[600px] relative">
+                <div class="flex items-center justify-center rounded-lg w-[540px] relative">
                 <img src="<%=request.getContextPath()%>/leftArrow.svg" alt="leftArrow"
-                     class="w-10 cursor-pointer  absolute left-6"/>
-                <h4 class="flex justify-center items-center h-[600px] w-full text-9xl rounded-lg bg-neutral-200 ">+</h4>
+                     class="w-10 cursor-pointer absolute left-6"/>
+                <h4 class="flex justify-center items-center h-[540px] w-full text-9xl rounded-lg bg-neutral-200 ">+</h4>
                 <img src="<%=request.getContextPath()%>/rightArrow.svg" alt="rightArrow"
-                     class="w-10 cursor-pointer  absolute right-6"/>
+                     class="w-10 cursor-pointer absolute right-6"/>
 
             </div>
 
@@ -130,7 +129,6 @@
 
         </div>
     </div>
-</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 
 </body>
