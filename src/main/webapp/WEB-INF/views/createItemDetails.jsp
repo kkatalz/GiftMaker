@@ -31,36 +31,7 @@
             </div>
         </div>
         <div class="flex flex-col gap-4 w-[25vw]">
-            <button id="dropdownRadioBgHoverButton1" data-dropdown-toggle="dropdownRadioBgHover1"
-                    class="w-64 flex justify-between items-center bg-white border border-gray-300 text-gray-700 text-lg py-3 px-4 rounded cursor-pointer"
-                    type="button">Category
-                <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                     viewBox="0 0 10 6">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="m1 1 4 4 4-4"/>
-                </svg>
-            </button>
-            <div id="dropdownRadioBgHover1" class="z-10 hidden w-64 bg-white rounded-lg shadow">
-                <ul class="p-3 space-y-1 text-sm text-gray-700" aria-labelledby="dropdownRadioBgHoverButton1">
-                    <%
-                        List<Category> categories = (List<Category>) session.getAttribute("categories");
-                        if (categories != null) {
-                            for (Category category : categories) {
-                    %>
-                    <li>
-                        <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                            <input id="category-<%=category.getId()%>" type="radio" value="<%=category.getId()%>" name="category"
-                                   class="w-4 h-4 bg-gray-100 border-gray-300">
-                            <label for="category-<%=category.getId()%>"
-                                   class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300"><%=category.getName()%></label>
-                        </div>
-                    </li>
-                    <%
-                            }
-                        }
-                    %>
-                </ul>
-            </div>
+
             <div>
                 <div class="flex gap-2">
                     <h4 class="text-xl font-light">id: </h4>
@@ -89,12 +60,7 @@
                                        placeholder="Age" min="0" max="120" required>
                             </label>
                         </div>
-                        <div class="flex items-center p-3 text-2xl font-bold rounded-lg border border-neutral-200 w-[60%]">
-                            <label>
-                                <input type="number" name="amount" class="w-full placeholder:italic outline-none "
-                                       placeholder="Amount" min="0" required>
-                            </label>
-                        </div>
+
                     </div>
                 </div>
             </div>

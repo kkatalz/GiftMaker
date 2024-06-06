@@ -3,6 +3,7 @@ package controller.command.possibleItem;
 import entity.User;
 import service.PossibleItemService;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,8 +24,7 @@ public class DeletePossibleItem extends HttpServlet {
         HttpSession session = request.getSession(false);
         String jspPage;
         if(session == null) {
-            // TODO: unauthorized access
-            jspPage = "";
+            jspPage = "/WEB-INF/views/login.jsp";
         }
 
         else { // session is not null
@@ -34,18 +34,15 @@ public class DeletePossibleItem extends HttpServlet {
                 PossibleItemService.getInstance().delete(itemId);
 
                 session.setAttribute("possibleItems", PossibleItemService.getInstance().getAllPossibleItems());
-                // TODO: success after deleting (not approving) possible item
-                jspPage = "";
-
+                jspPage = "/WEB-INF/views/offeredGifts.jsp";
             }
-
             else {
-                // TODO: unauthorized access
-                jspPage = "";
+                jspPage = "/WEB-INF/views/login.jsp";
+
             }
         }
 
-        String redirectURL = request.getContextPath() + jspPage;
-        response.sendRedirect(redirectURL);
+        RequestDispatcher dispatcher = request.getRequestDispatcher(jspPage);
+        dispatcher.forward(request, response);
     }
 }
