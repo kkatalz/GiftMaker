@@ -107,9 +107,9 @@
         <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow">
             <div class="flex items-center justify-center flex-col gap-2">
                 <% if (item != null && item.getBase64Images() != null && !item.getBase64Images().isEmpty()) { %>
-                <img src="data:image/png;base64,<%=item.getBase64Images().get(0)%>" alt="item" class="w-32 h-32"/>
+                <img src="data:image/png;base64,<%=item.getBase64Images().get(0)%>" alt="item" class="w-32 h-24 object-cover rounded shadow-lg"/>
                 <% } else { %>
-                <img src="<%=request.getContextPath()%>/gift-picture.svg" alt="default image" class="w-32 h-32"/>
+                <img src="<%=request.getContextPath()%>/gift-picture.svg" alt="default image" class="w-32 h-24 object-cover rounded shadow-lg"/>
                 <% } %>                <h4 class="text-base font-medium leading-5 line-clamp-2 min-h-[40px] w-48"><%=item.getName()%></h4>
                 <div class="flex gap-2 font-bold text-left w-full">
                     <h4 class="text-medium font-medium"><%=item.getPrice()%></h4>

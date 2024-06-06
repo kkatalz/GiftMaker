@@ -2,8 +2,10 @@ package controller.command.likedItem;
 
 import dao.DaoFactory;
 import entity.Item;
+import entity.ItemInCart;
 import entity.LikedItem;
 import entity.User;
+import service.ItemInCartService;
 import service.ItemService;
 import service.LikedItemService;
 
@@ -31,13 +33,22 @@ public class GetAllLikedItems extends HttpServlet {
 
         if(session != null) {
             List<LikedItem> items = new ArrayList<>();
+            List<ItemInCart> itemsInCart = new ArrayList<>();
             User user = (User) session.getAttribute("currentUser");
             LikedItemService likedItemService = LikedItemService.getInstance();
-            if(user != null)
+            ItemInCartService itemInCartService = ItemInCartService.getInstance();
+            if(user != null){
                 items = likedItemService.getLikedItemsByUserId(user.getId());
+                try {
+                    itemsInCart = itemInCartService.getItemsInCartByUserId(user.getId());
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            }
 
 
             session.setAttribute("likedItems", items);
+            session.setAttribute("itemsInCart", itemsInCart);
             System.out.println(items);
 
         }
