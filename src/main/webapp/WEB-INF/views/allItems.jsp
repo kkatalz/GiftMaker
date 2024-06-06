@@ -12,18 +12,27 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+
 <form method="POST" action="allItems" class="bg-blue-100 min-h-[100vh] pb-20">
-    <div class="text flex justify-between items-center px-10 py-3">
-        <a href="home">
-            <img src="<%=request.getContextPath()%>/logoBlack.svg" alt="logo" class="w-40 cursor-pointer">
-        </a>
-        <div class="text inline-flex border-[#777777] border-2 p-3 rounded-lg bg-neutral-100">
-            <input name="search" type="text" class="text-lg bg-neutral-100 italic outline-none" placeholder="Find ...">
+
+
+    <%@include file="header.jsp" %>
+    <div class="flex justify-end mr-10">
+
+
+        <%--    <div class="text flex justify-between items-center px-10 py-3">--%>
+        <%--        <a href="home">--%>
+        <%--            <img src="<%=request.getContextPath()%>/logoBlack.svg" alt="logo" class="w-40 cursor-pointer">--%>
+        <%--        </a>--%>
+        <div class="flex inline-flex mt-4 border-[#777777] border-2 p-3 rounded-lg bg-neutral-100 ml-12">
+            <input name="search" type="text" class="text-lg bg-neutral-100 italic outline-none "
+                   placeholder="Find ...">
             <img src="<%=request.getContextPath()%>/search-icon.svg" alt="search-icon"
                  class="w-5 transition duration-300 ease-in hover:ease-in hover:scale-[1.2]">
         </div>
     </div>
-    <div class="text flex justify-between items-center px-[15%] mt-8">
+
+    <div class="text flex justify-between items-center mx-[16%] mt-8">
         <div class="flex gap-2 items-center">
             <div class="flex justify-between items-center bg-white border border-gray-300 py-3 px-4 rounded">
                 <input name="fromPrice" type="number" class="text-gray-700 text-lg italic outline-none w-14" min=0
@@ -85,71 +94,81 @@
             Search
         </button>
     </div>
-    <div>
-        <h4 class="text-2xl font-semibold text-gray-600 ml-[10%] mt-6">
-            Items found by your filters:
+
+
+
+    <div class="flex  space-y-6 mt-6 flex-col">
+        <div class="mx-[16%] ">
+            <h4 class="text-2xl font-semibold text-gray-600 ">
+                Items found by your filters:
+                <%
+                    List<Item> items = (List<Item>) session.getAttribute("items");
+                    int itemCount = (items != null) ? items.size() : 0;
+                    out.print(itemCount);
+                %>
+            </h4>
+        </div>
+
+
+        <div class="flex mx-[10%] gap-12 flex-wrap justify-center items-center">
             <%
-                List<Item> items = (List<Item>) session.getAttribute("items");
-                int itemCount = (items != null) ? items.size() : 0;
-                out.print(itemCount);
+                if (items != null) {
+                    List<LikedItem> likedItems = (List<LikedItem>) session.getAttribute("likedItems");
+                    List<ItemInCart> itemsInCart = (List<ItemInCart>) session.getAttribute("itemsInCart");
+                    for (Item item : items) {
+                        boolean isLiked = false;
+                        boolean isInBasket = false;
+                        if (likedItems != null) {
+                            for (LikedItem likedItem : likedItems) {
+                                if (likedItem.getItem().getId() == item.getId()) {
+                                    isLiked = true;
+                                    break;
+                                }
+                            }
+                        }
+                        if (itemsInCart != null) {
+                            for (ItemInCart itemInCart : itemsInCart) {
+                                if (itemInCart.getItem().getId() == item.getId()) {
+                                    isInBasket = true;
+                                    break;
+                                }
+                            }
+                        }
             %>
-        </h4>
-    </div>
-    <div class="flex gap-12 mx-[10%] flex-wrap">
-        <%
-            if (items != null) {
-                List<LikedItem> likedItems = (List<LikedItem>) session.getAttribute("likedItems");
-                List<ItemInCart> itemsInCart = (List<ItemInCart>) session.getAttribute("itemsInCart");
-                for (Item item : items) {
-                    boolean isLiked = false;
-                    boolean isInBasket = false;
-                    if (likedItems != null) {
-                        for (LikedItem likedItem : likedItems) {
-                            if (likedItem.getItem().getId() == item.getId()) {
-                                isLiked = true;
-                                break;
-                            }
-                        }
-                    }
-                    if (itemsInCart != null) {
-                        for (ItemInCart itemInCart : itemsInCart) {
-                            if (itemInCart.getItem().getId() == item.getId()) {
-                                isInBasket = true;
-                                break;
-                            }
-                        }
-                    }
-        %>
-        <div class="flex items-center justify-center bg-white relative mt-6 h-56 w-56 p-4 rounded-lg border-gray-700 border shadow">
-            <div class="flex items-center justify-center flex-col gap-2">
-                <% if (item != null && item.getBase64Images() != null && !item.getBase64Images().isEmpty()) { %>
-                <img src="data:image/png;base64,<%=item.getBase64Images().get(0)%>" alt="item" class="w-32 h-32"/>
-                <% } else { %>
-                <img src="<%=request.getContextPath()%>/gift-picture.svg" alt="default image" class="w-32 h-32"/>
-                <% } %>
-                <a href="<%=request.getContextPath()%>/itemDetails?id_item=<%=item.getId()%>"><h4
-                        class="text-base font-medium leading-5 line-clamp-2 min-h-[40px] w-48"><%=item.getName()%>
-                </h4>
-                </a>
 
 
-                <div class="flex gap-2 font-bold text-left w-full">
-                    <h4 class="text-medium font-medium"><%=item.getPrice()%>
+            <%--        ITEMS--%>
+            <div class="flex items-center justify-center bg-white relative h-56 w-56 p-4 rounded-lg border-gray-700 border shadow">
+                <div class="flex items-center justify-center flex-col gap-2">
+                    <% if (item != null && item.getBase64Images() != null && !item.getBase64Images().isEmpty()) { %>
+                    <img src="data:image/png;base64,<%=item.getBase64Images().get(0)%>" alt="item" class="w-32 h-32"/>
+                    <% } else { %>
+                    <img src="<%=request.getContextPath()%>/gift-picture.svg" alt="default image" class="w-32 h-32"/>
+                    <% } %>
+                    <a href="<%=request.getContextPath()%>/itemDetails?id_item=<%=item.getId()%>"><h4
+                            class="text-base font-medium leading-5 line-clamp-2 min-h-[40px] w-48"><%=item.getName()%>
                     </h4>
-                    <h4 class="text-medium font-medium">UAH</h4>
+                    </a>
+
+
+                    <div class="flex gap-2 font-bold text-left w-full">
+                        <h4 class="text-medium font-medium"><%=item.getPrice()%>
+                        </h4>
+                        <h4 class="text-medium font-medium">UAH</h4>
+                    </div>
+                </div>
+                <div class="flex flex-col absolute top-2 right-2 gap-1">
+                    <img src="<%=request.getContextPath()%>/<%=isLiked ? "likedFilled.svg" : "likedBlue.svg"%>"
+                         alt="likedBlue" class="w-8 cursor-pointer likedItem" data-item-id="<%=item.getId()%>"/>
+                    <img src="<%=request.getContextPath()%>/<%=isInBasket ? "basketFilled.svg" : "basketBlue.svg"%>"
+                         alt="basketBlue" class="w-8 cursor-pointer basketFilled" data-item-id="<%=item.getId()%>"/>
                 </div>
             </div>
-            <div class="flex flex-col absolute top-2 right-2 gap-1">
-                <img src="<%=request.getContextPath()%>/<%=isLiked ? "likedFilled.svg" : "likedBlue.svg"%>"
-                     alt="likedBlue" class="w-8 cursor-pointer likedItem" data-item-id="<%=item.getId()%>"/>
-                <img src="<%=request.getContextPath()%>/<%=isInBasket ? "basketFilled.svg" : "basketBlue.svg"%>"
-                     alt="basketBlue" class="w-8 cursor-pointer basketFilled" data-item-id="<%=item.getId()%>"/>
-            </div>
-        </div>
-        <%
+            <%
+                    }
                 }
-            }
-        %>
+            %>
+        </div>
     </div>
 </form>
 
