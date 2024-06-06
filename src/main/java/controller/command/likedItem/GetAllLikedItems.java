@@ -52,7 +52,6 @@ public class GetAllLikedItems extends HttpServlet {
 
             session.setAttribute("likedItems", items);
             session.setAttribute("itemsInCart", itemsInCart);
-            System.out.println(items);
 
         }
 

@@ -80,12 +80,12 @@
         </div>
         <div class="flex gap-2 items-center">
             <div class="flex justify-between items-center bg-white border border-gray-300 text-gray-700 py-3 px-4 rounded">
-                <input name="fromDate" type="number" class="text-lg italic outline-none w-14" min="0"
+                <input name="fromDate" type="number" class="text-lg italic outline-none w-16" min="0"
                        placeholder="From">
             </div>
             <h4 class="text-2xl font-semibold text-gray-700">-</h4>
             <div class="flex justify-between items-center bg-white border border-gray-300 text-gray-700 py-3 px-4 rounded">
-                <input name="toDate" type="number" class="text-lg italic outline-none w-14" placeholder="To y.o."
+                <input name="toDate" type="number" class="text-lg italic outline-none w-16" placeholder="To y.o."
                        max="120">
             </div>
         </div>
