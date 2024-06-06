@@ -27,7 +27,7 @@
                     for (ItemInCart itemInCart : itemsInCart) {
                         int quantity = itemInCart.getAmount();
                         String itemName = itemInCart.getItem().getName();
-                        String itemImage = (itemInCart.getItem().getBase64Images() == null || itemInCart.getItem().getBase64Images().isEmpty()) ? request.getContextPath() +"/gift-picture.svg" : "data:image/png;base64, " + itemInCart.getItem().getBase64Images().get(0); // Assuming the Item entity has an image URL field
+                        String itemImage = (itemInCart.getItem().getBase64Images() == null || itemInCart.getItem().getBase64Images().isEmpty()) ? request.getContextPath() + "/gift-picture.svg" : "data:image/png;base64, " + itemInCart.getItem().getBase64Images().get(0); // Assuming the Item entity has an image URL field
                         BigDecimal itemPrice = itemInCart.getItem().getPrice(); // Assuming the Item entity has a price field
                         double totalPrice = itemPrice.doubleValue() * quantity;
             %>
@@ -35,8 +35,11 @@
                 <img src="<%=itemImage%>" alt="<%=itemName%>" class="shadow-lg w-40 h-40 object-cover rounded-lg"/>
 
                 <div class="flex flex-col gap-4 justify-between h-full">
-                    <h4 class="text-lg font-medium line-clamp-3"><%=itemName%></h4>
+                    <a href="<%=request.getContextPath()%>/itemDetails?id_item=<%=itemInCart.getItem().getId()%>">
 
+                        <h4 class="text-lg font-medium line-clamp-3"><%=itemName%>
+                        </h4>
+                    </a>
                     <div class="flex flex-row gap-2">
                         <div class="decrease-quantity cursor-pointer flex justify-center items-center border-[#777777] border-2 rounded-md text-2xl text-black w-8 h-8">
                             -
@@ -49,10 +52,12 @@
                         </div>
                     </div>
                 </div>
-                <h4 class="item-total-price text-lg font-bold flex items-center justify-center"><%=totalPrice/quantity%> UAH</h4>
+                <h4 class="item-total-price text-lg font-bold flex items-center justify-center"><%=totalPrice / quantity%>
+                    UAH</h4>
 
                 <div class="flex items-center justify-center">
-                    <img src="<%=request.getContextPath()%>/bin.svg" alt="bin" class="delete-item w-10 cursor-pointer flex items-center justify-center"/>
+                    <img src="<%=request.getContextPath()%>/bin.svg" alt="bin"
+                         class="delete-item w-10 cursor-pointer flex items-center justify-center"/>
                 </div>
             </div>
             <%
@@ -77,13 +82,19 @@
                             double totalPrice = itemPrice.doubleValue() * quantity;
                             grandTotal += totalPrice;
                 %>
-                <div class="flex items-center justify-between " data-summary-item-id="<%=itemInCart.getItem().getId()%>">
+                <div class="flex items-center justify-between "
+                     data-summary-item-id="<%=itemInCart.getItem().getId()%>">
                     <div class="flex justify-between items-center gap-8 w-full">
-                        <h4 class="text-lg font-medium"><%=itemInCart.getItem().getName()%></h4>
+                        <a href="<%=request.getContextPath()%>/itemDetails?id_item=<%=itemInCart.getItem().getId()%>">
+
+                            <h4 class="text-lg font-medium"><%=itemInCart.getItem().getName()%>
+                            </h4>
+                        </a>
                         <div class="flex flex-col gap-2 items-center justify-between ">
                             <div class="flex items-center justify-between">
                                 <h4 class="text-lg font-medium">x</h4>
-                                <h4 class="quantity text-xl font-bold"><%=quantity%></h4>
+                                <h4 class="quantity text-xl font-bold"><%=quantity%>
+                                </h4>
                             </div>
                             <h4 class="item-total-price text-xl font-bold whitespace-nowrap"><%=totalPrice%> UAH</h4>
                         </div>
@@ -99,7 +110,8 @@
                     </div>
 
                     <div class="flex justify-center rounded-lg bg-neutral-300 transition-all duration-300 hover:opacity-80">
-                        <button data-modal-hide="default-modal" type="button" class="font-medium text-lg p-4">Purchase</button>
+                        <button data-modal-hide="default-modal" type="button" class="font-medium text-lg p-4">Purchase
+                        </button>
                     </div>
                 </div>
                 <%
@@ -136,8 +148,8 @@
 
                             quantityElement.textContent = data.newQuantity;
                             summaryQuantityElement.textContent = data.newQuantity;
-                            itemTotalPriceElement.textContent = data.itemTotalPrice/data.newQuantity + ' UAH';
-                            summaryItemTotalPriceElement.textContent = data.itemTotalPrice/data.newQuantity + ' UAH';
+                            itemTotalPriceElement.textContent = data.itemTotalPrice / data.newQuantity + ' UAH';
+                            summaryItemTotalPriceElement.textContent = data.itemTotalPrice / data.newQuantity + ' UAH';
                             grandTotalElement.textContent = data.grandTotal + ' UAH';
                         } else {
                             alert('Failed to update quantity');

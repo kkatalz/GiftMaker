@@ -52,13 +52,16 @@
         </div>
         <div class="flex items-center gap-8">
             <% if (likedItem.getItem() != null && likedItem.getItem().getBase64Images() != null && !likedItem.getItem().getBase64Images().isEmpty()) { %>
-            <img src="data:image/png;base64,<%=likedItem.getItem().getBase64Images().get(0)%>" alt="item" class="min-w-[150px] max-w-[150px] rounded-lg h-[100px] object-cover"/>
+            <img src="data:image/png;base64,<%=likedItem.getItem().getBase64Images().get(0)%>" alt="item" class="min-w-[150px] max-w-[150px] rounded-lg h-[100px] object-cover shadow-lg"/>
             <% } else { %>
-            <img src="<%=request.getContextPath()%>/gift-picture.svg" alt="default image" class="min-w-[150px] max-w-[150px] rounded-lg h-[100px] object-cover"/>
+            <img src="<%=request.getContextPath()%>/gift-picture.svg" alt="default image" class="min-w-[150px] max-w-[150px] rounded-lg h-[100px] object-cover shadow-lg"/>
             <% } %>
             <div class="flex flex-col">
                 <h5 class="text-lg font-light">id: <%= likedItem.getItem().getId() %></h5>
-                <h4 class="text-2xl font-medium line-clamp-3"><%= likedItem.getItem().getName() %></h4>
+                <a href="<%=request.getContextPath()%>/itemDetails?id_item=<%=likedItem.getItem().getId()%>"><h4
+                        class="text-2xl font-medium line-clamp-3"><%=likedItem.getItem().getName()%>
+                </h4>
+                </a>
             </div>
         </div>
         <h4 class="text-2xl font-medium flex items-center justify-center"><%= likedItem.getItem().getPrice() %></h4>

@@ -45,7 +45,7 @@
         }
 %>
 
-<div class="flex justify-between justify-center items-center gap-10 mx-[12%] my-[2%]">
+<div class="flex gap-10 mx-[12%] my-[2%]">
 
     <div class="flex gap-10">
         <%--    left bar with images--%>
@@ -54,11 +54,11 @@
                 List<String> base64Images = item.getBase64Images();
                 for (int i = 1; i < base64Images.size(); i++) { %>
             <img src="data:image/png;base64,<%=base64Images.get(i)%>" alt="item"
-                 class="sidebar-image max-h-32 max-w-32 min-h-32 w-32 rounded-lg object-cover cursor-pointer"/>
+                 class="sidebar-image max-h-32 max-w-32 min-h-32 w-32 rounded-lg object-cover cursor-pointer object-cover"/>
             <% }
             } else { %>
             <img src="<%=request.getContextPath()%>/gift-picture.svg" alt="default image"
-                 class="sidebar-image max-h-32 max-w-32 min-h-32 w-32 rounded-lg object-cover cursor-pointer"/>
+                 class="sidebar-image max-h-32 max-w-32 min-h-32 w-32 rounded-lg object-cover cursor-pointer object-cover"/>
             <% } %>
         </div>
 
@@ -71,11 +71,11 @@
             <% if (item != null && item.getBase64Images() != null && !item.getBase64Images().isEmpty()) { %>
 
             <img src="data:image/png;base64,<%=!item.getBase64Images().isEmpty() ? item.getBase64Images().get(0) : ""%>" alt="item" id="mainImage"
-                 class="main-image h-[540px] w-full rounded-lg"/>
+                 class="main-image h-[540px] w-full rounded-lg object-cover"/>
 
             <% } else { %>
             <img src="<%=request.getContextPath()%>/gift-picture.svg" alt="default image" id="mainImage"
-                 class="main-image h-[540px] w-full rounded-lg"/>
+                 class="main-image h-[540px] w-full rounded-lg object-cover"/>
             <% } %>
 
             <img src="<%=request.getContextPath()%>/rightArrow.svg" alt="rightArrow" id="rightArrow"
@@ -86,7 +86,7 @@
     </div>
 
     <%--right menu with details--%>
-    <div class="flex flex-col gap-8">
+    <div class="flex flex-col gap-8 mt-8">
 
         <div class="gap-12">
             <div class="flex gap-2">
