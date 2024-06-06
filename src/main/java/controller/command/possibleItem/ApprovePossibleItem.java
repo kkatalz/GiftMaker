@@ -7,6 +7,8 @@ import entity.User;
 import service.ItemService;
 import service.PossibleItemService;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,12 +25,11 @@ import java.io.IOException;
 public class ApprovePossibleItem extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         HttpSession session = request.getSession(false);
         String jspPage;
         if(session == null) {
-            // TODO: unauthorized access
-            jspPage = "";
+            jspPage = "/WEB-INF/views/login.jsp";
         }
 
         else { // session is not null
@@ -52,26 +53,26 @@ public class ApprovePossibleItem extends HttpServlet {
                 ItemService.getInstance().create(itemDto);
 
                 session.setAttribute("possibleItems", PossibleItemService.getInstance().getAllPossibleItems());
-                // TODO: success after approving possible item
-                jspPage = "";
+                jspPage = "/WEB-INF/views/offeredGifts.jsp";
+
 
             }
 
             else {
-                // TODO: unauthorized access
-                jspPage = "";
+                jspPage = "/WEB-INF/views/login.jsp";
             }
         }
 
-        String redirectURL = request.getContextPath() + jspPage;
-        response.sendRedirect(redirectURL);
+        RequestDispatcher dispatcher = request.getRequestDispatcher(jspPage);
+        dispatcher.forward(request, response);
 
     }
 
     private ItemDto getInput(HttpServletRequest request) {
         return new ItemDto.Builder()
                 .setCategory(new Category.Builder().setCategoryId(Integer.parseInt(request.getParameter("idCategory"))).build())
-                .setAmount(request.getParameter("amount"))
+//                .setAmount(request.getParameter("amount"))
+                .setAmount("1")
                 .build();
     }
 }

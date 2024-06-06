@@ -2,6 +2,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="entity.LikedItem" %>
 <%@ page import="entity.ItemInCart" %>
+<%@ page import="java.util.stream.Collectors" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
     <title>Item Details</title>
@@ -53,31 +54,31 @@
                 List<String> base64Images = item.getBase64Images();
                 for (int i = 1; i < base64Images.size(); i++) { %>
             <img src="data:image/png;base64,<%=base64Images.get(i)%>" alt="item"
-                 class="max-h-32 max-w-32 min-h-32 w-32 rounded-lg object-cover"/>
+                 class="sidebar-image max-h-32 max-w-32 min-h-32 w-32 rounded-lg object-cover cursor-pointer"/>
             <% }
             } else { %>
             <img src="<%=request.getContextPath()%>/gift-picture.svg" alt="default image"
-                 class="max-h-32 max-w-32 min-h-32 w-32 rounded-lg object-cover"/>
+                 class="sidebar-image max-h-32 max-w-32 min-h-32 w-32 rounded-lg object-cover cursor-pointer"/>
             <% } %>
         </div>
 
         <%--        main image--%>
         <div class="flex items-center justify-center rounded-lg w-[540px] relative">
 
-            <img src="<%=request.getContextPath()%>/leftArrow.svg" alt="leftArrow"
+            <img src="<%=request.getContextPath()%>/leftArrow.svg" alt="leftArrow" id="leftArrow"
                  class="w-10 cursor-pointer absolute left-6 transition duration-500 hover:opacity-80"/>
 
             <% if (item != null && item.getBase64Images() != null && !item.getBase64Images().isEmpty()) { %>
 
-            <img src="data:image/png;base64,<%=!item.getBase64Images().isEmpty() ? item.getBase64Images().get(0) : ""%>" alt="item"
-                 class="h-[540px] w-full rounded-lg"/>
+            <img src="data:image/png;base64,<%=!item.getBase64Images().isEmpty() ? item.getBase64Images().get(0) : ""%>" alt="item" id="mainImage"
+                 class="main-image h-[540px] w-full rounded-lg"/>
 
             <% } else { %>
-            <img src="<%=request.getContextPath()%>/gift-picture.svg" alt="default image"
-                 class="h-[540px] w-full rounded-lg"/>
+            <img src="<%=request.getContextPath()%>/gift-picture.svg" alt="default image" id="mainImage"
+                 class="main-image h-[540px] w-full rounded-lg"/>
             <% } %>
 
-            <img src="<%=request.getContextPath()%>/rightArrow.svg" alt="rightArrow"
+            <img src="<%=request.getContextPath()%>/rightArrow.svg" alt="rightArrow" id="rightArrow"
                  class="w-10 cursor-pointer absolute right-6 transition duration-500 hover:opacity-80"/>
 
         </div>
@@ -131,6 +132,39 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
+        let currentImageIndex = 0;
+        const base64Images = <%= item != null && item.getBase64Images() != null ? item.getBase64Images().stream().map(img -> "\"" + img + "\"").collect(Collectors.joining(",", "[", "]")) : "[]" %>;
+
+        const mainImage = document.getElementById('mainImage');
+        const leftArrow = document.getElementById('leftArrow');
+        const rightArrow = document.getElementById('rightArrow');
+        const sidebarImages = document.querySelectorAll('.sidebar-image');
+
+        function updateMainImage(index) {
+            if (index >= 0 && index < base64Images.length) {
+                mainImage.src = "data:image/png;base64," + base64Images[index];
+                currentImageIndex = index;
+            }
+        }
+
+        leftArrow.addEventListener('click', () => {
+            if (currentImageIndex > 0) {
+                updateMainImage(currentImageIndex - 1);
+            }
+        });
+
+        rightArrow.addEventListener('click', () => {
+            if (currentImageIndex < base64Images.length - 1) {
+                updateMainImage(currentImageIndex + 1);
+            }
+        });
+
+        sidebarImages.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                updateMainImage(index + 1);
+            });
+        });
+
         let likedItems = document.getElementsByClassName('likedItem');
         for (let i = 0; i < likedItems.length; i++) {
             likedItems[i].addEventListener('click', function () {

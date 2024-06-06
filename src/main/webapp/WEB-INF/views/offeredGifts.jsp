@@ -48,9 +48,9 @@
                         </button>
                     </form>
                     <% if (item != null && item.getBase64Image() != null && !item.getBase64Image().isEmpty()) { %>
-                    <img src="data:image/png;base64,<%=item.getBase64Image().get(0)%>" alt="item" class="w-40 h-24 object-cover rounded-lg shadow-lg rounded-lg"/>
+                    <img src="data:image/png;base64,<%=item.getBase64Image().get(0)%>" alt="item" class="w-40 h-24 object-cover rounded-lg shadow-lg"/>
                     <% } else { %>
-                    <img src="<%=request.getContextPath()%>/gift-picture.svg" alt="default image" class="w-40 h-24 object-cover rounded-lg shadow-lg rounded-lg" />
+                    <img src="<%=request.getContextPath()%>/gift-picture.svg" alt="default image" class="w-40 h-24 object-cover rounded-lg shadow-lg" />
                     <% } %>
                     <div class="flex flex-col w-40">
                         <h5 class="text-lg font-light">id: <%= item.getId() %></h5>
@@ -72,7 +72,7 @@
                             <% for(Category category : categories) { %>
                             <li>
                                 <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                                    <input id="default-radio-<%= category.getId() %>" type="radio" value="<%= category.getName() %>" name="default-radio-<%= item.getId() %>"
+                                    <input id="default-radio-<%= category.getId() %>" type="radio" value="<%= category.getId() %>" name="default-radio-<%= item.getId() %>"
                                            class="w-4 h-4 bg-gray-100 border-gray-300">
                                     <label for="default-radio-<%= category.getId() %>" class="w-full ms-2 text-sm font-medium rounded dark:text-gray-300">
                                         <%= category.getName() %>
@@ -85,11 +85,23 @@
                 </div>
                 <h4 class="text-2xl font-medium flex items-center justify-center"><%= item.getPrice() %> UAH</h4>
                 <div class="flex items-center justify-center">
-                    <button class="flex justify-center w-[50%] cursor-pointer bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70  p-3 px-4 text-white text-3xl font-medium">
-                        Publish
-                    </button>
+                    <form method="post" action="<%=request.getContextPath()%>/approveItem">
+                        <input type="hidden" name="possibleItemId" value="<%= item.getId() %>">
+                        <input type="hidden" name="idCategory" id="idCategory-<%= item.getId() %>" value="">
+                        <button type="submit" class="flex justify-center w-[50%] cursor-pointer bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70  p-3 px-4 text-white text-3xl font-medium">
+                            Publish
+                        </button>
+                    </form>
                 </div>
             </div>
+            <script>
+                // Add event listeners for category selection
+                document.querySelectorAll('input[name="default-radio-<%= item.getId() %>"]').forEach(radio => {
+                    radio.addEventListener('change', (event) => {
+                        document.getElementById('idCategory-<%= item.getId() %>').value = event.target.value;
+                    });
+                });
+            </script>
             <% } %>
         </div>
     </div>
