@@ -7,25 +7,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .image-transition {
-            transition: opacity 0.5s ease-in-out;
-        }
-        .image-hide {
-            opacity: 0;
-        }
-        .image-show {
-            opacity: 1;
-        }
-    </style>
 </head>
 <body>
 <div class="overflow-hidden min-h-[100vh] pb-20">
     <%@include file="header.jsp" %>
     <form method="post" action="createItemDetails" enctype="multipart/form-data" class="flex justify-center items-start gap-8 mx-[6%] my-[1.5%]">
         <div class="flex gap-8 mt-8">
-            <div id="image-container" class="flex flex-col gap-3 max-h-[450px] overflow-y-auto pr-4 text-6xl max-w-36">
-                <div class="flex justify-center items-center min-h-32 min-w-32 max-w-32 max-h-32 rounded-lg bg-neutral-200 cursor-pointer add-image hover:bg-neutral-300 transition">
+            <div id="image-container" class="flex flex-col gap-3 max-h-[450px] overflow-y-auto pr-4 text-6xl max-w-32">
+                <div class="flex justify-center items-center min-h-32 min-w-32 max-w-32 max-h-32 rounded-lg bg-neutral-200 cursor-pointer add-image">
                     <span class="text-6xl">+</span>
                     <input type="file" name="file-0" class="hidden file-input rounded-lg" accept="image/*" />
                 </div>
@@ -34,7 +23,7 @@
                 <img src="<%=request.getContextPath()%>/leftArrow.svg" alt="leftArrow"
                      class="w-10 cursor-pointer absolute left-6" id="left-arrow"/>
                 <div class="flex justify-center items-center h-[450px] w-full text-9xl rounded-lg bg-neutral-200 cursor-pointer" id="main-image-container">
-                    <img id="main-image" class="image-transition image-hide shadow-lg hidden w-full h-full object-cover rounded-lg" />
+                    <img id="main-image" class=" shadow hidden w-full h-full object-cover h-[450px] w-full  rounded-lg" />
                     <span id="main-plus" class="text-9xl">+</span>
                 </div>
                 <img src="<%=request.getContextPath()%>/rightArrow.svg" alt="rightArrow"
@@ -141,8 +130,7 @@
                 const reader = new FileReader();
                 reader.onload = function(e) {
                     mainImage.src = e.target.result;
-                    mainImage.classList.remove('hidden', 'image-hide');
-                    mainImage.classList.add('image-show');
+                    mainImage.classList.remove('hidden');
                     mainPlus.classList.add('hidden');
                     addImageToList(e.target.result);
                 };
@@ -160,15 +148,15 @@
             imageContainer.innerHTML = '';
             imageList.forEach((src, index) => {
                 const imageWrapper = document.createElement('div');
-                imageWrapper.className = 'flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 cursor-pointer hover:bg-neutral-300 transition';
+                imageWrapper.className = 'flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 cursor-pointer';
                 const image = document.createElement('img');
                 image.src = src;
-                image.className = 'w-full h-full object-cover rounded-lg shadow-lg';
+                image.className = 'w-full h-full object-cover';
                 imageWrapper.appendChild(image);
                 imageContainer.appendChild(imageWrapper);
             });
             const addButton = document.createElement('div');
-            addButton.className = 'flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 cursor-pointer add-image hover:bg-neutral-300 transition';
+            addButton.className = 'flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 cursor-pointer add-image';
             const addIcon = document.createElement('span');
             addIcon.className = 'text-6xl';
             addIcon.innerText = '+';
@@ -199,35 +187,16 @@
 
         document.getElementById('left-arrow').addEventListener('click', function() {
             if (imageList.length > 0) {
-                mainImage.classList.add('image-hide');
-                setTimeout(() => {
-                    currentIndex = (currentIndex - 1 + imageList.length) % imageList.length;
-                    mainImage.src = imageList[currentIndex];
-                    mainImage.classList.remove('image-hide');
-                    mainImage.classList.add('image-show');
-                }, 500);
+                currentIndex = (currentIndex - 1 + imageList.length) % imageList.length;
+                mainImage.src = imageList[currentIndex];
             }
         });
 
         document.getElementById('right-arrow').addEventListener('click', function() {
             if (imageList.length > 0) {
-                mainImage.classList.add('image-hide');
-                setTimeout(() => {
-                    currentIndex = (currentIndex + 1) % imageList.length;
-                    mainImage.src = imageList[currentIndex];
-                    mainImage.classList.remove('image-hide');
-                    mainImage.classList.add('image-show');
-                }, 500);
+                currentIndex = (currentIndex + 1) % imageList.length;
+                mainImage.src = imageList[currentIndex];
             }
-        });
-
-        // Category dropdown handling
-        document.querySelectorAll('input[name="category"]').forEach(radio => {
-            radio.addEventListener('change', function() {
-                const selectedCategory = document.querySelector('input[name="category"]:checked + label').innerText;
-                document.getElementById('dropdownRadioBgHoverButton1').innerText = selectedCategory;
-                document.getElementById('dropdownRadioBgHover1').classList.add('hidden');
-            });
         });
 
         updateImageContainer();

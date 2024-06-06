@@ -29,6 +29,9 @@ public class GetAllLikedItems extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+        try {
+
         HttpSession session = request.getSession(false);
 
         if(session != null) {
@@ -56,5 +59,8 @@ public class GetAllLikedItems extends HttpServlet {
         String jspPage = "/WEB-INF/views/wishlist.jsp";
         RequestDispatcher dispatcher = request.getRequestDispatcher(jspPage);
         dispatcher.forward(request, response);
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 }
