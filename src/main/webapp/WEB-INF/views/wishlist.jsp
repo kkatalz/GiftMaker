@@ -1,5 +1,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="entity.LikedItem" %>
+<%@ page import="entity.ItemInCart" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
     <title>WishList</title>
@@ -14,10 +15,14 @@
         }
 
         .clicked {
-            background-color: #97CDFF !important;
+            background-color: #BFDBFE !important;
+        }
 
+        .in-basket {
+            background-color: #BFDBFE !important;
         }
     </style>
+
 </head>
 <%--WISHLIST--%>
 
@@ -39,6 +44,7 @@
 
     <%
         List<LikedItem> likedItems = (List<LikedItem>) session.getAttribute("likedItems");
+
         if (likedItems != null) {
             for (LikedItem likedItem : likedItems) {
     %>
@@ -52,27 +58,40 @@
                 </button>
             </form>
         </div>
+        <%
+            List<ItemInCart> itemsInCart = (List<ItemInCart>) session.getAttribute("itemsInCart");
+
+            boolean isInBasket = false;
+            if (itemsInCart != null) {
+                for (ItemInCart itemInCart : itemsInCart) {
+                    if (itemInCart.getItem().getId() == likedItem.getItem().getId()) {
+                        isInBasket = true;
+                        break;
+                    }
+                }
+            }
+        %>
         <div class="flex items-center gap-8">
-            <img src="data:image/png;base64,<%= likedItem.getItem().getBase64Images().get(0) %>"
-                 alt="<%= likedItem.getItem().getName() %>"
-                 class="min-w-[150px] max-w-[150px] rounded-lg h-[100px] object-cover"/>
+            <% if (likedItem.getItem() != null && likedItem.getItem().getBase64Images() != null && !likedItem.getItem().getBase64Images().isEmpty()) { %>
+            <img src="data:image/png;base64,<%=likedItem.getItem().getBase64Images().get(0)%>" alt="item" class="min-w-[150px] max-w-[150px] rounded-lg h-[100px] object-cover shadow-lg"/>
+            <% } else { %>
+            <img src="<%=request.getContextPath()%>/gift-picture.svg" alt="default image" class="min-w-[150px] max-w-[150px] rounded-lg h-[100px] object-cover shadow-lg"/>
+            <% } %>
             <div class="flex flex-col">
-                <h5 class="text-lg font-light">id: <%= likedItem.getItem().getId() %>
-                </h5>
-
-                <a href="<%=request.getContextPath()%>/itemDetails?id_item=<%=likedItem.getItem().getId()%>">
-                    <h4 class="text-2xl font-medium line-clamp-3"><%= likedItem.getItem().getName() %>
-                    </h4>
+                <h5 class="text-lg font-light">id: <%= likedItem.getItem().getId() %></h5>
+                <a href="<%=request.getContextPath()%>/itemDetails?id_item=<%=likedItem.getItem().getId()%>"><h4
+                        class="text-2xl font-medium line-clamp-3"><%=likedItem.getItem().getName()%>
+                </h4>
                 </a>
-
             </div>
         </div>
-        <h4 class="text-2xl font-medium flex items-center justify-center"><%= likedItem.getItem().getPrice() %>
-        </h4>
-        <button class="w-[70%] cursor-pointer bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-90 flex self-center p-3 items-center justify-between px-4 text-white text-3xl font-medium flex-shrink addedToBasket">
+        <h4 class="text-2xl font-medium flex items-center justify-center"><%= likedItem.getItem().getPrice() %></h4>
+        <button class="w-[70%] cursor-pointer bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70 flex self-center p-3 items-center justify-between px-4 text-white text-3xl font-medium flex-shrink addedToBasket <%= isInBasket ? "in-basket" : "" %>"
+                data-item-id="<%= likedItem.getItem().getId() %>">
             Buy
-            <img src="<%= request.getContextPath() %>/buyIcon.svg" alt="buyIcon"/>
+            <img src="<%= request.getContextPath() %>/<%= isInBasket ? "basketFilled.svg" : "buyIcon.svg" %>" alt="buyIcon" class="w-8 h-8 basket-icon"/>
         </button>
+
     </div>
     <%
             }
@@ -85,7 +104,31 @@
         let basketButtons = document.getElementsByClassName('addedToBasket');
         for (let i = 0; i < basketButtons.length; i++) {
             basketButtons[i].addEventListener('click', function () {
-                this.classList.toggle('clicked');
+                const itemId = this.getAttribute('data-item-id');
+                const currentElement = this;
+
+                fetch('<%=request.getContextPath()%>/updateBasketItem', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: new URLSearchParams({
+                        'itemId': itemId
+                    })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            this.classList.toggle('clicked');
+                            const icon = currentElement.querySelector('.basket-icon');
+                            icon.src = icon.src.includes('buyIcon.svg') ? '<%=request.getContextPath()%>/basketFilled.svg' : '<%=request.getContextPath()%>/buyIcon.svg';
+                        } else {
+                            alert('Failed to update basket');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
             });
         }
     });

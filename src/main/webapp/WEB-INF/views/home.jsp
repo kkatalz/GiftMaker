@@ -29,7 +29,7 @@
         <%--        visible only for Manager--%>
         <div class="flex justify-center items-center flex-col">
             <img src="<%=request.getContextPath()%>/giftsProposed.svg" alt="giftsProposed" class="w-10 cursor-pointer ">
-            <a class="text-sm font-medium" href="offeredItems">Gifts</a>
+            <a class="text-sm font-medium" href="offeredGifts">Gifts</a>
         </div>
 
         <div class="flex justify-center items-center flex-col">
@@ -108,7 +108,7 @@
 
 
     document.getElementById('create_item').addEventListener('click', function () {
-        window.location.href = '/GiftMaker/createItem';
+        window.location.href = '/GiftMaker/createItemDetails';
     });
 
 

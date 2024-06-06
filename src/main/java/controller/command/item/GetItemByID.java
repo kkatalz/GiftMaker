@@ -2,7 +2,9 @@ package controller.command.item;
 
 import entity.Item;
 import entity.User;
+import service.ItemInCartService;
 import service.ItemService;
+import service.LikedItemService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,21 +24,30 @@ import java.util.Optional;
 public class GetItemByID extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws IOException, ServletException {
         HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("currentUser");
 
-
-        int itemID = Integer.parseInt(request.getParameter("id_item")==null? "0" : request.getParameter("id_item"));
+        int itemID = Integer.parseInt(request.getParameter("id_item") == null ? "0" : request.getParameter("id_item"));
         System.out.println(" 1 itemID: " + itemID);
         Optional<Item> item = ItemService.getInstance().getById(itemID);
         System.out.println(" 1 item: " + item);
-//        item.ifPresent(value -> session.setAttribute("item", value));
+        LikedItemService likedItemService = LikedItemService.getInstance();
+        ItemInCartService itemInCartService = ItemInCartService.getInstance();
 
-        if(item.isPresent()){
+        session.setAttribute("likedItems", likedItemService.getLikedItemsByUserId(user.getId()));
+        try {
+            session.setAttribute("itemsInCart", itemInCartService.getItemsInCartByUserId(user.getId()));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        if (item.isPresent()) {
             System.out.println(" 2 item: " + item.get());
             session.setAttribute("item", item.get());
 
-        }else{
+        } else {
             System.out.println("not found item");
         }
         String jspPage = "/WEB-INF/views/itemDetails.jsp";

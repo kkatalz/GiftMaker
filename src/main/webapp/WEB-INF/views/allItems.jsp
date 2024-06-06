@@ -80,12 +80,12 @@
         </div>
         <div class="flex gap-2 items-center">
             <div class="flex justify-between items-center bg-white border border-gray-300 text-gray-700 py-3 px-4 rounded">
-                <input name="fromDate" type="number" class="text-lg italic outline-none w-14" min="0"
+                <input name="fromDate" type="number" class="text-lg italic outline-none w-16" min="0"
                        placeholder="From">
             </div>
             <h4 class="text-2xl font-semibold text-gray-700">-</h4>
             <div class="flex justify-between items-center bg-white border border-gray-300 text-gray-700 py-3 px-4 rounded">
-                <input name="toDate" type="number" class="text-lg italic outline-none w-14" placeholder="To y.o."
+                <input name="toDate" type="number" class="text-lg italic outline-none w-16" placeholder="To y.o."
                        max="120">
             </div>
         </div>
@@ -141,9 +141,9 @@
             <div class="flex items-center justify-center bg-white relative h-56 w-56 p-4 rounded-lg border-gray-700 border shadow">
                 <div class="flex items-center justify-center flex-col gap-2">
                     <% if (item != null && item.getBase64Images() != null && !item.getBase64Images().isEmpty()) { %>
-                    <img src="data:image/png;base64,<%=item.getBase64Images().get(0)%>" alt="item" class="w-32 h-32"/>
+                    <img src="data:image/png;base64,<%=item.getBase64Images().get(0)%>" alt="item" class="w-32 h-24 shadow-lg rounded-lg object-cover"/>
                     <% } else { %>
-                    <img src="<%=request.getContextPath()%>/gift-picture.svg" alt="default image" class="w-32 h-32"/>
+                    <img src="<%=request.getContextPath()%>/gift-picture.svg" alt="default image" class="w-32 h-24 shadow-lg rounded-lg object-cover"/>
                     <% } %>
                     <a href="<%=request.getContextPath()%>/itemDetails?id_item=<%=item.getId()%>"><h4
                             class="text-base font-medium leading-5 line-clamp-2 min-h-[40px] w-48"><%=item.getName()%>

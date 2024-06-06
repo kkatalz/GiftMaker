@@ -1,8 +1,11 @@
 package controller.command.possibleItem;
 
 import entity.User;
+import service.CategoryService;
 import service.PossibleItemService;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,32 +17,33 @@ import java.io.IOException;
  * Available only for administrator. Get all possible items from the database.
  */
 
-@WebServlet("/getAllPossibleItems")
+@WebServlet("/offeredGifts")
 public class GetAllPossibleItems extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         HttpSession session = request.getSession(false);
         String jspPage;
         if(session == null) {
-            // TODO: unauthorized access
-            jspPage = "/home";
+            jspPage = "/WEB-INF/views/login.jsp";
+
 
         } else {
             User user = (User) session.getAttribute("currentUser");
+            CategoryService categoryService = CategoryService.getInstance();
 
             if(user != null && user.getRole().getValue().equals("administrator")) {
                 session.setAttribute("possibleItems", PossibleItemService.getInstance().getAllPossibleItems());
-                // TODO: success after getting all possible items, go to the page with all possible items
-                jspPage = "";
+                session.setAttribute("categories", categoryService.getAllCategories());
+                jspPage = "/WEB-INF/views/offeredGifts.jsp";
             }
             else {
-                // TODO: unauthorized access
-                jspPage = "/home";
+                jspPage = "/WEB-INF/views/login.jsp";
+
             }
         }
 
-        String redirectURL = request.getContextPath() + jspPage;
-        response.sendRedirect(redirectURL);
+        RequestDispatcher dispatcher = request.getRequestDispatcher(jspPage);
+        dispatcher.forward(request, response);
     }
 }

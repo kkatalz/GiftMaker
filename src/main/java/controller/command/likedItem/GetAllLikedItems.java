@@ -2,8 +2,10 @@ package controller.command.likedItem;
 
 import dao.DaoFactory;
 import entity.Item;
+import entity.ItemInCart;
 import entity.LikedItem;
 import entity.User;
+import service.ItemInCartService;
 import service.ItemService;
 import service.LikedItemService;
 
@@ -27,23 +29,37 @@ public class GetAllLikedItems extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+        try {
+
         HttpSession session = request.getSession(false);
 
         if(session != null) {
             List<LikedItem> items = new ArrayList<>();
+            List<ItemInCart> itemsInCart = new ArrayList<>();
             User user = (User) session.getAttribute("currentUser");
             LikedItemService likedItemService = LikedItemService.getInstance();
-            if(user != null)
+            ItemInCartService itemInCartService = ItemInCartService.getInstance();
+            if(user != null){
                 items = likedItemService.getLikedItemsByUserId(user.getId());
+                try {
+                    itemsInCart = itemInCartService.getItemsInCartByUserId(user.getId());
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            }
 
 
             session.setAttribute("likedItems", items);
-            System.out.println(items);
+            session.setAttribute("itemsInCart", itemsInCart);
 
         }
 
         String jspPage = "/WEB-INF/views/wishlist.jsp";
         RequestDispatcher dispatcher = request.getRequestDispatcher(jspPage);
         dispatcher.forward(request, response);
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 }
