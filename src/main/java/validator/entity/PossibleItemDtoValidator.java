@@ -1,6 +1,7 @@
 package validator.entity;
 
 import dto.PossibleItemDto;
+import locale.Message;
 import validator.field.AbstractFieldValidatorHandler;
 import validator.field.FieldValidatorKey;
 import validator.field.FieldValidatorsChainGenerator;
@@ -27,6 +28,8 @@ public class PossibleItemDtoValidator implements Validator<PossibleItemDto> {
         fieldValidator.validateField(FieldValidatorKey.PRICE, dto.getPrice(), errors);
         fieldValidator.validateField(FieldValidatorKey.DESCRIPTION, dto.getDescription(), errors);
         fieldValidator.validateField(FieldValidatorKey.AGE, dto.getAge(), errors);
+        if(dto.getParts().isEmpty())
+            errors.add(Message.INVALID_IMAGES);
 
         return errors;
     }
