@@ -1,7 +1,8 @@
+<!DOCTYPE html>
 <%@ page import="entity.User" %>
 <%@ page import="entity.Role" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<html lang="en">
 <head>
     <title>Home Page</title>
     <meta charset="UTF-8">
@@ -11,6 +12,7 @@
 </head>
 <%--    HOME PAGE--%>
 <%--1.    header--%>
+<body>
 
 <%@include file="header.jsp"%><%--2. main body--%>
 <div class="text flex justify-between items-center text-xl font-medium mx-80 mt-12 ">
@@ -63,7 +65,7 @@
     </button>
 </div>
 
-
+</body>
 <script>
 
 
@@ -80,3 +82,4 @@
     }
 
 </script>
+</html>

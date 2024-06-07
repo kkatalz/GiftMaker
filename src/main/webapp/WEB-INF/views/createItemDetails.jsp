@@ -90,12 +90,7 @@
                                        placeholder="Age" min="0" max="120" required>
                             </label>
                         </div>
-                        <div class="flex items-center p-3 text-2xl font-bold rounded-lg border border-neutral-200 w-[60%]">
-                            <label>
-                                <input type="number" name="amount" class="w-full placeholder:italic outline-none "
-                                       placeholder="Amount" min="0" required>
-                            </label>
-                        </div>
+
                     </div>
                 </div>
             </div>

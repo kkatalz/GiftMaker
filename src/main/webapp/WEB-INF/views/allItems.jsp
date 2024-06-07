@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
 <%@ page import="entity.Item" %>
@@ -12,11 +14,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+<%@include file="header.jsp" %>
 
 <form method="POST" action="allItems" class="bg-blue-100 min-h-[100vh] pb-20">
 
 
-    <%@include file="header.jsp" %>
     <div class="flex justify-end mr-10">
 
 
@@ -157,14 +159,20 @@
                         <h4 class="text-medium font-medium">UAH</h4>
                     </div>
                 </div>
+                <%
+                    if(user.getRole() == Role.CLIENT){
+                %>
                 <div class="flex flex-col absolute top-2 right-2 gap-1">
                     <img src="<%=request.getContextPath()%>/<%=isLiked ? "likedFilled.svg" : "likedBlue.svg"%>"
                          alt="likedBlue" class="w-8 cursor-pointer likedItem" data-item-id="<%=item.getId()%>"/>
                     <img src="<%=request.getContextPath()%>/<%=isInBasket ? "basketFilled.svg" : "basketBlue.svg"%>"
                          alt="basketBlue" class="w-8 cursor-pointer basketFilled" data-item-id="<%=item.getId()%>"/>
                 </div>
+                <%
+                    }%>
             </div>
             <%
+
                     }
                 }
             %>

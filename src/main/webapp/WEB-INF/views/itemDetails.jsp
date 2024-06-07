@@ -106,6 +106,9 @@
             </div>
         </div>
 
+        <%
+            if(user.getRole() == Role.CLIENT){
+        %>
         <div class="flex justify-content items-center gap-5 ">
             <button class="w-48  bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-90 flex items-center justify-between px-6 py-3 text-white text-3xl font-medium addedToBasket <%=isInBasket ? "clicked" : " "%>"
                     data-item-id="<%=item.getId()%>">
@@ -118,6 +121,8 @@
                  alt="likedBlue" class="w-8 cursor-pointer likedItem" data-item-id="<%=item.getId()%>"/>
 
         </div>
+        <%
+            }%>
 
     </div>
 </div>
@@ -129,7 +134,6 @@
 <%
     }
 %>
-
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         let currentImageIndex = 0;
@@ -164,6 +168,12 @@
                 updateMainImage(index + 1);
             });
         });
+
+        // Hide arrows if there is only one image
+        if (base64Images.length <= 1) {
+            leftArrow.style.display = 'none';
+            rightArrow.style.display = 'none';
+        }
 
         let likedItems = document.getElementsByClassName('likedItem');
         for (let i = 0; i < likedItems.length; i++) {
