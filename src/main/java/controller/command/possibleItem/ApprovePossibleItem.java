@@ -18,11 +18,18 @@ import java.io.IOException;
 
 /**
  * To approve offered gift (possible item) and add it to the database. Function available only for
- * administrator.
+ * administrators.
  */
 
 @WebServlet("/approveItem")
 public class ApprovePossibleItem extends HttpServlet {
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String jspPage = "/home";
+        String redirectURL = request.getContextPath() + jspPage;
+        response.sendRedirect(redirectURL);
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -53,7 +60,10 @@ public class ApprovePossibleItem extends HttpServlet {
                 ItemService.getInstance().create(itemDto);
 
                 session.setAttribute("possibleItems", PossibleItemService.getInstance().getAllPossibleItems());
-                jspPage = "/WEB-INF/views/offeredGifts.jsp";
+                jspPage = "/offeredItems";
+                String redirectURL = request.getContextPath() + jspPage;
+                response.sendRedirect(redirectURL);
+                return;
 
 
             }

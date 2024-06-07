@@ -20,6 +20,14 @@ import java.io.IOException;
 public class DeletePossibleItem extends HttpServlet {
 
     @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String jspPage = "/home";
+        String redirectURL = request.getContextPath() + jspPage;
+        response.sendRedirect(redirectURL);
+    }
+
+
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(false);
         String jspPage;
@@ -34,7 +42,10 @@ public class DeletePossibleItem extends HttpServlet {
                 PossibleItemService.getInstance().delete(itemId);
 
                 session.setAttribute("possibleItems", PossibleItemService.getInstance().getAllPossibleItems());
-                jspPage = "/WEB-INF/views/offeredGifts.jsp";
+                jspPage = "/offeredItems";
+                String redirectURL = request.getContextPath() + jspPage;
+                response.sendRedirect(redirectURL);
+                return;
             }
             else {
                 jspPage = "/WEB-INF/views/login.jsp";
