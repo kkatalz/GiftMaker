@@ -71,9 +71,9 @@
             <a class="text-[#6AB7FF] underline" href="register">Sign up</a>
         </div>
 
-        <div class="text-lg flex flex-col gap-3 w-[20vw]">
-            <input name="username" type="text" class="p-3 rounded-lg bg-neutral-100" placeholder="Username">
-            <input name="password" type="password" class="p-3 rounded-lg bg-neutral-100" placeholder="Password">
+        <div class="text-lg flex flex-col gap-3 w-full">
+            <input name="username" type="text" class="p-3 rounded-lg bg-neutral-100 w-full" placeholder="Username">
+            <input name="password" type="password" class="p-3 rounded-lg bg-neutral-100 w-full" placeholder="Password">
         </div>
 
         <!-- Error Message Display with Embedded Java -->

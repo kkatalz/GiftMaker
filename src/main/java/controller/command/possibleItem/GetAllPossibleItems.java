@@ -17,7 +17,7 @@ import java.io.IOException;
  * Available only for administrator. Get all possible items from the database.
  */
 
-@WebServlet("/offeredGifts")
+@WebServlet("/administrator/offeredGifts")
 public class GetAllPossibleItems extends HttpServlet {
 
     @Override
@@ -39,7 +39,6 @@ public class GetAllPossibleItems extends HttpServlet {
             }
             else {
                 jspPage = "/WEB-INF/views/login.jsp";
-
             }
         }
 

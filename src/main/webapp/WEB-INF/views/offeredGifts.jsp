@@ -85,10 +85,10 @@
                 </div>
                 <h4 class="text-2xl font-medium flex items-center justify-center"><%= item.getPrice() %> UAH</h4>
                 <div class="flex items-center justify-center">
-                    <form method="post" action="<%=request.getContextPath()%>/approveItem">
+                    <form method="post" action="<%=request.getContextPath()%>/approveItem" onsubmit="return validateCategory('<%= item.getId() %>')">
                         <input type="hidden" name="possibleItemId" value="<%= item.getId() %>">
                         <input type="hidden" name="idCategory" id="idCategory-<%= item.getId() %>" value="">
-                        <button type="submit" class="flex justify-center w-[50%] cursor-pointer bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70  p-3 px-4 text-white text-3xl font-medium">
+                        <button id="publishButton<%= item.getId() %>" type="submit" class="flex justify-center w-full cursor-pointer bg-[#6AB7FF] rounded-lg transition duration-500 hover:opacity-70  p-3 px-4 text-white text-3xl font-medium">
                             Publish
                         </button>
                     </form>
@@ -98,9 +98,21 @@
                 // Add event listeners for category selection
                 document.querySelectorAll('input[name="default-radio-<%= item.getId() %>"]').forEach(radio => {
                     radio.addEventListener('change', (event) => {
+                        let selectedCategory = event.target.nextElementSibling.innerText;
                         document.getElementById('idCategory-<%= item.getId() %>').value = event.target.value;
+                        document.getElementById('dropdownRadioBgHoverButton<%= item.getId() %>').innerText = selectedCategory;
                     });
                 });
+
+                // Validate category selection before submitting
+                function validateCategory(itemId) {
+                    const categoryId = document.getElementById('idCategory-' + itemId).value;
+                    if (!categoryId) {
+                        alert('Please select a category before publishing.');
+                        return false;
+                    }
+                    return true;
+                }
             </script>
             <% } %>
         </div>

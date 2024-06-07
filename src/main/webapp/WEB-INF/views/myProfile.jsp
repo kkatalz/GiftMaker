@@ -21,9 +21,6 @@
                 <h4 class="font-bold text-2xl">My profile</h4>
             </div>
 
-            <%
-                User user = (User) session.getAttribute("currentUser");
-            %>
 
             <div class="text-lg flex flex-col gap-3 w-[60%] mt-6">
                 <h4 class="p-3 rounded-lg bg-neutral-100 text-neutral-500 italic">role: <%= user.getRole() %>

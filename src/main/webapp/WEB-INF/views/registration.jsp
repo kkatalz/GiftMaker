@@ -89,7 +89,7 @@
             <a class="text-[#6AB7FF] underline" href="login">Log in</a>
         </div>
 
-        <div class="text-lg flex flex-col gap-3 w-[20vw]">
+        <div class="text-lg flex flex-col gap-3 w-full">
             <input name="firstName" type="text" class="p-3 rounded-lg bg-neutral-100" placeholder="First Name">
             <input name="lastName" type="text" class="p-3 rounded-lg bg-neutral-100" placeholder="Last Name">
             <input name="dateOfBirth" type="date" class="p-3 rounded-lg bg-neutral-100" placeholder="Date of birth">

@@ -11,7 +11,7 @@
 <body>
 <div class="overflow-hidden min-h-[100vh] pb-20">
     <%@include file="header.jsp" %>
-    <form method="post" action="client/createItemDetails" enctype="multipart/form-data" class="flex justify-center items-start gap-8 mx-[6%] my-[1.5%]">
+    <form method="post" action="createItemDetails" enctype="multipart/form-data" class="flex justify-center items-start gap-8 mx-[6%] my-[1.5%]">
         <div class="flex gap-8 mt-8">
             <div id="image-container" class="flex flex-col gap-3 max-h-[450px] overflow-y-auto pr-4 text-6xl max-w-32">
                 <div class="flex justify-center items-center min-h-32 min-w-32 max-w-32 max-h-32 rounded-lg bg-neutral-200 cursor-pointer add-image">

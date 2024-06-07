@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-@WebFilter(urlPatterns = { "/admin/*", "/client/*" })
+@WebFilter(urlPatterns = { "/administrator/*", "/client/*" })
 public class UrlUnauthorizedAccessFilter implements Filter {
 
     private static final String UNAUTHORIZED_ACCESS = "Unauthorized access to the resource: ";
@@ -40,6 +40,8 @@ public class UrlUnauthorizedAccessFilter implements Filter {
             Map<String, String> urlParams = new HashMap<>();
             urlParams.put("error", Message.UNAUTHORIZED_ACCESS_ERROR);
             // redirect to login page
+            System.out.println(httpRequest.getRequestURI() + "requestURI");
+            System.out.println(user + "user");
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/login?error=" + Message.UNAUTHORIZED_ACCESS_ERROR);
 
 
