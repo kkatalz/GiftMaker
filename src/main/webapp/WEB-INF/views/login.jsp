@@ -65,21 +65,28 @@
 <div class="bg-blue-100 h-[100vh] flex justify-center items-center flex-col gap-1">
 
     <form id="loginForm" class="text-center bg-white py-10 px-20 rounded-lg shadow" action="./login" method="POST" role="form">
-        <h2 class="text-4xl font-bold ">Welcome back!</h2>
+        <h2 class="text-4xl font-bold">Welcome back!</h2>
         <div class="text-lg flex justify-center gap-3 mb-4 mt-1">
             <h4>Don't have an account yet?</h4>
             <a class="text-[#6AB7FF] underline" href="register">Sign up</a>
         </div>
 
-        <div class="text-lg flex flex-col gap-3  w-[20vw]">
+        <div class="text-lg flex flex-col gap-3 w-[20vw]">
             <input name="username" type="text" class="p-3 rounded-lg bg-neutral-100" placeholder="Username">
             <input name="password" type="password" class="p-3 rounded-lg bg-neutral-100" placeholder="Password">
         </div>
-        <c:if test="${not empty requestScope.errors}">
-            <div class="alert alert-danger">
-                    ${requestScope.errors}
-            </div>
-        </c:if>
+
+        <!-- Error Message Display with Embedded Java -->
+        <%
+            String errorMessage = request.getParameter("error");
+            if (errorMessage != null && !errorMessage.isEmpty()) {
+        %>
+        <div class="mt-4 text-red-500 text-lg">
+            <%= errorMessage %>
+        </div>
+        <%
+            }
+        %>
 
         <button type="submit" class="p-3 rounded-lg bg-[#6AB7FF] text-white font-bold w-full mt-4 text-lg transition-all duration-300 hover:opacity-80">
             Log in

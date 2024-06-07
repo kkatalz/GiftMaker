@@ -108,7 +108,7 @@
 
 
     document.getElementById('create_item').addEventListener('click', function () {
-        window.location.href = '/GiftMaker/createItemDetails';
+        window.location.href = '/GiftMaker/client/createItemDetails';
     });
 
 

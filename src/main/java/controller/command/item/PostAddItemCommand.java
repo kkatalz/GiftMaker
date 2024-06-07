@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@WebServlet("/createItemDetails")
+@WebServlet("/client/createItemDetails")
 @MultipartConfig
 public class PostAddItemCommand extends HttpServlet {
 

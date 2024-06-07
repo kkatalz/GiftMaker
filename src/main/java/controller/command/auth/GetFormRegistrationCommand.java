@@ -57,6 +57,7 @@ public class GetFormRegistrationCommand extends HttpServlet {
                 request.setAttribute("errors", errors);
                 errorRedirect(request, response);
             }
+
         }
 
         private List<String> validateUserInput(UserDto user) {
