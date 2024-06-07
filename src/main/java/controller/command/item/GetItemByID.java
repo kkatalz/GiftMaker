@@ -24,10 +24,10 @@ import java.util.Optional;
 public class GetItemByID extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws IOException, ServletException {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("currentUser");
-
 
         int itemID = Integer.parseInt(request.getParameter("id_item") == null ? "0" : request.getParameter("id_item"));
         System.out.println(" 1 itemID: " + itemID);

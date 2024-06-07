@@ -28,7 +28,7 @@
 
 <div class="min-h-[100vh] pb-20">
 
-    <jsp:include page="header.jsp" />
+    <jsp:include page="header.jsp"/>
 
     <div class="flex justify-center items-center flex-col">
         <img src="<%= request.getContextPath() %>/liked.svg" alt="liked-items" class="w-16">
@@ -50,10 +50,11 @@
     %>
     <div class="custom-grid mt-12">
         <div class="flex items-center justify-center">
-            <form action="<%= request.getContextPath() %>/deleteLikedItem" method="post" onsubmit="return confirm('Are you sure you want to delete this item?');">
+            <form action="<%= request.getContextPath() %>/deleteLikedItem" method="post"
+                  onsubmit="return confirm('Are you sure you want to delete this item?');">
                 <input type="hidden" name="idItem" value="<%= likedItem.getItem().getId() %>"/>
                 <button type="submit" class="w-10 cursor-pointer flex items-center justify-center">
-                    <img src="<%= request.getContextPath() %>/bin.svg" alt="bin" />
+                    <img src="<%= request.getContextPath() %>/bin.svg" alt="bin"/>
                 </button>
             </form>
         </div>
