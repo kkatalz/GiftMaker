@@ -29,7 +29,7 @@
                 class="px-16 py-4 rounded-lg shadow-lg bg-white font-bold text-2xl transition duration-300 ease-in hover:ease-in hover:scale-[1.2] goToAllItems">
             Generate gift
         </button>
-        <button id="create_item"
+        <button id="<%=user.getRole() == Role.CLIENT ? "create_item": "offered_gifts"%>"
                 class="py-2 px-10 ml-16 rounded-lg shadow-md bg-white font-bold text-xl transition duration-300 ease-in hover:ease-in hover:scale-[1.1]">
             Create gift
         </button>
@@ -67,8 +67,8 @@
 <script>
 
 
-    document.getElementById('create_item').addEventListener('click', function () {
-        window.location.href = '/GiftMaker/client/createItemDetails';
+    document.getElementById("<%=user.getRole() == Role.CLIENT ? "create_item": "offered_gifts"%>").addEventListener('click', function () {
+        window.location.href = '/GiftMaker/<%=user.getRole() == Role.CLIENT ? "client/createItemDetails": "administrator/offeredGifts"%>';
     });
 
 

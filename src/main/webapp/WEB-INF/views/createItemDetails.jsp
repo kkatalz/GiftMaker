@@ -11,7 +11,7 @@
 <body>
 <div class="overflow-hidden min-h-[100vh] pb-20">
     <%@include file="header.jsp" %>
-    <form method="post" action="createItemDetails" enctype="multipart/form-data" class="flex justify-center items-start gap-8 mx-[6%] my-[1.5%]">
+    <form method="post" action="createItemDetails" enctype="multipart/form-data" class="flex justify-center items-start gap-8 mx-[6%] my-[1.5%]" onsubmit="return validateCategory()">
         <div class="flex gap-8 mt-8">
             <div id="image-container" class="flex flex-col gap-3 max-h-[450px] overflow-y-auto pr-4 text-6xl max-w-32">
                 <div class="flex justify-center items-center min-h-32 min-w-32 max-w-32 max-h-32 rounded-lg bg-neutral-200 cursor-pointer add-image">
@@ -61,6 +61,7 @@
                     %>
                 </ul>
             </div>
+            <input type="hidden" name="selectedCategory" id="selectedCategory" value="">
             <div>
                 <div class="flex gap-2">
                     <h4 class="text-xl font-light">id: </h4>
@@ -107,6 +108,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // JavaScript for handling image uploads and displaying them (same as previous)
         const mainImageContainer = document.getElementById('main-image-container');
         const mainImage = document.getElementById('main-image');
         const mainPlus = document.getElementById('main-plus');
@@ -200,7 +202,25 @@
         });
 
         updateImageContainer();
+
+        // JavaScript for category selection and validation
+        document.querySelectorAll('input[name="category"]').forEach(radio => {
+            radio.addEventListener('change', (event) => {
+                let selectedCategory = event.target.nextElementSibling.innerText;
+                document.getElementById('selectedCategory').value = event.target.value;
+                document.getElementById('dropdownRadioBgHoverButton1').innerText = selectedCategory;
+            });
+        });
     });
+
+    function validateCategory() {
+        const selectedCategory = document.getElementById('selectedCategory').value;
+        if (!selectedCategory) {
+            alert('Please select a category before publishing.');
+            return false;
+        }
+        return true;
+    }
 </script>
 </body>
 </html>
