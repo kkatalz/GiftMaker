@@ -22,7 +22,7 @@
 
         <!-- Add a login redirect button -->
         <div class="mt-6">
-            <a class="text-[#6AB7FF] underline" href="login">Log In to explore Gifts</a>
+            <a class="text-[#6AB7FF] underline text-xl" href="login">Log In to explore Gifts</a>
         </div>
     </div>
 </div>
