@@ -48,6 +48,11 @@
         <%
             }
         %>
+
+        <div class="flex justify-center items-center flex-col">
+            <img src="<%=request.getContextPath()%>/logout.svg" alt="logout-icon" class="w-10 cursor-pointer">
+            <a class="text-sm font-medium" href="<%=request.getContextPath()%>/logout">Log Out</a>
+        </div>
     </div>
 </div>
 

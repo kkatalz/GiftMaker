@@ -1,7 +1,7 @@
 <%@ page import="entity.User" %>
 <%@ page import="entity.Role" %>
 <div class="text flex justify-between items-center px-10 py-3">
-    <a href="home">
+    <a href="<%=request.getContextPath()%>/home">
         <img src="<%=request.getContextPath()%>/logoBlack.svg" alt="logo" class="w-40 cursor-pointer">
 
     </a>
@@ -11,7 +11,7 @@
         <div class="flex justify-center items-center flex-col">
             <img src="<%=request.getContextPath()%>/myProfile.svg" alt="profile-icon" class="w-10 cursor-pointer ">
 
-            <a class="text-sm font-medium" href="myProfile">My profile</a>
+            <a class="text-sm font-medium" href="<%=request.getContextPath()%>/myProfile">My profile</a>
         </div>
 
         <%
@@ -21,7 +21,7 @@
         %>
         <div class="flex justify-center items-center flex-col">
             <img src="<%=request.getContextPath()%>/giftsProposed.svg" alt="giftsProposed" class="w-10 cursor-pointer ">
-            <a class="text-sm font-medium" href="administrator/offeredGifts">Gifts</a>
+            <a class="text-sm font-medium" href="<%=request.getContextPath()%>/administrator/offeredGifts">Gifts</a>
         </div>
         <%
             }
@@ -33,18 +33,22 @@
         %>
         <div class="flex justify-center items-center flex-col">
             <img src="<%=request.getContextPath()%>/liked.svg" alt="liked-items" class="w-10 cursor-pointer">
-            <a class="text-sm font-medium" href="likedItems">Liked</a>
+            <a class="text-sm font-medium" href="<%=request.getContextPath()%>/likedItems">Liked</a>
 
         </div>
 
 
         <div class="flex justify-center items-center flex-col">
             <img src="<%=request.getContextPath()%>/basket.svg" alt="basket-icon" class="w-10 cursor-pointer">
-            <a class="text-sm font-medium" href="itemsInCart">Basket</a>
+            <a class="text-sm font-medium" href="<%=request.getContextPath()%>/itemsInCart">Basket</a>
 
         </div>
         <%
             }%>
+        <div class="flex justify-center items-center flex-col">
+            <img src="<%=request.getContextPath()%>/logout.svg" alt="logout-icon" class="w-10 cursor-pointer">
+            <a class="text-sm font-medium" href="<%=request.getContextPath()%>/logout">Log Out</a>
+        </div>
     </div>
 
 </div>
