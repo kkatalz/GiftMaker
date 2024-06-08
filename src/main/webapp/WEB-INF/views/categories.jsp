@@ -9,13 +9,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-100 min-h-screen p-6 flex flex-col items-center justify-center">
+<body class="bg-blue-100 min-h-screen p-6 flex flex-col items-center justify-center">
 <div class="w-full">
 
 <%@include file="header.jsp" %>
 </div>
 
-<div class="w-full max-w-4xl bg-white shadow-md rounded-lg p-6">
+<div class="w-full max-w-4xl bg-white shadow-md rounded-lg p-6 font-bold">
     <h2 class="text-2xl font-bold mb-4">Categories</h2>
 
     <!-- Form to add new category -->
