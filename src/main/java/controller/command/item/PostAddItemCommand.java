@@ -25,7 +25,11 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @WebServlet("/client/createItemDetails")
-@MultipartConfig
+@MultipartConfig(
+        fileSizeThreshold = 1024 * 1024 * 1, // 1 MB
+        maxFileSize = 1024 * 1024 * 10,      // 10 MB
+        maxRequestSize = 1024 * 1024 * 100   // 100 MB
+)
 public class PostAddItemCommand extends HttpServlet {
 
     @Override
@@ -33,15 +37,11 @@ public class PostAddItemCommand extends HttpServlet {
         String jspPage = "/WEB-INF/views/createItemDetails.jsp";
         HttpSession session = request.getSession(false);
         if (session != null) {
-            User user = (User) session.getAttribute("currentUser");
-//            if(user != null && user.getRole().getValue().equals("administrator")) {
                 List<Category> categories = CategoryService.getInstance().getAllCategories();
                 session.setAttribute("categories", categories);
 
                 RequestDispatcher dispatcher = request.getRequestDispatcher(jspPage);
                 dispatcher.forward(request, response);
-//                return;
-//            }
         }else {
             response.sendRedirect(request.getContextPath() + "/login");
         }
@@ -85,8 +85,10 @@ public class PostAddItemCommand extends HttpServlet {
     }
 
     private PossibleItemDto getInput(HttpServletRequest request) throws ServletException, IOException {
-        List<Part> parts = request.getParts().stream().filter(part -> part.getName().startsWith("file-") && part.getSize() > 0)
+        List<Part> parts = request.getParts().stream().filter(part -> part.getName().startsWith("file") && part.getSize() > 0)
                 .collect(Collectors.toList());
+
+        System.out.println(request.getParts().size());
 
         System.out.println(request.getParameter("name"));
         System.out.println(request.getParameter("price"));
@@ -94,6 +96,7 @@ public class PostAddItemCommand extends HttpServlet {
         System.out.println(request.getParameter("age"));
         System.out.println(parts);
 
+        System.out.println(parts.size() + " parts");
 
         return new PossibleItemDto.Builder()
                 .setName(request.getParameter("name"))

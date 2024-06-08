@@ -5,6 +5,7 @@ import entity.User;
 import service.CategoryService;
 import validator.entity.CategoryValidator;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,37 +19,32 @@ import java.util.List;
  * To add new category.
  */
 
-@WebServlet("/sendNewCategory")
+@WebServlet("/administrator/addCategory")
 public class PostAddCategoryCommand extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         Category category = getInput(request);
         List<String> errors = validateInput(category);
         HttpSession session = request.getSession(false);
+        String jspPage = "/WEB-INF/views/categories.jsp";
 
         // success
         if (errors.isEmpty() && session != null) {
             CategoryService.getInstance().createCategory(category);
-            // TODO: add path to go after successful adding new category
-            String jspPage = "";
-            String redirectURL = request.getContextPath() + jspPage;
-            response.sendRedirect(redirectURL);
-
+            session.setAttribute("categories", CategoryService.getInstance().getAllCategories());
         } else if (!errors.isEmpty() && session != null) {
-            // TODO: add path to go after NOT successful adding new category
             // failure scenario
             session.setAttribute("errors", errors);
             session.setAttribute("category", category);
-
-            String jspPage = "";
-            String redirectURL = request.getContextPath() + jspPage;
-            response.sendRedirect(redirectURL);
+            jspPage = "/WEB-INF/views/login.jsp";
         }
+        RequestDispatcher dispatcher = request.getRequestDispatcher(jspPage);
+        dispatcher.forward(request, response);
     }
 
     private Category getInput(HttpServletRequest request) {
-        return new Category.Builder().setName(request.getParameter("name")).build();
+        return new Category.Builder().setName(request.getParameter("categoryName")).build();
     }
 
     private List<String> validateInput(Category category) {
