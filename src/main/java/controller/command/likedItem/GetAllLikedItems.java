@@ -38,6 +38,14 @@ public class GetAllLikedItems extends HttpServlet {
             List<LikedItem> items = new ArrayList<>();
             List<ItemInCart> itemsInCart = new ArrayList<>();
             User user = (User) session.getAttribute("currentUser");
+            // there is no current user in session
+            if(user == null) {
+                String jspPage = "/login";
+                String redirectURL = request.getContextPath() + jspPage;
+                response.sendRedirect(redirectURL);
+                return;
+            }
+
             LikedItemService likedItemService = LikedItemService.getInstance();
             ItemInCartService itemInCartService = ItemInCartService.getInstance();
             if(user != null){

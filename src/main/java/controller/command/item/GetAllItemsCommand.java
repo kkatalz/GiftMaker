@@ -29,6 +29,14 @@ public class GetAllItemsCommand extends HttpServlet {
             HttpSession session = request.getSession();
 
             User currentUser = (User) session.getAttribute("currentUser");
+            if(currentUser == null) {
+                String jspPage = "/login";
+                String redirectURL = request.getContextPath() + jspPage;
+                response.sendRedirect(redirectURL);
+                return;
+            }
+
+
             int idUser = currentUser.getId();
 
             ItemService itemService = ItemService.getInstance();

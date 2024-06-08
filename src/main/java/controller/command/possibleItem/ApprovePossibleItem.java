@@ -25,11 +25,21 @@ import java.io.IOException;
 public class ApprovePossibleItem extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String jspPage = "/home";
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        HttpSession session = request.getSession(false);
+        String jspPage;
+
+        if (session == null || session.getAttribute("currentUser") == null) {
+            jspPage = "/login";
+        } else {
+            jspPage = "/home";
+        }
+
         String redirectURL = request.getContextPath() + jspPage;
         response.sendRedirect(redirectURL);
+
     }
+
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -60,7 +70,7 @@ public class ApprovePossibleItem extends HttpServlet {
                 ItemService.getInstance().create(itemDto);
 
                 session.setAttribute("possibleItems", PossibleItemService.getInstance().getAllPossibleItems());
-                jspPage = "/offeredItems";
+                jspPage = "/administrator/offeredGifts";
                 String redirectURL = request.getContextPath() + jspPage;
                 response.sendRedirect(redirectURL);
                 return;
