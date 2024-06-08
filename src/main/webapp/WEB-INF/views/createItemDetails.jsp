@@ -14,16 +14,17 @@
     <form method="post" action="createItemDetails" enctype="multipart/form-data" class="flex justify-center items-start gap-8 mx-[6%] my-[1.5%]" onsubmit="return validateCategory()">
         <div class="flex gap-8 mt-8">
             <div id="image-container" class="flex flex-col gap-3 max-h-[450px] overflow-y-auto pr-4 text-6xl max-w-32">
+                <div id="image-list" class="flex flex-col gap-3"></div>
                 <div class="flex justify-center items-center min-h-32 min-w-32 max-w-32 max-h-32 rounded-lg bg-neutral-200 cursor-pointer add-image">
                     <span class="text-6xl">+</span>
-                    <input type="file" name="file-0" class="hidden file-input rounded-lg" accept="image/*" />
                 </div>
             </div>
+            <input type="file" name="file-main" id="file-main" class="hidden" accept="image/*" multiple />
             <div class="flex items-center justify-center rounded-lg w-[450px] relative">
                 <img src="<%=request.getContextPath()%>/leftArrow.svg" alt="leftArrow"
                      class="w-10 cursor-pointer absolute left-6" id="left-arrow"/>
                 <div class="flex justify-center items-center h-[450px] w-full text-9xl rounded-lg bg-neutral-200 cursor-pointer" id="main-image-container">
-                    <img id="main-image" class=" shadow hidden w-full h-full object-cover h-[450px] w-full  rounded-lg" />
+                    <img id="main-image" class=" shadow hidden w-full h-full object-cover h-[450px] w-full rounded-lg" />
                     <span id="main-plus" class="text-9xl">+</span>
                 </div>
                 <img src="<%=request.getContextPath()%>/rightArrow.svg" alt="rightArrow"
@@ -103,16 +104,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // JavaScript for handling image uploads and displaying them (same as previous)
+        const mainFileInput = document.getElementById('file-main');
         const mainImageContainer = document.getElementById('main-image-container');
         const mainImage = document.getElementById('main-image');
         const mainPlus = document.getElementById('main-plus');
-        const mainFileInput = document.createElement('input');
-        mainFileInput.type = 'file';
-        mainFileInput.accept = 'image/*';
-        mainFileInput.name = "file-main";
-        mainFileInput.classList.add('hidden');
-        mainImageContainer.appendChild(mainFileInput);
+        const imageContainer = document.getElementById('image-list');
+        const addImageButton = document.querySelector('.add-image');
 
         let imageList = [];
         let currentIndex = 0;
@@ -121,82 +118,61 @@
             mainFileInput.click();
         });
 
-        mainFileInput.addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    mainImage.src = e.target.result;
-                    mainImage.classList.remove('hidden');
-                    mainPlus.classList.add('hidden');
-                    addImageToList(e.target.result);
-                };
-                reader.readAsDataURL(file);
-            }
+        addImageButton.addEventListener('click', function() {
+            mainFileInput.click();
         });
 
-        function addImageToList(src) {
-            imageList.push(src);
-            updateImageContainer();
+        mainFileInput.addEventListener('change', function(event) {
+            imageList = [];
+            Array.from(event.target.files).forEach(file => {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    imageList.push(e.target.result);
+                    updateMainImage(0);
+                    updateImageContainer();
+                };
+                reader.readAsDataURL(file);
+            });
+        });
+
+        function updateMainImage(index) {
+            if (imageList.length > 0) {
+                mainImage.src = imageList[index];
+                mainImage.classList.remove('hidden');
+                mainPlus.classList.add('hidden');
+            }
         }
 
         function updateImageContainer() {
-            const imageContainer = document.getElementById('image-container');
             imageContainer.innerHTML = '';
             imageList.forEach((src, index) => {
                 const imageWrapper = document.createElement('div');
                 imageWrapper.className = 'flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 cursor-pointer';
                 const image = document.createElement('img');
                 image.src = src;
-                image.className = 'w-full h-full object-cover';
+                image.className = 'w-full h-full object-cover rounded-lg';
                 imageWrapper.appendChild(image);
                 imageContainer.appendChild(imageWrapper);
-            });
-            const addButton = document.createElement('div');
-            addButton.className = 'flex justify-center items-center min-h-32 min-w-32 w-full rounded-lg bg-neutral-200 cursor-pointer add-image';
-            const addIcon = document.createElement('span');
-            addIcon.className = 'text-6xl';
-            addIcon.innerText = '+';
-            const addInput = document.createElement('input');
-            addInput.type = 'file';
-            addInput.accept = 'image/*';
-            addInput.name = "file-" + (imageList.length + 1);
-            addInput.classList.add('hidden', 'file-input');
-            addButton.appendChild(addIcon);
-            addButton.appendChild(addInput);
-            imageContainer.appendChild(addButton);
-
-            addButton.addEventListener('click', function() {
-                addInput.click();
-            });
-
-            addInput.addEventListener('change', function(event) {
-                const file = event.target.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        addImageToList(e.target.result);
-                    };
-                    reader.readAsDataURL(file);
-                }
+                imageWrapper.addEventListener('click', function() {
+                    currentIndex = index;
+                    updateMainImage(index);
+                });
             });
         }
 
         document.getElementById('left-arrow').addEventListener('click', function() {
             if (imageList.length > 0) {
                 currentIndex = (currentIndex - 1 + imageList.length) % imageList.length;
-                mainImage.src = imageList[currentIndex];
+                updateMainImage(currentIndex);
             }
         });
 
         document.getElementById('right-arrow').addEventListener('click', function() {
             if (imageList.length > 0) {
                 currentIndex = (currentIndex + 1) % imageList.length;
-                mainImage.src = imageList[currentIndex];
+                updateMainImage(currentIndex);
             }
         });
-
-        updateImageContainer();
 
         // JavaScript for category selection and validation
         document.querySelectorAll('input[name="category"]').forEach(radio => {

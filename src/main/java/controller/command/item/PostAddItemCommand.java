@@ -88,15 +88,19 @@ public class PostAddItemCommand extends HttpServlet {
         List<Part> parts = request.getParts().stream().filter(part -> part.getName().startsWith("file") && part.getSize() > 0)
                 .collect(Collectors.toList());
 
+        System.out.println("Number of file parts: " + parts.size());
+
+        for (Part part : parts) {
+            System.out.println("File name: " + part.getSubmittedFileName() + ", size: " + part.getSize());
+            // Add logic to save or process each file
+        }
+
         System.out.println(request.getParts().size());
 
         System.out.println(request.getParameter("name"));
         System.out.println(request.getParameter("price"));
         System.out.println(request.getParameter("description"));
         System.out.println(request.getParameter("age"));
-        System.out.println(parts);
-
-        System.out.println(parts.size() + " parts");
 
         return new PossibleItemDto.Builder()
                 .setName(request.getParameter("name"))
