@@ -31,7 +31,7 @@ public class ItemService {
     public List<Item> filterItems(List<Category> categories, BigDecimal minPrice, BigDecimal maxPrice, int minAge,
                                   int maxAge) {
         boolean isCategories = categories != null && !categories.isEmpty();
-        boolean isPrice = true;
+        boolean isPrice = minPrice != null && maxPrice != null;
         boolean isAge = minAge != 0 && maxAge != 0;
 
         // filter by all parameters
@@ -43,21 +43,14 @@ public class ItemService {
             List<Item> byCategories = filterItemsByCategoryName(categories);
             List<Item> byPrice = filterByPrice(minPrice, maxPrice);
 
-            Set<Item> mergedSet = new HashSet<>(byCategories);
-            mergedSet.addAll(byPrice);
-
-            return new ArrayList<>(mergedSet);
+            return getIntersection(byCategories, byPrice);
         }
 
         // by categories and age
         if(isCategories && isAge) {
             List<Item> byCategories = filterItemsByCategoryName(categories);
             List<Item> byAge = filterByAge(minAge, maxAge);
-
-            Set<Item> mergedSet = new HashSet<>(byCategories);
-            mergedSet.addAll(byAge);
-
-            return new ArrayList<>(mergedSet);
+            return getIntersection(byCategories, byAge);
         }
 
 
@@ -66,10 +59,7 @@ public class ItemService {
             List<Item> byAge = filterByAge(minAge, maxAge);
             List<Item> byPrice = filterByPrice(minPrice, maxPrice);
 
-            Set<Item> mergedSet = new HashSet<>(byAge);
-            mergedSet.addAll(byPrice);
-
-            return new ArrayList<>(mergedSet);
+            return getIntersection(byAge, byPrice);
 
         }
 
@@ -160,6 +150,21 @@ public class ItemService {
         try(ItemDao itemDao = daoFactory.createItemDao()) {
             return itemDao.getBase64ImagesByItemId(itemId);
         }
+    }
+
+    private List<Item> getIntersection(List<Item> items1, List<Item> items2) {
+        Set<Integer> set1 = new HashSet<>();
+        for (Item item : items1)
+            set1.add(item.getId());
+
+        List<Item> intersection = new ArrayList<>();
+        for (Item item : items2) {
+            if (set1.contains(item.getId()))
+                intersection.add(item);
+
+        }
+
+        return intersection;
     }
 
 }
