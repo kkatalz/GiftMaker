@@ -14,7 +14,7 @@ public class JdbcCategoryDao implements CategoryDao {
     private Connection connection;
     private boolean connectionShouldBeClosed;
 
-    private final static String GET_ALL = "SELECT * FROM Category";
+    private final static String GET_ALL = "SELECT * FROM Category ORDER BY category_name";
     private final static String GET_BY_ID = "SELECT * FROM Category WHERE id_category=?";
     private final static String CREATE = "INSERT INTO Category (category_name) VALUES (?)";
     private final static String UPDATE =  "UPDATE Category SET category_name=? WHERE id_category=?";

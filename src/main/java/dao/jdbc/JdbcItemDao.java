@@ -48,7 +48,7 @@ public class JdbcItemDao implements ItemDao {
     private static final String CREATE_IMAGES = "INSERT INTO Item_Image(id_item, image) VALUES(?, ?)";
 
     private static final String GET_IMAGES_BY_ITEM_ID = "SELECT * FROM Item_Image WHERE id_item=?";
-    private final static String GET_ALL = "SELECT * FROM Item INNER JOIN Category USING (id_category)";
+    private final static String GET_ALL = "SELECT * FROM Item INNER JOIN Category USING (id_category) ORDER BY item_name";
     private final static String GET_BY_ID = "SELECT * FROM Item INNER JOIN Category USING(id_category) WHERE id_item=?";
     private final static String CREATE = "INSERT INTO Item (id_category, item_name, item_price, description, amount, age) " +
             "VALUES (?, ?, ?, ?, ?, ?)";

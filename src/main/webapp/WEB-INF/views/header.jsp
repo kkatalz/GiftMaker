@@ -1,7 +1,7 @@
 <%@ page import="entity.User" %>
 <%@ page import="entity.Role" %>
 <div class="text flex justify-between items-center px-10 py-3">
-    <a href="home">
+    <a href="<%= request.getContextPath() %>/home">
         <img src="<%=request.getContextPath()%>/logoBlack.svg" alt="logo" class="w-40 cursor-pointer">
 
     </a>
@@ -21,7 +21,7 @@
         <div class="flex justify-center items-center flex-col">
             <img src="<%=request.getContextPath()%>/myProfile.svg" alt="profile-icon" class="w-10 cursor-pointer ">
 
-            <a class="text-sm font-medium" href="myProfile">My profile</a>
+            <a class="text-sm font-medium" href="<%= request.getContextPath() %>/myProfile">My profile</a>
         </div>
 
         <%

@@ -18,6 +18,22 @@ import java.util.Optional;
 @WebServlet("/addLikedItem")
 public class PostAddLikedItem extends HttpServlet {
 
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        HttpSession session = request.getSession(false);
+        String jspPage;
+
+        if (session == null || session.getAttribute("currentUser") == null) {
+            jspPage = "/login";
+        } else {
+            jspPage = "/home";
+        }
+
+        String redirectURL = request.getContextPath() + jspPage;
+        response.sendRedirect(redirectURL);
+
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(false);
         String jspPage;
