@@ -39,7 +39,19 @@ public class GetAllItemsCommand extends HttpServlet {
             List<Category> categories = categoryService.getAllCategories();
             List<LikedItem> likedItems = likedItemService.getLikedItemsByUserId(idUser);
             List<ItemInCart> itemsInCart = itemInCartService.getItemsInCartByUserId(idUser);
+            String categoryIdStr = request.getParameter("category");
+            List<Category> selectedCategories = new ArrayList<>();
 
+
+            if(categoryIdStr != null && !categoryIdStr.isEmpty()){
+                Integer id = Integer.parseInt(categoryIdStr);
+                Optional<Category> categoryOpt = categoryService.getCategoryById(id);
+                categoryOpt.ifPresent(selectedCategories::add);
+            }
+            if (!(selectedCategories.isEmpty())) {
+                System.out.println("Selected categories: " + selectedCategories);
+                items = itemService.filterItems(selectedCategories, null, null, 0, Integer.MAX_VALUE);
+            }
             session.setAttribute("items", items);
             session.setAttribute("categories", categories);
             session.setAttribute("likedItems", likedItems);
@@ -86,6 +98,7 @@ public class GetAllItemsCommand extends HttpServlet {
                 categoryOpt.ifPresent(selectedCategories::add);
             }
         }
+
 
         // do not filter if there is no filter values
 
