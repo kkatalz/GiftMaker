@@ -21,7 +21,23 @@ import java.util.List;
 @WebServlet("/deleteLikedItem")
 public class DeleteLikedItem extends HttpServlet {
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        HttpSession session = request.getSession(false);
+        String jspPage;
+
+        if (session == null || session.getAttribute("currentUser") == null) {
+            jspPage = "/login";
+        } else {
+            jspPage = "/home";
+        }
+
+        String redirectURL = request.getContextPath() + jspPage;
+        response.sendRedirect(redirectURL);
+
+    }
+
+        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         HttpSession session = request.getSession(false);
         if (session != null) {
             int idItem = Integer.parseInt(request.getParameter("idItem"));

@@ -28,6 +28,14 @@ public class GetAllItemsInCart extends HttpServlet {
             HttpSession session = request.getSession(false);
             if (session != null) {
                 User currentUser = (User) session.getAttribute("currentUser");
+
+                if(currentUser == null) {
+                    String jspPage = "/login";
+                    String redirectURL = request.getContextPath() + jspPage;
+                    response.sendRedirect(redirectURL);
+                    return;
+                }
+
                 List<ItemInCart> itemsInCart;
                 try {
                     itemsInCart = ItemInCartService.getInstance().getItemsInCartByUserId(currentUser.getId());
