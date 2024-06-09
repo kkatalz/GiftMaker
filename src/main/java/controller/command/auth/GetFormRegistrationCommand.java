@@ -1,5 +1,6 @@
 package controller.command.auth;
 
+import converter.UserDtoUserConverter;
 import dao.DaoFactory;
 import dto.UserDto;
 import entity.Category;
@@ -26,67 +27,74 @@ import java.util.Optional;
 @WebServlet("/register")
 public class GetFormRegistrationCommand extends HttpServlet {
 
-        @Override
-        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-            String jspPage = "/WEB-INF/views/registration.jsp";
-            RequestDispatcher dispatcher = request.getRequestDispatcher(jspPage);
-            dispatcher.forward(request, response);
-        }
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        String jspPage = "/WEB-INF/views/registration.jsp";
+        RequestDispatcher dispatcher = request.getRequestDispatcher(jspPage);
+        dispatcher.forward(request, response);
+    }
 
-        @Override
-        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-            UserDto user = getInput(request);
-            List<String> errors = validateUserInput(user);
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        UserDto user = getInput(request);
+        List<String> errors = validateUserInput(user);
 
+        System.out.println("errors = " + errors);
+        if (errors.isEmpty()) {
+            UserService userService = new UserService(DaoFactory.getDaoFactory());
+            try {
+                userService.createUser(user);
 
-            if (errors.isEmpty()) {
-                UserService userService = new UserService(DaoFactory.getDaoFactory());
-                try {
-                    userService.createUser(user);
+                HttpSession session = request.getSession(true);
+                User newUser = UserDtoUserConverter.toUser(user);
+                session.setAttribute("currentUser", newUser);
 
-                    HttpSession session = request.getSession(true);
-                    session.setAttribute("currentUser", user);
-
-                    String jspPage = "/home";
-                    String redirectURL = request.getContextPath() + jspPage;
-                    response.sendRedirect(redirectURL);
-                } catch (ParseException e) {
-                    errorRedirect(request, response);
-                }
-            } else {
-                request.setAttribute("errors", errors);
+                String jspPage = "/home";
+                String redirectURL = request.getContextPath() + jspPage;
+                response.sendRedirect(redirectURL);
+            } catch (ParseException e) {
                 errorRedirect(request, response);
             }
-
+        } else {
+            request.setAttribute("errors", errors);
+            errorRedirect(request, response);
         }
 
-        private List<String> validateUserInput(UserDto user) {
-            return UserDtoValidator.getInstance().validate(user);
-        }
+    }
 
-        private void errorRedirect(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-            String jspPage = "/WEB-INF/views/registration.jsp";
-            RequestDispatcher dispatcher = request.getRequestDispatcher(jspPage);
-            dispatcher.forward(request, response);
-        }
+    private List<String> validateUserInput(UserDto user) {
+        return UserDtoValidator.getInstance().validate(user);
+    }
 
-        private UserDto getInput(HttpServletRequest request) {
-            String firstName = request.getParameter("firstName");
-            String lastName = request.getParameter("lastName");
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
-            String dateOfBirth = request.getParameter("dateOfBirth");
-            Role role = Role.CLIENT;
+    private void errorRedirect(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        String jspPage = "/WEB-INF/views/registration.jsp";
+        RequestDispatcher dispatcher = request.getRequestDispatcher(jspPage);
+        dispatcher.forward(request, response);
+    }
 
-            return new UserDto.Builder()
-                    .setDateOfBirth(dateOfBirth)
-                    .setName(firstName)
-                    .setSurname(lastName)
-                    .setUsername(username)
-                    .setPassword(password)
-                    .setRole(role)
-                    .build();
+    private UserDto getInput(HttpServletRequest request) {
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("lastName");
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String dateOfBirth = request.getParameter("dateOfBirth").isEmpty()? null : request.getParameter("dateOfBirth");
+        System.out.println("dateOfBirth = " + dateOfBirth);
+
+        Role role = Role.CLIENT;
+
+        UserDto userDto = new UserDto.Builder()
+                .setName(firstName)
+                .setSurname(lastName)
+                .setUsername(username)
+                .setPassword(password)
+                .setRole(role)
+                .build();
+
+        if (dateOfBirth != null && !dateOfBirth.isEmpty()) {
+            userDto.setDateOfBirth(dateOfBirth);
         }
+        return userDto;
+    }
 
 
 }
