@@ -23,7 +23,7 @@ public class DateOfBirthValidator extends AbstractFieldValidatorHandler{
 
     @Override
     public void validateField(String fieldValue, List<String> errors) {
-        if(fieldValue.isEmpty())
+        if(fieldValue == null || fieldValue.isEmpty())
             return;
 
         LocalDate dateOfBirth;

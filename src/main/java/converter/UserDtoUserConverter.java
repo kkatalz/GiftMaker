@@ -11,8 +11,15 @@ public class UserDtoUserConverter {
 
     public static User toUser(UserDto dto) throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        java.util.Date utilDateOfBirth = formatter.parse(dto.getDateOfBirth());
-        java.sql.Date sqlDateOfBirth = new java.sql.Date(utilDateOfBirth.getTime());
+        java.util.Date utilDateOfBirth;
+        java.sql.Date sqlDateOfBirth;
+        if(dto.getDateOfBirth() != null) {
+            utilDateOfBirth = formatter.parse(dto.getDateOfBirth());
+            sqlDateOfBirth = new java.sql.Date(utilDateOfBirth.getTime());
+        }
+        else
+            sqlDateOfBirth = null;
+
 
         String encryptedPassword = BCrypt.hashpw(dto.getPassword(), BCrypt.gensalt());
 

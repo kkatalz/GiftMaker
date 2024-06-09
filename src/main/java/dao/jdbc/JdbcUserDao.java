@@ -98,7 +98,10 @@ public class JdbcUserDao implements UserDao {
         try (PreparedStatement query = connection.prepareStatement(CREATE, Statement.RETURN_GENERATED_KEYS)) {
             query.setString(1, user.getName());
             query.setString(2, user.getSurname());
-            query.setString(3, user.getDateOfBirth().toString());
+            if(user.getDateOfBirth() != null)
+                query.setString(3, user.getDateOfBirth().toString());
+            else
+                query.setString(3, null);
             query.setString(4, user.getRole().getValue());
             query.setString(5, user.getUsername());
             query.setString(6, user.getEncryptedPassword());
