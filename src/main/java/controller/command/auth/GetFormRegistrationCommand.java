@@ -45,7 +45,7 @@ public class GetFormRegistrationCommand extends HttpServlet {
                     userService.createUser(user);
 
                     HttpSession session = request.getSession(true);
-                    session.setAttribute("currentUser", user);
+                        session.setAttribute("currentUser", user);
 
                     String jspPage = "/home";
                     String redirectURL = request.getContextPath() + jspPage;
