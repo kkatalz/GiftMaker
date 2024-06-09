@@ -52,7 +52,6 @@ public class PostAddCategoryCommand extends HttpServlet {
             // failure scenario
             session.setAttribute("errors", errors);
             session.setAttribute("category", category);
-            jspPage = "/WEB-INF/views/login.jsp";
         }
         RequestDispatcher dispatcher = request.getRequestDispatcher(jspPage);
         dispatcher.forward(request, response);

@@ -30,7 +30,6 @@ public class JdbcPossibleItemDao implements PossibleItemDao {
     private final static String GET_BY_ID = "SELECT * FROM Possible_Item WHERE possible_item_id=?";
     private final static String CREATE = "INSERT INTO Possible_Item (item_name, item_price, description, age) " +
             "VALUES(?, ?, ?, ?)";
-    private final static String UPDATE = ""; // TODO: is this needed?
     private final static String DELETE = "DELETE FROM Possible_Item WHERE possible_item_id=?";
 
 
@@ -166,8 +165,9 @@ public class JdbcPossibleItemDao implements PossibleItemDao {
     }
 
     @Override
+    @Deprecated
     public void update(PossibleItem possibleItem) {
-        // TODO: implement
+        throw new UnsupportedOperationException("This method is not implemented and must not be used.");
     }
 
     @Override
