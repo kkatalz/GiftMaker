@@ -2,6 +2,6 @@
 <Context>
     <Resource name="jdbc/GiftMaker" auth="Container"
               type="javax.sql.DataSource" maxActive="50" maxIdle="30" maxWait="10000"
-              username="root" password="akula2017" driverClassName="org.sqlite.JDBC"
+             driverClassName="org.sqlite.JDBC"
               url="jdbc:sqlite:/home/liza/IdeaProjects/GiftMaker/GiftMaker.db?foreign_keys=true" />
 </Context>
