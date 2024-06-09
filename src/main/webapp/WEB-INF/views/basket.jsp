@@ -106,7 +106,7 @@
                     }
 
                     // Apply 5% discount if there are more than 3 items
-                    if (totalItems > 3) {
+                    if (itemsInCart.size() > 3) {
                         grandTotal = grandTotal * 0.95;
                 %>
                 <h4 class="text-lg font-medium italic">You have more than 3 items, so 5% discount applied</h4>
@@ -114,13 +114,12 @@
                 <%--last price--%>
                 <div class="flex justify-between">
                     <h4 class="text-lg font-medium">Total: </h4>
-                    <h4 class="text-xl font-bold line-through grand-total"><%=grandTotal/0.95%> UAH</h4>
+                    <h4 class="text-xl font-bold line-through grand-total"><%=grandTotal / 0.95%> UAH</h4>
                 </div>
 
                 <%
                     }
                 %>
-
 
 
                 <div class="flex flex-col gap-4">
@@ -129,10 +128,12 @@
                         <h4 id="grand-total" class="text-xl font-bold"><%=grandTotal%> UAH</h4>
                     </div>
 
-                    <div class="flex justify-center rounded-lg bg-neutral-300 transition-all duration-300 hover:opacity-80">
-                        <button type="button" disabled class="font-medium text-lg p-4 disabled:opacity-50">Purchase
-                        </button>
-                    </div>
+                    <form action="<%= request.getContextPath() %>/deleteAllItemsFromCart" method="post">
+                        <div class="flex justify-center rounded-lg bg-neutral-300 transition-all duration-300 hover:opacity-80">
+                            <button type="submit"  class="font-medium text-lg p-4 cursor-pointer ">Purchase
+                            </button>
+                        </div>
+                    </form>
                 </div>
                 <%
                     }
