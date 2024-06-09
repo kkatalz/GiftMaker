@@ -9,6 +9,7 @@ import service.CategoryService;
 import service.ItemService;
 import service.PossibleItemService;
 import validator.entity.ItemDtoValidator;
+import validator.entity.PossibleItemDtoValidator;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -51,7 +52,7 @@ public class PostAddItemCommand extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PossibleItemDto dto = getInput(request);
-        List<String> errors = new ArrayList<>();
+        List<String> errors = PossibleItemDtoValidator.getInstance().validate(dto);
         HttpSession session = request.getSession(false);
         CategoryService categoryService = CategoryService.getInstance();
         List<Category> categories = categoryService.getAllCategories();
