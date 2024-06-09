@@ -47,10 +47,6 @@
                     isValid = false;
                 }
 
-                if (dateOfBirth.value.trim() === "") {
-                    showError(dateOfBirth, "Date of Birth is required");
-                    isValid = false;
-                }
 
                 if (username.value.trim() === "") {
                     showError(username, "Username is required");

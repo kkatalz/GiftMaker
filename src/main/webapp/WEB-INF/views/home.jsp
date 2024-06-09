@@ -62,15 +62,15 @@
     <h4 id="category-3" class="cursor-pointer category">Home & Kitchen</h4>
 </div>
 
-<div class="h-[45%] w-screen bg-blue-100 mt-6 flex justify-between items-center px-56">
+<div class="h-[300px] w-screen bg-blue-100 mt-6 flex justify-between items-center px-56">
     <div class="flex flex-col items-center pl-40 pt-10 space-y-2">
         <button class="px-16 py-4 rounded-lg shadow-lg bg-white font-bold text-2xl transition duration-300 ease-in hover:ease-in hover:scale-[1.2] category">Generate gift</button>
         <button id="<%=user.getRole() == Role.CLIENT ? "create_item" : "categories"%>" class="py-2 px-10 ml-16 rounded-lg shadow-md bg-white font-bold text-xl transition duration-300 ease-in hover:ease-in hover:scale-[1.1]">
             Create <%=user.getRole() == Role.CLIENT ? "Gift" : "Category"%>
         </button>
     </div>
-    <div class="relative">
-        <img src="<%=request.getContextPath()%>/gift-picture.svg" alt="gift-picture" class="rounded-[30px] shadow w-[420px] h-[280px] object-cover">
+    <div>
+        <img src="<%=request.getContextPath()%>/gift-picture.svg" alt="gift-picture" class="rounded-[30px] shadow w-[420px] h-[250px] object-cover">
     </div>
 </div>
 

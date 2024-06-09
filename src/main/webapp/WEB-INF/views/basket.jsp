@@ -110,7 +110,7 @@
                     </div>
 
                     <div class="flex justify-center rounded-lg bg-neutral-300 transition-all duration-300 hover:opacity-80">
-                        <button data-modal-hide="default-modal" type="button" class="font-medium text-lg p-4">Purchase
+                        <button type="button" disabled class="font-medium text-lg p-4 disabled:opacity-50">Purchase
                         </button>
                     </div>
                 </div>

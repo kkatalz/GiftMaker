@@ -93,8 +93,8 @@ public class GetAllItemsCommand extends HttpServlet {
             items = itemService.searchItemByNameOrId(search);
         }
 
-        BigDecimal fromPrice = fromPriceStr.isEmpty() ? null : new BigDecimal(fromPriceStr);
-        BigDecimal toPrice = toPriceStr.isEmpty() ? null : new BigDecimal(toPriceStr);
+        BigDecimal fromPrice = fromPriceStr.isEmpty() ? BigDecimal.valueOf(0) : new BigDecimal(fromPriceStr);
+        BigDecimal toPrice = toPriceStr.isEmpty() ? BigDecimal.valueOf(Double.MAX_VALUE) : new BigDecimal(toPriceStr);
         Integer fromAge = fromAgeStr.isEmpty() ? 0 : Integer.parseInt(fromAgeStr);
         Integer toAge = toAgeStr.isEmpty() ? Integer.MAX_VALUE : Integer.parseInt(toAgeStr);
 
