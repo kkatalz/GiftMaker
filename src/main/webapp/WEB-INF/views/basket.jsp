@@ -76,11 +76,13 @@
                 <%
                     if (itemsInCart != null) {
                         double grandTotal = 0;
+                        int totalItems = 0;
                         for (ItemInCart itemInCart : itemsInCart) {
                             int quantity = itemInCart.getAmount();
                             BigDecimal itemPrice = itemInCart.getItem().getPrice();
                             double totalPrice = itemPrice.doubleValue() * quantity;
                             grandTotal += totalPrice;
+                            totalItems += quantity;
                 %>
                 <div class="flex items-center justify-between "
                      data-summary-item-id="<%=itemInCart.getItem().getId()%>">
@@ -102,7 +104,25 @@
                 </div>
                 <%
                     }
+
+                    // Apply 5% discount if there are more than 3 items
+                    if (totalItems > 3) {
+                        grandTotal = grandTotal * 0.95;
                 %>
+                <h4 class="text-lg font-medium italic">You have more than 3 items, so 5% discount applied</h4>
+
+                <%--last price--%>
+                <div class="flex justify-between">
+                    <h4 class="text-lg font-medium">Total: </h4>
+                    <h4 class="text-xl font-bold line-through grand-total"><%=grandTotal/0.95%> UAH</h4>
+                </div>
+
+                <%
+                    }
+                %>
+
+
+
                 <div class="flex flex-col gap-4">
                     <div class="flex justify-between">
                         <h4 class="text-lg font-medium">Total: </h4>
