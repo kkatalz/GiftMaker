@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<form method="POST" action="allItems" class="bg-blue-100 min-h-[100vh] pb-20">
+<form method="POST" action="<%=request.getContextPath()%>/allItems" class="bg-blue-100 min-h-[100vh] pb-20">
     <%@include file="header.jsp" %>
 
 
