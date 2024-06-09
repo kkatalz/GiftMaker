@@ -2,6 +2,7 @@ package controller.command.category;
 
 import entity.Category;
 import entity.User;
+import locale.Message;
 import service.CategoryService;
 import validator.entity.CategoryValidator;
 
@@ -48,13 +49,16 @@ public class PostAddCategoryCommand extends HttpServlet {
         if (errors.isEmpty() && session != null) {
             CategoryService.getInstance().createCategory(category);
             session.setAttribute("categories", CategoryService.getInstance().getAllCategories());
+
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher(jspPage);
+            dispatcher.forward(request, response);
         } else if (!errors.isEmpty() && session != null) {
             // failure scenario
-            session.setAttribute("errors", errors);
             session.setAttribute("category", category);
+            response.sendRedirect(request.getContextPath() + "/administrator/categories?error=" + Message.INVALID_CATEGORY);
+
         }
-        RequestDispatcher dispatcher = request.getRequestDispatcher(jspPage);
-        dispatcher.forward(request, response);
     }
 
     private Category getInput(HttpServletRequest request) {

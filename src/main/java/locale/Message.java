@@ -24,5 +24,7 @@ public final class Message {
 
     public static final String UNAUTHORIZED_ACCESS_ERROR = "Unauthorized access error";
 
+    public static final String INVALID_CATEGORY = "Category with this name already exists";
+
 
 }

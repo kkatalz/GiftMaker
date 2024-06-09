@@ -23,6 +23,17 @@
         <input type="text" name="categoryName" placeholder="New Category Name" required class="flex-grow p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
         <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Add Category</button>
     </form>
+    <!-- Error Message Display with Embedded Java -->
+    <%
+        String errorMessage = request.getParameter("error");
+        if (errorMessage != null && !errorMessage.isEmpty()) {
+    %>
+    <div class="my-4 text-red-500 text-lg">
+        <%= errorMessage %>
+    </div>
+    <%
+        }
+    %>
 
     <!-- Table for displaying categories -->
     <div class="overflow-x-auto">
