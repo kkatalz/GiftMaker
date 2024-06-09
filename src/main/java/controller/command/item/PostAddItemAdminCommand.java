@@ -50,7 +50,7 @@ public class PostAddItemAdminCommand extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ItemDto dto = getInput(request);
-        List<String> errors = new ArrayList<>();
+        List<String> errors = ItemDtoValidator.getInstance().validate(dto);
         HttpSession session = request.getSession(false);
         CategoryService categoryService = CategoryService.getInstance();
         List<Category> categories = categoryService.getAllCategories();
