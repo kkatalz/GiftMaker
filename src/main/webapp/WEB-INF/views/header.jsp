@@ -21,7 +21,7 @@
         <div class="flex justify-center items-center flex-col">
             <img src="<%=request.getContextPath()%>/createCategory.svg" alt="createCategory"
                  class="w-10 cursor-pointer">
-            <a class="text-sm font-medium" href="administrator/categories">Categories</a>
+            <a class="text-sm font-medium" href="<%=request.getContextPath()%>/administrator/categories">Categories</a>
         </div>
         <div class="flex justify-center items-center flex-col">
             <img src="<%=request.getContextPath()%>/giftsProposed.svg" alt="giftsProposed"
