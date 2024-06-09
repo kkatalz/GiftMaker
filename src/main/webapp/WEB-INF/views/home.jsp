@@ -30,6 +30,10 @@
             if (user.getRole().equals(Role.ADMINISTRATOR)) {
         %>
         <div class="flex justify-center items-center flex-col">
+            <img src="<%=request.getContextPath()%>/createCategory.svg" alt="createCategory" class="w-10 cursor-pointer">
+            <a class="text-sm font-medium" href="administrator/categories">Categories</a>
+        </div>
+        <div class="flex justify-center items-center flex-col">
             <img src="<%=request.getContextPath()%>/giftsProposed.svg" alt="giftsProposed" class="w-10 cursor-pointer">
             <a class="text-sm font-medium" href="administrator/offeredGifts">Gifts</a>
         </div>
@@ -65,8 +69,8 @@
 <div class="h-[300px] w-screen bg-blue-100 mt-6 flex justify-between items-center px-56">
     <div class="flex flex-col items-center pl-40 pt-10 space-y-2">
         <button class="px-16 py-4 rounded-lg shadow-lg bg-white font-bold text-2xl transition duration-300 ease-in hover:ease-in hover:scale-[1.2] category">Generate gift</button>
-        <button id="<%=user.getRole() == Role.CLIENT ? "create_item" : "categories"%>" class="py-2 px-10 ml-16 rounded-lg shadow-md bg-white font-bold text-xl transition duration-300 ease-in hover:ease-in hover:scale-[1.1]">
-            Create <%=user.getRole() == Role.CLIENT ? "Gift" : "Category"%>
+        <button id="<%=user.getRole() == Role.CLIENT ? "create_item" : "administrator/create_item"%>" class="py-2 px-10 ml-16 rounded-lg shadow-md bg-white font-bold text-xl transition duration-300 ease-in hover:ease-in hover:scale-[1.1]">
+            Create Gift
         </button>
     </div>
     <div>
@@ -86,8 +90,8 @@
 </div>
 
 <script>
-    document.getElementById("<%=user.getRole() == Role.CLIENT ? "create_item" : "categories"%>").addEventListener('click', function() {
-        window.location.href = '/GiftMaker/<%=user.getRole() == Role.CLIENT ? "client/createItemDetails" : "administrator/categories"%>';
+    document.getElementById("<%=user.getRole() == Role.CLIENT ? "create_item" : "administrator/create_item"%>").addEventListener('click', function() {
+        window.location.href = '/GiftMaker/<%=user.getRole() == Role.CLIENT ? "client/createItemDetails" : "administrator/createItemDetails"%>';
     });
 
     const categories = document.getElementsByClassName('category');

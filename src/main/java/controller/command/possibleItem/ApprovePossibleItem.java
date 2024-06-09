@@ -91,7 +91,6 @@ public class ApprovePossibleItem extends HttpServlet {
     private ItemDto getInput(HttpServletRequest request) {
         return new ItemDto.Builder()
                 .setCategory(new Category.Builder().setCategoryId(Integer.parseInt(request.getParameter("idCategory"))).build())
-//                .setAmount(request.getParameter("amount"))
                 .setAmount("1")
                 .build();
     }

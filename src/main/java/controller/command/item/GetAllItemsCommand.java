@@ -110,7 +110,7 @@ public class GetAllItemsCommand extends HttpServlet {
 
         // do not filter if there is no filter values
 
-        if (!(selectedCategories.isEmpty() && fromPrice == null && toPrice == null
+        if (!(selectedCategories.isEmpty() && fromPrice.equals(BigDecimal.valueOf(0)) && toPrice.equals(BigDecimal.valueOf(Double.MAX_VALUE))
                 && fromAge == 0 && toAge == Integer.MAX_VALUE)) {
             items = itemService.filterItems(selectedCategories, fromPrice, toPrice, fromAge, toAge);
 
